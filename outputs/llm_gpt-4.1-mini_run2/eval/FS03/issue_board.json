@@ -1,0 +1,881 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Did PeakFit owe Ms Hughes a duty of care by making the advertisement?",
+      "doctrine": "duty_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J19",
+          "passage_refs": [
+            "J19:p2",
+            "J19:p3"
+          ],
+          "score": 0.8035,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit owe a duty of care by making the advertisement? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeable proximity On ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J01",
+          "passage_refs": [
+            "J01:p2",
+            "J01:p3"
+          ],
+          "score": 1.5593,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit owe a duty of care by making the advertisement? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeable proximity On ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J02",
+          "passage_refs": [
+            "J02:p2",
+            "J02:p3"
+          ],
+          "score": 0.8825,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit owe a duty of care by making the advertisement? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeable proximity On ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p2",
+            "J08:p1"
+          ],
+          "score": 0.6155,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit owe a duty of care by making the advertisement? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeable proximity On ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p1",
+            "J23:p2"
+          ],
+          "score": 0.5561,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit owe a duty of care by making the advertisement? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeable proximity On ",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J19"
+      ],
+      "opposing": [],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "The analogy to Robinson is weak as that case involved physical injury caused by positive acts; here, the advertisement did not create a foreseeable physical harm but a commercial promise. However, foreseeability of reliance may support some duty. Overall, the duty of care claim is arguable but not very strong."
+    },
+    {
+      "id": "I2",
+      "question": "Was the standard of care breached by PeakFit's refusal to pay Ms Hughes's claim under the advertisement?",
+      "doctrine": "standard_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J11",
+          "passage_refs": [
+            "J11:p3",
+            "J11:p2"
+          ],
+          "score": 1.2856,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by refusing Ms Hughes's claim? breach standard of care reasonable person precautions risk probability Ms Hughes downloaded the",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J19",
+          "passage_refs": [
+            "J19:p2",
+            "J19:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "standard of care breach refusal claim advertisement",
+          "reason": "For whether the standard of care was breached by refusing Ms Hughes\u2019s claim, Nettleship v Weston (J11) clarifies the objective standard of care, while Robinson (J19) and Barnett (J08) discuss breach and causation. Partridge v Crittenden (J24) is referred to for distinguishing invitations to treat affecting the refusal argument."
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p2",
+            "J08:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "standard of care breach refusal claim advertisement",
+          "reason": "For whether the standard of care was breached by refusing Ms Hughes\u2019s claim, Nettleship v Weston (J11) clarifies the objective standard of care, while Robinson (J19) and Barnett (J08) discuss breach and causation. Partridge v Crittenden (J24) is referred to for distinguishing invitations to treat affecting the refusal argument."
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p2",
+            "J24:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "standard of care breach refusal claim advertisement",
+          "reason": "For whether the standard of care was breached by refusing Ms Hughes\u2019s claim, Nettleship v Weston (J11) clarifies the objective standard of care, while Robinson (J19) and Barnett (J08) discuss breach and causation. Partridge v Crittenden (J24) is referred to for distinguishing invitations to treat affecting the refusal argument."
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p3",
+            "J12:p2"
+          ],
+          "score": 1.4789,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by refusing Ms Hughes's claim? breach standard of care reasonable person precautions risk probability Ms Hughes downloaded the",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J14",
+          "passage_refs": [
+            "J14:p3",
+            "J14:p2"
+          ],
+          "score": 1.1067,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by refusing Ms Hughes's claim? breach standard of care reasonable person precautions risk probability Ms Hughes downloaded the",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p3",
+            "J13:p2"
+          ],
+          "score": 0.8479,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by refusing Ms Hughes's claim? breach standard of care reasonable person precautions risk probability Ms Hughes downloaded the",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J20",
+          "passage_refs": [
+            "J20:p3",
+            "J20:p2"
+          ],
+          "score": 0.5579,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by refusing Ms Hughes's claim? breach standard of care reasonable person precautions risk probability Ms Hughes downloaded the",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J11"
+      ],
+      "opposing": [
+        "J12",
+        "J14"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "Since Ms Hughes failed the advertisement's stated condition (5 kg loss), rejecting payment is consistent with reasonableness and absence of negligence. The objective standard supports PeakFit's refusal. Hence, PeakFit likely did not breach any standard of care."
+    },
+    {
+      "id": "I3",
+      "question": "Did PeakFit's advertisement constitute a valid offer to Ms Hughes capable of acceptance?",
+      "doctrine": "offer_acceptance",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p1",
+            "J23:p3"
+          ],
+          "score": 1.5609,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit's advertisement constitute a valid offer capable of acceptance? offer unilateral contract advertisement invitation to treat acceptance by performanc",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p2",
+            "J24:p1"
+          ],
+          "score": 1.4717,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit's advertisement constitute a valid offer capable of acceptance? offer unilateral contract advertisement invitation to treat acceptance by performanc",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J50",
+          "passage_refs": [
+            "J50:p2",
+            "J50:p3"
+          ],
+          "score": 1.1909,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit's advertisement constitute a valid offer capable of acceptance? offer unilateral contract advertisement invitation to treat acceptance by performanc",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J26",
+          "passage_refs": [
+            "J26:p1",
+            "J26:p2"
+          ],
+          "score": 1.0007,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit's advertisement constitute a valid offer capable of acceptance? offer unilateral contract advertisement invitation to treat acceptance by performanc",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J27",
+          "passage_refs": [
+            "J27:p3",
+            "J27:p1"
+          ],
+          "score": 1.0418,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did PeakFit's advertisement constitute a valid offer capable of acceptance? offer unilateral contract advertisement invitation to treat acceptance by performanc",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J24"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "PeakFit\u2019s deposit and detailed conditions support the advertisement being a unilateral offer, following Carlill. The commercial context and number of participants make this less clear, but the client\u2019s position has strong precedent support."
+    },
+    {
+      "id": "I4",
+      "question": "Is there a binding contract between Ms Hughes and PeakFit based on the advertisement and her performance?",
+      "doctrine": "intention_legal_relations",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p1"
+          ],
+          "score": 0.9403,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a binding contract between Ms Hughes and PeakFit? intention to create legal relations mere puff sincerity deposit domestic agreement PeakFit's general ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J30",
+          "passage_refs": [
+            "J30:p3",
+            "J30:p2"
+          ],
+          "score": 1.4193,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a binding contract between Ms Hughes and PeakFit? intention to create legal relations mere puff sincerity deposit domestic agreement PeakFit's general ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J29",
+          "passage_refs": [
+            "J29:p3",
+            "J29:p2"
+          ],
+          "score": 1.5824,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a binding contract between Ms Hughes and PeakFit? intention to create legal relations mere puff sincerity deposit domestic agreement PeakFit's general ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J33",
+          "passage_refs": [
+            "J33:p3",
+            "J33:p2"
+          ],
+          "score": 0.2796,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a binding contract between Ms Hughes and PeakFit? intention to create legal relations mere puff sincerity deposit domestic agreement PeakFit's general ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p2",
+            "J24:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "binding contract advertisement intention legal relations",
+          "reason": "For the existence of a binding contract, Carlill (J23) again is central for showing intention in advertising unilateral contracts. Merritt v Merritt (J30) and Balfour v Balfour (J29) contrast intention in domestic versus commercial/social contexts. Central London Property Trust v High Trees House (J33) demonstrates promissory estoppel aspects, and Partridge (J24) for invitation to treat background."
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p3",
+            "J42:p2"
+          ],
+          "score": 0.2436,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a binding contract between Ms Hughes and PeakFit? intention to create legal relations mere puff sincerity deposit domestic agreement PeakFit's general ",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "While Ms Hughes did not fulfill the exact 5 kg loss, the unilateral contract principle accepts performance of prescribed conditions as acceptance. The deposit suggests intent, supporting contract formation. This favors the client strongly."
+    },
+    {
+      "id": "I5",
+      "question": "Is PeakFit's 'promotion may be withdrawn at any time' clause ineffective to exclude or limit liability to Ms Hughes?",
+      "doctrine": "exclusion_clause",
+      "raised_by": "fact_extractor",
+      "client_position": "contra",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J44",
+          "passage_refs": [
+            "J44:p3",
+            "J44:p2"
+          ],
+          "score": 1.4364,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's 'promotion may be withdrawn at any time' clause effective to exclude or limit liability? exclusion clause incorporation notice before contract sign",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p1"
+          ],
+          "score": 1.5594,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's 'promotion may be withdrawn at any time' clause effective to exclude or limit liability? exclusion clause incorporation notice before contract sign",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p3"
+          ],
+          "score": 1.3632,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's 'promotion may be withdrawn at any time' clause effective to exclude or limit liability? exclusion clause incorporation notice before contract sign",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p3",
+            "J43:p2"
+          ],
+          "score": 1.1299,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's 'promotion may be withdrawn at any time' clause effective to exclude or limit liability? exclusion clause incorporation notice before contract sign",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p3",
+            "J41:p2"
+          ],
+          "score": 1.0678,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's 'promotion may be withdrawn at any time' clause effective to exclude or limit liability? exclusion clause incorporation notice before contract sign",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J42"
+      ],
+      "opposing": [
+        "J40",
+        "J41"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "Given Ms Hughes's engagement via app and subscription, PeakFit may argue incorporation. However, the lack of explicit notice of withdrawal terms at the advertisement or contract formation time supports client\u2019s view that the clause does not exclude liability."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Did PeakFit owe a duty of care by making the advertisement? [duty_of_care] Whether the advertisement created legal obligations or was merely marketing."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Was the standard of care breached by refusing Ms Hughes's claim? [standard_of_care] Whether PeakFit acted reasonably in disclaiming the advertised promise."
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Did PeakFit's advertisement constitute a valid offer capable of acceptance? [offer_acceptance] Whether the advertisement was a binding offer or only an invitation to treat."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I3",
+      "detail": "Did Ms Hughes effectively accept the offer by performance of the terms?"
+    },
+    {
+      "seq": 5,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I4",
+      "detail": "Is there a binding contract between Ms Hughes and PeakFit? [intention_legal_relations] Whether parties intended the advertisement to create legal relations."
+    },
+    {
+      "seq": 6,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I5",
+      "detail": "Is PeakFit's 'promotion may be withdrawn at any time' clause effective to exclude or limit liability? [exclusion_clause] Whether the terms allow withdrawal impacting contract formation or claims."
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J19, J01, J02, J08, J23"
+    },
+    {
+      "seq": 8,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J11, J19, J08, J24, J12, J14, J13, J20"
+    },
+    {
+      "seq": 9,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J23, J24, J50, J26, J27"
+    },
+    {
+      "seq": 10,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I4",
+      "detail": "J23, J30, J29, J33, J24, J42"
+    },
+    {
+      "seq": 11,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I5",
+      "detail": "J44, J40, J42, J43, J41"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Did PeakFit owe Ms Hughes a duty of care by making the advertisement? (client needs: pro)"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Was the standard of care breached by PeakFit's refusal to pay Ms Hughes's claim under the advertisement? (client needs: pro)"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Did PeakFit's advertisement constitute a valid offer to Ms Hughes capable of acceptance? (client needs: pro)"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I4",
+      "detail": "Is there a binding contract between Ms Hughes and PeakFit based on the advertisement and her performance? (client needs: pro)"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I5",
+      "detail": "Is PeakFit's 'promotion may be withdrawn at any time' clause ineffective to exclude or limit liability to Ms Hughes? (client needs: contra)"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J19 argument relies on it"
+    },
+    {
+      "seq": 18,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J11 argument relies on it"
+    },
+    {
+      "seq": 19,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 20,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I4",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 21,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I5",
+      "detail": "J42 argument relies on it"
+    },
+    {
+      "seq": 22,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 23,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 24,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 25,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 26,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I5",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 27,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J12 counter relies on it"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J14 counter relies on it"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J24 counter relies on it"
+    },
+    {
+      "seq": 30,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I5",
+      "detail": "J40 counter relies on it"
+    },
+    {
+      "seq": 31,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I5",
+      "detail": "J41 counter relies on it"
+    },
+    {
+      "seq": 32,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 33,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 34,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 35,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 36,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I5",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 37,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 38,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 39,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 40,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 41,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I5",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 42,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 43,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 44,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 45,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 46,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I5",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 47,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "The analogy to Robinson is weak as that case involved physical injury caused by positive acts; here, the advertisement did not create a foreseeable physical har"
+    },
+    {
+      "seq": 48,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Since Ms Hughes failed the advertisement's stated condition (5 kg loss), rejecting payment is consistent with reasonableness and absence of negligence. The obje"
+    },
+    {
+      "seq": 49,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "PeakFit\u2019s deposit and detailed conditions support the advertisement being a unilateral offer, following Carlill. The commercial context and number of participan"
+    },
+    {
+      "seq": 50,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I4",
+      "detail": "While Ms Hughes did not fulfill the exact 5 kg loss, the unilateral contract principle accepts performance of prescribed conditions as acceptance. The deposit s"
+    },
+    {
+      "seq": 51,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I5",
+      "detail": "Given Ms Hughes's engagement via app and subscription, PeakFit may argue incorporation. However, the lack of explicit notice of withdrawal terms at the advertis"
+    }
+  ]
+}

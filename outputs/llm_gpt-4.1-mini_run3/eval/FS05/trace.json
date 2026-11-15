@@ -1,0 +1,280 @@
+{
+  "mode": "llm:foundry",
+  "llm_calls": 9,
+  "seconds": 46.176,
+  "structured_facts": {
+    "case_id": "FS05",
+    "title": "Kaur Artisan Bakery Ltd v SwiftHaul Couriers Ltd",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Kaur Artisan Bakery Ltd",
+        "role": "claimant",
+        "description": "a bakery in Coventry"
+      },
+      {
+        "name": "SwiftHaul Couriers Ltd",
+        "role": "defendant",
+        "description": "a parcel delivery company"
+      }
+    ],
+    "chronology": [
+      {
+        "date": "3 September 2025",
+        "iso_date": "2025-09-03",
+        "event": "The controller board of the bakery's only industrial oven failed; the manufacturer agreed to repair it if delivered to workshop in Birmingham.",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "4 September 2025",
+        "iso_date": "2025-09-04",
+        "event": "The bakery booked SwiftHaul's guaranteed next-day delivery service online for \u00a345, describing the parcel as 'electronic component'; did not inform SwiftHaul it could not trade without it.",
+        "fact_ref": "F2"
+      },
+      {
+        "date": "4 September 2025",
+        "iso_date": "2025-09-04",
+        "event": "Bakery's manager accepted SwiftHaul's terms and conditions, including clause 9 excluding liability for loss of profits from delay.",
+        "fact_ref": "F3"
+      },
+      {
+        "date": "15 September 2025",
+        "iso_date": "2025-09-15",
+        "event": "Due to SwiftHaul's error, parcel was delivered eleven days late to the bakery.",
+        "fact_ref": "F4"
+      },
+      {
+        "date": "3-15 September 2025",
+        "iso_date": null,
+        "event": "Bakery could not bake for twelve days, losing about \u00a318,000 ordinary trade profits and a \u00a340,000 one-off wedding contract.",
+        "fact_ref": "F5"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Kaur Artisan Bakery Ltd",
+        "respondent": "SwiftHaul Couriers Ltd",
+        "claim": "Damages for breach of the delivery contract, including lost profits and lost wedding contract.",
+        "legal_basis": "Breach of contract",
+        "fact_refs": [
+          "F2",
+          "F4",
+          "F5",
+          "F7"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "The bakery's only industrial oven controller board failed on 3 September 2025, requiring repair at a workshop in Birmingham.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "On 4 September 2025, the bakery booked SwiftHaul's next-day delivery service online, describing the parcel only as 'electronic component' and not informing SwiftHaul it was essential for trading.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "The bakery's manager accepted SwiftHaul's terms and conditions, including an exclusion clause (Clause 9) excluding liability for loss of profits arising from delay.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "SwiftHaul erroneously sent the parcel to the wrong depot, resulting in delivery eleven days late on 15 September 2025.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "The bakery lost twelve days of baking activity, causing about \u00a318,000 in lost ordinary trade profits and a \u00a340,000 one-off contract to supply cakes, unknown to SwiftHaul.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "SwiftHaul argues it could not have contemplated the bakery's inability to trade, the exceptional nature of the wedding contract, and relies on Clause 9 to exclude liability for these losses.",
+        "citations": [
+          "F6"
+        ]
+      },
+      {
+        "text": "The bakery claims damages for breach of contract including lost profits and the lost wedding contract.",
+        "citations": [
+          "F7"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "The bakery wants to claim damages for breach of the delivery contract, including its lost profits and the lost wedding contract.",
+      "citations": [
+        "F7"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 75,
+    "valid_citations": 75,
+    "existence_rate": 1.0,
+    "judgment_citations": 33,
+    "valid_judgment_citations": 33,
+    "statements": 31,
+    "statements_with_valid_citation": 31,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 75
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J11",
+      "J35",
+      "J40",
+      "J41",
+      "J44",
+      "J12",
+      "J34"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 75,
+    "valid_citations": 75,
+    "existence_rate": 1.0,
+    "judgment_citations": 33,
+    "valid_judgment_citations": 33,
+    "statements": 31,
+    "statements_with_valid_citation": 31,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 75
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J11",
+      "J35",
+      "J40",
+      "J41",
+      "J44",
+      "J12",
+      "J34"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.062,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS05: 7 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 5.716,
+      "agent": "fact_extractor",
+      "action": "llm_extract",
+      "detail": "doctrine cue scores: {'duty_of_care': 1, 'standard_of_care': 1, 'causation': 1, 'offer_acceptance': 1, 'remoteness_contract': 6, 'exclusion_clause': 3}",
+      "round": 0
+    },
+    {
+      "t": 5.716,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "2 parties, 5 dated events, 1 claims, 4 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 5.718,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1, I2, I3",
+      "round": 0
+    },
+    {
+      "t": 10.006,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J11', 'J19', 'J12', 'J13', 'J14', 'J20']",
+      "round": 0
+    },
+    {
+      "t": 10.006,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I2: ['J34', 'J35', 'J21', 'J27', 'J48', 'J03']",
+      "round": 0
+    },
+    {
+      "t": 10.006,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I3: ['J44', 'J40', 'J42', 'J21', 'J34', 'J43', 'J41']",
+      "round": 0
+    },
+    {
+      "t": 12.488,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "3 framed, 0 added",
+      "round": 0
+    },
+    {
+      "t": 17.728,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "3 points",
+      "round": 1
+    },
+    {
+      "t": 19.517,
+      "agent": "counter_argument",
+      "action": "defences",
+      "detail": "0 defence issue(s) proposed",
+      "round": 1
+    },
+    {
+      "t": 24.886,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "4 points",
+      "round": 1
+    },
+    {
+      "t": 29.959,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "4 points",
+      "round": 2
+    },
+    {
+      "t": 36.414,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "4 points",
+      "round": 2
+    },
+    {
+      "t": 36.418,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 3 issues",
+      "round": 3
+    },
+    {
+      "t": 46.171,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 100.00%, 0 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 46.171,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

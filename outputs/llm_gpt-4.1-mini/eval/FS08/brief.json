@@ -1,0 +1,169 @@
+{
+  "case_id": "FS08",
+  "title": "Clarke v Dunmore Haulage Ltd",
+  "acting_for": "Claimants",
+  "summary": [
+    {
+      "text": "Acting for Helen Clarke and Ryan Clarke (claimant), this brief addresses 1 issue(s) arising from Clarke v Dunmore Haulage Ltd: Helen and Ryan Clarke want to claim damages for psychiatric injury as relatives who suffered shock because of the accident to Jamie.",
+      "citations": [
+        "F7"
+      ]
+    },
+    {
+      "text": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim? Favourable for Helen Clarke and Ryan Clarke.",
+      "citations": [
+        "J16:p3",
+        "J15:p3"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "On 21 November 2024 a Dunmore lorry driver who was using his phone crashed into the back of a car driven by 19-year-old Jamie Clarke on the M62 motorway.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Jamie suffered severe head and leg injuries and was taken by ambulance to Hull Royal Infirmary.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "Helen Clarke was told of the crash by a police officer at her home about one hour later. She arrived at the hospital roughly two hours after the crash and saw Jamie in the emergency department before he had been cleaned up, covered in blood and unconscious.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "Ryan Clarke, at work in Leeds, watched the aftermath of the crash on a live traffic-camera stream on a news website. He recognised Jamie's car but could not see Jamie himself.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "Both Helen and Ryan have since been diagnosed with post-traumatic stress disorder, a recognised psychiatric illness. Jamie survived.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Dunmore admits that its driver was negligent towards Jamie but denies owing any duty of care to Helen or Ryan for psychiatric harm.",
+      "citations": [
+        "F6"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J16",
+          "case_name": "McLoughlin v O'Brian",
+          "citation": "[1983] 1 AC 410",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A close relative who does not witness the accident may recover if they come upon its immediate aftermath and perceive it directly.",
+            "citations": [
+              "J16:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J17",
+          "case_name": "Page v Smith",
+          "citation": "[1996] AC 155",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A primary victim who is directly involved and within the zone of foreseeable physical danger need not satisfy the control mechanisms applied to secondary victims, and the defendant takes the victim as found, including a pre-existing psychological vulnerability.",
+            "citations": [
+              "J17:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J15",
+          "case_name": "Alcock v Chief Constable of South Yorkshire Police",
+          "citation": "[1992] 1 AC 310",
+          "stance": "opposing",
+          "proposition": {
+            "text": "A secondary victim must show a close tie of love and affection with the primary victim, proximity in time and space to the accident or its immediate aftermath, and perception of the event or its immediate aftermath with their own unaided senses, together with a psychiatric illness induced by sudden shock.",
+            "citations": [
+              "J15:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "McLoughlin v O'Brian [1983] 1 AC 410 supports Helen Clarke and Ryan Clarke on this issue: A close relative who does not witness the accident may recover if they come upon its immediate aftermath and perceive it directly. That reasoning applies here: Both Helen and Ryan have since been diagnosed with post-traumatic stress disorder, a recognised psychiatric illness. Jamie survived.",
+          "citations": [
+            "J16:p3",
+            "F5"
+          ]
+        },
+        {
+          "text": "Page v Smith [1996] AC 155 supports Helen Clarke and Ryan Clarke on this issue: A primary victim who is directly involved and within the zone of foreseeable physical danger need not satisfy the control mechanisms applied to secondary victims, and the defendant takes the victim as found, including a pre-existing psychological vulnerability. That reasoning applies here: Ryan Clarke, at work in Leeds, watched the aftermath of the crash on a live traffic-camera stream on a news website. He recognised Jamie's car but could not see Jamie himself.",
+          "citations": [
+            "J17:p3",
+            "F4"
+          ]
+        },
+        {
+          "text": "Alcock v Chief Constable of South Yorkshire Police is distinguishable on its facts: At the Hillsborough football stadium in 1989 police negligence led to a fatal crush in which many spectators died. By contrast, in this case: Helen Clarke was told of the crash by a police officer at her home about one hour later. She arrived at the hospital roughly two hours after the crash and saw Jamie in the emergency department before he had been...",
+          "citations": [
+            "J15:p1",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Alcock v Chief Constable of South Yorkshire Police [1992] 1 AC 310 supports Dunmore Haulage Ltd on this issue: A secondary victim must show a close tie of love and affection with the primary victim, proximity in time and space to the accident or its immediate aftermath, and perception of the event or its immediate aftermath with their own unaided senses, together with a psychiatric illness induced by sudden shock. That reasoning applies here: Ryan Clarke, at work in Leeds, watched the aftermath of the crash on a live traffic-camera stream on a news website. He recognised Jamie's car but could not see Jamie himself.",
+          "citations": [
+            "J15:p3",
+            "F4"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Favourable: the authorities on balance support Helen Clarke and Ryan Clarke, led by McLoughlin v O'Brian; Alcock v Chief Constable of South Yorkshire Police is the main authority the other side will rely on.",
+        "citations": [
+          "J16:p3",
+          "J15:p3"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Overall, Helen Clarke and Ryan Clarke's prospects look reasonable on the authorities retrieved (1 favourable, 0 unfavourable, 0 balanced issue(s)).",
+      "citations": [
+        "J16:p3",
+        "J15:p3"
+      ]
+    },
+    {
+      "text": "The disputed facts on which the outcome turns should be proved with evidence: Dunmore admits that its driver was negligent towards Jamie but denies owing any duty of care to Helen or Ryan for psychiatric harm.",
+      "citations": [
+        "F6"
+      ]
+    }
+  ],
+  "warnings": [
+    "fact_extractor: LLM step 'extract' failed (OpenAIContentFilterException: <class 'agent_framework_openai._chat_completion_client.OpenAIChatCompletionClient'> service encountered a content error: Error code: 400 - The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766); used the offline baseline instead.",
+    "precedent_retrieval: LLM step 'select' failed (OpenAIContentFilterException: <class 'agent_framework_openai._chat_completion_client.OpenAIChatCompletionClient'> service encountered a content error: Error code: 400 - The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766); used the offline baseline instead.",
+    "argument: LLM step 'prepare' failed (OpenAIContentFilterException: <class 'agent_framework_openai._chat_completion_client.OpenAIChatCompletionClient'> service encountered a content error: Error code: 400 - The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766); used the offline baseline instead.",
+    "argument: LLM step 'turn1' failed (OpenAIContentFilterException: <class 'agent_framework_openai._chat_completion_client.OpenAIChatCompletionClient'> service encountered a content error: Error code: 400 - The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766); used the offline baseline instead.",
+    "counter_argument: LLM step 'prepare' failed (OpenAIContentFilterException: <class 'agent_framework_openai._chat_completion_client.OpenAIChatCompletionClient'> service encountered a content error: Error code: 400 - The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766); used the offline baseline instead.",
+    "counter_argument: LLM step 'turn1' failed (OpenAIContentFilterException: <class 'agent_framework_openai._chat_completion_client.OpenAIChatCompletionClient'> service encountered a content error: Error code: 400 - The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766); used the offline baseline instead.",
+    "argument: LLM step 'turn2' failed (OpenAIContentFilterException: <class 'agent_framework_openai._chat_completion_client.OpenAIChatCompletionClient'> service encountered a content error: Error code: 400 - The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766); used the offline baseline instead.",
+    "counter_argument: LLM step 'turn2' failed (OpenAIContentFilterException: <class 'agent_framework_openai._chat_completion_client.OpenAIChatCompletionClient'> service encountered a content error: Error code: 400 - The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766); used the offline baseline instead.",
+    "brief_compiler: LLM step 'compile' failed (OpenAIContentFilterException: <class 'agent_framework_openai._chat_completion_client.OpenAIChatCompletionClient'> service encountered a content error: Error code: 400 - The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766); used the offline baseline instead."
+  ]
+}

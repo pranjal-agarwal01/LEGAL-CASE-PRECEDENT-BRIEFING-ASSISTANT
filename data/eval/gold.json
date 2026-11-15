@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "description": "Known relevant precedents for each evaluation fact sheet. Used to compute precedent recall. Judgment ids refer to data/corpus/judgments.json.",
+    "labelling": "Each list holds the authorities a reviewer would expect any competent brief on the fact sheet to discuss, on either side of the argument."
+  },
+  "fact_sheets": {
+    "FS01": {"file": "FS01_nair_v_brightwater.md", "relevant": ["J01", "J10", "J08"],
+             "why": {"J01": "manufacturer's duty to the ultimate consumer without a contract", "J10": "thin skull rule for the pre-existing ulcer", "J08": "but-for causation defence raised by Brightwater"}},
+    "FS02": {"file": "FS02_okafor_v_st_aldhelms.md", "relevant": ["J06", "J07", "J04"],
+             "why": {"J06": "duty to warn of material risks and alternatives", "J07": "causation where the patient would have deferred surgery", "J04": "the Trust's responsible-body-of-opinion defence"}},
+    "FS03": {"file": "FS03_hughes_v_peakfit.md", "relevant": ["J23", "J24", "J25"],
+             "why": {"J23": "advertisement as a unilateral offer with deposit showing intention", "J24": "advertisement as an invitation to treat", "J25": "display or advertisement as invitation to treat"}},
+    "FS04": {"file": "FS04_rowe_v_skyline.md", "relevant": ["J37", "J38", "J36", "J39"],
+             "why": {"J37": "cancelled procession destroyed the shared foundation of a hire", "J38": "cancelled review did not frustrate a hire for the hirer's own venture", "J36": "frustration doctrine origin", "J39": "radical difference test; hardship not enough"}},
+    "FS05": {"file": "FS05_kaur_bakery_v_swifthaul.md", "relevant": ["J34", "J35", "J44"],
+             "why": {"J34": "remoteness where special circumstances were not communicated to a carrier", "J35": "ordinary versus exceptional lost profits", "J44": "effect of a clearly worded exclusion clause in a commercial contract"}},
+    "FS06": {"file": "FS06_adeyemi_v_harbourside.md", "relevant": ["J42", "J43", "J41", "J40"],
+             "why": {"J42": "hotel bedroom notice seen after contract made at reception", "J43": "terms introduced after contract formation", "J41": "reasonable notice test for unsigned terms", "J40": "signature rule; the registration card had no terms"}},
+    "FS07": {"file": "FS07_brennan_v_castlegate.md", "relevant": ["J32", "J31", "J33"],
+             "why": {"J32": "practical benefit as consideration for a promise of extra pay", "J31": "existing duty is no consideration", "J33": "promissory estoppel as an alternative route"}},
+    "FS08": {"file": "FS08_clarke_v_dunmore.md", "relevant": ["J15", "J16", "J17"],
+             "why": {"J15": "control mechanisms for secondary victims, live broadcast", "J16": "immediate aftermath at the hospital", "J17": "primary and secondary victim distinction"}}
+  }
+}

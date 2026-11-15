@@ -1,0 +1,272 @@
+{
+  "mode": "offline",
+  "llm_calls": 0,
+  "seconds": 0.068,
+  "structured_facts": {
+    "case_id": "FS01",
+    "title": "Nair v Brightwater Beverages Ltd",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Priya Nair",
+        "role": "claimant",
+        "description": "a 34-year-old secondary school teacher."
+      },
+      {
+        "name": "Brightwater Beverages Ltd",
+        "role": "defendant",
+        "description": "the manufacturer and bottler of \"Fizzleaf\" kombucha."
+      },
+      {
+        "name": "Arjun Mehta",
+        "role": "third party",
+        "description": "a friend of the claimant who bought the drink."
+      }
+    ],
+    "chronology": [
+      {
+        "date": "1 March 2025",
+        "iso_date": "2025-03-01",
+        "event": "Brightwater says its bottling line passed a safety inspection on 1 March 2025 and suggests the cafe may have tampered with the bottle.",
+        "fact_ref": "F7"
+      },
+      {
+        "date": "14 March 2025",
+        "iso_date": "2025-03-14",
+        "event": "On 14 March 2025 Arjun Mehta bought two bottles of Fizzleaf kombucha at the Green Cup cafe in Leeds and gave one of them to Ms Nair.",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "15 March 2025",
+        "iso_date": "2025-03-15",
+        "event": "That evening she suffered severe abdominal pain and on 15 March 2025 she was admitted to Aireside General Hospital, where a laceration of the oesophagus and stomach lining was found.",
+        "fact_ref": "F4"
+      },
+      {
+        "date": "30 June 2025",
+        "iso_date": "2025-06-30",
+        "event": "She was unable to work until 30 June 2025 and needed two further procedures.",
+        "fact_ref": "F6"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Priya Nair",
+        "respondent": "Brightwater Beverages Ltd",
+        "claim": "Ms Nair wants to claim damages from Brightwater in negligence for her injuries, lost earnings and medical expenses.",
+        "legal_basis": "Tort (negligence)",
+        "fact_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F5",
+          "F7"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "On 14 March 2025 Arjun Mehta bought two bottles of Fizzleaf kombucha at the Green Cup cafe in Leeds and gave one of them to Ms Nair.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "The bottle was dark brown glass and was still sealed with Brightwater's crimped metal cap when it was opened at the table, so the contents could not be seen or inspected.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "Ms Nair drank about half of the bottle before noticing a sharp sliver of glass and a mass of mould at the bottom.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "That evening she suffered severe abdominal pain and on 15 March 2025 she was admitted to Aireside General Hospital, where a laceration of the oesophagus and stomach lining was found.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "Ms Nair has a pre-existing gastric ulcer condition. Her consultant says that the condition made the internal injury far more serious than it would have been for a healthy person.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "She was unable to work until 30 June 2025 and needed two further procedures.",
+        "citations": [
+          "F6"
+        ]
+      },
+      {
+        "text": "Brightwater says its bottling line passed a safety inspection on 1 March 2025 and suggests the cafe may have tampered with the bottle. Its medical expert says that the ulcer, not the glass, caused most of the damage and that she would have needed treatment anyway.",
+        "citations": [
+          "F7"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Ms Nair wants to claim damages from Brightwater in negligence for her injuries, lost earnings and medical expenses. She did not buy the drink herself and has no contract with Brightwater.",
+      "citations": [
+        "F8"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 84,
+    "valid_citations": 84,
+    "existence_rate": 1.0,
+    "judgment_citations": 59,
+    "valid_judgment_citations": 59,
+    "statements": 43,
+    "statements_with_valid_citation": 43,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 84
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J01",
+      "J02",
+      "J07",
+      "J08",
+      "J10",
+      "J09",
+      "J19",
+      "J22",
+      "J05",
+      "J17"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 84,
+    "valid_citations": 84,
+    "existence_rate": 1.0,
+    "judgment_citations": 59,
+    "valid_judgment_citations": 59,
+    "statements": 43,
+    "statements_with_valid_citation": 43,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 84
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J01",
+      "J02",
+      "J07",
+      "J08",
+      "J10",
+      "J09",
+      "J19",
+      "J22",
+      "J05",
+      "J17"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.006,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS01: 8 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 0.021,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "3 parties, 4 dated events, 1 claims, 3 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 0.022,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1, I2, I3",
+      "round": 0
+    },
+    {
+      "t": 0.028,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J01', 'J19', 'J02', 'J08', 'J20']",
+      "round": 0
+    },
+    {
+      "t": 0.028,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I2: ['J08', 'J22', 'J05', 'J12', 'J07']",
+      "round": 0
+    },
+    {
+      "t": 0.028,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I3: ['J10', 'J17', 'J09', 'J35', 'J28']",
+      "round": 0
+    },
+    {
+      "t": 0.03,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "3 issues",
+      "round": 0
+    },
+    {
+      "t": 0.035,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "5 points",
+      "round": 1
+    },
+    {
+      "t": 0.041,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "4 points",
+      "round": 1
+    },
+    {
+      "t": 0.045,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "5 points",
+      "round": 2
+    },
+    {
+      "t": 0.048,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "2 points",
+      "round": 2
+    },
+    {
+      "t": 0.049,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 3 issues",
+      "round": 3
+    },
+    {
+      "t": 0.066,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 100.00%, 0 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 0.066,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

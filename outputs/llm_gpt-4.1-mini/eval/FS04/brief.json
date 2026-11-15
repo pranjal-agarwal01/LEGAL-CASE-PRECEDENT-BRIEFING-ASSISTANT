@@ -1,0 +1,398 @@
+{
+  "case_id": "FS04",
+  "title": "Rowe v Skyline Terraces Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Mr Rowe contracted to hire Skyline's terrace to watch the fireworks, which were advertised and confirmed by emails, forming an essential basis of the contract.",
+      "citations": [
+        "F2",
+        "F3"
+      ]
+    },
+    {
+      "text": "The council's cancellation of the fireworks was unforeseen and destroyed the foundation of the contract, invoking the doctrine of frustration as in Krell v Henry.",
+      "citations": [
+        "F4",
+        "J37:p2",
+        "J37:p3"
+      ]
+    },
+    {
+      "text": "The written contract's silence on the fireworks does not exclude their contractual significance, as the advertisement and communications created a binding contractual term.",
+      "citations": [
+        "F2",
+        "F3",
+        "J23:p2",
+        "J23:p3"
+      ]
+    },
+    {
+      "text": "Following Taylor v Caldwell, frustration discharges the contract, entitling Mr Rowe to return of his deposit and release from paying the balance.",
+      "citations": [
+        "F4",
+        "F7",
+        "J36:p2",
+        "J36:p3",
+        "J37:p2"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Mr Rowe agreed to hire the rooftop terrace for 5 July 2025 for £12,000 and paid £4,000 deposit.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Skyline advertised the terrace as offering 'the best view in London of the Thames Victory Fireworks', promising 'front-row seats for the display'.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "The written hire agreement only described 'exclusive use of the terrace, 6pm to midnight, with bar service' and made no mention of the fireworks.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "The planned fireworks display was cancelled by the council due to a safety review on 28 June 2025.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "Despite the cancellation, the terrace, bar, and staff remained available on 5 July 2025.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Mr Rowe cancelled his event on 29 June and requested the return of his deposit.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Skyline refused to return the deposit and claimed the remaining balance, arguing the terrace was still usable and the fireworks were Mr Rowe's own commercial purpose.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Mr Rowe contends the contract was frustrated due to the fireworks cancellation and seeks refund and release from further payment.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Was Skyline under a duty of care to ensure the fireworks display would occur?",
+      "supporting_precedents": [],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J19",
+          "case_name": "Robinson v Chief Constable of West Yorkshire Police",
+          "citation": "[2018] UKSC 4",
+          "stance": "opposing",
+          "proposition": {
+            "text": "The police owed a duty of care in circumstances of positive acts creating foreseeable physical injury risk; this does not extend to external events like fireworks outside control.",
+            "citations": [
+              "J19:p2",
+              "J19:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Skyline owed no duty to guarantee occurrence of an external event like fireworks as it was outside their control and no foreseeable risk of injury or loss arose for Mr Rowe.",
+          "citations": [
+            "J19:p2",
+            "J19:p3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The police cases cited do not extend to impose a duty of care on Skyline regarding ensuring the fireworks display, as they did not cause a physical risk by their acts.",
+          "citations": [
+            "J19:p2",
+            "J19:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Skyline is unlikely to be under a duty of care for the fireworks cancellation as it was an external event beyond their control; the duty of care principles from police cases do not apply here.",
+        "citations": [
+          "J19:p2",
+          "J19:p3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Does the absence of mention of the fireworks in the written contract affect the contractual obligations?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J23",
+          "case_name": "Carlill v Carbolic Smoke Ball Co",
+          "citation": "[1893] 1 QB 256",
+          "stance": "supporting",
+          "proposition": {
+            "text": "An advertisement can form a binding unilateral contract when it shows clear terms and intention to be bound by performance.",
+            "citations": [
+              "J23:p2",
+              "J23:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J50",
+          "case_name": "Fisher v Bell",
+          "citation": "[1961] 1 QB 394",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Advertisements are generally invitations to treat, not offers; display of goods is not contractual offer.",
+            "citations": [
+              "J50:p2",
+              "J50:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J24",
+          "case_name": "Partridge v Crittenden",
+          "citation": "[1968] 1 WLR 1204",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Advertisements are ordinarily invitations to treat, not binding offers, due to limited stock and practical considerations.",
+            "citations": [
+              "J24:p2",
+              "J24:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The advertisement and email correspondence formed part of the contractual agreement, expressly promising front-row seats to the fireworks, demonstrating mutual intention and binding terms.",
+          "citations": [
+            "F2",
+            "F3",
+            "J23:p2",
+            "J23:p3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The absence of fireworks mention in the written contract means no binding obligation existed regarding them; advertisements and emails are invitations to treat or sales puff and not contract terms.",
+          "citations": [
+            "F3",
+            "J50:p2",
+            "J50:p3",
+            "J24:p2",
+            "J24:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Despite the written contract's silence, the clear advertising and correspondence create a binding contractual term about the fireworks, aligning with Carlill rather than the usual rule that advertisements are invitations to treat.",
+        "citations": [
+          "F2",
+          "F3",
+          "J23:p2",
+          "J23:p3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Is the cancellation of the fireworks a frustrating event that discharges the hire contract?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J37",
+          "case_name": "Krell v Henry",
+          "citation": "[1903] 2 KB 740",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Frustration occurs where a supervening event destroys the common foundation of the contract, even if literal performance remains possible.",
+            "citations": [
+              "J37:p2",
+              "J37:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J38",
+          "case_name": "Herne Bay Steam Boat Co v Hutton",
+          "citation": "[1903] 2 KB 683",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Frustration does not apply if only one party's purpose is frustrated and performance remains possible, especially if other contract benefits remain.",
+            "citations": [
+              "J38:p2",
+              "J38:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The cancellation of the fireworks frustrated the contract's foundation, recognized by both parties as securing the terrace for the fireworks event. This is analogous to Krell v Henry where cancellation of processions frustrated the contract.",
+          "citations": [
+            "F2",
+            "F3",
+            "J37:p2",
+            "J37:p3"
+          ]
+        },
+        {
+          "text": "Unlike Herne Bay, the fireworks formed the sole basis of the contract for both parties, not a mere commercial side purpose of Mr Rowe, supporting frustration here.",
+          "citations": [
+            "F2",
+            "F5",
+            "J38:p2",
+            "J38:p3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Performance remained possible through use of the terrace and bar, and the fireworks cancellation only affected Mr Rowe's individual purpose, so frustration does not apply as in Herne Bay.",
+          "citations": [
+            "F4",
+            "F5",
+            "F6",
+            "J38:p2",
+            "J38:p3"
+          ]
+        },
+        {
+          "text": "The contract terms do not expressly include the fireworks, so their cancellation cannot frustrate the contract which is for terrace hire with bar service.",
+          "citations": [
+            "F3",
+            "J37:p2",
+            "J37:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The strongest case supports frustration since both parties understood the contract's foundation was the fireworks viewing, making the supervening cancellation a frustrating event despite the terrace's availability.",
+        "citations": [
+          "F2",
+          "F3",
+          "F4",
+          "J37:p2",
+          "J37:p3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I4",
+      "question": "Was Mr Rowe's deposit refundable upon cancellation of the event?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J36",
+          "case_name": "Taylor v Caldwell",
+          "citation": "(1863) 3 B & S 826",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Destruction or unavailability of the essential subject discharges contractual obligations including payments and entitles return of deposit.",
+            "citations": [
+              "J36:p2",
+              "J36:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J37",
+          "case_name": "Krell v Henry",
+          "citation": "[1903] 2 KB 740",
+          "stance": "supporting",
+          "proposition": {
+            "text": "When a contract is frustrated, deposits should be refunded and remaining payments discharged, as the contract is discharged.",
+            "citations": [
+              "J37:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [],
+      "supporting_argument": [
+        {
+          "text": "Following frustration due to cancellation of the fireworks, Mr Rowe is entitled to return of his deposit and discharge from the balance, consistent with Taylor v Caldwell and Krell v Henry.",
+          "citations": [
+            "F4",
+            "F7",
+            "J36:p2",
+            "J36:p3",
+            "J37:p2"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Because the terrace and services remained available and performance was possible, no frustration occurs and deposit is not refundable; cancellation was at Mr Rowe's choice.",
+          "citations": [
+            "F5",
+            "F6",
+            "J36:p2",
+            "J36:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "If the contract is found frustrated by cancellation of the fireworks, deposit refund and discharge of balance is appropriate; if not, deposit is forfeited due to cancellation by Mr Rowe despite terrace availability.",
+        "citations": [
+          "F4",
+          "F5",
+          "F7",
+          "J36:p2",
+          "J36:p3"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Mr Rowe's strongest position is that the contract included the fireworks event as an essential term by mutual intention discerned from advertising and emails, despite written contract silence.",
+      "citations": [
+        "F2",
+        "F3",
+        "J23:p2",
+        "J23:p3"
+      ]
+    },
+    {
+      "text": "The cancellation of the fireworks frustrated the contract by destroying its common foundation, entitling Mr Rowe to return of his deposit and discharge from further payment, following Krell v Henry and Taylor v Caldwell.",
+      "citations": [
+        "F4",
+        "F7",
+        "J37:p2",
+        "J37:p3",
+        "J36:p2",
+        "J36:p3"
+      ]
+    },
+    {
+      "text": "Skyline's defenses based on duty of care and contractual terms are weak, as the former is inapplicable and the latter overlooks the significance of pre-contractual representations forming part of the contract.",
+      "citations": [
+        "J19:p2",
+        "J19:p3",
+        "F2",
+        "F3"
+      ]
+    }
+  ],
+  "warnings": []
+}

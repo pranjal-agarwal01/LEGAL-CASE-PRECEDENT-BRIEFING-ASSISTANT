@@ -1,0 +1,185 @@
+{
+  "case_id": "FS04",
+  "title": "Rowe v Skyline Terraces Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Acting for Thomas Rowe (claimant), this brief addresses 1 issue(s) arising from Rowe v Skyline Terraces Ltd: Mr Rowe argues that the hire contract was frustrated by the cancellation of the fireworks.",
+      "citations": [
+        "F7"
+      ]
+    },
+    {
+      "text": "Was the contract frustrated by a supervening event that destroyed its common foundation? Finely balanced for Thomas Rowe.",
+      "citations": [
+        "J37:p3",
+        "J39:p3"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "On 10 May 2025 Mr Rowe agreed to hire Skyline's rooftop terrace for the evening of 5 July 2025 for £12,000 and paid a £4,000 deposit.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Skyline's online listing advertised the terrace as \"the best view in London of the Thames Victory Fireworks\", a display planned to celebrate the city hosting a sporting final. Mr Rowe's emails to Skyline said his guests were coming \"to watch the fireworks\", and Skyline's reply promised \"front-row seats for the display\".",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "The written hire agreement described only \"exclusive use of the terrace, 6pm to midnight, with bar service\" and did not mention the fireworks.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "On 28 June 2025 the council cancelled the fireworks display after a safety review.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "The terrace, bar and staff remained available on 5 July 2025. On 29 June 2025 Mr Rowe cancelled his event and asked for his deposit back.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Skyline refuses to return the deposit and claims the £8,000 balance. It says the terrace could still be used, that the fireworks were only Mr Rowe's own commercial purpose, and that the event simply became less attractive.",
+      "citations": [
+        "F6"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Was the contract frustrated by a supervening event that destroyed its common foundation?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J37",
+          "case_name": "Krell v Henry",
+          "citation": "[1903] 2 KB 740",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A contract may be frustrated not only by physical impossibility but where a supervening event destroys a state of affairs which both parties regarded as the basis of the contract, even if literal performance remains possible.",
+            "citations": [
+              "J37:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J36",
+          "case_name": "Taylor v Caldwell",
+          "citation": "(1863) 3 B & S 826",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Where performance depends on the continued existence of a specific thing, the destruction of that thing without fault discharges the contract.",
+            "citations": [
+              "J36:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J39",
+          "case_name": "Davis Contractors Ltd v Fareham Urban District Council",
+          "citation": "[1956] AC 696",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Frustration occurs only where, without default of either party, a contractual obligation has become incapable of being performed because the circumstances would render it a thing radically different from that which was undertaken.",
+            "citations": [
+              "J39:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J38",
+          "case_name": "Herne Bay Steam Boat Co v Hutton",
+          "citation": "[1903] 2 KB 683",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Frustration does not apply where the event defeats only one party's purpose or makes the bargain less profitable; the risk of the venture falling short lies on the party who undertook it.",
+            "citations": [
+              "J38:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Krell v Henry [1903] 2 KB 740 supports Thomas Rowe on this issue: A contract may be frustrated not only by physical impossibility but where a supervening event destroys a state of affairs which both parties regarded as the basis of the contract, even if literal performance remains possible. That reasoning applies here: On 10 May 2025 Mr Rowe agreed to hire Skyline's rooftop terrace for the evening of 5 July 2025 for £12,000 and paid a £4,000 deposit.",
+          "citations": [
+            "J37:p3",
+            "F1"
+          ]
+        },
+        {
+          "text": "Taylor v Caldwell (1863) 3 B & S 826 supports Thomas Rowe on this issue: Where performance depends on the continued existence of a specific thing, the destruction of that thing without fault discharges the contract. That reasoning applies here: The terrace, bar and staff remained available on 5 July 2025. On 29 June 2025 Mr Rowe cancelled his event and asked for his deposit back.",
+          "citations": [
+            "J36:p3",
+            "F5"
+          ]
+        },
+        {
+          "text": "Davis Contractors Ltd v Fareham Urban District Council is distinguishable on its facts: Contractors agreed to build 78 houses for a fixed price within eight months. By contrast, in this case: The written hire agreement described only \"exclusive use of the terrace, 6pm to midnight, with bar service\" and did not mention the fireworks.",
+          "citations": [
+            "J39:p1",
+            "F3"
+          ]
+        },
+        {
+          "text": "Herne Bay Steam Boat Co v Hutton is distinguishable on its facts: Hutton chartered a steamboat to take paying passengers to see the naval review at Spithead and to cruise round the fleet. By contrast, in this case: On 28 June 2025 the council cancelled the fireworks display after a safety review.",
+          "citations": [
+            "J38:p1",
+            "F4"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Davis Contractors Ltd v Fareham Urban District Council [1956] AC 696 supports Skyline Terraces Ltd on this issue: Frustration occurs only where, without default of either party, a contractual obligation has become incapable of being performed because the circumstances would render it a thing radically different from that which was undertaken. That reasoning applies here: Skyline refuses to return the deposit and claims the £8,000 balance. It says the terrace could still be used, that the fireworks were only Mr Rowe's own commercial purpose, and that the event simply became less attractive.",
+          "citations": [
+            "J39:p3",
+            "F6"
+          ]
+        },
+        {
+          "text": "Herne Bay Steam Boat Co v Hutton [1903] 2 KB 683 supports Skyline Terraces Ltd on this issue: Frustration does not apply where the event defeats only one party's purpose or makes the bargain less profitable; the risk of the venture falling short lies on the party who undertook it. That reasoning applies here: The terrace, bar and staff remained available on 5 July 2025. On 29 June 2025 Mr Rowe cancelled his event and asked for his deposit back.",
+          "citations": [
+            "J38:p3",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Finely balanced: Krell v Henry supports Thomas Rowe, but Davis Contractors Ltd v Fareham Urban District Council gives the other side a real argument; the outcome will turn on the facts the court accepts.",
+        "citations": [
+          "J37:p3",
+          "J39:p3"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Overall, Thomas Rowe's prospects look evenly balanced on the authorities retrieved (0 favourable, 0 unfavourable, 1 balanced issue(s)).",
+      "citations": [
+        "J37:p3",
+        "J39:p3"
+      ]
+    },
+    {
+      "text": "The disputed facts on which the outcome turns should be proved with evidence: Skyline refuses to return the deposit and claims the £8,000 balance. It says the terrace could still be used, that the fireworks were only Mr Rowe's own commercial purpose, and that the event simply became less attractive.",
+      "citations": [
+        "F6"
+      ]
+    }
+  ],
+  "warnings": []
+}

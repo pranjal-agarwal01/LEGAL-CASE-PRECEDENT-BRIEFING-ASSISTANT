@@ -1,0 +1,387 @@
+{
+  "case_id": "FS02",
+  "title": "Okafor v St Aldhelm's Hospital NHS Trust",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Mr Okafor seeks damages for the failure by St Aldhelm's Hospital NHS Trust to warn him of a material 2% risk of nerve damage and available alternative treatments before cervical decompression surgery, leading to loss of fine motor control and his professional career (F1-F8).",
+      "citations": [
+        "F1",
+        "F2",
+        "F5",
+        "F8"
+      ]
+    },
+    {
+      "text": "The duty to disclose material risks and reasonable alternatives is established by Montgomery, requiring patient-centred disclosure particularly when the patient has specific concerns known to the doctor (J06:p2; J06:p3; F3).",
+      "citations": [
+        "J06:p2",
+        "J06:p3",
+        "F3"
+      ]
+    },
+    {
+      "text": "The Trust breached the standard of care by failing to warn, as reliance on a body of medical opinion omitting disclosure of this material risk is rejected post-Montgomery, especially given the patient's particular vulnerability (J06:p2; J06:p3; F2; F7).",
+      "citations": [
+        "J06:p2",
+        "J06:p3",
+        "F2",
+        "F7"
+      ]
+    },
+    {
+      "text": "The failure to warn vitiates informed consent under Chester where a patient would have delayed or sought alternatives, and causation is established when the injury occurs from the very risk about which the patient was not warned (J07:p1, p2, p3; F5; F6).",
+      "citations": [
+        "J07:p1",
+        "J07:p2",
+        "J07:p3",
+        "F5",
+        "F6"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Daniel Okafor consulted Mr Lyle on 2 February 2024 about chronic neck pain radiating into his left arm.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Mr Lyle recommended cervical decompression surgery but did not inform Mr Okafor of a roughly 2% risk of nerve root damage or about alternatives such as further physiotherapy and steroid injections.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "Mr Okafor informed Mr Lyle that his career depended on fine finger control of his left hand.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "Mr Okafor signed a consent form and underwent surgery on 11 April 2024, which was performed with proper skill.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "Nerve damage occurred resulting in permanent loss of fine motor control in two fingers of Mr Okafor's left hand, ending his professional career.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Mr Okafor states he would not have consented to surgery on that date if warned of risks, preferring to try physiotherapy and seek a second opinion first, though he might have had the operation eventually.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "The Trust argues that many responsible surgeons in 2024 did not routinely mention a 2% nerve damage risk; asserts surgery was not negligent and failure to warn caused no loss.",
+      "citations": [
+        "F7"
+      ]
+    },
+    {
+      "text": "Mr Okafor claims damages in negligence for failure to warn of material risk and alternative treatment options before consent.",
+      "citations": [
+        "F8"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Did St Aldhelm's Hospital NHS Trust owe Mr Okafor a duty of care to inform him about the 2% risk of nerve damage and the alternative treatments before his surgery?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J06",
+          "case_name": "Montgomery v Lanarkshire Health Board",
+          "citation": "[2015] UKSC 11",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A doctor has a duty to take reasonable care to ensure the patient is aware of any material risks and reasonable alternatives, including risks material to the particular patient.",
+            "citations": [
+              "J06:p2",
+              "J06:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J02",
+          "case_name": "Caparo Industries plc v Dickman",
+          "citation": "[1990] 2 AC 605",
+          "stance": "opposing",
+          "proposition": {
+            "text": "In novel situations, imposing a duty requires foreseeability, proximity, and fairness; a duty to warn of small risks and all alternatives is not clearly established as legal obligation.",
+            "citations": [
+              "J02:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Montgomery establishes that a doctor must inform a patient of material risks any reasonable patient or this specific patient would consider significant; Mr Okafor’s career reliance on fine finger control makes the 2% risk material (J06:p2; J06:p3; F3).",
+          "citations": [
+            "J06:p2",
+            "J06:p3",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The duty to warn of all possible small risks and alternatives is not firmly established by law and must develop incrementally with established criteria unmet here due to the low risk and lack of clear legal obligation (J02:p3).",
+          "citations": [
+            "J02:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Given Montgomery’s patient-centred approach and the clear knowledge of Mr Okafor’s specific concerns, the Trust owed a duty of care to disclose the 2% risk and alternatives despite the small risk size, making this duty well-established rather than novel.",
+        "citations": [
+          "J06:p2",
+          "J06:p3",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Was the standard of care breached by St Aldhelm's Hospital NHS Trust in failing to warn Mr Okafor of the 2% risk of nerve damage and the alternative treatments?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J06",
+          "case_name": "Montgomery v Lanarkshire Health Board",
+          "citation": "[2015] UKSC 11",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Montgomery overrides Bolam for risk disclosure; failure to disclose a material risk recognized by a reasonable or particular patient breaches the standard of care.",
+            "citations": [
+              "J06:p2",
+              "J06:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J13",
+          "case_name": "Paris v Stepney Borough Council",
+          "citation": "[1951] AC 367",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A heightened duty of care arises where the claimant's particular vulnerability or reliance makes the harm more serious and precautions more necessary.",
+            "citations": [
+              "J13:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J04",
+          "case_name": "Bolam v Friern Hospital Management Committee",
+          "citation": "[1957] 1 WLR 582",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Under Bolam, a medical professional is not negligent if acting in accordance with a responsible body of opinion, even if some practitioners would act differently.",
+            "citations": [
+              "J04:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J12",
+          "case_name": "Bolton v Stone",
+          "citation": "[1951] AC 850",
+          "stance": "opposing",
+          "proposition": {
+            "text": "A very small risk may be reasonably disregarded when weighing likelihood and practicality of precautions, negating breach of duty.",
+            "citations": [
+              "J12:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Montgomery displaces Bolam for risk disclosure and mandates disclosure of material risks as judged by reasonable patients or particular patient concerns; non-disclosure of a 2% risk significant to Mr Okafor breaches the standard of care (J06:p2; J06:p3; F2).",
+          "citations": [
+            "J06:p2",
+            "J06:p3",
+            "F2"
+          ]
+        },
+        {
+          "text": "Paris v Stepney Borough Council supports requiring greater care in light of the claimant’s particular vulnerability, here the career reliance on fine motor control, making omission unreasonable (J13:p3; F3).",
+          "citations": [
+            "J13:p3",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The Trust complied with the standard of care because two surgeons confirmed that many responsible practitioners did not disclose this small risk, so by Bolam no negligence arises (J04:p2; F7).",
+          "citations": [
+            "J04:p2",
+            "F7"
+          ]
+        },
+        {
+          "text": "The low 2% risk is akin to risks disregarded in Bolton v Stone, where small probability and practicability justify non-disclosure (J12:p3).",
+          "citations": [
+            "J12:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Montgomery’s rejection of Bolam for risk disclosure and emphasis on patient-specific factors strongly supports breach here, especially given Mr Okafor's specific vulnerability; the opposing reliance on customary practice and small risk is insufficient to excuse non-disclosure post-Montgomery.",
+        "citations": [
+          "J06:p2",
+          "J06:p3",
+          "J13:p3",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Did Mr Okafor give informed consent to the cervical decompression surgery despite the undisclosed 2% risk and alternative treatments?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J07",
+          "case_name": "Chester v Afshar",
+          "citation": "[2004] UKHL 41",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Consent is not informed if a small but material risk is not disclosed and the patient states they would have delayed or sought alternatives, validating lack of informed consent.",
+            "citations": [
+              "J07:p1"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [],
+      "supporting_argument": [
+        {
+          "text": "Chester confirms non-disclosure of a material risk invalidates consent, especially where the patient would have delayed the operation or sought other options, which Mr Okafor has credibly stated he would have done (F6; J07:p1).",
+          "citations": [
+            "F6",
+            "J07:p1"
+          ]
+        }
+      ],
+      "opposing_argument": [],
+      "assessment": {
+        "text": "Mr Okafor did not give informed consent as the undisclosed 2% risk and alternative treatments were material to his decision, consistent with Chester’s holding; his expressed intent to delay or seek alternatives supports this conclusion.",
+        "citations": [
+          "F6",
+          "J07:p1"
+        ]
+      }
+    },
+    {
+      "issue_id": "I4",
+      "question": "Did the failure to warn Mr Okafor of the 2% risk and alternative treatments cause the loss of fine motor control and professional capability suffered by him?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J07",
+          "case_name": "Chester v Afshar",
+          "citation": "[2004] UKHL 41",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Causation can be established if injury is within the scope of the risk about which a patient was not warned and the lack of warning deprived their autonomy to choose timing or alternatives.",
+            "citations": [
+              "J07:p2",
+              "J07:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J05",
+          "case_name": "Bolitho v City and Hackney Health Authority",
+          "citation": "[1998] AC 232",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Causation requires the hypothetical alternative conduct to be non-negligent and likely to prevent harm; intrinsic surgical risks undermine establishing causation here.",
+            "citations": [
+              "J05:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Chester holds that causation is proved where an injury results from a risk the patient was not warned about and the patient would have delayed surgery or sought alternatives, both satisfied by Mr Okafor’s evidence (F5; F6; J07:p2; J07:p3).",
+          "citations": [
+            "F5",
+            "F6",
+            "J07:p2",
+            "J07:p3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Bolitho requires that the alternative conduct must be non-negligent and likely to have prevented harm; here, the injury was an inherent risk of surgery and thus causation is not established (J05:p3; F6).",
+          "citations": [
+            "J05:p3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Following Chester, the injury was caused by the failure to warn since the risk materialised and the patient lost the opportunity to postpone surgery or seek alternatives; this principle suitably adjusts traditional causation to vindicate patient autonomy notwithstanding intrinsic surgical risks.",
+        "citations": [
+          "J07:p2",
+          "J07:p3",
+          "F5",
+          "F6"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "The Trust owed Mr Okafor a duty of care to inform him of the 2% risk and alternative treatments, particularly given his explicit career reliance on fine motor control, triggering a patient-specific standard of disclosure under Montgomery (J06:p2; J06:p3; F3).",
+      "citations": [
+        "J06:p2",
+        "J06:p3",
+        "F3"
+      ]
+    },
+    {
+      "text": "The Trust breached the standard of care by failing to disclose this material risk and alternatives, as medical customary practice cannot excuse non-disclosure post-Montgomery when the risk is material to the particular patient (J06:p2; J06:p3; J13:p3; F2; F7).",
+      "citations": [
+        "J06:p2",
+        "J06:p3",
+        "J13:p3",
+        "F2",
+        "F7"
+      ]
+    },
+    {
+      "text": "Mr Okafor did not give informed consent because he was unaware of material risks and alternatives affecting his decision, as supported by Chester’s principle protecting patient autonomy in timing and choice of treatment (F6; J07:p1).",
+      "citations": [
+        "F6",
+        "J07:p1"
+      ]
+    },
+    {
+      "text": "Causation is established since the loss derives from the undisclosed risk about which Mr Okafor was not informed, depriving him of the opportunity to delay or choose alternatives, consistent with the judgment in Chester adapting causation principles in informed consent cases (F5; F6; J07:p2; J07:p3).",
+      "citations": [
+        "F5",
+        "F6",
+        "J07:p2",
+        "J07:p3"
+      ]
+    }
+  ],
+  "warnings": []
+}

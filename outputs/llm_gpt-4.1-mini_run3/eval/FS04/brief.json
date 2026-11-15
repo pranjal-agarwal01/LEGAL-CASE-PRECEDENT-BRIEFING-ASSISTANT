@@ -1,0 +1,243 @@
+{
+  "case_id": "FS04",
+  "title": "Rowe v Skyline Terraces Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Mr Rowe entered into a contract hiring Skyline's rooftop terrace with the fundamental purpose of viewing the Thames Victory Fireworks, as evidenced by the advertisement and communications promising prime viewing.",
+      "citations": [
+        "F1",
+        "F2"
+      ]
+    },
+    {
+      "text": "The council cancelled the fireworks due to safety concerns, a supervening event which destroyed the basis of Mr Rowe's contract despite the terrace remaining accessible.",
+      "citations": [
+        "F4",
+        "F5"
+      ]
+    },
+    {
+      "text": "The legal question is whether this cancellation frustrated the contract, releasing Mr Rowe from paying the balance and justifying return of his deposit.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Mr Rowe agreed to hire Skyline's rooftop terrace for 5 July 2025 for £12,000 and paid a £4,000 deposit",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Skyline's online listing advertised the terrace as offering the best view of the Thames Victory Fireworks, a planned display, and assured front-row seats for the display in correspondence",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "The written hire agreement only mentioned exclusive use of the terrace from 6pm to midnight with bar service and did not mention the fireworks",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "The fireworks display was cancelled by the council on 28 June 2025 after a safety review",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "The terrace, bar and staff were still available on the booked date but Mr Rowe cancelled the event and requested his deposit back",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Skyline refuses to return the deposit and claims the remaining balance, arguing the terrace was still usable and that the fireworks were only Mr Rowe's commercial purpose",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Mr Rowe argues that the hire contract was frustrated by the cancellation of the fireworks and seeks return of his deposit and to avoid paying the balance",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Is the contract between Mr Rowe and Skyline Terraces Ltd frustrated by the cancellation of the Thames Victory Fireworks on 5 July 2025?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J37",
+          "case_name": "Krell v Henry",
+          "citation": "[1903] 2 KB 740",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Frustration arises where a supervening event destroys the common foundation of the contract, even if literal performance remains possible.",
+            "citations": [
+              "J37:p1",
+              "J37:p2",
+              "J37:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J36",
+          "case_name": "Taylor v Caldwell",
+          "citation": "(1863) 3 B & S 826",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Frustration can occur where performance depends on the continued existence of a specific thing and that thing is destroyed, discharging the contract.",
+            "citations": [
+              "J36:p1",
+              "J36:p2",
+              "J36:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J38",
+          "case_name": "Herne Bay Steam Boat Co v Hutton",
+          "citation": "[1903] 2 KB 683",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Frustration does not arise where a frustrating event defeats only one party's purpose and other meaningful performance remains possible.",
+            "citations": [
+              "J38:p1",
+              "J38:p2",
+              "J38:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J39",
+          "case_name": "Davis Contractors Ltd v Fareham Urban District Council",
+          "citation": "[1956] AC 696",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Frustration requires performance to be radically different or impossible. Mere hardship or less attractiveness does not suffice.",
+            "citations": [
+              "J39:p2",
+              "J39:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The advertisement and correspondence show the fireworks were the foundation and common purpose of the contract, akin to Krell v Henry where cancellation of the coronation procession frustrated the contract even though the flat remained usable.",
+          "citations": [
+            "J37:p1",
+            "J37:p2",
+            "F2",
+            "F4"
+          ]
+        },
+        {
+          "text": "Frustration applies because the cancellation destroyed the basis of the contract recognized by both parties, despite the terrace itself remaining accessible, as held in Krell.",
+          "citations": [
+            "J37:p3",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "text": "Following Taylor v Caldwell, frustration occurs not only by physical destruction but where the essential purpose ceases; here, the terrace's use without fireworks is fundamentally different from what was undertaken.",
+          "citations": [
+            "J36:p1",
+            "J36:p2",
+            "J36:p3",
+            "F4",
+            "F5"
+          ]
+        },
+        {
+          "text": "Omission of fireworks in the written contract does not exclude frustration, as the shared foundation includes representations outside the contract, similar to Krell.",
+          "citations": [
+            "J37:p2",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The terrace, bar, and staff remained available, making the event less attractive but not radically different, like Herne Bay where the naval review was cancelled but the cruise was possible, so no frustration arises.",
+          "citations": [
+            "J38:p1",
+            "J38:p2",
+            "J38:p3",
+            "F4",
+            "F5"
+          ]
+        },
+        {
+          "text": "The contract's written terms only guaranteed terrace use and bar service without fireworks, so the cancellation impacts Mr Rowe's personal purpose and does not frustrate the contract, consistent with Herne Bay and Davis Contractors.",
+          "citations": [
+            "J37:p2",
+            "J38:p2",
+            "J39:p2",
+            "J39:p3",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "text": "Frustration requires performance to be impossible or radically different; here the terrace remained intact and available, distinguishable from Taylor's destruction of the music hall, so frustration does not apply.",
+          "citations": [
+            "J36:p2",
+            "J36:p3",
+            "F4",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The strongest supporting precedent is Krell v Henry, which establishes that frustration can arise when a supervening event destroys the common foundation of a contract, even if physical performance remains possible, directly paralleling the cancellation of the fireworks which was the contract's foundation as shown by advertisements and communications (J37:p1, J37:p2, J37:p3, F2, F4). Taylor v Caldwell further supports that destruction or unavailability of the essential contractual purpose (here, fireworks viewing) discharges performance obligations (J36:p1, J36:p2, J36:p3). The opposing authorities Herne Bay and Davis Contractors emphasize that frustration is not made out merely because the event is less profitable or less attractive if substantial performance remains possible, but they are distinguishable as in those cases the frustrating event was not the shared foundation of the contract (J38:p2, J39:p3, F3, F6). Consequently, the facts and case law support that the contract was frustrated, entitling Mr Rowe to a refund of the deposit and discharge of the balance.",
+        "citations": [
+          "J37:p1",
+          "J37:p2",
+          "J37:p3",
+          "J36:p1",
+          "J36:p2",
+          "J36:p3",
+          "J38:p2",
+          "J39:p3",
+          "F2",
+          "F3",
+          "F4",
+          "F6"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "The contract is frustrated by the cancellation of the fireworks, as this event destroyed the foundation mutually understood by the parties, excusing Mr Rowe from performance and justifying return of his deposit.",
+      "citations": [
+        "J37:p2",
+        "J36:p2",
+        "F2",
+        "F4"
+      ]
+    },
+    {
+      "text": "Skyline's ongoing provision of the terrace, bar, and staff does not negate frustration, as the essential purpose of the contract was frustrated, making performance radically different.",
+      "citations": [
+        "J37:p3",
+        "J36:p3",
+        "F5"
+      ]
+    }
+  ],
+  "warnings": []
+}

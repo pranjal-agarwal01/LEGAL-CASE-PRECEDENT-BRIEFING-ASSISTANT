@@ -1,0 +1,188 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Is the contract between Mr Rowe and Skyline Terraces Ltd frustrated by the cancellation of the fireworks display?",
+      "doctrine": "frustration",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J37",
+          "passage_refs": [
+            "J37:p3",
+            "J37:p2"
+          ],
+          "score": 1.563,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks display? frustration supervening event foundation of the contract cancelled hire radically diffe",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J38",
+          "passage_refs": [
+            "J38:p2",
+            "J38:p1"
+          ],
+          "score": 1.1744,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks display? frustration supervening event foundation of the contract cancelled hire radically diffe",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J36",
+          "passage_refs": [
+            "J36:p2",
+            "J36:p3"
+          ],
+          "score": 0.582,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks display? frustration supervening event foundation of the contract cancelled hire radically diffe",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J39",
+          "passage_refs": [
+            "J39:p2",
+            "J39:p3"
+          ],
+          "score": 1.3695,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks display? frustration supervening event foundation of the contract cancelled hire radically diffe",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p1",
+            "J13:p2"
+          ],
+          "score": 0.3243,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks display? frustration supervening event foundation of the contract cancelled hire radically diffe",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J37",
+        "J36"
+      ],
+      "opposing": [
+        "J38",
+        "J39"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 4 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 4 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 4 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "On balance, the facts align with the supporting precedents because Skyline's advertising and communications indicated the fireworks were the contract's foundation, making its cancellation a frustrating event despite physical availability of the terrace and services. The opposing arguments that the contract centred only on terrace hire and that inconvenience is insufficient are weaker since the shared purpose was clearly the fireworks viewing, similar to Krell and Taylor, rather than merely using the venue. Therefore, the contract is likely frustrated and Mr Rowe can recover his deposit and avoid the balance."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Is the contract frustrated by the cancellation of the fireworks display? [frustration] The cancellation of the fireworks potentially impacts the fundamental purpose of the contract."
+    },
+    {
+      "seq": 2,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J37, J38, J36, J39, J13"
+    },
+    {
+      "seq": 3,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Is the contract between Mr Rowe and Skyline Terraces Ltd frustrated by the cancellation of the fireworks display? (client needs: pro)"
+    },
+    {
+      "seq": 4,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J37 argument relies on it"
+    },
+    {
+      "seq": 5,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 6,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J38 counter relies on it"
+    },
+    {
+      "seq": 7,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J39 counter relies on it"
+    },
+    {
+      "seq": 8,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 4 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J36 argument relies on it"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 4 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 11,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 4 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 12,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "On balance, the facts align with the supporting precedents because Skyline's advertising and communications indicated the fireworks were the contract's foundati"
+    }
+  ]
+}

@@ -1,0 +1,903 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Is there a duty of care owed by Harbourside Hotel Ltd to Ms Adeyemi regarding the security of her belongings?",
+      "doctrine": "duty_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J01",
+          "passage_refs": [
+            "J01:p2",
+            "J01:p3"
+          ],
+          "score": 1.5516,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a duty of care owed by Harbourside Hotel Ltd to Ms Adeyemi regarding the security of her belongings? duty of care negligence neighbour principle manufa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p1",
+            "J42:p2"
+          ],
+          "score": 1.0885,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a duty of care owed by Harbourside Hotel Ltd to Ms Adeyemi regarding the security of her belongings? duty of care negligence neighbour principle manufa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J19",
+          "passage_refs": [
+            "J19:p2",
+            "J19:p3"
+          ],
+          "score": 0.9547,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a duty of care owed by Harbourside Hotel Ltd to Ms Adeyemi regarding the security of her belongings? duty of care negligence neighbour principle manufa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J02",
+          "passage_refs": [
+            "J02:p3",
+            "J02:p2"
+          ],
+          "score": 0.8286,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a duty of care owed by Harbourside Hotel Ltd to Ms Adeyemi regarding the security of her belongings? duty of care negligence neighbour principle manufa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p2",
+            "J08:p1"
+          ],
+          "score": 0.6425,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a duty of care owed by Harbourside Hotel Ltd to Ms Adeyemi regarding the security of her belongings? duty of care negligence neighbour principle manufa",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J01"
+      ],
+      "opposing": [
+        "J01"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+        }
+      ],
+      "assessment": "Given guests' reliance on hotel security and foreseeability of theft from negligence, a duty of care likely arises under the neighbour principle in Donoghue v Stevenson, favoring Ms Adeyemi's position."
+    },
+    {
+      "id": "I2",
+      "question": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the hotel?",
+      "doctrine": "offer_acceptance",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p1"
+          ],
+          "score": 1.2182,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the hotel? offer unilateral contract advertisement invitation ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p3"
+          ],
+          "score": 1.2904,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the hotel? offer unilateral contract advertisement invitation ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J44",
+          "passage_refs": [
+            "J44:p2",
+            "J44:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "exclusion clause incorporation hotel guest bedroom door notice",
+          "reason": "Leading cases on incorporation of exclusion clauses, notably Olley v Marlborough Court Ltd for hotel bedroom door notice exclusion, Carlill for offer and acceptance, Photo Production for clause construction, L'Estrange for signature binding, and Thornton for notice timing."
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "exclusion clause incorporation hotel guest bedroom door notice",
+          "reason": "Leading cases on incorporation of exclusion clauses, notably Olley v Marlborough Court Ltd for hotel bedroom door notice exclusion, Carlill for offer and acceptance, Photo Production for clause construction, L'Estrange for signature binding, and Thornton for notice timing."
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p2",
+            "J43:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "exclusion clause incorporation hotel guest bedroom door notice",
+          "reason": "Leading cases on incorporation of exclusion clauses, notably Olley v Marlborough Court Ltd for hotel bedroom door notice exclusion, Carlill for offer and acceptance, Photo Production for clause construction, L'Estrange for signature binding, and Thornton for notice timing."
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p2",
+            "J24:p3"
+          ],
+          "score": 1.0644,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the hotel? offer unilateral contract advertisement invitation ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J25",
+          "passage_refs": [
+            "J25:p2",
+            "J25:p3"
+          ],
+          "score": 0.8628,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the hotel? offer unilateral contract advertisement invitation ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J50",
+          "passage_refs": [
+            "J50:p3",
+            "J50:p2"
+          ],
+          "score": 0.8526,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the hotel? offer unilateral contract advertisement invitation ",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J42"
+      ],
+      "opposing": [
+        "J42"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+        }
+      ],
+      "assessment": "Olley clearly supports non-incorporation of exclusion terms first appearing in the room after contracting; the hotel's reliance on the clause is weak on this basis."
+    },
+    {
+      "id": "I3",
+      "question": "Was the hotel's standard of care breached by leaving a master key card unattended?",
+      "doctrine": "standard_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J11",
+          "passage_refs": [
+            "J11:p3",
+            "J11:p2"
+          ],
+          "score": 1.3437,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the hotel's standard of care breached by leaving a master key card unattended? breach standard of care reasonable person precautions risk probability On 13 ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p1",
+            "J42:p2"
+          ],
+          "score": 0.9863,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the hotel's standard of care breached by leaving a master key card unattended? breach standard of care reasonable person precautions risk probability On 13 ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p3",
+            "J12:p2"
+          ],
+          "score": 1.3766,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the hotel's standard of care breached by leaving a master key card unattended? breach standard of care reasonable person precautions risk probability On 13 ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J14",
+          "passage_refs": [
+            "J14:p2",
+            "J14:p3"
+          ],
+          "score": 1.0239,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the hotel's standard of care breached by leaving a master key card unattended? breach standard of care reasonable person precautions risk probability On 13 ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p3",
+            "J13:p1"
+          ],
+          "score": 0.9783,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the hotel's standard of care breached by leaving a master key card unattended? breach standard of care reasonable person precautions risk probability On 13 ",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J42"
+      ],
+      "opposing": [
+        "J42"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+        }
+      ],
+      "assessment": "Given the unattended master key led to theft, consistent with Olley, a breach of the hotel's standard of care is likely established favoring Ms Adeyemi."
+    },
+    {
+      "id": "I4",
+      "question": "Is the reliance on the exclusion notice legally effective to exclude liability for theft of guest property?",
+      "doctrine": "exclusion_clause",
+      "raised_by": "fact_extractor",
+      "client_position": "contra",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p1"
+          ],
+          "score": 1.5428,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the reliance on the exclusion notice legally effective to exclude liability for theft of guest property? exclusion clause incorporation notice before contrac",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J44",
+          "passage_refs": [
+            "J44:p3",
+            "J44:p2"
+          ],
+          "score": 0.9835,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the reliance on the exclusion notice legally effective to exclude liability for theft of guest property? exclusion clause incorporation notice before contrac",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p1"
+          ],
+          "score": 0.9667,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the reliance on the exclusion notice legally effective to exclude liability for theft of guest property? exclusion clause incorporation notice before contrac",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p3",
+            "J43:p2"
+          ],
+          "score": 0.7483,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the reliance on the exclusion notice legally effective to exclude liability for theft of guest property? exclusion clause incorporation notice before contrac",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J45",
+          "passage_refs": [
+            "J45:p2",
+            "J45:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "effectiveness exclusion clause liability theft hotel guest property",
+          "reason": "Cases on effectiveness of exclusion clauses including Olley rejecting notice seen post-contract, Photo Production on construction of clauses in commercial contracts, L'Estrange on signature binding, Thornton on notice timing, and Interfoto on unusual or onerous terms."
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p1",
+            "J41:p3"
+          ],
+          "score": 0.8696,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the reliance on the exclusion notice legally effective to exclude liability for theft of guest property? exclusion clause incorporation notice before contrac",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J42"
+      ],
+      "opposing": [
+        "J42"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+        }
+      ],
+      "assessment": "The exclusion clause reliance is legally ineffective since it failed incorporation and lacked reasonable notice to Ms Adeyemi before contract formation."
+    },
+    {
+      "id": "I5",
+      "question": "Did Ms Adeyemi have actual or constructive notice of the exclusion terms to bind her contractually?",
+      "doctrine": "communication_of_acceptance",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p1"
+          ],
+          "score": 0.6861,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Ms Adeyemi have actual or constructive notice of the exclusion terms to bind her contractually? communication of acceptance postal rule notification of acce",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p2",
+            "J43:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "notice exclusion terms hotel guest contract binding",
+          "reason": "Cases focusing on actual or constructive notice of exclusion clauses: Olley on timing of notice; Thornton on onerous terms and clear notice; Parker on reasonable steps to bring notice; and Entores and Adams on acceptance and communication principles."
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p2",
+            "J41:p3"
+          ],
+          "score": 0.4112,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Ms Adeyemi have actual or constructive notice of the exclusion terms to bind her contractually? communication of acceptance postal rule notification of acce",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J28",
+          "passage_refs": [
+            "J28:p3",
+            "J28:p2"
+          ],
+          "score": 1.5302,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Ms Adeyemi have actual or constructive notice of the exclusion terms to bind her contractually? communication of acceptance postal rule notification of acce",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J27",
+          "passage_refs": [
+            "J27:p3",
+            "J27:p2"
+          ],
+          "score": 0.9558,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Ms Adeyemi have actual or constructive notice of the exclusion terms to bind her contractually? communication of acceptance postal rule notification of acce",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p3",
+            "J23:p2"
+          ],
+          "score": 0.461,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Ms Adeyemi have actual or constructive notice of the exclusion terms to bind her contractually? communication of acceptance postal rule notification of acce",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J42",
+        "J41"
+      ],
+      "opposing": [
+        "J41",
+        "J42"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Folake Adeyemi"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+        }
+      ],
+      "assessment": "Ms Adeyemi was not contractually bound by the exclusion notice terms due to absence of actual or constructive notice before or at contract formation."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Is there a duty of care owed by Harbourside Hotel Ltd to Ms Adeyemi regarding the security of her belongings? [duty_of_care] The facts involve a hotel proprietor's responsibility for guest property security."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the hotel? [offer_acceptance] Whether the exclusion clause forms part of the contract is disputed."
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Was the hotel's standard of care breached by leaving a master key card unattended? [standard_of_care] The theft occurred due to a staff member's negligence."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I4",
+      "detail": "Is the reliance on the exclusion notice legally effective to exclude liability for theft of guest property? [exclusion_clause] The hotel seeks to rely on the exclusion clause to avoid liability."
+    },
+    {
+      "seq": 5,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I5",
+      "detail": "Did Ms Adeyemi have actual or constructive notice of the exclusion terms to bind her contractually? [communication_of_acceptance] The exclusion clause was not on the registration card and she did not visit the website."
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J01, J42, J19, J02, J08"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J42, J23, J44, J40, J43, J24, J25, J50"
+    },
+    {
+      "seq": 8,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J11, J42, J12, J14, J13"
+    },
+    {
+      "seq": 9,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I4",
+      "detail": "J42, J44, J40, J43, J45, J41"
+    },
+    {
+      "seq": 10,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I5",
+      "detail": "J42, J43, J41, J28, J27, J23"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Is there a duty of care owed by Harbourside Hotel Ltd to Ms Adeyemi regarding the security of her belongings? (client needs: pro)"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the hotel? (client needs: pro)"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Was the hotel's standard of care breached by leaving a master key card unattended? (client needs: pro)"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I4",
+      "detail": "Is the reliance on the exclusion notice legally effective to exclude liability for theft of guest property? (client needs: contra)"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I5",
+      "detail": "Did Ms Adeyemi have actual or constructive notice of the exclusion terms to bind her contractually? (client needs: pro)"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J01 argument relies on it"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J42 argument relies on it"
+    },
+    {
+      "seq": 18,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J42 argument relies on it"
+    },
+    {
+      "seq": 19,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I4",
+      "detail": "J42 argument relies on it"
+    },
+    {
+      "seq": 20,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I5",
+      "detail": "J42 argument relies on it"
+    },
+    {
+      "seq": 21,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I5",
+      "detail": "J41 argument relies on it"
+    },
+    {
+      "seq": 22,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 23,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 24,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 25,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 26,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I5",
+      "detail": "round 1: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 27,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J01 counter relies on it"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J42 counter relies on it"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J42 counter relies on it"
+    },
+    {
+      "seq": 30,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I4",
+      "detail": "J42 counter relies on it"
+    },
+    {
+      "seq": 31,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I5",
+      "detail": "J41 counter relies on it"
+    },
+    {
+      "seq": 32,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I5",
+      "detail": "J42 counter relies on it"
+    },
+    {
+      "seq": 33,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 34,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 35,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 36,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 37,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I5",
+      "detail": "round 1: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 38,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 39,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 40,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 41,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 42,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I5",
+      "detail": "round 2: 1 point(s) for Folake Adeyemi"
+    },
+    {
+      "seq": 43,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 44,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 45,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 46,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 47,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I5",
+      "detail": "round 2: 1 point(s) for Harbourside Hotel Ltd"
+    },
+    {
+      "seq": 48,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Given guests' reliance on hotel security and foreseeability of theft from negligence, a duty of care likely arises under the neighbour principle in Donoghue v S"
+    },
+    {
+      "seq": 49,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Olley clearly supports non-incorporation of exclusion terms first appearing in the room after contracting; the hotel's reliance on the clause is weak on this ba"
+    },
+    {
+      "seq": 50,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "Given the unattended master key led to theft, consistent with Olley, a breach of the hotel's standard of care is likely established favoring Ms Adeyemi."
+    },
+    {
+      "seq": 51,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I4",
+      "detail": "The exclusion clause reliance is legally ineffective since it failed incorporation and lacked reasonable notice to Ms Adeyemi before contract formation."
+    },
+    {
+      "seq": 52,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I5",
+      "detail": "Ms Adeyemi was not contractually bound by the exclusion notice terms due to absence of actual or constructive notice before or at contract formation."
+    }
+  ]
+}

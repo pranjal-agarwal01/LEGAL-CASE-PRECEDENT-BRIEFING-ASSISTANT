@@ -1,0 +1,267 @@
+{
+  "mode": "llm:foundry",
+  "llm_calls": 9,
+  "seconds": 44.916,
+  "structured_facts": {
+    "case_id": "FS04",
+    "title": "Rowe v Skyline Terraces Ltd",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Thomas Rowe",
+        "role": "claimant",
+        "description": "An events organiser who hired the rooftop terrace."
+      },
+      {
+        "name": "Skyline Terraces Ltd",
+        "role": "defendant",
+        "description": "Owner of a rooftop terrace bar beside the River Thames."
+      }
+    ],
+    "chronology": [
+      {
+        "date": "10 May 2025",
+        "iso_date": "2025-05-10",
+        "event": "Mr Rowe agreed to hire Skyline's rooftop terrace for the evening of 5 July 2025 for \u00a312,000 and paid a \u00a34,000 deposit.",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "28 June 2025",
+        "iso_date": "2025-06-28",
+        "event": "The council cancelled the fireworks display after a safety review.",
+        "fact_ref": "F4"
+      },
+      {
+        "date": "29 June 2025",
+        "iso_date": "2025-06-29",
+        "event": "Mr Rowe cancelled his event and asked for his deposit back.",
+        "fact_ref": "F5"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Thomas Rowe",
+        "respondent": "Skyline Terraces Ltd",
+        "claim": "That the hire contract was frustrated by the cancellation of the fireworks and therefore he wants his deposit back and to avoid paying the balance.",
+        "legal_basis": "Contract frustration",
+        "fact_refs": [
+          "F7",
+          "F4",
+          "F5"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "Mr Rowe agreed on 10 May 2025 to hire the rooftop terrace for 5 July 2025, paying \u00a312,000 with a \u00a34,000 deposit.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "Skyline advertised the terrace as offering the best view of the Thames Victory Fireworks and promised front-row seats, which influenced Mr Rowe's decision as he planned his guests to watch the fireworks.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "The hire agreement only described exclusive use of the terrace from 6pm to midnight with bar service and did not mention the fireworks display.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "The council cancelled the fireworks display on 28 June 2025 after a safety review.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "The terrace, bar, and staff remained available on 5 July 2025, but Mr Rowe cancelled his event and requested his deposit back on 29 June 2025.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "Skyline refused to return the deposit and claims the balance of \u00a38,000, arguing the terrace could still be used and the fireworks were only Mr Rowe's own commercial purpose.",
+        "citations": [
+          "F6"
+        ]
+      },
+      {
+        "text": "Mr Rowe asserts that the contract was frustrated by the cancellation of the fireworks, seeking a refund of his deposit and to avoid paying the remaining balance.",
+        "citations": [
+          "F7"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Mr Rowe argues that the hire contract was frustrated by the cancellation of the fireworks. He wants his deposit back and to avoid paying the balance.",
+      "citations": [
+        "F7"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 92,
+    "valid_citations": 92,
+    "existence_rate": 1.0,
+    "judgment_citations": 63,
+    "valid_judgment_citations": 63,
+    "statements": 33,
+    "statements_with_valid_citation": 33,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 92
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J37",
+      "J23",
+      "J36",
+      "J38",
+      "J39",
+      "J50",
+      "J24"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 92,
+    "valid_citations": 92,
+    "existence_rate": 1.0,
+    "judgment_citations": 63,
+    "valid_judgment_citations": 63,
+    "statements": 33,
+    "statements_with_valid_citation": 33,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 92
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J37",
+      "J23",
+      "J36",
+      "J38",
+      "J39",
+      "J50",
+      "J24"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.029,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS04: 7 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 5.98,
+      "agent": "fact_extractor",
+      "action": "llm_extract",
+      "detail": "doctrine cue scores: {'offer_acceptance': 1, 'frustration': 4, 'exclusion_clause': 1}",
+      "round": 0
+    },
+    {
+      "t": 5.98,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "2 parties, 3 dated events, 1 claims, 3 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 5.983,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1, I2, I3",
+      "round": 0
+    },
+    {
+      "t": 10.592,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J37', 'J38', 'J36', 'J39', 'J13']",
+      "round": 0
+    },
+    {
+      "t": 10.592,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I2: ['J37', 'J40', 'J23', 'J32', 'J50', 'J24', 'J25', 'J27']",
+      "round": 0
+    },
+    {
+      "t": 10.592,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I3: ['J47', 'J37', 'J12', 'J38', 'J23', 'J32', 'J30']",
+      "round": 0
+    },
+    {
+      "t": 13.044,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "3 framed, 0 added",
+      "round": 0
+    },
+    {
+      "t": 17.204,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "3 points",
+      "round": 1
+    },
+    {
+      "t": 18.931,
+      "agent": "counter_argument",
+      "action": "defences",
+      "detail": "0 defence issue(s) proposed",
+      "round": 1
+    },
+    {
+      "t": 23.704,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "3 points",
+      "round": 1
+    },
+    {
+      "t": 28.979,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "3 points",
+      "round": 2
+    },
+    {
+      "t": 33.742,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "3 points",
+      "round": 2
+    },
+    {
+      "t": 33.745,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 3 issues",
+      "round": 3
+    },
+    {
+      "t": 44.909,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 100.00%, 0 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 44.909,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

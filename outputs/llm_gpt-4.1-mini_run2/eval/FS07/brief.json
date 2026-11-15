@@ -1,0 +1,248 @@
+{
+  "case_id": "FS07",
+  "title": "Brennan Joinery Ltd v Castlegate Developments Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Brennan Joinery Ltd seeks to enforce Castlegate Developments Ltd's promise to pay an additional £18,000 for timely completion of remaining houses under a variation or promissory estoppel.",
+      "citations": [
+        "F4",
+        "F5",
+        "F7"
+      ]
+    },
+    {
+      "text": "Williams v Roffey Bros supports the validity of a contract variation based on practical benefit obtained by the promisor, distinguishing the old rule in Stilk v Myrick.",
+      "citations": [
+        "J32:p2",
+        "J32:p3"
+      ]
+    },
+    {
+      "text": "The High Trees case establishes promissory estoppel empowering enforcement of promises intended to be binding and acted upon, even absent consideration.",
+      "citations": [
+        "J33:p3"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Brennan Joinery Ltd was contracted by Castlegate to fit kitchens and staircases in 30 new townhouses for £150,000, to be completed by June 30, 2025",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Castlegate's contract with the developer contains a liquidated damages clause of £5,000 per day for late completion",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "By April 2025 Brennan had completed 12 houses and indicated financial difficulties and possible failure to finish the job",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "On 14 April 2025 Castlegate promised to pay Brennan an extra £1,000 per remaining house completed on time to avoid penalties",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "Brennan completed the remaining 18 houses by the deadline, but Castlegate only paid the original contract price and refused the extra £18,000",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "There was no threat or pressure from Brennan to obtain Castlegate’s promise; the offer of extra payment came solely from Castlegate",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Brennan seeks to recover the £18,000 promised in extra payment",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Is there a valid variation to the contract between Brennan Joinery Ltd and Castlegate Developments Ltd obliging Castlegate to pay the extra £18,000?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J32",
+          "case_name": "Williams v Roffey Bros & Nicholls (Contractors) Ltd",
+          "citation": "[1991] 1 QB 1",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Williams v Roffey Bros establishes that a promise of extra payment is enforceable if it confers a practical benefit on the promisor without economic duress or fraud.",
+            "citations": [
+              "J32:p2",
+              "J32:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J31",
+          "case_name": "Stilk v Myrick",
+          "citation": "(1809) 2 Camp 317",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Stilk v Myrick holds that performance of an existing contractual duty is not good consideration for a promise to pay extra, rendering such promises unenforceable.",
+            "citations": [
+              "J31:p2",
+              "J31:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The promise by Castlegate to pay an extra £1,000 for each remaining house completed on time constitutes a valid contract variation because Castlegate obtained a practical benefit: avoiding the developer's penalty and the trouble of finding another joiner.",
+          "citations": [
+            "J32:p3",
+            "F2",
+            "F4",
+            "F5",
+            "F6"
+          ]
+        },
+        {
+          "text": "The practical benefit rule from Williams v Roffey Bros applies as there was no economic duress or fraud, and Brennan's timely completion gave Castlegate clear advantages.",
+          "citations": [
+            "J32:p2",
+            "J32:p3",
+            "F2",
+            "F4",
+            "F5",
+            "F6"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The promise of extra payment is unenforceable for lack of consideration since Brennan was contractually obliged to complete all 30 houses by the deadline; performing this existing duty cannot provide fresh consideration, as held in Stilk v Myrick.",
+          "citations": [
+            "J31:p2",
+            "J31:p3",
+            "F1",
+            "F5"
+          ]
+        },
+        {
+          "text": "Williams v Roffey Bros only refines Stilk v Myrick and requires some indication of refusal to perform or alteration of obligation, neither of which is present here, distinguishing the case facts.",
+          "citations": [
+            "J32:p3",
+            "F3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The balance of authorities favors finding a valid variation under Williams v Roffey Bros since Castlegate obtained a practical benefit preventing penalties and replacement costs, and there was no economic duress; the absence of a refusal to perform does not preclude variation when a practical benefit is gained.",
+        "citations": [
+          "J32:p2",
+          "J32:p3",
+          "F2",
+          "F4",
+          "F5",
+          "F6"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Can Brennan Joinery Ltd enforce Castlegate Developments Ltd's promise to pay the extra £18,000 on the basis of promissory estoppel?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J33",
+          "case_name": "Central London Property Trust Ltd v High Trees House Ltd",
+          "citation": "[1947] KB 130",
+          "stance": "supporting",
+          "proposition": {
+            "text": "High Trees establishes that a promise intended to be binding and acted upon can be enforced under promissory estoppel, even without consideration.",
+            "citations": [
+              "J33:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [],
+      "supporting_argument": [
+        {
+          "text": "Castlegate's promise was intended to be binding and was acted upon by Brennan completing the houses on schedule, creating a promissory estoppel preventing Castlegate from denying the payment obligation.",
+          "citations": [
+            "J33:p3",
+            "F4",
+            "F5"
+          ]
+        },
+        {
+          "text": "Even if consideration is absent, promissory estoppel applies to prevent injustice where a party relies on a clear promise made to them.",
+          "citations": [
+            "J33:p3",
+            "F4",
+            "F5"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Promissory estoppel cannot create a new cause of action or an independent basis to enforce Castlegate's promise where no fresh consideration exists; it only suspends rights under existing contracts as per High Trees.",
+          "citations": [
+            "J33:p3",
+            "F4",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Although promissory estoppel prevents Castlegate from denying the promise, it traditionally does not provide an independent cause of action to enforce new payment obligations absent consideration, limiting its practical application here.",
+        "citations": [
+          "J33:p3",
+          "F4",
+          "F5"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Brennan Joinery Ltd has a strong argument that Castlegate's promise is enforceable as a valid contract variation based on practical benefit under Williams v Roffey Bros, which fits the facts of avoiding penalties and additional costs without duress.",
+      "citations": [
+        "J32:p2",
+        "J32:p3",
+        "F2",
+        "F4",
+        "F5",
+        "F6"
+      ]
+    },
+    {
+      "text": "Promissory estoppel offers a secondary but less robust basis for enforcement, as it precludes Castlegate from reneging on its promise but traditionally does not independently create enforceable new payment obligations without consideration.",
+      "citations": [
+        "J33:p3",
+        "F4",
+        "F5"
+      ]
+    },
+    {
+      "text": "Overall, Brennan's best position lies in showing the practical benefit conferred to justify the contract variation; reliance on promissory estoppel provides supplementary support primarily aimed at preventing unconscionable denial of the promise.",
+      "citations": [
+        "J32:p3",
+        "J33:p3"
+      ]
+    }
+  ],
+  "warnings": [
+    "Removed non-existent citation(s) ['I1', 'I2'] from: The key legal issues are whether there is valid consideration supporting contrac",
+    "Dropped uncited claim: The key legal issues are whether there is valid consideration supporting contrac"
+  ]
+}

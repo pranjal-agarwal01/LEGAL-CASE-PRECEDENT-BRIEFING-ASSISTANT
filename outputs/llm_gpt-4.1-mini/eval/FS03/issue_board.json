@@ -1,0 +1,524 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Was the PeakFit advertisement a legally binding offer to Ms Hughes rather than mere invitation to treat?",
+      "doctrine": "offer_acceptance",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p3"
+          ],
+          "score": 1.5666,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a legally binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance b",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p2",
+            "J24:p3"
+          ],
+          "score": 1.497,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a legally binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance b",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J50",
+          "passage_refs": [
+            "J50:p2",
+            "J50:p3"
+          ],
+          "score": 1.2339,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a legally binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance b",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J25",
+          "passage_refs": [
+            "J25:p3",
+            "J25:p2"
+          ],
+          "score": 0.9573,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a legally binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance b",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J26",
+          "passage_refs": [
+            "J26:p1",
+            "J26:p2"
+          ],
+          "score": 0.9441,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a legally binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance b",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J24",
+        "J50"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "The Carlill precedent closely parallels the PeakFit scenario, particularly regarding the deposit demonstrating intention and acceptance by performance; while usual ad cases favour invitation to treat, the specific unilateral promise and deposited funds indicate an offer was made to Ms Hughes."
+    },
+    {
+      "id": "I2",
+      "question": "Is PeakFit's promise to pay \u00a32,000 to Ms Hughes enforceable rather than merely marketing puff?",
+      "doctrine": "intention_legal_relations",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J29",
+          "passage_refs": [
+            "J29:p3",
+            "J29:p2"
+          ],
+          "score": 1.5553,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's promise to pay \u00a32,000 enforceable or merely marketing puff? intention to create legal relations mere puff sincerity deposit domestic agreement More",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J30",
+          "passage_refs": [
+            "J30:p2",
+            "J30:p3"
+          ],
+          "score": 1.4037,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's promise to pay \u00a32,000 enforceable or merely marketing puff? intention to create legal relations mere puff sincerity deposit domestic agreement More",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p1"
+          ],
+          "score": 1.2124,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's promise to pay \u00a32,000 enforceable or merely marketing puff? intention to create legal relations mere puff sincerity deposit domestic agreement More",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p2",
+            "J31:p3"
+          ],
+          "score": 0.3008,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's promise to pay \u00a32,000 enforceable or merely marketing puff? intention to create legal relations mere puff sincerity deposit domestic agreement More",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p2",
+            "J32:p1"
+          ],
+          "score": 0.2641,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is PeakFit's promise to pay \u00a32,000 enforceable or merely marketing puff? intention to create legal relations mere puff sincerity deposit domestic agreement More",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J29"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "Though marketing puff is a common defense, the deposit and clear conditions strongly support intention to create legal relations, aligning with Carlill rather than Balfour, especially since this is a commercial promotion rather than a domestic/social agreement."
+    },
+    {
+      "id": "I3",
+      "question": "Did PeakFit's term allowing withdrawal of promotions, not exercised before 15 April, affect the validity of Ms Hughes's contract?",
+      "doctrine": "termination",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p3",
+            "J42:p2"
+          ],
+          "score": 0.2987,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the terms allowing withdrawal of promotions affect the validity of the contract? termination innominate term deprived of substantially the whole benefit Pea",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p3",
+            "J43:p2"
+          ],
+          "score": 0.2087,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the terms allowing withdrawal of promotions affect the validity of the contract? termination innominate term deprived of substantially the whole benefit Pea",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p3",
+            "J41:p2"
+          ],
+          "score": 0.2836,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the terms allowing withdrawal of promotions affect the validity of the contract? termination innominate term deprived of substantially the whole benefit Pea",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J47",
+          "passage_refs": [
+            "J47:p2",
+            "J47:p3"
+          ],
+          "score": 1.5391,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the terms allowing withdrawal of promotions affect the validity of the contract? termination innominate term deprived of substantially the whole benefit Pea",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p3",
+            "J32:p2"
+          ],
+          "score": 0.2235,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the terms allowing withdrawal of promotions affect the validity of the contract? termination innominate term deprived of substantially the whole benefit Pea",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J42"
+      ],
+      "opposing": [
+        "J42"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "Given the unilateral nature of contract formation by full performance without notification, Ms Hughes accepted on 15 April, before which no withdrawal was made; thus, PeakFit\u2019s withdrawal term was ineffective to prevent contract formation."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Was the PeakFit advertisement a legally binding offer or merely an invitation to treat? [offer_acceptance] The defendant claims the advertisement was only an invitation to treat, while the claimant argues it was a binding offer."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I1",
+      "detail": "Did Ms Hughes accept the offer by performing the required conditions (completing workouts and weigh-in)?"
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Is PeakFit's promise to pay \u00a32,000 enforceable or merely marketing puff? [intention_legal_relations] Determining if the advertisement expresses an intention to be legally bound or is merely promotional."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I2",
+      "detail": "Does the inclusion of \u00a3100,000 placed with Barclays affect the intention to create legal relations?"
+    },
+    {
+      "seq": 5,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Did the terms allowing withdrawal of promotions affect the validity of the contract? [termination] Whether the ability to withdraw promotions at any time negates the contractual promise."
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J23, J24, J50, J25, J26"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J29, J30, J23, J31, J32"
+    },
+    {
+      "seq": 8,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J42, J43, J41, J47, J32"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Was the PeakFit advertisement a legally binding offer to Ms Hughes rather than mere invitation to treat? (client needs: pro)"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Is PeakFit's promise to pay \u00a32,000 to Ms Hughes enforceable rather than merely marketing puff? (client needs: pro)"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Did PeakFit's term allowing withdrawal of promotions, not exercised before 15 April, affect the validity of Ms Hughes's contract? (client needs: pro)"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J42 argument relies on it"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 18,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J24 counter relies on it"
+    },
+    {
+      "seq": 19,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J50 counter relies on it"
+    },
+    {
+      "seq": 20,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J29 counter relies on it"
+    },
+    {
+      "seq": 21,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J42 counter relies on it"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 25,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 26,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 27,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 30,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 31,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "The Carlill precedent closely parallels the PeakFit scenario, particularly regarding the deposit demonstrating intention and acceptance by performance; while us"
+    },
+    {
+      "seq": 32,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Though marketing puff is a common defense, the deposit and clear conditions strongly support intention to create legal relations, aligning with Carlill rather t"
+    },
+    {
+      "seq": 33,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "Given the unilateral nature of contract formation by full performance without notification, Ms Hughes accepted on 15 April, before which no withdrawal was made;"
+    }
+  ]
+}

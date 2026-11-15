@@ -1,0 +1,366 @@
+{
+  "case_id": "FS07",
+  "title": "Brennan Joinery Ltd v Castlegate Developments Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "The case revolves around whether Brennan Joinery Ltd can claim an additional £18,000 promised by Castlegate Developments Ltd for completing kitchen and staircase fitments on time under an alleged contract variation.",
+      "citations": [
+        "F1",
+        "F2",
+        "F4",
+        "F5",
+        "F6"
+      ]
+    },
+    {
+      "text": "Brennan argues that the promise of extra payment is supported by consideration because Castlegate obtained a practical benefit by avoiding costly penalties and the trouble of engaging another contractor, per Williams v Roffey Bros (J32:p3).",
+      "citations": [
+        "J32:p3",
+        "F2",
+        "F4",
+        "F6"
+      ]
+    },
+    {
+      "text": "Castlegate counters that Brennan was already contractually obliged to complete the work on time, so no fresh consideration supports the promise, invoking Stilk v Myrick (J31:p3) and asserting the promise is gratuitous absent economic duress.",
+      "citations": [
+        "J31:p3",
+        "F1",
+        "F6"
+      ]
+    },
+    {
+      "text": "On offer and acceptance, Brennan likens Castlegate's promise to a unilateral offer accepted by performance under Carlill v Carbolic Smoke Ball Co (J23:p2), whereas Castlegate argues the promise was a mere negotiation lacking clear acceptance.",
+      "citations": [
+        "J23:p2",
+        "F4",
+        "F5"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Brennan was engaged by Castlegate in January 2025 to complete work on 30 townhouses for a fixed price of £150,000 by 30 June 2025.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Castlegate's contract with the developer includes a liquidated damages clause of £5,000 per day for late completion.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "By April 2025, Brennan had completed 12 houses, but stated financial difficulties and possible inability to finish the project.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "On 14 April 2025, Castlegate promised in writing to pay Brennan an additional £1,000 per remaining house completed on time to avoid penalties or hiring another joiner.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "Brennan completed the remaining 18 houses by the deadline of 30 June 2025.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Castlegate paid only the original contract price but refused to pay the extra £18,000, claiming Brennan was already obligated to complete the work under the original contract.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Brennan did not threaten to abandon the contract to obtain the extra payment; the extra payment offer originated from Castlegate.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Brennan seeks to recover the promised £18,000 in additional payment.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Is there a valid variation to the contract allowing Brennan Joinery Ltd to claim the extra £18,000 from Castlegate Developments Ltd?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J32",
+          "case_name": "Williams v Roffey Bros & Nicholls (Contractors) Ltd",
+          "citation": "[1991] 1 QB 1",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A promise of extra payment for performing an existing contractual duty is enforceable if the promisor obtains a practical benefit and there is no economic duress.",
+            "citations": [
+              "J32:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J26",
+          "case_name": "Hyde v Wrench",
+          "citation": "(1840) 3 Beav 334",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A valid acceptance must be clear; offers and counter-offers must be correctly understood to form valid contracts.",
+            "citations": [
+              "J26:p1",
+              "J26:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J31",
+          "case_name": "Stilk v Myrick",
+          "citation": "(1809) 2 Camp 317",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Performing an existing contractual duty owed to the promisor is not good consideration for a promise of extra payment, making such promises unenforceable.",
+            "citations": [
+              "J31:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Under Williams v Roffey Bros, Castlegate obtained a practical benefit—avoiding a £5,000 daily penalty and disruption—which suffices as consideration for the promise of extra payment, with no signs of economic duress present.",
+          "citations": [
+            "J32:p3",
+            "F2",
+            "F4",
+            "F6"
+          ]
+        },
+        {
+          "text": "The Stilk v Myrick rule is refined rather than overruled; where a practical benefit beyond the original contract exists, consideration supports the variation, as is the case here.",
+          "citations": [
+            "J32:p3",
+            "J31:p3",
+            "F2",
+            "F4"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Stilk v Myrick strictly bars enforcement of extra payment promises based solely on performing pre-existing contractual duties, and Brennan was already contractually bound to complete the work on time.",
+          "citations": [
+            "J31:p3",
+            "F1",
+            "F5"
+          ]
+        },
+        {
+          "text": "Williams v Roffey Bros does not extend to promises that merely avoid a penalty the promisor is already contractually liable for, rendering the promise gratuitous absent economic duress or fraud.",
+          "citations": [
+            "J32:p3",
+            "J31:p3",
+            "F2",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The practical benefit doctrine in Williams v Roffey offers strong support for recognizing the variation as valid since Castlegate avoided substantial penalties and disruption, and no duress was involved. While Stilk v Myrick provides a strict rule against enforcement without fresh consideration, the practical benefit exception is well established and applicable here given the facts. Therefore, Brennan likely has valid consideration supporting the contract variation.",
+        "citations": [
+          "J32:p3",
+          "J31:p3",
+          "F2",
+          "F4",
+          "F6"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Does Castlegate Developments Ltd's offer of additional payment to Brennan Joinery Ltd amount to a valid contract modification under the principles of offer and acceptance?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J23",
+          "case_name": "Carlill v Carbolic Smoke Ball Co",
+          "citation": "[1893] 1 QB 256",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Clear unilateral offers can be accepted by performance, forming binding contract modifications without need for notification of acceptance.",
+            "citations": [
+              "J23:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J26",
+          "case_name": "Hyde v Wrench",
+          "citation": "(1840) 3 Beav 334",
+          "stance": "opposing",
+          "proposition": {
+            "text": "A counter-offer or lack of unequivocal acceptance can prevent contract modification; mere performance of existing duties without clear acceptance does not bind the promisor.",
+            "citations": [
+              "J26:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J31",
+          "case_name": "Stilk v Myrick",
+          "citation": "(1809) 2 Camp 317",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Performance of an existing contractual duty does not amount to acceptance of a new contractual modification without fresh consideration or clear mutual assent.",
+            "citations": [
+              "J31:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Castlegate's email promising £1,000 extra per house is a clear unilateral offer intended to be binding upon performance, accepted when Brennan completed the houses on schedule, analogous to Carlill where performance suffices for acceptance.",
+          "citations": [
+            "J23:p2",
+            "F4",
+            "F5"
+          ]
+        },
+        {
+          "text": "The promise was definite and binding, thus amounting to contract modification by offer and acceptance, with no rejection or counter-offer that would negate the original offer.",
+          "citations": [
+            "J26:p3",
+            "F4"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Castlegate's promise is better characterized as a mere negotiation or unenforceable promise lacking fresh consideration, not a binding unilateral offer, especially as Brennan was performing pre-existing obligations.",
+          "citations": [
+            "J31:p3",
+            "J26:p3",
+            "F1",
+            "F4"
+          ]
+        },
+        {
+          "text": "Unlike Carlill, which was a public offer made to anyone who performed, here the promise was not communicated as a binding offer and lacked the certainty and communication required for contract modification.",
+          "citations": [
+            "J23:p2",
+            "F4",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The analogy to Carlill supports treating Castlegate's email as a unilateral offer accepted by performance, establishing a contract modification. Opposing arguments hinge on strict offer and acceptance principles limiting modification absent fresh consideration, yet the facts here show clear intent and acceptance. Therefore, the evidence favors a valid contract modification under offer and acceptance doctrines.",
+        "citations": [
+          "J23:p2",
+          "J26:p3",
+          "J31:p3",
+          "F4",
+          "F5"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Is Castlegate Developments Ltd's refusal to pay the extra £18,000 a breach of contract?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J32",
+          "case_name": "Williams v Roffey Bros & Nicholls (Contractors) Ltd",
+          "citation": "[1991] 1 QB 1",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Once a valid contract variation is formed by promise of extra payment and performance, refusal to pay the promised amount is a breach of the modified contract.",
+            "citations": [
+              "J32:p1",
+              "J32:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J31",
+          "case_name": "Stilk v Myrick",
+          "citation": "(1809) 2 Camp 317",
+          "stance": "opposing",
+          "proposition": {
+            "text": "If no valid contract variation exists, refusal to pay extra for performance of existing obligations is not a breach; original contract terms prevail.",
+            "citations": [
+              "J31:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Assuming the variation is valid under Williams v Roffey, Brennan performed the additional obligations as promised, so Castlegate's refusal to pay constitutes breach of the contract variation.",
+          "citations": [
+            "J32:p1",
+            "J32:p3",
+            "F5"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Absent a valid modification, refusal to pay extra cannot be breach, as Brennan only performed work required under the original contract and Castlegate's refusal is consistent with contract terms.",
+          "citations": [
+            "J31:p2",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "If the contract variation is upheld, refusal to pay Brennan the extra £18,000 is a clear breach of contract. Since the evidence and relevant precedent strongly support validity of the variation, the breach claim is well founded. Conversely, without valid variation, no breach arises. Overall, the breach claim is compelling if the first two issues are decided for Brennan.",
+        "citations": [
+          "J32:p1",
+          "J31:p2",
+          "F5"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Brennan Joinery Ltd is likely entitled to enforce the promise of additional payment based on the practical benefit doctrine in Williams v Roffey, establishing valid consideration for contract variation despite existing obligations.",
+      "citations": [
+        "J32:p3",
+        "F2",
+        "F4",
+        "F6"
+      ]
+    },
+    {
+      "text": "Castlegate's promise constitutes a valid unilateral offer accepted by performance, amounting to contract modification under offer and acceptance principles analogous to Carlill.",
+      "citations": [
+        "J23:p2",
+        "F4",
+        "F5"
+      ]
+    },
+    {
+      "text": "Accordingly, Castlegate's refusal to pay the extra £18,000 constitutes a breach of the modified contract, entitling Brennan to recover the promised amount.",
+      "citations": [
+        "J32:p1",
+        "J32:p3",
+        "F5"
+      ]
+    }
+  ],
+  "warnings": []
+}

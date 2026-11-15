@@ -1,0 +1,245 @@
+{
+  "case_id": "FS07",
+  "title": "Brennan Joinery Ltd v Castlegate Developments Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Castlegate engaged Brennan for a fixed price to fit kitchens and staircases in 30 townhouses to be completed by 30 June 2025, subject to a liquidated damages clause with the developer for delays (F1,F2).",
+      "citations": [
+        "F1",
+        "F2"
+      ]
+    },
+    {
+      "text": "Castlegate promised extra payment of £1,000 per remaining house completed on time to Brennan to avoid penalties and avoid finding another contractor, but refused to pay after completion (F4,F5).",
+      "citations": [
+        "F4",
+        "F5"
+      ]
+    },
+    {
+      "text": "Brennan seeks to enforce Castlegate's promise as a contract variation supported by consideration under the practical benefit rule in Williams v Roffey Bros (J32:p3).",
+      "citations": [
+        "J32:p3"
+      ]
+    },
+    {
+      "text": "Castlegate relies on Stilk v Myrick to argue there was no fresh consideration as Brennan was contractually obliged to complete the houses on time, and the liquidated damages clause governs only Castlegate's liability to the developer (J31:p2, J48:p2).",
+      "citations": [
+        "J31:p2",
+        "J48:p2"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Brennan Joinery Ltd was contracted by Castlegate Developments Ltd in January 2025 to fit kitchens and staircases in 30 townhouses for £150,000, with completion by 30 June 2025.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Castlegate's main contract includes a liquidated damages clause of £5,000 per day for late completion.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "By April 2025, Brennan had completed 12 houses but warned of financial difficulties and possible failure to complete.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "On 14 April 2025, Castlegate promised an extra £1,000 per remaining house completed on time to avoid penalties or hiring another joiner.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "Brennan completed the remaining 18 houses by the deadline, but Castlegate paid only the original contract price, refusing the extra £18,000.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "There is no evidence Brennan threatened to abandon the work; the promise of extra payment came solely from Castlegate.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Brennan is seeking to recover the promised extra payment of £18,000.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Is there a legally binding variation of the contract between Brennan Joinery Ltd and Castlegate Developments Ltd based on Castlegate's promise to pay extra for completing the remaining houses on time?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J32",
+          "case_name": "Williams v Roffey Bros & Nicholls (Contractors) Ltd",
+          "citation": "[1991] 1 QB 1",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A promise of extra payment for performing an existing contractual duty is enforceable if the promisor obtains a practical benefit or avoids a disbenefit, absent economic duress or fraud; refining Stilk v Myrick.",
+            "citations": [
+              "J32:p3",
+              "J32:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J31",
+          "case_name": "Stilk v Myrick",
+          "citation": "(1809) 2 Camp 317",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Performance of an existing contractual duty owed to the promisor is not good consideration for a promise of additional payment, rendering such promise unenforceable.",
+            "citations": [
+              "J31:p2",
+              "J31:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Williams v Roffey establishes the promise is supported by consideration because Castlegate gained practical benefits by avoiding the developer's penalties and the trouble of replacing Brennan (J32:p3).",
+          "citations": [
+            "J32:p3",
+            "F2",
+            "F4",
+            "F5",
+            "F6"
+          ]
+        },
+        {
+          "text": "Brennan's completion of the remaining houses was not mere performance of an existing duty but conferred a practical benefit to Castlegate, fulfilling the refined approach in Williams v Roffey (J32:p2).",
+          "citations": [
+            "J32:p2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Stilk v Myrick confirms that completing the remaining houses on time was performance of an existing contractual duty owed to Castlegate and thus lacks fresh consideration for extra payment (J31:p2; F1,F5).",
+          "citations": [
+            "J31:p2",
+            "F1",
+            "F5"
+          ]
+        },
+        {
+          "text": "Castlegate obtained no benefit beyond its original contractual expectation, so the practical benefit doctrine in Williams v Roffey does not apply here (J31:p3).",
+          "citations": [
+            "J31:p3",
+            "F1",
+            "F4"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The practical benefit doctrine in Williams v Roffey supports finding consideration here given the commercial context of avoiding liquidated damages and replacement costs, distinguishing it from Stilk v Myrick where no new benefit arose; thus, the variation promise is likely enforceable.",
+        "citations": [
+          "J32:p3",
+          "J31:p2",
+          "F2",
+          "F4",
+          "F6"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Can the liquidated damages clause in Castlegate's contract with the developer affect the enforceability or implication of Castlegate's extra payment promise to Brennan Joinery Ltd?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J48",
+          "case_name": "Dunlop Pneumatic Tyre Co Ltd v New Garage and Motor Co Ltd",
+          "citation": "[1915] AC 79",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A genuine liquidated damages clause confirms serious commercial pressure, supporting practical benefits obtained by extra payment promises and reinforcing their enforceability.",
+            "citations": [
+              "J48:p1"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J48",
+          "case_name": "Dunlop Pneumatic Tyre Co Ltd v New Garage and Motor Co Ltd",
+          "citation": "[1915] AC 79",
+          "stance": "opposing",
+          "proposition": {
+            "text": "A liquidated damages clause governs only the contract between Castlegate and the developer and does not create or impact Castlegate’s obligations towards Brennan or the enforceability of extra payment promises.",
+            "citations": [
+              "J48:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The liquidated damages clause, upheld as a genuine pre-estimate of loss (Dunlop), evidences commercial pressure on Castlegate to complete on time, supporting enforceability of the extra payment promise to Brennan (J48:p1; F2).",
+          "citations": [
+            "J48:p1",
+            "F2"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The clause only regulates Castlegate’s liability to the developer and does not affect Brennan's contractual duties or imply an obligation for Castlegate to pay extra, hence does not influence the extra payment promise’s enforceability (J48:p2).",
+          "citations": [
+            "J48:p2",
+            "F2"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "While the liquidated damages clause itself does not impose additional obligations on Castlegate towards Brennan, it confirms the commercial context and pressure which supports the practical benefit rationale for enforcing Castlegate’s promise to pay extra.",
+        "citations": [
+          "J48:p1",
+          "J48:p2",
+          "F2"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Brennan’s claim to enforce Castlegate's promise for extra payment is supported by the practical benefit doctrine in Williams v Roffey, considering Castlegate’s avoidance of penalties and replacement costs.",
+      "citations": [
+        "J32:p3",
+        "F2",
+        "F4"
+      ]
+    },
+    {
+      "text": "Castlegate’s reliance on Stilk v Myrick is distinguishable here because Brennan’s performance conferred a practical benefit beyond its existing duty, rendering the variation promise enforceable.",
+      "citations": [
+        "J32:p2",
+        "J31:p2"
+      ]
+    },
+    {
+      "text": "The liquidated damages clause confirms Castlegate’s commercial pressure but does not negate enforceability of the promise; rather, it reinforces the context making the promise binding.",
+      "citations": [
+        "J48:p1",
+        "F2"
+      ]
+    }
+  ],
+  "warnings": []
+}

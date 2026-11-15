@@ -1,0 +1,422 @@
+{
+  "case_id": "FS06",
+  "title": "Adeyemi v Harbourside Hotel Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Ms Adeyemi arrived at the Harbourside Hotel without a prior booking, contracted for a room at reception, and paid for two nights (F1, F2).",
+      "citations": [
+        "F1",
+        "F2"
+      ]
+    },
+    {
+      "text": "The hotel displayed a liability exclusion notice inside the guest bedroom, which Ms Adeyemi did not see at or before contracting (F3, F4).",
+      "citations": [
+        "F3",
+        "F4"
+      ]
+    },
+    {
+      "text": "During her stay, her valuables were stolen due to the hotel's negligence in security, specifically leaving a master key unattended (F5, F6).",
+      "citations": [
+        "F5",
+        "F6"
+      ]
+    },
+    {
+      "text": "The hotel relies on the exclusion clause on the door for non-liability, which Ms Adeyemi disputes on contractual incorporation and notice grounds.",
+      "citations": [
+        "F6",
+        "F7"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Ms Adeyemi arrived at the hotel on 12 August 2025 without a prior booking and requested a room at reception.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "She signed a registration card at reception that recorded her personal details but contained no terms or conditions and paid for two nights, receiving a key card.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "A notice on the back of Ms Adeyemi's bedroom door excluded liability for loss or damage to guests' property left in rooms and advised valuables be deposited at reception.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "The same exclusion terms appeared on the hotel's website, which Ms Adeyemi had not visited.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "On 13 August 2025, while Ms Adeyemi was at dinner, her laptop and a diamond bracelet worth £6,500 were stolen from her room; the police found no forced entry, but a staff member had left a master key card unattended on a cleaning trolley.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "The hotel relies on the notice on the bedroom door to exclude liability and argues that Ms Adeyemi should have deposited her valuables at reception.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Ms Adeyemi seeks to recover the value of her stolen property on the basis that the exclusion notice is not part of her contract with the hotel.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Is there a duty of care owed by Harbourside Hotel Ltd to Ms Adeyemi regarding the security of her belongings?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J01",
+          "case_name": "Donoghue v Stevenson",
+          "citation": "[1932] AC 562",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Lord Atkin's neighbour principle establishes a duty of care to avoid acts or omissions reasonably foreseen to injure persons closely and directly affected by one's conduct.",
+            "citations": [
+              "J01:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J01",
+          "case_name": "Donoghue v Stevenson",
+          "citation": "[1932] AC 562",
+          "stance": "opposing",
+          "proposition": {
+            "text": "The neighbour principle primarily applies to manufacturers and personal injury, and may not extend to hotel security without requisite proximity and foreseeability.",
+            "citations": [
+              "J01:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The hotel owed a duty to take reasonable care for guests' belongings as they are 'neighbours' under Lord Atkin's principle, predicated on foreseeability and proximity of harm from hotel acts or omissions, consistent with Donoghue v Stevenson.",
+          "citations": [
+            "J01:p3",
+            "F1",
+            "F5"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The hotel may not owe a duty of care under the neighbour principle because it primarily concerns manufacturers and physical injury, not hotel security, lacking sufficient proximity and foreseeability.",
+          "citations": [
+            "J01:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Given guests' reliance on hotel security and foreseeability of theft from negligence, a duty of care likely arises under the neighbour principle in Donoghue v Stevenson, favoring Ms Adeyemi's position.",
+        "citations": [
+          "J01:p3",
+          "F1",
+          "F5"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the hotel?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Terms on a notice seen only after contracting (such as one in a guestroom) are not incorporated into the contract formed earlier at reception.",
+            "citations": [
+              "J42:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Same as supporting side; no contrary precedent cited by hotel challenging lack of incorporation due to timing.",
+            "citations": [
+              "J42:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The contract was concluded at reception before Ms Adeyemi saw the bedroom notice, so the exclusion clause was not part of the contract per Olley v Marlborough Court Ltd.",
+          "citations": [
+            "J42:p2",
+            "F1",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The hotel's position does not contest the timing issue; incorporation fails because the notice appeared after contract formation, consistent with Olley.",
+          "citations": [
+            "J42:p2",
+            "F1",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Olley clearly supports non-incorporation of exclusion terms first appearing in the room after contracting; the hotel's reliance on the clause is weak on this basis.",
+        "citations": [
+          "J42:p2",
+          "F1",
+          "F2",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Was the hotel's standard of care breached by leaving a master key card unattended?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Negligence in handling room keys leading to guest property theft constitutes breach of standard of care.",
+            "citations": [
+              "J42:p1"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Negligence findings depend on facts; absence of absolute liability for key handling means breach is not automatic if reasonable precautions were taken.",
+            "citations": [
+              "J42:p1"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Leaving the master key unattended was a negligent omission breaching the standard of care, as the hotel failed to take reasonable security measures, mirroring Olley's holding of liability for key negligence.",
+          "citations": [
+            "J42:p1",
+            "F5"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "While Olley shows negligence liability for key mishandling, the hotel can argue that reasonable steps were taken generally, and such breach is fact-sensitive and not absolute.",
+          "citations": [
+            "J42:p1",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Given the unattended master key led to theft, consistent with Olley, a breach of the hotel's standard of care is likely established favoring Ms Adeyemi.",
+        "citations": [
+          "J42:p1",
+          "F5"
+        ]
+      }
+    },
+    {
+      "issue_id": "I4",
+      "question": "Is the reliance on the exclusion notice legally effective to exclude liability for theft of guest property?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Exclusion notices not incorporated into the contract and not fairly brought to attention cannot exclude liability effectively.",
+            "citations": [
+              "J42:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Hotel argues exclusion notice on door excludes liability, but bears burden to show incorporation and notice, which is not established here.",
+            "citations": [
+              "J42:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The hotel cannot rely on the exclusion clause as it was not part of the contract and not fairly brought to Ms Adeyemi's attention, consistent with Olley ruling such notices ineffective when post-contractual.",
+          "citations": [
+            "J42:p2",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Opposition repeats that the exclusion notice is inapplicable as not incorporated and no adequate notice was given, thus ineffective for exclusion of liability.",
+          "citations": [
+            "J42:p2",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The exclusion clause reliance is legally ineffective since it failed incorporation and lacked reasonable notice to Ms Adeyemi before contract formation.",
+        "citations": [
+          "J42:p2",
+          "F2",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I5",
+      "question": "Did Ms Adeyemi have actual or constructive notice of the exclusion terms to bind her contractually?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Terms must be brought to the party's attention before or at contract formation to be binding; no such notice was given here.",
+            "citations": [
+              "J42:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J41",
+          "case_name": "Parker v South Eastern Railway Co",
+          "citation": "(1877) 2 CPD 416",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Reasonable steps to bring unsigned exclusion terms to the customer's attention are required; actual reading is not required.",
+            "citations": [
+              "J41:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J41",
+          "case_name": "Parker v South Eastern Railway Co",
+          "citation": "(1877) 2 CPD 416",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Opposition may argue constructive notice existed, but no evidence of reasonable steps taken to bring terms to Ms Adeyemi's attention exists here.",
+            "citations": [
+              "J41:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Ms Adeyemi had no actual or constructive notice of the exclusion clause before or at contracting; the hotel failed to take reasonable steps to bring terms to her attention as required by Parker v South Eastern Railway and Olley.",
+          "citations": [
+            "J41:p2",
+            "J42:p2",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Hotel's argument is weak as no steps to give reasonable notice were taken prior to contracting; actual reading is not necessary but reasonable notice must exist, which is absent here.",
+          "citations": [
+            "J41:p2",
+            "J42:p2",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Ms Adeyemi was not contractually bound by the exclusion notice terms due to absence of actual or constructive notice before or at contract formation.",
+        "citations": [
+          "J41:p2",
+          "J42:p2",
+          "F2",
+          "F3"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Ms Adeyemi is likely entitled to recover damages for the stolen property as the hotel owed her a duty of care which was breached by negligent security.",
+      "citations": [
+        "J01:p3",
+        "J42:p1",
+        "F5"
+      ]
+    },
+    {
+      "text": "The exclusion clause on the bedroom door was not incorporated into the contract and the hotel failed to give reasonable notice before contracting, rendering it ineffective to exclude liability.",
+      "citations": [
+        "J42:p2",
+        "J41:p2",
+        "F2",
+        "F3"
+      ]
+    },
+    {
+      "text": "On the facts and legal authorities, the hotel cannot rely on the exclusion clause to avoid liability and its negligence in key handling supports Ms Adeyemi's claim for the stolen property.",
+      "citations": [
+        "J42:p1",
+        "J42:p2",
+        "F5"
+      ]
+    }
+  ],
+  "warnings": []
+}

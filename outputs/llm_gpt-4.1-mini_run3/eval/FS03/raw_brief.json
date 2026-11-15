@@ -1,0 +1,421 @@
+{
+  "case_id": "FS03",
+  "title": "Hughes v PeakFit Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Ms Hughes seeks to enforce a £2,000 promise by PeakFit made in an advertisement contingent on completing 100 workouts and losing 5 kg, backed by a £100,000 deposit.",
+      "citations": [
+        "F1",
+        "F3"
+      ]
+    },
+    {
+      "text": "Key issues center on whether the advertisement constitutes a binding offer or mere invitation to treat, the presence of valid consideration, enforceability despite withdrawal terms, and whether the promise is mere marketing puff or a contractual term.",
+      "citations": [
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ]
+    },
+    {
+      "text": "The claimant relies chiefly on Carlill v Carbolic Smoke Ball Co, emphasizing clear terms, demonstrated intention to be bound by deposit, and performance as acceptance without notification, distinguishing the case from typical invitations to treat in Partridge and Fisher v Bell.",
+      "citations": [
+        "J23:p2",
+        "J23:p3",
+        "J24:p2",
+        "J50:p2",
+        "F1",
+        "F3",
+        "F6"
+      ]
+    },
+    {
+      "text": "While PeakFit's terms allow withdrawing promotions, the claimant argues this was not done before completion on 15 April, relying on principles restricting incorporation of onerous terms and emphasizing the timing of withdrawal.",
+      "citations": [
+        "F5",
+        "J44:p3",
+        "J42:p3",
+        "J43:p3"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "PeakFit published an advertisement promising £2,000 to participants who completed 100 workouts and lost 5 kg by 15 April, stating £100,000 was held at Barclays as a sign of commitment.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Participants had to log every workout and weigh themselves on the app's connected scales on 15 April.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "Ms Hughes downloaded the app on 6 January, paid £9.99, logged all workouts, and on 15 April weighed in reporting a 1.2 kg weight loss.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "On 20 April, Ms Hughes claimed the £2,000 prize; PeakFit denied the claim stating the advertisement was marketing puff and an invitation to treat, not a contract, and that she should have notified them when starting.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "PeakFit's terms allow withdrawal of promotions at any time but it did not withdraw this promotion before 15 April.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Over 3,000 people downloaded the app during the promotion; PeakFit claims it never intended to be legally bound and considered the advertisement as marketing puff.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Ms Hughes intends to enforce PeakFit's promise and claim the money.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Was the PeakFit advertisement a binding offer or merely an invitation to treat?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J23",
+          "case_name": "Carlill v Carbolic Smoke Ball Co",
+          "citation": "[1893] 1 QB 256",
+          "stance": "supporting",
+          "proposition": {
+            "text": "An advertisement with clear terms and intentions, demonstrated by a financial deposit, can be a unilateral offer accepted by performance without notice.",
+            "citations": [
+              "J23:p2",
+              "J23:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J24",
+          "case_name": "Partridge v Crittenden",
+          "citation": "[1968] 1 WLR 1204",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Advertisements are generally invitations to treat since advertisers cannot be bound to all potential responders, especially where stock or capacity is limited.",
+            "citations": [
+              "J24:p2",
+              "J24:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J50",
+          "case_name": "Fisher v Bell",
+          "citation": "[1961] 1 QB 394",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Displays of goods or advertisements with prices are invitations to treat, not offers, preventing vendors from being bound to all responders.",
+            "citations": [
+              "J50:p2",
+              "J50:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The PeakFit advertisement is a binding offer as it includes clear, performance-based conditions and shows intention through a £100,000 deposit, analogous to Carlill where such evidence established contract formation.",
+          "citations": [
+            "J23:p2",
+            "J23:p3",
+            "F1",
+            "F3"
+          ]
+        },
+        {
+          "text": "Ms Hughes accepted the offer by completing the required workouts and weight measurements with no need to notify, consistent with the unilateral contract mechanism in Carlill, distinguishing from typical adverts held to be invitations to treat.",
+          "citations": [
+            "J23:p3",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The advertisement is an invitation to treat as per Partridge, because more than 3,000 participants and PeakFit's limited resources make it impractical and unintended to bind the advertiser to all.",
+          "citations": [
+            "J24:p2",
+            "J24:p3",
+            "F6"
+          ]
+        },
+        {
+          "text": "Fisher v Bell confirms that displays and advertisements with prices are not offers but invitations to treat, reinforcing that PeakFit's advertisement should be similarly classified as promotional and non-binding.",
+          "citations": [
+            "J50:p2",
+            "J50:p3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The claimant's reliance on Carlill is strong given the clarity of terms, evidence of seriousness by deposit, and unilateral contract framework allowing acceptance by performance without notification. The mass participation concern in Partridge has less force where the ad promises payment contingent on performance with a deposited fund backing seriousness, aligning more with Carlill than general invitations to treat.",
+        "citations": [
+          "J23:p2",
+          "J23:p3",
+          "J24:p2",
+          "J24:p3",
+          "F1",
+          "F3",
+          "F6"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Is there valid consideration for Ms Hughes' acceptance of the PeakFit advertisement's promise?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J23",
+          "case_name": "Carlill v Carbolic Smoke Ball Co",
+          "citation": "[1893] 1 QB 256",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Performance of the stipulated conditions in a unilateral offer constitutes valid consideration even if no prior notification of acceptance is given.",
+            "citations": [
+              "J23:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J31",
+          "case_name": "Stilk v Myrick",
+          "citation": "(1809) 2 Camp 317",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Performance of existing contractual duties owed to the promisor is not good consideration for a new promise.",
+            "citations": [
+              "J31:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Ms Hughes' logging and weighing were fresh acts undertaken to meet the unilateral offer's requirements, and not pre-existing duties owed to PeakFit, thus constituting good consideration, drawing on Carlill illustrating performance as valid consideration.",
+          "citations": [
+            "J23:p3",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Performance of obligations connected to app subscription and usage might be seen as pre-existing duties, analogously to Stilk v Myrick, negating fresh consideration for PeakFit's promise.",
+          "citations": [
+            "J31:p3",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Ms Hughes likely provided valid consideration because her actions were undertaken specifically to fulfill the advertisement's unilateral offer conditions and were not already contractual duties under subscription terms. This aligns with Carlill's approach and distinguishes from Stilk, which involved existing contractual duties owed to the promisor.",
+        "citations": [
+          "J23:p3",
+          "J31:p3",
+          "F2",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Can Ms Hughes enforce the £2,000 promise despite PeakFit's general terms allowing withdrawal of promotions?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J44",
+          "case_name": "Photo Production Ltd v Securicor Transport Ltd",
+          "citation": "[1980] AC 827",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Clear risk-allocation clauses are enforceable, but they must be properly incorporated and exercised; absence of exercised withdrawal before performance completion suggests liability persists.",
+            "citations": [
+              "J44:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Exclusion or withdrawal clauses must be brought to the party's attention before or at contract formation to be incorporated; post-contract notices are ineffective.",
+            "citations": [
+              "J42:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J43",
+          "case_name": "Thornton v Shoe Lane Parking Ltd",
+          "citation": "[1971] 2 QB 163",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Onerous exclusion terms require especially clear notice at or before contract formation to be effective.",
+            "citations": [
+              "J43:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "PeakFit's withdrawal clause was not exercised before Ms Hughes completed performance and thus cannot negate the binding promise; this is supported by Photo Production's emphasis on clear risk allocation but also by the timing and exercise of the clause.",
+          "citations": [
+            "J44:p3",
+            "F5"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The withdrawal term could exclude PeakFit's liability if incorporated; however, incorporation requires clear notice before or at contract formation, and ambiguous or late notice should be construed against PeakFit, consistent with Olley and Thornton.",
+          "citations": [
+            "J42:p3",
+            "J43:p3",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Although PeakFit had a term allowing withdrawal, it was not effectively exercised before Ms Hughes completed performance. Moreover, any unclear incorporation of the term must be construed against PeakFit, favoring enforceability of the promise. This supports Ms Hughes' claim that the promise is binding despite the general terms.",
+        "citations": [
+          "J44:p3",
+          "J42:p3",
+          "J43:p3",
+          "F5"
+        ]
+      }
+    },
+    {
+      "issue_id": "I4",
+      "question": "Is the £2,000 promise a binding term of contract or merely marketing puff by PeakFit?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J23",
+          "case_name": "Carlill v Carbolic Smoke Ball Co",
+          "citation": "[1893] 1 QB 256",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A deposit evidencing seriousness, combined with clear terms requiring performance by participants, shows intention to create legal relations and negates the puff argument.",
+            "citations": [
+              "J23:p2",
+              "J23:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J24",
+          "case_name": "Partridge v Crittenden",
+          "citation": "[1968] 1 WLR 1204",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Advertisements made to mass audiences are usually regarded as promotional puff and invitations to treat, not binding contractual commitments.",
+            "citations": [
+              "J24:p2",
+              "J24:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The £2,000 promise backed by a £100,000 deposit and clear fulfillment conditions indicates genuine commercial intent to contract, analogous to Carlill, opposing the characterization as mere puff.",
+          "citations": [
+            "J23:p2",
+            "J23:p3",
+            "F1",
+            "F6"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Given the number of participants and PeakFit's own admission of the promotion as marketing, the promise appears to be puff and not a binding commitment, consistent with Partridge's view on advertisements.",
+          "citations": [
+            "J24:p2",
+            "J24:p3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The clear conditions and deposited fund favor treating the promise as a serious contractual offer rather than puff, consistent with Carlill. The opposition's reliance on general principles about advertisements as invitations to treat is outweighed by facts evidencing PeakFit's intention to be bound.",
+        "citations": [
+          "J23:p2",
+          "J23:p3",
+          "J24:p2",
+          "F1",
+          "F6"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "The PeakFit advertisement constituted a valid offer, accepted by Ms Hughes through full performance of the stipulated conditions under a unilateral contract framework as elucidated in Carlill.",
+      "citations": [
+        "J23:p2",
+        "J23:p3",
+        "F1",
+        "F3"
+      ]
+    },
+    {
+      "text": "Ms Hughes' performance provides valid consideration, not merely performance of pre-existing duties, supporting enforceability of PeakFit's promise.",
+      "citations": [
+        "J23:p3",
+        "F2",
+        "F3"
+      ]
+    },
+    {
+      "text": "PeakFit's general terms permitting withdrawal do not apply as the promotion was not withdrawn prior to completion of conditions, and incorporation of such terms lacks sufficient clarity to negate the promise.",
+      "citations": [
+        "J44:p3",
+        "J42:p3",
+        "J43:p3",
+        "F5"
+      ]
+    },
+    {
+      "text": "The £2,000 promise was intended to be binding, supported by the financial deposit and credible, clear terms, distinguishing it from mere marketing puff and equivalent to commitments upheld in Carlill.",
+      "citations": [
+        "J23:p2",
+        "J23:p3",
+        "F1",
+        "F6"
+      ]
+    }
+  ],
+  "warnings": []
+}

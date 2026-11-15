@@ -1,0 +1,326 @@
+{
+  "mode": "llm:foundry",
+  "llm_calls": 9,
+  "seconds": 56.122,
+  "structured_facts": {
+    "case_id": "FS01",
+    "title": "Nair v Brightwater Beverages Ltd",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Priya Nair",
+        "role": "claimant",
+        "description": "A 34-year-old secondary school teacher."
+      },
+      {
+        "name": "Brightwater Beverages Ltd",
+        "role": "defendant",
+        "description": "Manufacturer and bottler of 'Fizzleaf' kombucha."
+      },
+      {
+        "name": "Arjun Mehta",
+        "role": "third party",
+        "description": "Friend of the claimant who bought the drink."
+      }
+    ],
+    "chronology": [
+      {
+        "date": "1 March 2025",
+        "iso_date": "2025-03-01",
+        "event": "Brightwater's bottling line passed a safety inspection.",
+        "fact_ref": "F7"
+      },
+      {
+        "date": "14 March 2025",
+        "iso_date": "2025-03-14",
+        "event": "Arjun Mehta bought two bottles of Fizzleaf kombucha at the Green Cup cafe in Leeds and gave one bottle to Ms Nair.",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "14 March 2025",
+        "iso_date": "2025-03-14",
+        "event": "Ms Nair opened the sealed bottle at the table and drank about half before noticing glass and mould in the bottle.",
+        "fact_ref": "F3"
+      },
+      {
+        "date": "14 March 2025",
+        "iso_date": "2025-03-14",
+        "event": "The bottle was dark brown glass and still sealed with Brightwater's metal cap when opened, so contents could not be inspected beforehand.",
+        "fact_ref": "F2"
+      },
+      {
+        "date": "15 March 2025",
+        "iso_date": "2025-03-15",
+        "event": "Ms Nair was admitted to Leeds General Infirmary where internal injuries were found.",
+        "fact_ref": "F4"
+      },
+      {
+        "date": "30 June 2025",
+        "iso_date": "2025-06-30",
+        "event": "Ms Nair remained unable to work until this date and required two further medical procedures.",
+        "fact_ref": "F6"
+      },
+      {
+        "date": "14 March 2025 (evening)",
+        "iso_date": null,
+        "event": "Ms Nair suffered severe abdominal pain.",
+        "fact_ref": "F4"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Priya Nair",
+        "respondent": "Brightwater Beverages Ltd",
+        "claim": "Damages for injuries, lost earnings and medical expenses arising from consumption of contaminated kombucha bottle.",
+        "legal_basis": "Negligence",
+        "fact_refs": [
+          "F3",
+          "F4",
+          "F6",
+          "F8"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "Arjun Mehta bought two bottles of Fizzleaf kombucha on 14 March 2025 and gave one to Ms Nair.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "The bottle was dark brown glass, sealed with Brightwater's metal cap, preventing prior inspection.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "Ms Nair drank half the bottle before seeing a sharp sliver of glass and mould inside.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "Ms Nair suffered severe abdominal pain the same evening and was admitted to hospital the next day with a lacerated oesophagus and stomach lining.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "Ms Nair has a pre-existing gastric ulcer that increased the severity of the internal injury.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "Ms Nair was unable to work until 30 June 2025 and needed two further medical procedures.",
+        "citations": [
+          "F6"
+        ]
+      },
+      {
+        "text": "Brightwater's bottling line passed inspection on 1 March 2025 and it suggests the cafe may have tampered with the bottle.",
+        "citations": [
+          "F7"
+        ]
+      },
+      {
+        "text": "Brightwater's medical expert claims the ulcer caused most damage and treatment was likely needed regardless of glass injury.",
+        "citations": [
+          "F7"
+        ]
+      },
+      {
+        "text": "Ms Nair claims damages in negligence against Brightwater despite having no contract with the company as she did not buy the drink herself.",
+        "citations": [
+          "F8"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Ms Nair wants to claim damages from Brightwater in negligence for her injuries, lost earnings and medical expenses. She did not buy the drink herself and has no contract with Brightwater.",
+      "citations": [
+        "F8"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 103,
+    "valid_citations": 99,
+    "existence_rate": 0.9612,
+    "judgment_citations": 61,
+    "valid_judgment_citations": 57,
+    "statements": 40,
+    "statements_with_valid_citation": 39,
+    "claim_coverage": 0.975,
+    "by_status": {
+      "valid": 99,
+      "malformed": 4
+    },
+    "invalid_examples": [
+      "I1 (malformed)",
+      "I2 (malformed)",
+      "I3 (malformed)",
+      "I4 (malformed)"
+    ],
+    "cited_judgments": [
+      "J01",
+      "J10",
+      "J21",
+      "J02",
+      "J11",
+      "J12",
+      "J14",
+      "J22",
+      "J08"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 99,
+    "valid_citations": 99,
+    "existence_rate": 1.0,
+    "judgment_citations": 57,
+    "valid_judgment_citations": 57,
+    "statements": 39,
+    "statements_with_valid_citation": 39,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 99
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J01",
+      "J10",
+      "J21",
+      "J02",
+      "J11",
+      "J12",
+      "J14",
+      "J22",
+      "J08"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.025,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS01: 8 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 7.67,
+      "agent": "fact_extractor",
+      "action": "llm_extract",
+      "detail": "doctrine cue scores: {'duty_of_care': 5, 'causation': 4, 'remoteness_tort': 3}",
+      "round": 0
+    },
+    {
+      "t": 7.671,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "3 parties, 7 dated events, 1 claims, 5 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 7.672,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1, I2, I3, I4",
+      "round": 0
+    },
+    {
+      "t": 12.924,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J01', 'J19', 'J02', 'J08', 'J20']",
+      "round": 0
+    },
+    {
+      "t": 12.924,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I2: ['J11', 'J01', 'J19', 'J12', 'J13', 'J17', 'J14']",
+      "round": 0
+    },
+    {
+      "t": 12.924,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I3: ['J10', 'J17', 'J22', 'J07', 'J08', 'J12']",
+      "round": 0
+    },
+    {
+      "t": 12.924,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I4: ['J21', 'J03', 'J02', 'J34', 'J01', 'J35']",
+      "round": 0
+    },
+    {
+      "t": 17.863,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "4 framed, 0 added",
+      "round": 0
+    },
+    {
+      "t": 22.474,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "4 points",
+      "round": 1
+    },
+    {
+      "t": 24.268,
+      "agent": "counter_argument",
+      "action": "defences",
+      "detail": "0 defence issue(s) proposed",
+      "round": 1
+    },
+    {
+      "t": 31.497,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "4 points",
+      "round": 1
+    },
+    {
+      "t": 36.902,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "4 points",
+      "round": 2
+    },
+    {
+      "t": 43.68,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "4 points",
+      "round": 2
+    },
+    {
+      "t": 43.692,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 4 issues",
+      "round": 3
+    },
+    {
+      "t": 56.112,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 96.12%, 2 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 56.112,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

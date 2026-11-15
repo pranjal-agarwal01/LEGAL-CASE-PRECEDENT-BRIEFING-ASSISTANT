@@ -1,0 +1,178 @@
+{
+  "case_id": "FS07",
+  "title": "Brennan Joinery Ltd v Castlegate Developments Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Acting for Brennan Joinery Ltd (claimant), this brief addresses 1 issue(s) arising from Brennan Joinery Ltd v Castlegate Developments Ltd: Brennan wants to recover the promised extra payment of £18,000.",
+      "citations": [
+        "F7"
+      ]
+    },
+    {
+      "text": "Is Castlegate Developments Ltd's promise of additional payment supported by consideration? Favourable for Brennan Joinery Ltd.",
+      "citations": [
+        "J32:p3",
+        "J31:p3"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "In January 2025 Castlegate engaged Brennan to fit kitchens and staircases in 30 new townhouses for a fixed price of £150,000, to be completed by 30 June 2025.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Castlegate's own contract with the developer contains a liquidated damages clause of £5,000 per day for late completion.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "By April 2025 Brennan had completed 12 houses. It told Castlegate that it was running out of money because the price was too low and that it might not be able to finish.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "On 14 April 2025 Castlegate's project director promised by email to pay Brennan an extra £1,000 for each remaining house completed on schedule, \"so we don't get hit with the developer's penalties or have to find another joiner\".",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "Brennan completed the remaining 18 houses by 30 June 2025. Castlegate paid the original contract price but refused to pay the extra £18,000, saying Brennan was already obliged under the existing contract to do that work.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "There is no suggestion that Brennan threatened to walk away to obtain the promise; the offer of extra payment came from Castlegate.",
+      "citations": [
+        "F6"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Is Castlegate Developments Ltd's promise of additional payment supported by consideration?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J32",
+          "case_name": "Williams v Roffey Bros & Nicholls (Contractors) Ltd",
+          "citation": "[1991] 1 QB 1",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Where A promises B additional payment for performing an existing contractual obligation, and A obtains a practical benefit or obviates a disbenefit, that benefit can be good consideration provided the promise was not extracted by economic duress or fraud.",
+            "citations": [
+              "J32:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J33",
+          "case_name": "Central London Property Trust Ltd v High Trees House Ltd",
+          "citation": "[1947] KB 130",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Promissory estoppel: a promise intended to be binding, intended to be acted on and in fact acted on is binding so far as its terms properly apply, even without consideration, and it may be suspensory once the circumstances change.",
+            "citations": [
+              "J33:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J31",
+          "case_name": "Stilk v Myrick",
+          "citation": "(1809) 2 Camp 317",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Performance of an existing contractual duty owed to the promisor is not good consideration for a promise of additional payment.",
+            "citations": [
+              "J31:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J33",
+          "case_name": "Central London Property Trust Ltd v High Trees House Ltd",
+          "citation": "[1947] KB 130",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Promissory estoppel: a promise intended to be binding, intended to be acted on and in fact acted on is binding so far as its terms properly apply, even without consideration, and it may be suspensory once the circumstances change.",
+            "citations": [
+              "J33:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Williams v Roffey Bros & Nicholls (Contractors) Ltd [1991] 1 QB 1 supports Brennan Joinery Ltd on this issue: Where A promises B additional payment for performing an existing contractual obligation, and A obtains a practical benefit or obviates a disbenefit, that benefit can be good consideration provided the promise was not extracted by economic duress or fraud. That reasoning applies here: Brennan completed the remaining 18 houses by 30 June 2025. Castlegate paid the original contract price but refused to pay the extra £18,000, saying Brennan was already obliged under the existing contract to do that work.",
+          "citations": [
+            "J32:p3",
+            "F5"
+          ]
+        },
+        {
+          "text": "Central London Property Trust Ltd v High Trees House Ltd [1947] KB 130 supports Brennan Joinery Ltd on this issue: Promissory estoppel: a promise intended to be binding, intended to be acted on and in fact acted on is binding so far as its terms properly apply, even without consideration, and it may be suspensory once the circumstances change. That reasoning applies here: On 14 April 2025 Castlegate's project director promised by email to pay Brennan an extra £1,000 for each remaining house completed on schedule, \"so we don't get hit with the developer's penalties or have to find another joiner\".",
+          "citations": [
+            "J33:p3",
+            "F4"
+          ]
+        },
+        {
+          "text": "Stilk v Myrick is distinguishable on its facts: During a voyage two seamen deserted. By contrast, in this case: There is no suggestion that Brennan threatened to walk away to obtain the promise; the offer of extra payment came from Castlegate.",
+          "citations": [
+            "J31:p1",
+            "F6"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Stilk v Myrick (1809) 2 Camp 317 supports Castlegate Developments Ltd on this issue: Performance of an existing contractual duty owed to the promisor is not good consideration for a promise of additional payment. That reasoning applies here: Brennan completed the remaining 18 houses by 30 June 2025. Castlegate paid the original contract price but refused to pay the extra £18,000, saying Brennan was already obliged under the existing contract to do that work.",
+          "citations": [
+            "J31:p3",
+            "F5"
+          ]
+        },
+        {
+          "text": "Central London Property Trust Ltd v High Trees House Ltd [1947] KB 130 supports Castlegate Developments Ltd on this issue: Promissory estoppel: a promise intended to be binding, intended to be acted on and in fact acted on is binding so far as its terms properly apply, even without consideration, and it may be suspensory once the circumstances change. That reasoning applies here: On 14 April 2025 Castlegate's project director promised by email to pay Brennan an extra £1,000 for each remaining house completed on schedule, \"so we don't get hit with the developer's penalties or have to find another joiner\".",
+          "citations": [
+            "J33:p3",
+            "F4"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Favourable: the authorities on balance support Brennan Joinery Ltd, led by Williams v Roffey Bros & Nicholls (Contractors) Ltd; Stilk v Myrick is the main authority the other side will rely on.",
+        "citations": [
+          "J32:p3",
+          "J31:p3"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Overall, Brennan Joinery Ltd's prospects look reasonable on the authorities retrieved (1 favourable, 0 unfavourable, 0 balanced issue(s)).",
+      "citations": [
+        "J32:p3",
+        "J31:p3"
+      ]
+    },
+    {
+      "text": "The disputed facts on which the outcome turns should be proved with evidence: In January 2025 Castlegate engaged Brennan to fit kitchens and staircases in 30 new townhouses for a fixed price of £150,000, to be completed by 30 June 2025.",
+      "citations": [
+        "F1"
+      ]
+    }
+  ],
+  "warnings": []
+}

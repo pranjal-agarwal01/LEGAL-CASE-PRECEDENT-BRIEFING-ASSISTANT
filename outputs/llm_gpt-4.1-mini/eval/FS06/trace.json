@@ -1,0 +1,264 @@
+{
+  "mode": "llm:foundry",
+  "llm_calls": 9,
+  "seconds": 45.971,
+  "structured_facts": {
+    "case_id": "FS06",
+    "title": "Adeyemi v Harbourside Hotel Ltd",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Folake Adeyemi",
+        "role": "claimant",
+        "description": "A management consultant."
+      },
+      {
+        "name": "Harbourside Hotel Ltd",
+        "role": "defendant",
+        "description": "Runs the Harbourside Hotel in Brighton."
+      }
+    ],
+    "chronology": [
+      {
+        "date": "12 August 2025",
+        "iso_date": "2025-08-12",
+        "event": "Ms Adeyemi arrived at the Harbourside Hotel without a booking and requested a room at the reception desk.",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "12 August 2025",
+        "iso_date": "2025-08-12",
+        "event": "Ms Adeyemi signed a registration card recording her details, paid for two nights, and was given a key card. The card contained no terms or conditions.",
+        "fact_ref": "F2"
+      },
+      {
+        "date": "13 August 2025",
+        "iso_date": "2025-08-13",
+        "event": "While Ms Adeyemi was at dinner, her laptop and diamond bracelet worth \u00a36,500 were stolen from her room; police found no forced entry and noted a staff member had left a master key card unattended.",
+        "fact_ref": "F5"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Folake Adeyemi",
+        "respondent": "Harbourside Hotel Ltd",
+        "claim": "To recover the value of stolen property taken from her hotel room.",
+        "legal_basis": "Hotel's liability for guest property and enforceability of exclusion clause.",
+        "fact_refs": [
+          "F3",
+          "F6",
+          "F7"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "Ms Adeyemi arrived at the Harbourside Hotel without a booking and requested a room on 12 August 2025.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "She signed a registration card recording her name, address and car registration; the card contained no terms and conditions and no reference to any terms or exclusions.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "A notice on the back of her bedroom door stated that the hotel accepted no liability for loss of or damage to guests' property and advised depositing valuables at reception.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "The same exclusion terms appear on the hotel website, which Ms Adeyemi had never visited.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "On 13 August 2025, her laptop and a diamond bracelet worth \u00a36,500 in total were stolen from her room; police found no forced entry but a staff member had left a master key unattended.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "The hotel relies on the bedroom door notice to exclude liability and claims Ms Adeyemi should have deposited her valuables at reception.",
+        "citations": [
+          "F6"
+        ]
+      },
+      {
+        "text": "Ms Adeyemi wishes to recover the value of her stolen property and argues that the exclusion notice was not part of her contract with the hotel.",
+        "citations": [
+          "F7"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Ms Adeyemi wants to recover the value of her stolen property and argues that the notice excluding liability is not part of her contract with the hotel.",
+      "citations": [
+        "F7"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 77,
+    "valid_citations": 77,
+    "existence_rate": 1.0,
+    "judgment_citations": 35,
+    "valid_judgment_citations": 35,
+    "statements": 30,
+    "statements_with_valid_citation": 30,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 77
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J42",
+      "J43"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 77,
+    "valid_citations": 77,
+    "existence_rate": 1.0,
+    "judgment_citations": 35,
+    "valid_judgment_citations": 35,
+    "statements": 30,
+    "statements_with_valid_citation": 30,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 77
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J42",
+      "J43"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.013,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS06: 7 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 5.72,
+      "agent": "fact_extractor",
+      "action": "llm_extract",
+      "detail": "doctrine cue scores: {'duty_of_care': 1, 'frustration': 1, 'exclusion_clause': 5}",
+      "round": 0
+    },
+    {
+      "t": 5.72,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "2 parties, 3 dated events, 1 claims, 4 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 5.721,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1, I2, I3, I4",
+      "round": 0
+    },
+    {
+      "t": 12.065,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J42', 'J01', 'J02', 'J19', 'J08', 'J41']",
+      "round": 0
+    },
+    {
+      "t": 12.065,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I2: ['J42', 'J43', 'J23', 'J41', 'J40', 'J24', 'J25', 'J50']",
+      "round": 0
+    },
+    {
+      "t": 12.065,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I3: ['J42', 'J44', 'J40', 'J21', 'J18', 'J41', 'J43']",
+      "round": 0
+    },
+    {
+      "t": 12.065,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I4: ['J42', 'J27', 'J28', 'J44', 'J43']",
+      "round": 0
+    },
+    {
+      "t": 15.218,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "4 framed, 0 added",
+      "round": 0
+    },
+    {
+      "t": 20.31,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "4 points",
+      "round": 1
+    },
+    {
+      "t": 21.168,
+      "agent": "counter_argument",
+      "action": "defences",
+      "detail": "0 defence issue(s) proposed",
+      "round": 1
+    },
+    {
+      "t": 25.132,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "4 points",
+      "round": 1
+    },
+    {
+      "t": 30.388,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "4 points",
+      "round": 2
+    },
+    {
+      "t": 35.847,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "4 points",
+      "round": 2
+    },
+    {
+      "t": 35.85,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 4 issues",
+      "round": 3
+    },
+    {
+      "t": 45.969,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 100.00%, 0 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 45.969,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

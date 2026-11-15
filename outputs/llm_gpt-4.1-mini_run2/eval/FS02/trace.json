@@ -1,0 +1,266 @@
+{
+  "mode": "llm:foundry",
+  "llm_calls": 9,
+  "seconds": 52.205,
+  "structured_facts": {
+    "case_id": "FS02",
+    "title": "Okafor v St Aldhelm's Hospital NHS Trust",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Daniel Okafor",
+        "role": "claimant",
+        "description": "A 52-year-old professional violinist"
+      },
+      {
+        "name": "St Aldhelm's Hospital NHS Trust",
+        "role": "defendant",
+        "description": "Employer of Mr Graham Lyle, consultant spinal surgeon"
+      }
+    ],
+    "chronology": [
+      {
+        "date": "2 February 2024",
+        "iso_date": "2024-02-02",
+        "event": "Mr Okafor consulted Mr Lyle about chronic neck pain radiating into his left arm",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "11 April 2024",
+        "iso_date": "2024-04-11",
+        "event": "Mr Okafor underwent cervical decompression surgery performed by Mr Lyle",
+        "fact_ref": "F4"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Daniel Okafor",
+        "respondent": "St Aldhelm's Hospital NHS Trust",
+        "claim": "Claim for damages in negligence for failure to warn of a material risk and alternative treatment before consent to surgery",
+        "legal_basis": "Negligence - breach of duty to warn/informed consent",
+        "fact_refs": [
+          "F2",
+          "F6",
+          "F8"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "Mr Okafor consulted Mr Lyle on 2 February 2024 about chronic neck pain radiating into his left arm.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "Mr Lyle recommended cervical decompression surgery but did not inform Mr Okafor of the approximately 2% risk of nerve root damage or the alternative treatment involving physiotherapy and steroid injections.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "During the consultation, Mr Okafor explained that his career depended on fine finger control of his left hand.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "Mr Okafor signed a consent form and the surgery was performed on 11 April 2024 with proper skill.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "The risk of nerve damage occurred; Mr Okafor permanently lost fine motor control in two fingers of his left hand, ending his professional career.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "Mr Okafor states he would not have consented to surgery on that date if warned of the risk, preferring to try physiotherapy and seek a second opinion first, although he might have had surgery later.",
+        "citations": [
+          "F6"
+        ]
+      },
+      {
+        "text": "The Trust relies on expert evidence stating many responsible spinal surgeons did not usually inform patients of the 2% risk, and argues there was no negligence in the surgery nor causation of loss by failure to warn.",
+        "citations": [
+          "F7"
+        ]
+      },
+      {
+        "text": "Mr Okafor seeks damages in negligence for failure to warn of a material risk and alternative treatment before he consented to the surgery.",
+        "citations": [
+          "F8"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Mr Okafor wants to claim damages in negligence for the failure to warn him of a material risk and of the alternative treatment before he consented to surgery.",
+      "citations": [
+        "F8"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 91,
+    "valid_citations": 91,
+    "existence_rate": 1.0,
+    "judgment_citations": 52,
+    "valid_judgment_citations": 52,
+    "statements": 38,
+    "statements_with_valid_citation": 38,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 91
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J06",
+      "J07",
+      "J04"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 91,
+    "valid_citations": 91,
+    "existence_rate": 1.0,
+    "judgment_citations": 52,
+    "valid_judgment_citations": 52,
+    "statements": 38,
+    "statements_with_valid_citation": 38,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 91
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J06",
+      "J07",
+      "J04"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.049,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS02: 8 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 5.717,
+      "agent": "fact_extractor",
+      "action": "llm_extract",
+      "detail": "doctrine cue scores: {'duty_of_care': 1, 'medical_standard': 4, 'informed_consent': 5, 'causation': 2, 'exclusion_clause': 1}",
+      "round": 0
+    },
+    {
+      "t": 5.717,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "2 parties, 2 dated events, 1 claims, 4 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 5.72,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1, I2, I3, I4",
+      "round": 0
+    },
+    {
+      "t": 10.641,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J06', 'J07', 'J19', 'J01', 'J02']",
+      "round": 0
+    },
+    {
+      "t": 10.641,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I2: ['J06', 'J11', 'J04', 'J14', 'J12', 'J13']",
+      "round": 0
+    },
+    {
+      "t": 10.641,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I3: ['J06', 'J07', 'J04', 'J40', 'J39']",
+      "round": 0
+    },
+    {
+      "t": 10.641,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I4: ['J07', 'J05', 'J04', 'J22', 'J08']",
+      "round": 0
+    },
+    {
+      "t": 15.232,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "4 framed, 0 added",
+      "round": 0
+    },
+    {
+      "t": 19.751,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "4 points",
+      "round": 1
+    },
+    {
+      "t": 21.404,
+      "agent": "counter_argument",
+      "action": "defences",
+      "detail": "0 defence issue(s) proposed",
+      "round": 1
+    },
+    {
+      "t": 25.562,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "4 points",
+      "round": 1
+    },
+    {
+      "t": 32.607,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "8 points",
+      "round": 2
+    },
+    {
+      "t": 38.029,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "4 points",
+      "round": 2
+    },
+    {
+      "t": 38.03,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 4 issues",
+      "round": 3
+    },
+    {
+      "t": 52.202,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 100.00%, 0 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 52.202,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

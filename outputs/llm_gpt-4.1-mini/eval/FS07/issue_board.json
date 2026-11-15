@@ -1,0 +1,395 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Is there a legally binding variation of the contract between Brennan Joinery Ltd and Castlegate Developments Ltd based on Castlegate's promise to pay extra for completing the remaining houses on time?",
+      "doctrine": "consideration_variation",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p3",
+            "J32:p2"
+          ],
+          "score": 1.5822,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a legally binding variation of the contract based on Castlegate's promise to pay extra for completing the remaining houses on time? consideration promi",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p3",
+            "J31:p2"
+          ],
+          "score": 1.3464,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a legally binding variation of the contract based on Castlegate's promise to pay extra for completing the remaining houses on time? consideration promi",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J33",
+          "passage_refs": [
+            "J33:p3",
+            "J33:p2"
+          ],
+          "score": 0.6523,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a legally binding variation of the contract based on Castlegate's promise to pay extra for completing the remaining houses on time? consideration promi",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J29",
+          "passage_refs": [
+            "J29:p1",
+            "J29:p2"
+          ],
+          "score": 0.5861,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a legally binding variation of the contract based on Castlegate's promise to pay extra for completing the remaining houses on time? consideration promi",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "consideration for contract variations promise to pay more Williams v Roffey Bros",
+          "reason": "The key binding authority on consideration for contract variations is Williams v Roffey Bros (J32), which allows a promise of extra payment when a practical benefit is obtained, distinguishing it from Stilk v Myrick (J31) which represents the older rule that performing an existing duty is not good consideration. High Trees (J33) is relevant for promissory estoppel as a potential alternative basis. Balfour v Balfour (J29) and Carlill v Carbolic Smoke Ball Co (J23) are less directly relevant but provide context on legal relations and offer principles."
+        },
+        {
+          "judgment_id": "J26",
+          "passage_refs": [
+            "J26:p1",
+            "J26:p3"
+          ],
+          "score": 0.4378,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a legally binding variation of the contract based on Castlegate's promise to pay extra for completing the remaining houses on time? consideration promi",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J32"
+      ],
+      "opposing": [
+        "J31"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Castlegate Developments Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Castlegate Developments Ltd"
+        }
+      ],
+      "assessment": "The practical benefit doctrine in Williams v Roffey supports finding consideration here given the commercial context of avoiding liquidated damages and replacement costs, distinguishing it from Stilk v Myrick where no new benefit arose; thus, the variation promise is likely enforceable."
+    },
+    {
+      "id": "I2",
+      "question": "Can the liquidated damages clause in Castlegate's contract with the developer affect the enforceability or implication of Castlegate's extra payment promise to Brennan Joinery Ltd?",
+      "doctrine": null,
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J48",
+          "passage_refs": [
+            "J48:p2",
+            "J48:p1"
+          ],
+          "score": 1.1671,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can the liquidated damages clause in Castlegate's contract with the developer affect the enforceability or implication of the extra payment promise?  Castlegate",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J44",
+          "passage_refs": [
+            "J44:p2",
+            "J44:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "liquidated damages effect on contract variation enforceability",
+          "reason": "Dunlop Pneumatic Tyre Co Ltd v New Garage (J48) is the prime authority on liquidated damages clauses and their enforceability, helping understand the impact on related contractual promises. Photo Production v Securicor (J44) on interpretation of contract clauses and risk allocation is also relevant. Entores v Miles Far East (J28) and Hadley v Baxendale (J34) provide principles on contract formation and damages which may be indirectly pertinent. Hochster v De La Tour (J46) on anticipatory breach may offer insight on related breach and enforcement issues."
+        },
+        {
+          "judgment_id": "J28",
+          "passage_refs": [
+            "J28:p2",
+            "J28:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "liquidated damages effect on contract variation enforceability",
+          "reason": "Dunlop Pneumatic Tyre Co Ltd v New Garage (J48) is the prime authority on liquidated damages clauses and their enforceability, helping understand the impact on related contractual promises. Photo Production v Securicor (J44) on interpretation of contract clauses and risk allocation is also relevant. Entores v Miles Far East (J28) and Hadley v Baxendale (J34) provide principles on contract formation and damages which may be indirectly pertinent. Hochster v De La Tour (J46) on anticipatory breach may offer insight on related breach and enforcement issues."
+        },
+        {
+          "judgment_id": "J34",
+          "passage_refs": [
+            "J34:p2",
+            "J34:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "liquidated damages effect on contract variation enforceability",
+          "reason": "Dunlop Pneumatic Tyre Co Ltd v New Garage (J48) is the prime authority on liquidated damages clauses and their enforceability, helping understand the impact on related contractual promises. Photo Production v Securicor (J44) on interpretation of contract clauses and risk allocation is also relevant. Entores v Miles Far East (J28) and Hadley v Baxendale (J34) provide principles on contract formation and damages which may be indirectly pertinent. Hochster v De La Tour (J46) on anticipatory breach may offer insight on related breach and enforcement issues."
+        },
+        {
+          "judgment_id": "J46",
+          "passage_refs": [
+            "J46:p2",
+            "J46:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "liquidated damages effect on contract variation enforceability",
+          "reason": "Dunlop Pneumatic Tyre Co Ltd v New Garage (J48) is the prime authority on liquidated damages clauses and their enforceability, helping understand the impact on related contractual promises. Photo Production v Securicor (J44) on interpretation of contract clauses and risk allocation is also relevant. Entores v Miles Far East (J28) and Hadley v Baxendale (J34) provide principles on contract formation and damages which may be indirectly pertinent. Hochster v De La Tour (J46) on anticipatory breach may offer insight on related breach and enforcement issues."
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p1",
+            "J32:p2"
+          ],
+          "score": 1.0877,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can the liquidated damages clause in Castlegate's contract with the developer affect the enforceability or implication of the extra payment promise?  Castlegate",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p3",
+            "J31:p2"
+          ],
+          "score": 0.7818,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can the liquidated damages clause in Castlegate's contract with the developer affect the enforceability or implication of the extra payment promise?  Castlegate",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p1",
+            "J40:p2"
+          ],
+          "score": 0.6247,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can the liquidated damages clause in Castlegate's contract with the developer affect the enforceability or implication of the extra payment promise?  Castlegate",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J48"
+      ],
+      "opposing": [
+        "J48"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Castlegate Developments Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Castlegate Developments Ltd"
+        }
+      ],
+      "assessment": "While the liquidated damages clause itself does not impose additional obligations on Castlegate towards Brennan, it confirms the commercial context and pressure which supports the practical benefit rationale for enforcing Castlegate\u2019s promise to pay extra."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Is there a legally binding variation of the contract based on Castlegate's promise to pay extra for completing the remaining houses on time? [consideration_variation] The facts raise the issue of whether the promise to pay extra is a valid contract variation supported by consideration."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I1",
+      "detail": "Was the promise of extra payment induced by any economic duress or illegitimate pressure from Brennan?"
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I1",
+      "detail": "Does Brennan's completion of the remaining houses on time constitute valid consideration for the new promise of extra payment?"
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Can the liquidated damages clause in Castlegate's contract with the developer affect the enforceability or implication of the extra payment promise? [untyped] The clause may influence the parties' motivation and consideration for the variation."
+    },
+    {
+      "seq": 5,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J32, J31, J33, J29, J23, J26"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J48, J44, J28, J34, J46, J32, J31, J40"
+    },
+    {
+      "seq": 7,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Is there a legally binding variation of the contract between Brennan Joinery Ltd and Castlegate Developments Ltd based on Castlegate's promise to pay extra for completing the remaining houses on time? (client needs: pro)"
+    },
+    {
+      "seq": 8,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Can the liquidated damages clause in Castlegate's contract with the developer affect the enforceability or implication of Castlegate's extra payment promise to Brennan Joinery Ltd? (client needs: pro)"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J32 argument relies on it"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J31 argument attacks it"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J48 argument relies on it"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 14,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J48 counter relies on it"
+    },
+    {
+      "seq": 15,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 16,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 18,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 19,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 20,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 21,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "The practical benefit doctrine in Williams v Roffey supports finding consideration here given the commercial context of avoiding liquidated damages and replacem"
+    },
+    {
+      "seq": 22,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "While the liquidated damages clause itself does not impose additional obligations on Castlegate towards Brennan, it confirms the commercial context and pressure"
+    }
+  ]
+}

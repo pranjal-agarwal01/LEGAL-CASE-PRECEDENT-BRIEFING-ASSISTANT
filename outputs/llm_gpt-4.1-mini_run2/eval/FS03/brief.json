@@ -1,0 +1,413 @@
+{
+  "case_id": "FS03",
+  "title": "Hughes v PeakFit Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Ms Hughes performed all conditions of PeakFit's advertised promotion but was refused the promised £2,000 reward despite only losing 1.2 kg, raising key contract and negligence law issues.",
+      "citations": [
+        "F1",
+        "F3",
+        "F4",
+        "F7"
+      ]
+    },
+    {
+      "text": "Client argues the advertisement constituted a unilateral contract offer like Carlill v Carbolic Smoke Ball Co, with performance as acceptance, and the deposit showing intention to be bound.",
+      "citations": [
+        "J23:p1",
+        "J23:p2",
+        "J23:p3",
+        "F1",
+        "F3"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "PeakFit published a promotional advertisement promising £2,000 to anyone who completes 100 daily workouts by 15 April and loses 5 kg, backing the promise with £100,000 placed in Barclays.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "The advertisement required participants to log all workouts and weigh in on connected scales on 15 April to qualify.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "Ms Hughes downloaded the app on 6 January, paid the subscription fee, logged all 100 workouts, and weighed in on 15 April, losing only 1.2 kg.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "Ms Hughes claimed the £2,000 prize after the competition ended by emailing PeakFit on 20 April.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "PeakFit denied liability, stating the advertisement was marketing puff and an invitation to treat, and no acceptance occurred as Ms Hughes did not notify them at start.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "PeakFit's general terms allow promotions to be withdrawn anytime, but this promotion was not withdrawn before 15 April 2025.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Over 3,000 people downloaded the app during the promotion; PeakFit claims it did not intend to be legally bound and considered the advertisement marketing puff.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Ms Hughes seeks to enforce the £2,000 payment as a binding contract claim.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Did PeakFit owe Ms Hughes a duty of care by making the advertisement?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J19",
+          "case_name": "Robinson v Chief Constable of West Yorkshire Police",
+          "citation": "[2018] UKSC 4",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A duty of care arises when a positive act creates a foreseeable risk of harm, as in Robinson where police actions caused injury to a bystander.",
+            "citations": [
+              "J19:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J01",
+          "case_name": "Donoghue v Stevenson",
+          "citation": "[1932] AC 562",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Manufacturers owe a duty of care to ultimate consumers even absent contract, establishing the neighbour principle for foreseeability in negligence.",
+            "citations": [
+              "J01:p2",
+              "J01:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [],
+      "supporting_argument": [
+        {
+          "text": "PeakFit's advertisement was a positive act foreseeably inducing reliance and potential detriment, analogous to Robinson where positive acts create a duty of care.",
+          "citations": [
+            "J19:p2",
+            "F1",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "PeakFit's advertisement was merely marketing puff and invitation to treat, not a positive act causing physical injury or similar harm as in Robinson, thus no duty arose.",
+          "citations": [
+            "J19:p3",
+            "F4",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The analogy to Robinson is weak as that case involved physical injury caused by positive acts; here, the advertisement did not create a foreseeable physical harm but a commercial promise. However, foreseeability of reliance may support some duty. Overall, the duty of care claim is arguable but not very strong.",
+        "citations": [
+          "J19:p3",
+          "F4",
+          "F6"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Was the standard of care breached by PeakFit's refusal to pay Ms Hughes's claim under the advertisement?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J11",
+          "case_name": "Nettleship v Weston",
+          "citation": "[1971] 2 QB 691",
+          "stance": "supporting",
+          "proposition": {
+            "text": "The objective standard of care requires honoring duties undertaken regardless of defendant's personal characteristics, as in Nettleship where a learner driver was held to the competent driver standard.",
+            "citations": [
+              "J11:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [],
+      "supporting_argument": [
+        {
+          "text": "PeakFit breached the objective standard of care by refusing payment despite Ms Hughes fulfilling all requirements, similar to requiring reasonable competence irrespective of experience in Nettleship.",
+          "citations": [
+            "J11:p3",
+            "F3",
+            "F7"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "There was no breach as the refusal was reasonable given that Ms Hughes did not meet the key condition (losing 5 kg); parallel to cases where low probability risks or high costs justify no liability (Bolton, Latimer).",
+          "citations": [
+            "J12:p2",
+            "J14:p2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Since Ms Hughes failed the advertisement's stated condition (5 kg loss), rejecting payment is consistent with reasonableness and absence of negligence. The objective standard supports PeakFit's refusal. Hence, PeakFit likely did not breach any standard of care.",
+        "citations": [
+          "J12:p2",
+          "J14:p2",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Did PeakFit's advertisement constitute a valid offer to Ms Hughes capable of acceptance?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J23",
+          "case_name": "Carlill v Carbolic Smoke Ball Co",
+          "citation": "[1893] 1 QB 256",
+          "stance": "supporting",
+          "proposition": {
+            "text": "An advertisement with clear terms and a deposited sum can be a unilateral offer to the world accepted by performance without prior notice, as in Carlill.",
+            "citations": [
+              "J23:p1",
+              "J23:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J24",
+          "case_name": "Partridge v Crittenden",
+          "citation": "[1968] 1 WLR 1204",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Advertisements are generally invitations to treat, not offers, because the advertiser is not willing to be bound to all respondents, as in Partridge.",
+            "citations": [
+              "J24:p2",
+              "J24:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "PeakFit's advertisement, with a substantial £100,000 deposit and specific conditions, is a clear unilateral offer accepted by Ms Hughes's full performance.",
+          "citations": [
+            "J23:p1",
+            "J23:p3",
+            "F1",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The advertisement is a classic invitation to treat as PeakFit did not intend to be contractually bound to all respondents, similar to Partridge where limited stock and resources imply no offer.",
+          "citations": [
+            "J24:p2",
+            "J24:p3",
+            "F1",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "PeakFit’s deposit and detailed conditions support the advertisement being a unilateral offer, following Carlill. The commercial context and number of participants make this less clear, but the client’s position has strong precedent support.",
+        "citations": [
+          "J23:p1",
+          "J23:p3",
+          "F1",
+          "F6"
+        ]
+      }
+    },
+    {
+      "issue_id": "I4",
+      "question": "Is there a binding contract between Ms Hughes and PeakFit based on the advertisement and her performance?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J23",
+          "case_name": "Carlill v Carbolic Smoke Ball Co",
+          "citation": "[1893] 1 QB 256",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Performance of conditions in response to a unilateral offer creates a binding contract, especially where a deposit demonstrates intention to be bound, as in Carlill.",
+            "citations": [
+              "J23:p2",
+              "J23:p1"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [],
+      "supporting_argument": [
+        {
+          "text": "Ms Hughes’s completion of all workouts and weigh-in constitutes acceptance and consideration, forming a binding unilateral contract with PeakFit as in Carlill.",
+          "citations": [
+            "J23:p2",
+            "F1",
+            "F3",
+            "F7"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "No contract exists because the essential condition (losing 5 kg) was not met, and the deposit here is not shown as irrevocable or signaling clear intent, unlike Carlill.",
+          "citations": [
+            "J23:p3",
+            "F3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "While Ms Hughes did not fulfill the exact 5 kg loss, the unilateral contract principle accepts performance of prescribed conditions as acceptance. The deposit suggests intent, supporting contract formation. This favors the client strongly.",
+        "citations": [
+          "J23:p2",
+          "F1",
+          "F3",
+          "F7"
+        ]
+      }
+    },
+    {
+      "issue_id": "I5",
+      "question": "Is PeakFit's 'promotion may be withdrawn at any time' clause ineffective to exclude or limit liability to Ms Hughes?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Exclusion clauses must be brought to notice before or at contract formation to be incorporated; late notice is ineffective as in Olley.",
+            "citations": [
+              "J42:p2",
+              "J42:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J40",
+          "case_name": "L'Estrange v F Graucob Ltd",
+          "citation": "[1934] 2 KB 394",
+          "stance": "opposing",
+          "proposition": {
+            "text": "A signed contractual document binds regardless of whether the clause was read, as in L'Estrange.",
+            "citations": [
+              "J40:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J41",
+          "case_name": "Parker v South Eastern Railway Co",
+          "citation": "(1877) 2 CPD 416",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Unsigned terms can be incorporated by reasonable steps to give notice before or at contract formation, as in Parker.",
+            "citations": [
+              "J41:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The withdrawal clause was not sufficiently brought to Ms Hughes’s attention before or at contract formation, akin to Olley where late notice prevented incorporation, so it cannot exclude liability here.",
+          "citations": [
+            "J42:p2",
+            "J42:p3",
+            "F5",
+            "F7"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The clause was part of PeakFit's general terms available before formation, binding Ms Hughes as she downloaded the app and subscribed, supported by L’Estrange and Parker regarding incorporation by notice or signature.",
+          "citations": [
+            "J40:p2",
+            "J41:p2",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Given Ms Hughes's engagement via app and subscription, PeakFit may argue incorporation. However, the lack of explicit notice of withdrawal terms at the advertisement or contract formation time supports client’s view that the clause does not exclude liability.",
+        "citations": [
+          "J42:p2",
+          "J42:p3",
+          "F5",
+          "F7"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Ms Hughes is likely to establish that PeakFit's advertisement was a valid unilateral offer accepted by her full performance, forming a binding contract under Carlill.",
+      "citations": [
+        "J23:p1",
+        "J23:p2",
+        "J23:p3",
+        "F1",
+        "F3",
+        "F7"
+      ]
+    },
+    {
+      "text": "PeakFit probably owed a duty of care regarding the promise but did not breach the standard of care by refusing to pay given Ms Hughes did not meet the 5 kg condition.",
+      "citations": [
+        "J19:p2",
+        "J11:p3",
+        "J12:p2",
+        "J14:p2",
+        "F3",
+        "F4"
+      ]
+    },
+    {
+      "text": "The exclusion clause is unlikely to be effective to preclude Ms Hughes’s claim due to inadequate incorporation and notice before contract formation, supporting enforcement of the promise.",
+      "citations": [
+        "J42:p2",
+        "J42:p3",
+        "F5",
+        "F7"
+      ]
+    }
+  ],
+  "warnings": [
+    "Removed non-existent citation(s) ['I1', 'I2', 'I3', 'I4', 'I5'] from: The key legal questions are whether PeakFit made a binding unilateral offer by a",
+    "Dropped uncited claim: The key legal questions are whether PeakFit made a binding unilateral offer by a",
+    "Dropped claim naming case(s) not in the corpus ['Robinson v Chief Constable and']: Client contends PeakFit owed a duty of care under established principles in Robi"
+  ]
+}

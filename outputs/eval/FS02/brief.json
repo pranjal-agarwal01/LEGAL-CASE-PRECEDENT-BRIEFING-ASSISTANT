@@ -1,0 +1,340 @@
+{
+  "case_id": "FS02",
+  "title": "Okafor v St Aldhelm's Hospital NHS Trust",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Acting for Daniel Okafor (claimant), this brief addresses 3 issue(s) arising from Okafor v St Aldhelm's Hospital NHS Trust: Mr Okafor wants to claim damages in negligence for the failure to warn him of a material risk and of the alternative treatment before he consented to surgery.",
+      "citations": [
+        "F8"
+      ]
+    },
+    {
+      "text": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given? Favourable for Daniel Okafor.",
+      "citations": [
+        "J07:p3",
+        "J04:p3"
+      ]
+    },
+    {
+      "text": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion? Finely balanced for Daniel Okafor.",
+      "citations": [
+        "J05:p3"
+      ]
+    },
+    {
+      "text": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach? Unfavourable for Daniel Okafor.",
+      "citations": [
+        "J08:p3"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "On 2 February 2024 Mr Okafor consulted Mr Lyle about chronic neck pain radiating into his left arm.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Mr Lyle recommended cervical decompression surgery. He did not mention the roughly 2 per cent risk of damage to the nerve root supplying the hand, and he did not mention the alternative of a further six months of physiotherapy and steroid injections.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "During the consultation Mr Okafor told Mr Lyle that his career depended on fine finger control of his left hand.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "Mr Okafor signed a consent form and the operation took place on 11 April 2024. It was performed with proper skill.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "The risk of nerve damage materialised. Mr Okafor has permanently lost fine motor control in two fingers of his left hand and can no longer perform professionally.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Mr Okafor says that if he had been warned of the risk he would not have consented to surgery on that date but would have tried physiotherapy first and sought a second opinion. He accepts he might eventually have had the same operation.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "The Trust relies on evidence from two surgeons that many responsible spinal surgeons in 2024 did not routinely mention a 2 per cent risk to patients, and argues that the surgery itself was not negligent so the failure to warn caused no loss.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J07",
+          "case_name": "Chester v Afshar",
+          "citation": "[2004] UKHL 41",
+          "stance": "supporting",
+          "proposition": {
+            "text": "On policy grounds, causation may be established by a narrow modification of traditional principles in order to vindicate the patient's right of autonomy and to give effect to the duty to warn of material risks before consent to surgery.",
+            "citations": [
+              "J07:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J06",
+          "case_name": "Montgomery v Lanarkshire Health Board",
+          "citation": "[2015] UKSC 11",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A risk is material if a reasonable person in the patient's position would be likely to attach significance to it, or if the doctor is or should reasonably be aware that this particular patient would attach significance to it.",
+            "citations": [
+              "J06:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J04",
+          "case_name": "Bolam v Friern Hospital Management Committee",
+          "citation": "[1957] 1 WLR 582",
+          "stance": "opposing",
+          "proposition": {
+            "text": "The Bolam test measures a professional against the standard of a responsible body of practitioners in the same field.",
+            "citations": [
+              "J04:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Chester v Afshar [2004] UKHL 41 supports Daniel Okafor on this issue: On policy grounds, causation may be established by a narrow modification of traditional principles in order to vindicate the patient's right of autonomy and to give effect to the duty to warn of material risks before consent to surgery. That reasoning applies here: Mr Okafor says that if he had been warned of the risk he would not have consented to surgery on that date but would have tried physiotherapy first and sought a second opinion. He accepts he might eventually have had...",
+          "citations": [
+            "J07:p3",
+            "F6"
+          ]
+        },
+        {
+          "text": "Montgomery v Lanarkshire Health Board [2015] UKSC 11 supports Daniel Okafor on this issue: A risk is material if a reasonable person in the patient's position would be likely to attach significance to it, or if the doctor is or should reasonably be aware that this particular patient would attach significance to it. That reasoning applies here: Mr Lyle recommended cervical decompression surgery. He did not mention the roughly 2 per cent risk of damage to the nerve root supplying the hand, and he did not mention the alternative of a further six months of physiotherapy and...",
+          "citations": [
+            "J06:p3",
+            "F2"
+          ]
+        },
+        {
+          "text": "Bolam v Friern Hospital Management Committee is distinguishable on its facts: Mr Bolam received electro-convulsive therapy at a mental hospital without relaxant drugs or physical restraint and without being warned of the small risk of fracture. By contrast, in this case: The Trust relies on evidence from two surgeons that many responsible spinal surgeons in 2024 did not routinely mention a 2 per cent risk to patients, and argues that the surgery itself was not negligent so the failure to warn...",
+          "citations": [
+            "J04:p1",
+            "F7"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Bolam v Friern Hospital Management Committee [1957] 1 WLR 582 supports St Aldhelm's Hospital NHS Trust on this issue: The Bolam test measures a professional against the standard of a responsible body of practitioners in the same field. That reasoning applies here: Mr Okafor says that if he had been warned of the risk he would not have consented to surgery on that date but would have tried physiotherapy first and sought a second opinion. He accepts he might eventually have had...",
+          "citations": [
+            "J04:p3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Favourable: the authorities on balance support Daniel Okafor, led by Chester v Afshar; Bolam v Friern Hospital Management Committee is the main authority the other side will rely on.",
+        "citations": [
+          "J07:p3",
+          "J04:p3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J05",
+          "case_name": "Bolitho v City and Hackney Health Authority",
+          "citation": "[1998] AC 232",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Bolitho qualifies Bolam: in rare cases a court may reject professional practice that is not reasonable or responsible.",
+            "citations": [
+              "J05:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J06",
+          "case_name": "Montgomery v Lanarkshire Health Board",
+          "citation": "[2015] UKSC 11",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A risk is material if a reasonable person in the patient's position would be likely to attach significance to it, or if the doctor is or should reasonably be aware that this particular patient would attach significance to it.",
+            "citations": [
+              "J06:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J05",
+          "case_name": "Bolitho v City and Hackney Health Authority",
+          "citation": "[1998] AC 232",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Bolitho qualifies Bolam: in rare cases a court may reject professional practice that is not reasonable or responsible.",
+            "citations": [
+              "J05:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J06",
+          "case_name": "Montgomery v Lanarkshire Health Board",
+          "citation": "[2015] UKSC 11",
+          "stance": "opposing",
+          "proposition": {
+            "text": "A risk is material if a reasonable person in the patient's position would be likely to attach significance to it, or if the doctor is or should reasonably be aware that this particular patient would attach significance to it.",
+            "citations": [
+              "J06:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Bolitho v City and Hackney Health Authority [1998] AC 232 supports Daniel Okafor on this issue: Bolitho qualifies Bolam: in rare cases a court may reject professional practice that is not reasonable or responsible. That reasoning applies here: The Trust relies on evidence from two surgeons that many responsible spinal surgeons in 2024 did not routinely mention a 2 per cent risk to patients, and argues that the surgery itself was not negligent so the failure to warn...",
+          "citations": [
+            "J05:p3",
+            "F7"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Bolitho v City and Hackney Health Authority [1998] AC 232 supports St Aldhelm's Hospital NHS Trust on this issue: Bolitho qualifies Bolam: in rare cases a court may reject professional practice that is not reasonable or responsible. That reasoning applies here: The Trust relies on evidence from two surgeons that many responsible spinal surgeons in 2024 did not routinely mention a 2 per cent risk to patients, and argues that the surgery itself was not negligent so the failure to warn...",
+          "citations": [
+            "J05:p3",
+            "F7"
+          ]
+        },
+        {
+          "text": "Montgomery v Lanarkshire Health Board [2015] UKSC 11 supports St Aldhelm's Hospital NHS Trust on this issue: A risk is material if a reasonable person in the patient's position would be likely to attach significance to it, or if the doctor is or should reasonably be aware that this particular patient would attach significance to it. That reasoning applies here: Mr Okafor says that if he had been warned of the risk he would not have consented to surgery on that date but would have tried physiotherapy first and sought a second opinion. He accepts he might eventually have had...",
+          "citations": [
+            "J06:p3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Finely balanced: Bolitho v City and Hackney Health Authority supports Daniel Okafor, but Bolitho v City and Hackney Health Authority gives the other side a real argument; the outcome will turn on the facts the court accepts.",
+        "citations": [
+          "J05:p3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach?",
+      "supporting_precedents": [],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J08",
+          "case_name": "Barnett v Chelsea and Kensington Hospital Management Committee",
+          "citation": "[1969] 1 QB 428",
+          "stance": "opposing",
+          "proposition": {
+            "text": "The but-for test: the claimant must prove on the balance of probabilities that, but for the defendant's breach, the damage would not have occurred.",
+            "citations": [
+              "J08:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J22",
+          "case_name": "Wilsher v Essex Area Health Authority",
+          "citation": "[1988] AC 1074",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Showing that a breach added one more possible cause to several existing ones, or materially increased the risk among distinct agents, does not discharge the burden of proving causation.",
+            "citations": [
+              "J22:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "No retrieved authority squarely favours Daniel Okafor on this issue, so the argument rests on the facts: On 2 February 2024 Mr Okafor consulted Mr Lyle about chronic neck pain radiating into his left arm.",
+          "citations": [
+            "F1"
+          ]
+        },
+        {
+          "text": "Barnett v Chelsea and Kensington Hospital Management Committee is distinguishable on its facts: Three night watchmen drank tea and began vomiting. By contrast, in this case: During the consultation Mr Okafor told Mr Lyle that his career depended on fine finger control of his left hand.",
+          "citations": [
+            "J08:p1",
+            "F3"
+          ]
+        },
+        {
+          "text": "Wilsher v Essex Area Health Authority is distinguishable on its facts: A premature baby was negligently given excess oxygen in hospital. By contrast, in this case: The Trust relies on evidence from two surgeons that many responsible spinal surgeons in 2024 did not routinely mention a 2 per cent risk to patients, and argues that the surgery itself was not negligent so the failure to warn...",
+          "citations": [
+            "J22:p1",
+            "F7"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Barnett v Chelsea and Kensington Hospital Management Committee [1969] 1 QB 428 supports St Aldhelm's Hospital NHS Trust on this issue: The but-for test: the claimant must prove on the balance of probabilities that, but for the defendant's breach, the damage would not have occurred. That reasoning applies here: The Trust relies on evidence from two surgeons that many responsible spinal surgeons in 2024 did not routinely mention a 2 per cent risk to patients, and argues that the surgery itself was not negligent so the failure to warn...",
+          "citations": [
+            "J08:p3",
+            "F7"
+          ]
+        },
+        {
+          "text": "Wilsher v Essex Area Health Authority [1988] AC 1074 supports St Aldhelm's Hospital NHS Trust on this issue: Showing that a breach added one more possible cause to several existing ones, or materially increased the risk among distinct agents, does not discharge the burden of proving causation. That reasoning applies here: Mr Okafor says that if he had been warned of the risk he would not have consented to surgery on that date but would have tried physiotherapy first and sought a second opinion. He accepts he might eventually have had...",
+          "citations": [
+            "J22:p3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Unfavourable: the weight of authority is against Daniel Okafor, chiefly Barnett v Chelsea and Kensington Hospital Management Committee; the facts must be distinguished.",
+        "citations": [
+          "J08:p3"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Overall, Daniel Okafor's prospects look evenly balanced on the authorities retrieved (1 favourable, 1 unfavourable, 1 balanced issue(s)).",
+      "citations": [
+        "J07:p3",
+        "J04:p3",
+        "J05:p3"
+      ]
+    },
+    {
+      "text": "The disputed facts on which the outcome turns should be proved with evidence: The Trust relies on evidence from two surgeons that many responsible spinal surgeons in 2024 did not routinely mention a 2 per cent risk to patients, and argues that the surgery itself was not negligent so the failure to warn...",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "warnings": []
+}

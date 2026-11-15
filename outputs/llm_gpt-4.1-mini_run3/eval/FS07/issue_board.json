@@ -1,0 +1,580 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Is there a valid variation to the contract allowing Brennan Joinery Ltd to claim the extra \u00a318,000 from Castlegate Developments Ltd?",
+      "doctrine": "consideration_variation",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p3",
+            "J32:p2"
+          ],
+          "score": 1.5833,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract allowing Brennan to claim the extra \u00a318,000? consideration promise additional payment existing contractual duty pract",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p3",
+            "J31:p2"
+          ],
+          "score": 1.333,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract allowing Brennan to claim the extra \u00a318,000? consideration promise additional payment existing contractual duty pract",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J33",
+          "passage_refs": [
+            "J33:p3",
+            "J33:p2"
+          ],
+          "score": 0.5215,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract allowing Brennan to claim the extra \u00a318,000? consideration promise additional payment existing contractual duty pract",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J39",
+          "passage_refs": [
+            "J39:p2",
+            "J39:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "consideration variation contract extra payment validity",
+          "reason": "Williams v Roffey Bros & Nicholls (J32) is highly relevant for consideration of valid contract variation where a practical benefit is obtained without economic duress, refining Stilk v Myrick (J31) which denies consideration for existing duties. High Trees (J33) supports promise enforceability without consideration via promissory estoppel. Davis Contractors (J39) adds perspective on contract obligations under changing circumstances. Balfour v Balfour (J29) is less directly relevant but important for general contract formation principles."
+        },
+        {
+          "judgment_id": "J29",
+          "passage_refs": [
+            "J29:p1",
+            "J29:p2"
+          ],
+          "score": 0.4506,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract allowing Brennan to claim the extra \u00a318,000? consideration promise additional payment existing contractual duty pract",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J26",
+          "passage_refs": [
+            "J26:p1",
+            "J26:p3"
+          ],
+          "score": 0.4583,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract allowing Brennan to claim the extra \u00a318,000? consideration promise additional payment existing contractual duty pract",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J32",
+        "J26"
+      ],
+      "opposing": [
+        "J31"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Castlegate Developments Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Castlegate Developments Ltd"
+        }
+      ],
+      "assessment": "The practical benefit doctrine in Williams v Roffey offers strong support for recognizing the variation as valid since Castlegate avoided substantial penalties and disruption, and no duress was involved. While Stilk v Myrick provides a strict rule against enforcement without fresh consideration, the practical benefit exception is well established and applicable here given the facts. Therefore, Brennan likely has valid consideration supporting the contract variation."
+    },
+    {
+      "id": "I2",
+      "question": "Does Castlegate Developments Ltd's offer of additional payment to Brennan Joinery Ltd amount to a valid contract modification under the principles of offer and acceptance?",
+      "doctrine": "offer_acceptance",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p3"
+          ],
+          "score": 1.5158,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does the offer of additional payment amount to a valid contract modification under the principles of offer and acceptance? offer unilateral contract advertiseme",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J26",
+          "passage_refs": [
+            "J26:p2",
+            "J26:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "offer acceptance contract modification extra payment",
+          "reason": "Carlill (J23) confirms clear offer with intention to be bound and acceptance by performance, analogous to contract modification offers. Hyde v Wrench (J26) and Adams v Lindsell (J27) clarify offer and acceptance principles including counter-offers and postal acceptance. Williams v Roffey (J32) supports valid contractual promises modifying duties. Partridge v Crittenden (J24) clarifies advertisements as invitations to treat, less relevant here but useful for offer formation context."
+        },
+        {
+          "judgment_id": "J27",
+          "passage_refs": [
+            "J27:p2",
+            "J27:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "offer acceptance contract modification extra payment",
+          "reason": "Carlill (J23) confirms clear offer with intention to be bound and acceptance by performance, analogous to contract modification offers. Hyde v Wrench (J26) and Adams v Lindsell (J27) clarify offer and acceptance principles including counter-offers and postal acceptance. Williams v Roffey (J32) supports valid contractual promises modifying duties. Partridge v Crittenden (J24) clarifies advertisements as invitations to treat, less relevant here but useful for offer formation context."
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p2",
+            "J32:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "offer acceptance contract modification extra payment",
+          "reason": "Carlill (J23) confirms clear offer with intention to be bound and acceptance by performance, analogous to contract modification offers. Hyde v Wrench (J26) and Adams v Lindsell (J27) clarify offer and acceptance principles including counter-offers and postal acceptance. Williams v Roffey (J32) supports valid contractual promises modifying duties. Partridge v Crittenden (J24) clarifies advertisements as invitations to treat, less relevant here but useful for offer formation context."
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p2",
+            "J24:p3"
+          ],
+          "score": 1.512,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does the offer of additional payment amount to a valid contract modification under the principles of offer and acceptance? offer unilateral contract advertiseme",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J50",
+          "passage_refs": [
+            "J50:p3",
+            "J50:p2"
+          ],
+          "score": 1.175,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does the offer of additional payment amount to a valid contract modification under the principles of offer and acceptance? offer unilateral contract advertiseme",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p3",
+            "J31:p2"
+          ],
+          "score": 1.0452,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does the offer of additional payment amount to a valid contract modification under the principles of offer and acceptance? offer unilateral contract advertiseme",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J25",
+          "passage_refs": [
+            "J25:p3",
+            "J25:p2"
+          ],
+          "score": 1.0335,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does the offer of additional payment amount to a valid contract modification under the principles of offer and acceptance? offer unilateral contract advertiseme",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J31",
+        "J26"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Castlegate Developments Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Castlegate Developments Ltd"
+        }
+      ],
+      "assessment": "The analogy to Carlill supports treating Castlegate's email as a unilateral offer accepted by performance, establishing a contract modification. Opposing arguments hinge on strict offer and acceptance principles limiting modification absent fresh consideration, yet the facts here show clear intent and acceptance. Therefore, the evidence favors a valid contract modification under offer and acceptance doctrines."
+    },
+    {
+      "id": "I3",
+      "question": "Is Castlegate Developments Ltd's refusal to pay the extra \u00a318,000 a breach of contract?",
+      "doctrine": "termination",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p2",
+            "J31:p1"
+          ],
+          "score": 0.5776,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Castlegate's refusal to pay the extra \u00a318,000 a breach of contract? termination innominate term deprived of substantially the whole benefit Brennan completed",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p1",
+            "J32:p3"
+          ],
+          "score": 0.7951,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Castlegate's refusal to pay the extra \u00a318,000 a breach of contract? termination innominate term deprived of substantially the whole benefit Brennan completed",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J47",
+          "passage_refs": [
+            "J47:p2",
+            "J47:p3"
+          ],
+          "score": 1.5182,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Castlegate's refusal to pay the extra \u00a318,000 a breach of contract? termination innominate term deprived of substantially the whole benefit Brennan completed",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J39",
+          "passage_refs": [
+            "J39:p2",
+            "J39:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "breach of contract refusal to pay extra variation",
+          "reason": "For breach issues, Williams v Roffey (J32) supports enforceability of promised payment for variation. Stilk v Myrick (J31) offers counterpoint denying such promises without new consideration. Hongkong Fir (J47) and Davis Contractors (J39) provide context on breach consequences and contract obligations. Balfour (J29) is relevant for intention and contract formation aspects."
+        },
+        {
+          "judgment_id": "J29",
+          "passage_refs": [
+            "J29:p1",
+            "J29:p2"
+          ],
+          "score": 0.4781,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Castlegate's refusal to pay the extra \u00a318,000 a breach of contract? termination innominate term deprived of substantially the whole benefit Brennan completed",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J26",
+          "passage_refs": [
+            "J26:p1",
+            "J26:p2"
+          ],
+          "score": 0.5835,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Castlegate's refusal to pay the extra \u00a318,000 a breach of contract? termination innominate term deprived of substantially the whole benefit Brennan completed",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J32"
+      ],
+      "opposing": [
+        "J31"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Castlegate Developments Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Castlegate Developments Ltd"
+        }
+      ],
+      "assessment": "If the contract variation is upheld, refusal to pay Brennan the extra \u00a318,000 is a clear breach of contract. Since the evidence and relevant precedent strongly support validity of the variation, the breach claim is well founded. Conversely, without valid variation, no breach arises. Overall, the breach claim is compelling if the first two issues are decided for Brennan."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Is there a valid variation to the contract allowing Brennan to claim the extra \u00a318,000? [consideration_variation] Whether the promise of additional payment constitutes a binding contract variation supported by consideration."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I1",
+      "detail": "Can Brennan enforce the promise of extra payment made by Castlegate despite completing pre-existing contractual duties?"
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Does the offer of additional payment amount to a valid contract modification under the principles of offer and acceptance? [offer_acceptance] Whether the promise by Castlegate and Brennan's completion on schedule satisfies the requirements of offer and acceptance."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Is Castlegate's refusal to pay the extra \u00a318,000 a breach of contract? [termination] Whether refusing to pay promised extra amounts constitutes repudiatory breach or non-performance."
+    },
+    {
+      "seq": 5,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J32, J31, J33, J39, J29, J26"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J23, J26, J27, J32, J24, J50, J31, J25"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J31, J32, J47, J39, J29, J26"
+    },
+    {
+      "seq": 8,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Is there a valid variation to the contract allowing Brennan Joinery Ltd to claim the extra \u00a318,000 from Castlegate Developments Ltd? (client needs: pro)"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Does Castlegate Developments Ltd's offer of additional payment to Brennan Joinery Ltd amount to a valid contract modification under the principles of offer and acceptance? (client needs: pro)"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Is Castlegate Developments Ltd's refusal to pay the extra \u00a318,000 a breach of contract? (client needs: pro)"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J32 argument relies on it"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J32 argument relies on it"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 17,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J31 counter relies on it"
+    },
+    {
+      "seq": 18,
+      "author": "counter_argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J26 counter attacks it"
+    },
+    {
+      "seq": 19,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J31 counter relies on it"
+    },
+    {
+      "seq": 20,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J26 counter relies on it"
+    },
+    {
+      "seq": 21,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J31 counter relies on it"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 2 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 25,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 26,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 2 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 27,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 2 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 30,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 31,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "The practical benefit doctrine in Williams v Roffey offers strong support for recognizing the variation as valid since Castlegate avoided substantial penalties "
+    },
+    {
+      "seq": 32,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "The analogy to Carlill supports treating Castlegate's email as a unilateral offer accepted by performance, establishing a contract modification. Opposing argume"
+    },
+    {
+      "seq": 33,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "If the contract variation is upheld, refusal to pay Brennan the extra \u00a318,000 is a clear breach of contract. Since the evidence and relevant precedent strongly "
+    }
+  ]
+}

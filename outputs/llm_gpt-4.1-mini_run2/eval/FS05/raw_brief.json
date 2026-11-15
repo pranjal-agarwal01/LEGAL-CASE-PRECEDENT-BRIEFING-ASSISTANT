@@ -1,0 +1,370 @@
+{
+  "case_id": "FS05",
+  "title": "Kaur Artisan Bakery Ltd v SwiftHaul Couriers Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Kaur Artisan Bakery Ltd contracted with SwiftHaul for guaranteed next-day delivery of a critical electronic part for their industrial oven, crucial to their business operations (F2, F4). SwiftHaul negligently sent the parcel to the wrong depot, causing an eleven-day delay and significant loss of profits, including a special contract the bakery lost (F5). While SwiftHaul relies on an exclusion clause for loss of profit or business, the bakery argues it was unaware of the clause's significance and that such exclusions must be clearly communicated (F3, J42:p2). The bakery also contends that the exceptional lost contract should be recoverable despite SwiftHaul's lack of knowledge, as it naturally arises from the breach.",
+      "citations": [
+        "F2",
+        "F4",
+        "F5",
+        "F3",
+        "J42:p2"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "The bakery's industrial oven failed on 3 September 2025 and needed the controller board repaired at the manufacturer's workshop in Birmingham.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "On 4 September 2025, the bakery booked SwiftHaul's guaranteed next-day delivery service describing the parcel as 'electronic component' without informing about its inability to trade without it.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "The bakery accepted SwiftHaul's terms and conditions including clause 9 which excludes liability for any loss of profit, business, or contracts arising from delay.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "SwiftHaul mistakenly sent the parcel to the wrong depot and delivered it eleven days late on 15 September 2025.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "The bakery was unable to bake for twelve days, losing about £18,000 in ordinary trade profits and a £40,000 contract for a celebrity wedding, which SwiftHaul did not know about.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "SwiftHaul argues it could not have contemplated the bakery's inability to trade or the exceptional wedding contract, and relies on clause 9 to exclude liability for these losses.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "The bakery claims damages for breach of contract covering its lost profits and lost wedding contract due to the late delivery.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Did SwiftHaul owe a duty of care to Kaur Artisan Bakery Ltd in performing the delivery contract?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J01",
+          "case_name": "Donoghue v Stevenson",
+          "citation": "[1932] AC 562",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A duty of care arises to avoid acts foreseeably injurious to closely affected persons, established by Lord Atkin's neighbour principle.",
+            "citations": [
+              "J01:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J19",
+          "case_name": "Robinson v Chief Constable of West Yorkshire Police",
+          "citation": "[2018] UKSC 4",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Existing negligence principles apply where positive acts create foreseeable risk of injury; here a duty arises in delivery causing delay.",
+            "citations": [
+              "J19:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J02",
+          "case_name": "Caparo Industries plc v Dickman",
+          "citation": "[1990] 2 AC 605",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Duty of care requires proximity and reasonable foreseeability of harm specific to claimant; lacking where defendant unaware of special circumstances.",
+            "citations": [
+              "J02:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "SwiftHaul owed a duty of care as delay foreseeably affected the bakery, fulfilling the neighbour principle, with a proximate delivery service relationship (J01:p3; J19:p2; F2, F4).",
+          "citations": [
+            "J01:p3",
+            "J19:p2",
+            "F2",
+            "F4"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "SwiftHaul owed no duty of care beyond the contract because it lacked knowledge of any special circumstances making loss foreseeable; proximity and foreseeability specific to the bakery are absent (J02:p2; F2, F6).",
+          "citations": [
+            "J02:p2",
+            "F2",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The duty of care likely exists in contract delivery given direct foreseeability of harm from delayed delivery and close relationship, aligning with established negligence principles (J01,p3; J19,p2). While Caparo requires proximity, the bakery's reliance on guaranteed next-day service and the direct effect of delay likely satisfies this.",
+        "citations": [
+          "J01:p3",
+          "J19:p2",
+          "J02:p2",
+          "F2",
+          "F4",
+          "F6"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Was SwiftHaul's standard of care in delivering the parcel breached by sending it to the wrong depot causing delay?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J11",
+          "case_name": "Nettleship v Weston",
+          "citation": "[1971] 2 QB 691",
+          "stance": "supporting",
+          "proposition": {
+            "text": "The standard of care is objective; an actor is held to the reasonable competent standard regardless of personal limitations.",
+            "citations": [
+              "J11:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J12",
+          "case_name": "Bolton v Stone",
+          "citation": "[1951] AC 850",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Breach requires weighing of likelihood and practicability; a small probability or isolated risk usually does not constitute breach.",
+            "citations": [
+              "J12:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Sending the parcel to the wrong depot was a fundamental error inconsistent with the objective standard of a reasonably competent courier in guaranteed next-day delivery (J11:p3; J11:p2; F4).",
+          "citations": [
+            "J11:p3",
+            "J11:p2",
+            "F4"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The isolated delivery error may not breach the standard of care if reasonable precautions and standard business practices were followed; small risk without evidence of negligence suffices to deny breach (J12:p3; F4).",
+          "citations": [
+            "J12:p3",
+            "F4"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "SwiftHaul likely breached the standard of care by mis-routing a guaranteed next-day delivery, given the objective competent courier standard (J11:p3). The opposing argument depends on absence of proof of negligence, but a fundamental error causing 11-day delay undermines such defense (J12:p3).",
+        "citations": [
+          "J11:p3",
+          "J12:p3",
+          "F4"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Are Kaur Artisan Bakery Ltd's lost profits and lost contract recoverable given the exclusion clause in SwiftHaul's terms?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Exclusion clauses must be brought to attention before contract formation; onerous clauses excluding loss must be clearly communicated to be effective.",
+            "citations": [
+              "J42:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J40",
+          "case_name": "L'Estrange v F Graucob Ltd",
+          "citation": "[1934] 2 KB 394",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Signing or equivalent acceptance binds a party to exclusion clauses regardless of knowledge, absent fraud or misrepresentation.",
+            "citations": [
+              "J40:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J44",
+          "case_name": "Photo Production Ltd v Securicor Transport Ltd",
+          "citation": "[1980] AC 827",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Clear, unambiguous exclusion clauses are upheld in commercial contracts to allocate risks, even for fundamental breaches.",
+            "citations": [
+              "J44:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The exclusion clause should be construed narrowly against SwiftHaul as an onerous clause excluding loss of profits and contracts must be clearly brought to the bakery's attention before contract formation, which is not demonstrated by mere online ticking (J42:p2; F3).",
+          "citations": [
+            "J42:p2",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The bakery accepted the exclusion clause by ticking the box, binding them regardless of knowledge per L'Estrange, and the clause's clear wording excludes lost profits and contracts (J40:p2; F3).",
+          "citations": [
+            "J40:p2",
+            "F3"
+          ]
+        },
+        {
+          "text": "Photo Production confirms that in commercial contracts between parties with equal bargaining power, clear and properly incorporated exclusion clauses are enforced even for fundamental breaches (J44:p2; F3).",
+          "citations": [
+            "J44:p2",
+            "F3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The bakery's acceptance by ticking the box supports incorporation of the exclusion clause under L'Estrange and Photo Production, favoring enforcement (J40:p2; J44:p2). However, the argument that such onerous clauses require explicit prior notice may favor narrow construction against SwiftHaul (J42:p2). The balance leans to enforcement given commercial context and clearness of clause (F3).",
+        "citations": [
+          "J40:p2",
+          "J42:p2",
+          "J44:p2",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I4",
+      "question": "Could Kaur Artisan Bakery Ltd recover loss for the exceptional wedding contract despite SwiftHaul's lack of knowledge about it?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J35",
+          "case_name": "Victoria Laundry (Windsor) Ltd v Newman Industries Ltd",
+          "citation": "[1949] 2 KB 528",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Losses reasonably foreseeable from breach, judged by knowledge at contracting, are recoverable; exceptional known contracts' losses are compensable.",
+            "citations": [
+              "J35:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J34",
+          "case_name": "Hadley v Baxendale",
+          "citation": "(1854) 9 Exch 341",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Losses from special circumstances unknown to defendant are not recoverable as not reasonably foreseeable.",
+            "citations": [
+              "J34:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The lost wedding contract loss is recoverable as it naturally arises from the breach and relates to loss reasonably foreseeable by analogy with Victoria Laundry, even if SwiftHaul lacked actual knowledge (J35:p2; F5, F6).",
+          "citations": [
+            "J35:p2",
+            "F5",
+            "F6"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The exceptional lost contract is not recoverable since SwiftHaul was unaware and could not have contemplated it; Hadley v Baxendale requires special losses to be communicated to recover (J34:p2; F5, F6).",
+          "citations": [
+            "J34:p2",
+            "F5",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Hadley v Baxendale strongly supports barring recovery of losses from unknown special circumstances like the wedding contract (J34:p2). Victoria Laundry allows recovery of ordinary lost profits and known special contracts, which does not apply here due to SwiftHaul's ignorance. The opposing view aligns with established remoteness principles and likely prevails.",
+        "citations": [
+          "J34:p2",
+          "J35:p2",
+          "F5",
+          "F6"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "SwiftHaul owed a duty of care to Kaur Artisan Bakery Ltd due to the direct and foreseeable risk from delayed delivery in a contractual carrier relationship (J01:p3; J19:p2).",
+      "citations": [
+        "J01:p3",
+        "J19:p2"
+      ]
+    },
+    {
+      "text": "SwiftHaul breached the standard of care by misrouting the parcel, resulting in an 11-day delay and significant losses (J11:p3; F4).",
+      "citations": [
+        "J11:p3",
+        "F4"
+      ]
+    },
+    {
+      "text": "However, the exclusion clause in SwiftHaul's terms likely bars recovery of lost profits and contracts, as the bakery accepted these terms online and the clause is clear and enforceable in commercial contexts (J40:p2; J44:p2; F3).",
+      "citations": [
+        "J40:p2",
+        "J44:p2",
+        "F3"
+      ]
+    },
+    {
+      "text": "Losses from the exceptional wedding contract are probably unrecoverable as SwiftHaul lacked knowledge of the special circumstances, consistent with Hadley v Baxendale (J34:p2; F5, F6).",
+      "citations": [
+        "J34:p2",
+        "F5",
+        "F6"
+      ]
+    }
+  ],
+  "warnings": []
+}

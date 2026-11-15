@@ -1,0 +1,726 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Did St Aldhelm's Hospital NHS Trust owe Mr Okafor a duty of care to inform him about the 2% risk of nerve damage and the alternative treatments before his surgery?",
+      "doctrine": "duty_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J06",
+          "passage_refs": [
+            "J06:p2",
+            "J06:p3"
+          ],
+          "score": 0.9318,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the defendants owe a duty of care to inform Mr Okafor about the 2% risk and alternative treatments? duty of care negligence neighbour principle manufacturer",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J07",
+          "passage_refs": [
+            "J07:p1",
+            "J07:p2"
+          ],
+          "score": 0.635,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the defendants owe a duty of care to inform Mr Okafor about the 2% risk and alternative treatments? duty of care negligence neighbour principle manufacturer",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J19",
+          "passage_refs": [
+            "J19:p2",
+            "J19:p3"
+          ],
+          "score": 0.9115,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the defendants owe a duty of care to inform Mr Okafor about the 2% risk and alternative treatments? duty of care negligence neighbour principle manufacturer",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J02",
+          "passage_refs": [
+            "J02:p3",
+            "J02:p2"
+          ],
+          "score": 0.9159,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the defendants owe a duty of care to inform Mr Okafor about the 2% risk and alternative treatments? duty of care negligence neighbour principle manufacturer",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J01",
+          "passage_refs": [
+            "J01:p2",
+            "J01:p3"
+          ],
+          "score": 1.5427,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the defendants owe a duty of care to inform Mr Okafor about the 2% risk and alternative treatments? duty of care negligence neighbour principle manufacturer",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J06",
+        "J02"
+      ],
+      "opposing": [
+        "J02"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+        }
+      ],
+      "assessment": "Given Montgomery\u2019s patient-centred approach and the clear knowledge of Mr Okafor\u2019s specific concerns, the Trust owed a duty of care to disclose the 2% risk and alternatives despite the small risk size, making this duty well-established rather than novel."
+    },
+    {
+      "id": "I2",
+      "question": "Was the standard of care breached by St Aldhelm's Hospital NHS Trust in failing to warn Mr Okafor of the 2% risk of nerve damage and the alternative treatments?",
+      "doctrine": "standard_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J04",
+          "passage_refs": [
+            "J04:p2",
+            "J04:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "standard of care breach failure to warn medical risk alternatives",
+          "reason": "Bolam v Friern Hospital Management Committee is seminal on medical standard of care. Nettleship v Weston explains the objective standard for defendants. Chester v Afshar and Montgomery clarify standard related to risk disclosure. Bolitho qualifies Bolam by allowing court rejection of unreasonable professional practice. Paris v Stepney Borough Council and Latimer v AEC give established principles of balancing risk and precautions."
+        },
+        {
+          "judgment_id": "J11",
+          "passage_refs": [
+            "J11:p3",
+            "J11:p2"
+          ],
+          "score": 1.3934,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by failing to warn Mr Okafor of the risk and alternatives? breach standard of care reasonable person precautions risk probabil",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J07",
+          "passage_refs": [
+            "J07:p1",
+            "J07:p2"
+          ],
+          "score": 0.8682,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by failing to warn Mr Okafor of the risk and alternatives? breach standard of care reasonable person precautions risk probabil",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J05",
+          "passage_refs": [
+            "J05:p2",
+            "J05:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "standard of care breach failure to warn medical risk alternatives",
+          "reason": "Bolam v Friern Hospital Management Committee is seminal on medical standard of care. Nettleship v Weston explains the objective standard for defendants. Chester v Afshar and Montgomery clarify standard related to risk disclosure. Bolitho qualifies Bolam by allowing court rejection of unreasonable professional practice. Paris v Stepney Borough Council and Latimer v AEC give established principles of balancing risk and precautions."
+        },
+        {
+          "judgment_id": "J06",
+          "passage_refs": [
+            "J06:p2",
+            "J06:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "standard of care breach failure to warn medical risk alternatives",
+          "reason": "Bolam v Friern Hospital Management Committee is seminal on medical standard of care. Nettleship v Weston explains the objective standard for defendants. Chester v Afshar and Montgomery clarify standard related to risk disclosure. Bolitho qualifies Bolam by allowing court rejection of unreasonable professional practice. Paris v Stepney Borough Council and Latimer v AEC give established principles of balancing risk and precautions."
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p3",
+            "J12:p2"
+          ],
+          "score": 1.4461,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by failing to warn Mr Okafor of the risk and alternatives? breach standard of care reasonable person precautions risk probabil",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J14",
+          "passage_refs": [
+            "J14:p2",
+            "J14:p3"
+          ],
+          "score": 1.1558,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by failing to warn Mr Okafor of the risk and alternatives? breach standard of care reasonable person precautions risk probabil",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p3",
+            "J13:p2"
+          ],
+          "score": 0.9692,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the standard of care breached by failing to warn Mr Okafor of the risk and alternatives? breach standard of care reasonable person precautions risk probabil",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J06",
+        "J13"
+      ],
+      "opposing": [
+        "J04",
+        "J12"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for St Aldhelm's Hospital NHS Trust"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for St Aldhelm's Hospital NHS Trust"
+        }
+      ],
+      "assessment": "Montgomery\u2019s rejection of Bolam for risk disclosure and emphasis on patient-specific factors strongly supports breach here, especially given Mr Okafor's specific vulnerability; the opposing reliance on customary practice and small risk is insufficient to excuse non-disclosure post-Montgomery."
+    },
+    {
+      "id": "I3",
+      "question": "Did Mr Okafor give informed consent to the cervical decompression surgery despite the undisclosed 2% risk and alternative treatments?",
+      "doctrine": "informed_consent",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J07",
+          "passage_refs": [
+            "J07:p3",
+            "J07:p1"
+          ],
+          "score": 1.5641,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Mr Okafor give informed consent, considering the undisclosed risks? duty to warn material risk informed consent reasonable alternative treatment patient aut",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J06",
+          "passage_refs": [
+            "J06:p2",
+            "J06:p3"
+          ],
+          "score": 1.3822,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Mr Okafor give informed consent, considering the undisclosed risks? duty to warn material risk informed consent reasonable alternative treatment patient aut",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J04",
+          "passage_refs": [
+            "J04:p1",
+            "J04:p3"
+          ],
+          "score": 0.7861,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Mr Okafor give informed consent, considering the undisclosed risks? duty to warn material risk informed consent reasonable alternative treatment patient aut",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p1",
+            "J40:p3"
+          ],
+          "score": 0.4113,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Mr Okafor give informed consent, considering the undisclosed risks? duty to warn material risk informed consent reasonable alternative treatment patient aut",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J14",
+          "passage_refs": [
+            "J14:p2",
+            "J14:p3"
+          ],
+          "score": 0.3035,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Mr Okafor give informed consent, considering the undisclosed risks? duty to warn material risk informed consent reasonable alternative treatment patient aut",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J07"
+      ],
+      "opposing": [],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+        }
+      ],
+      "assessment": "Mr Okafor did not give informed consent as the undisclosed 2% risk and alternative treatments were material to his decision, consistent with Chester\u2019s holding; his expressed intent to delay or seek alternatives supports this conclusion."
+    },
+    {
+      "id": "I4",
+      "question": "Did the failure to warn Mr Okafor of the 2% risk and alternative treatments cause the loss of fine motor control and professional capability suffered by him?",
+      "doctrine": "causation",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J07",
+          "passage_refs": [
+            "J07:p2",
+            "J07:p3"
+          ],
+          "score": 1.117,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did failure to warn cause the loss suffered by Mr Okafor? causation but for test would have happened anyway balance of probabilities caused the harm On 2 Februa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J06",
+          "passage_refs": [
+            "J06:p2",
+            "J06:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "causation loss failure to warn medical risk informed consent",
+          "reason": "Chester v Afshar deals directly with causation in failure to warn cases with medical risk. Montgomery further clarifies material risk and causation. Bolitho qualifies Bolam regarding causation and breach by omission. Wilsher v Essex clarifies the burden of proving causation with multiple possible causes. Barnett and Page v Smith augment causation principles in personal injury and negligence."
+        },
+        {
+          "judgment_id": "J05",
+          "passage_refs": [
+            "J05:p2",
+            "J05:p3"
+          ],
+          "score": 1.1261,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did failure to warn cause the loss suffered by Mr Okafor? causation but for test would have happened anyway balance of probabilities caused the harm On 2 Februa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J22",
+          "passage_refs": [
+            "J22:p2",
+            "J22:p3"
+          ],
+          "score": 1.4267,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did failure to warn cause the loss suffered by Mr Okafor? causation but for test would have happened anyway balance of probabilities caused the harm On 2 Februa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p3",
+            "J08:p2"
+          ],
+          "score": 1.3359,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did failure to warn cause the loss suffered by Mr Okafor? causation but for test would have happened anyway balance of probabilities caused the harm On 2 Februa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J17",
+          "passage_refs": [
+            "J17:p1",
+            "J17:p2"
+          ],
+          "score": 1.0221,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did failure to warn cause the loss suffered by Mr Okafor? causation but for test would have happened anyway balance of probabilities caused the harm On 2 Februa",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J07"
+      ],
+      "opposing": [
+        "J05"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+        }
+      ],
+      "assessment": "Following Chester, the injury was caused by the failure to warn since the risk materialised and the patient lost the opportunity to postpone surgery or seek alternatives; this principle suitably adjusts traditional causation to vindicate patient autonomy notwithstanding intrinsic surgical risks."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Did the defendants owe a duty of care to inform Mr Okafor about the 2% risk and alternative treatments? [duty_of_care] The case concerns medical advice and disclosure of risks."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Was the standard of care breached by failing to warn Mr Okafor of the risk and alternatives? [standard_of_care] There is dispute about customary practice concerning risk disclosure."
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Did Mr Okafor give informed consent, considering the undisclosed risks? [informed_consent] Failure to warn about material risks affected consent validity."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I4",
+      "detail": "Did failure to warn cause the loss suffered by Mr Okafor? [causation] Mr Okafor claims he would have delayed surgery if properly informed."
+    },
+    {
+      "seq": 5,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J06, J07, J19, J02, J01"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J04, J11, J07, J05, J06, J12, J14, J13"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J07, J06, J04, J40, J14"
+    },
+    {
+      "seq": 8,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I4",
+      "detail": "J07, J06, J05, J22, J08, J17"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Did St Aldhelm's Hospital NHS Trust owe Mr Okafor a duty of care to inform him about the 2% risk of nerve damage and the alternative treatments before his surgery? (client needs: pro)"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Was the standard of care breached by St Aldhelm's Hospital NHS Trust in failing to warn Mr Okafor of the 2% risk of nerve damage and the alternative treatments? (client needs: pro)"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Did Mr Okafor give informed consent to the cervical decompression surgery despite the undisclosed 2% risk and alternative treatments? (client needs: pro)"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I4",
+      "detail": "Did the failure to warn Mr Okafor of the 2% risk and alternative treatments cause the loss of fine motor control and professional capability suffered by him? (client needs: pro)"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J06 argument relies on it"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J06 argument relies on it"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J07 argument relies on it"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I4",
+      "detail": "J07 argument relies on it"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 18,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 19,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 20,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 21,
+      "author": "counter_argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J02 counter attacks it"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J04 counter relies on it"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J12 counter relies on it"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I4",
+      "detail": "J05 counter relies on it"
+    },
+    {
+      "seq": 25,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 26,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 2 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 27,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 29,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J13 argument relies on it"
+    },
+    {
+      "seq": 30,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 31,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 2 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 32,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 33,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 34,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J02 counter relies on it"
+    },
+    {
+      "seq": 35,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 36,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 2 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 37,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 38,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 39,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Given Montgomery\u2019s patient-centred approach and the clear knowledge of Mr Okafor\u2019s specific concerns, the Trust owed a duty of care to disclose the 2% risk and "
+    },
+    {
+      "seq": 40,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Montgomery\u2019s rejection of Bolam for risk disclosure and emphasis on patient-specific factors strongly supports breach here, especially given Mr Okafor's specifi"
+    },
+    {
+      "seq": 41,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "Mr Okafor did not give informed consent as the undisclosed 2% risk and alternative treatments were material to his decision, consistent with Chester\u2019s holding; "
+    },
+    {
+      "seq": 42,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I4",
+      "detail": "Following Chester, the injury was caused by the failure to warn since the risk materialised and the patient lost the opportunity to postpone surgery or seek alt"
+    }
+  ]
+}

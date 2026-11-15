@@ -1,0 +1,218 @@
+{
+  "mode": "offline",
+  "llm_calls": 0,
+  "seconds": 0.023,
+  "structured_facts": {
+    "case_id": "FS08",
+    "title": "Clarke v Dunmore Haulage Ltd",
+    "acting_for": "Claimants",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Helen Clarke",
+        "role": "claimant",
+        "description": "mother of Jamie Clarke."
+      },
+      {
+        "name": "Ryan Clarke",
+        "role": "claimant",
+        "description": "Jamie Clarke's older brother."
+      },
+      {
+        "name": "Dunmore Haulage Ltd",
+        "role": "defendant",
+        "description": "employer of the lorry driver."
+      }
+    ],
+    "chronology": [
+      {
+        "date": "21 November 2024",
+        "iso_date": "2024-11-21",
+        "event": "On 21 November 2024 a Dunmore lorry driver who was using his phone crashed into the back of a car driven by 19-year-old Jamie Clarke on the M62 motorway.",
+        "fact_ref": "F1"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Helen Clarke and Ryan Clarke",
+        "respondent": "Dunmore Haulage Ltd",
+        "claim": "Helen and Ryan Clarke want to claim damages for psychiatric injury as relatives who suffered shock because of the accident to Jamie.",
+        "legal_basis": "Tort (negligence)",
+        "fact_refs": [
+          "F4",
+          "F5",
+          "F6"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "On 21 November 2024 a Dunmore lorry driver who was using his phone crashed into the back of a car driven by 19-year-old Jamie Clarke on the M62 motorway.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "Jamie suffered severe head and leg injuries and was taken by ambulance to Humberview Hospital.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "Helen Clarke was told of the crash by a police officer at her home about one hour later. She arrived at the hospital roughly two hours after the crash and saw Jamie in the emergency department before he had been cleaned up, covered in blood and unconscious.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "Ryan Clarke, at work in Leeds, watched the aftermath of the crash on a live traffic-camera stream on a news website. He recognised Jamie's car but could not see Jamie himself.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "Both Helen and Ryan have since been diagnosed with post-traumatic stress disorder, a recognised psychiatric illness. Jamie survived.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "Dunmore admits that its driver was negligent towards Jamie but denies owing any duty of care to Helen or Ryan for psychiatric harm.",
+        "citations": [
+          "F6"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Helen and Ryan Clarke want to claim damages for psychiatric injury as relatives who suffered shock because of the accident to Jamie.",
+      "citations": [
+        "F7"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 31,
+    "valid_citations": 31,
+    "existence_rate": 1.0,
+    "judgment_citations": 19,
+    "valid_judgment_citations": 19,
+    "statements": 18,
+    "statements_with_valid_citation": 18,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 31
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J16",
+      "J15",
+      "J17"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 31,
+    "valid_citations": 31,
+    "existence_rate": 1.0,
+    "judgment_citations": 19,
+    "valid_judgment_citations": 19,
+    "statements": 18,
+    "statements_with_valid_citation": 18,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 31
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J16",
+      "J15",
+      "J17"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.002,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS08: 7 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 0.004,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "3 parties, 1 dated events, 1 claims, 1 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 0.005,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1",
+      "round": 0
+    },
+    {
+      "t": 0.006,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J15', 'J16', 'J17', 'J49', 'J27']",
+      "round": 0
+    },
+    {
+      "t": 0.007,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "1 issues",
+      "round": 0
+    },
+    {
+      "t": 0.009,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "2 points",
+      "round": 1
+    },
+    {
+      "t": 0.011,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "1 points",
+      "round": 1
+    },
+    {
+      "t": 0.013,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "1 points",
+      "round": 2
+    },
+    {
+      "t": 0.014,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "0 points",
+      "round": 2
+    },
+    {
+      "t": 0.015,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 1 issues",
+      "round": 3
+    },
+    {
+      "t": 0.022,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 100.00%, 0 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 0.022,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

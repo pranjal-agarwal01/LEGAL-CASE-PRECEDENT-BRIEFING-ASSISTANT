@@ -1,0 +1,704 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Does Brightwater owe a duty of care to Ms Nair despite her not purchasing the drink directly?",
+      "doctrine": "duty_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J01",
+          "passage_refs": [
+            "J01:p3",
+            "J01:p2"
+          ],
+          "score": 1.6031,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Brightwater owe a duty of care to Ms Nair despite her not purchasing the drink directly? duty of care negligence neighbour principle manufacturer ultimate ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J02",
+          "passage_refs": [
+            "J02:p3",
+            "J02:p2"
+          ],
+          "score": 0.8276,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Brightwater owe a duty of care to Ms Nair despite her not purchasing the drink directly? duty of care negligence neighbour principle manufacturer ultimate ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J19",
+          "passage_refs": [
+            "J19:p2",
+            "J19:p3"
+          ],
+          "score": 0.8022,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Brightwater owe a duty of care to Ms Nair despite her not purchasing the drink directly? duty of care negligence neighbour principle manufacturer ultimate ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p2",
+            "J08:p1"
+          ],
+          "score": 0.548,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Brightwater owe a duty of care to Ms Nair despite her not purchasing the drink directly? duty of care negligence neighbour principle manufacturer ultimate ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J16",
+          "passage_refs": [
+            "J16:p3",
+            "J16:p1"
+          ],
+          "score": 0.3073,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Brightwater owe a duty of care to Ms Nair despite her not purchasing the drink directly? duty of care negligence neighbour principle manufacturer ultimate ",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J01"
+      ],
+      "opposing": [
+        "J02"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+        }
+      ],
+      "assessment": "The facts strongly support the application of Donoghue's neighbour principle because the sealed bottle was unopened until consumption, making Brightwater liable despite no direct purchase. The alleged tampering is speculative and does not negate the duty owed by the manufacturer as the product left its control sealed. The Caparo criteria for novel duty impositions are met by this established scenario of manufacturer liability to consumers."
+    },
+    {
+      "id": "I2",
+      "question": "Did Brightwater breach the standard of care in manufacturing and bottling the kombucha to prevent contamination?",
+      "doctrine": "standard_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J11",
+          "passage_refs": [
+            "J11:p3",
+            "J11:p2"
+          ],
+          "score": 1.3803,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater breach the standard of care in manufacturing and bottling the kombucha to prevent contamination? breach standard of care reasonable person preca",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p3",
+            "J13:p2"
+          ],
+          "score": 0.9219,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater breach the standard of care in manufacturing and bottling the kombucha to prevent contamination? breach standard of care reasonable person preca",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J01",
+          "passage_refs": [
+            "J01:p2",
+            "J01:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "breach standard of care contamination manufacturing bottling product safety kombucha beverage",
+          "reason": "Nettleship affirms objective standard of care. Paris shows duty heightened by claimant's vulnerability. Donoghue again supports manufacturer duty. Bolton v Stone and Latimer guide on foreseeability of harm and reasonable precautions in breach assessment."
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p3",
+            "J12:p2"
+          ],
+          "score": 1.4327,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater breach the standard of care in manufacturing and bottling the kombucha to prevent contamination? breach standard of care reasonable person preca",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J14",
+          "passage_refs": [
+            "J14:p2",
+            "J14:p3"
+          ],
+          "score": 1.0893,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater breach the standard of care in manufacturing and bottling the kombucha to prevent contamination? breach standard of care reasonable person preca",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J20",
+          "passage_refs": [
+            "J20:p3",
+            "J20:p2"
+          ],
+          "score": 0.7733,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater breach the standard of care in manufacturing and bottling the kombucha to prevent contamination? breach standard of care reasonable person preca",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J01",
+        "J13"
+      ],
+      "opposing": [
+        "J12"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+        }
+      ],
+      "assessment": "The contamination of glass and mould in a sealed bottle is a serious failure inconsistent with reasonable care expected from manufacturers. The known vulnerability of Ms Nair further heightens the duty. Brightwater's inspection record is insufficient to dispel liability given the actual presence of contamination and foreseeable harm."
+    },
+    {
+      "id": "I3",
+      "question": "Is the pre-existing gastric ulcer a factor that affects causation of Ms Nair's injuries?",
+      "doctrine": "causation",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J10",
+          "passage_refs": [
+            "J10:p3",
+            "J10:p2"
+          ],
+          "score": 0.9374,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the pre-existing gastric ulcer a factor that affects causation of Ms Nair's injuries? causation but for test would have happened anyway balance of probabilit",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J22",
+          "passage_refs": [
+            "J22:p2",
+            "J22:p3"
+          ],
+          "score": 1.5335,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the pre-existing gastric ulcer a factor that affects causation of Ms Nair's injuries? causation but for test would have happened anyway balance of probabilit",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J17",
+          "passage_refs": [
+            "J17:p3",
+            "J17:p2"
+          ],
+          "score": 0.8804,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the pre-existing gastric ulcer a factor that affects causation of Ms Nair's injuries? causation but for test would have happened anyway balance of probabilit",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p3",
+            "J08:p2"
+          ],
+          "score": 1.2749,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the pre-existing gastric ulcer a factor that affects causation of Ms Nair's injuries? causation but for test would have happened anyway balance of probabilit",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J16",
+          "passage_refs": [
+            "J16:p2",
+            "J16:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "causation pre-existing condition gastric ulcer internal injury contribution to harm",
+          "reason": "Smith v Leech Brain sets the eggshell skull rule for pre-existing vulnerabilities. Wilsher stresses need to prove causation on the balance of probabilities. Page clarifies primary victim status and taking claimant as found. Barnett confirms but-for test. McLoughlin addresses psychiatric harm recovery but informs proximity and injury causation."
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p2",
+            "J12:p3"
+          ],
+          "score": 0.87,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the pre-existing gastric ulcer a factor that affects causation of Ms Nair's injuries? causation but for test would have happened anyway balance of probabilit",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J10"
+      ],
+      "opposing": [
+        "J22"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+        }
+      ],
+      "assessment": "The defendant must take the claimant as they find them; Ms Nair's pre-existing ulcer does not break causation if the injury type was foreseeable. Though multiple factors exist, the initial injury by glass is attributable to Brightwater's breach and sufficiently causal to establish liability."
+    },
+    {
+      "id": "I4",
+      "question": "Is Ms Nair's claim for losses and medical expenses recoverable as pure economic loss?",
+      "doctrine": "pure_economic_loss",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J21",
+          "passage_refs": [
+            "J21:p3",
+            "J21:p2"
+          ],
+          "score": 1.5638,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Ms Nair's claim for losses and medical expenses recoverable as pure economic loss? pure economic loss financial loss consequential on physical damage Ms Nair",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J03",
+          "passage_refs": [
+            "J03:p2",
+            "J03:p3"
+          ],
+          "score": 0.7613,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Ms Nair's claim for losses and medical expenses recoverable as pure economic loss? pure economic loss financial loss consequential on physical damage Ms Nair",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J02",
+          "passage_refs": [
+            "J02:p3",
+            "J02:p1"
+          ],
+          "score": 0.6111,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Ms Nair's claim for losses and medical expenses recoverable as pure economic loss? pure economic loss financial loss consequential on physical damage Ms Nair",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J34",
+          "passage_refs": [
+            "J34:p3",
+            "J34:p2"
+          ],
+          "score": 0.402,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Ms Nair's claim for losses and medical expenses recoverable as pure economic loss? pure economic loss financial loss consequential on physical damage Ms Nair",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J35",
+          "passage_refs": [
+            "J35:p3",
+            "J35:p1"
+          ],
+          "score": 0.277,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Ms Nair's claim for losses and medical expenses recoverable as pure economic loss? pure economic loss financial loss consequential on physical damage Ms Nair",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J21"
+      ],
+      "opposing": [
+        "J21"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+        }
+      ],
+      "assessment": "The losses claimed flow naturally from physical injuries and are not pure economic loss barred in negligence. Given causation is established, these consequential losses for medical expenses and lost earnings are recoverable against Brightwater."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Does Brightwater owe a duty of care to Ms Nair despite her not purchasing the drink directly? [duty_of_care] Ms Nair consumed the product and suffered injury, raising the question of whether the manufacturer owes her a duty despite no contract."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Did Brightwater breach the standard of care in manufacturing and bottling the kombucha to prevent contamination? [standard_of_care] The presence of glass and mould in the bottle raises issues about the manufacturing standards and safety."
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Is the pre-existing gastric ulcer a factor that affects causation of Ms Nair's injuries? [causation] Brightwater's medical expert argues the ulcer caused most damage, questioning the causal link between the glass and injuries."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I4",
+      "detail": "Is Ms Nair's claim for losses and medical expenses recoverable as pure economic loss? [pure_economic_loss] Ms Nair seeks damages for lost earnings and medical treatment, which might raise issues about recoverability."
+    },
+    {
+      "seq": 5,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I3",
+      "detail": "Can Brightwater successfully argue that the bottle was tampered with after leaving the factory to avoid liability?"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J01, J02, J19, J08, J16"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J11, J13, J01, J12, J14, J20"
+    },
+    {
+      "seq": 8,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J10, J22, J17, J08, J16, J12"
+    },
+    {
+      "seq": 9,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I4",
+      "detail": "J21, J03, J02, J34, J35"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Does Brightwater owe a duty of care to Ms Nair despite her not purchasing the drink directly? (client needs: pro)"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Did Brightwater breach the standard of care in manufacturing and bottling the kombucha to prevent contamination? (client needs: pro)"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Is the pre-existing gastric ulcer a factor that affects causation of Ms Nair's injuries? (client needs: pro)"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I4",
+      "detail": "Is Ms Nair's claim for losses and medical expenses recoverable as pure economic loss? (client needs: pro)"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J01 argument relies on it"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J01 argument relies on it"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J13 argument relies on it"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J10 argument relies on it"
+    },
+    {
+      "seq": 18,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I4",
+      "detail": "J21 argument relies on it"
+    },
+    {
+      "seq": 19,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 20,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 21,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 22,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J02 counter relies on it"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J12 counter relies on it"
+    },
+    {
+      "seq": 25,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J22 counter relies on it"
+    },
+    {
+      "seq": 26,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I4",
+      "detail": "J21 counter relies on it"
+    },
+    {
+      "seq": 27,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 30,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 31,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 32,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 33,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 34,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 35,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 36,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 37,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 38,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 39,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "The facts strongly support the application of Donoghue's neighbour principle because the sealed bottle was unopened until consumption, making Brightwater liable"
+    },
+    {
+      "seq": 40,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "The contamination of glass and mould in a sealed bottle is a serious failure inconsistent with reasonable care expected from manufacturers. The known vulnerabil"
+    },
+    {
+      "seq": 41,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "The defendant must take the claimant as they find them; Ms Nair's pre-existing ulcer does not break causation if the injury type was foreseeable. Though multipl"
+    },
+    {
+      "seq": 42,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I4",
+      "detail": "The losses claimed flow naturally from physical injuries and are not pure economic loss barred in negligence. Given causation is established, these consequentia"
+    }
+  ]
+}

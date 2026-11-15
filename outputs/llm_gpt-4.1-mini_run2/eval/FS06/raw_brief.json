@@ -1,0 +1,343 @@
+{
+  "case_id": "FS06",
+  "title": "Adeyemi v Harbourside Hotel Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Ms Adeyemi booked a hotel room without prior notice of exclusion terms which appeared only on a notice inside the bedroom, not at contract formation at reception (F1,F2,F3).",
+      "citations": [
+        "F1",
+        "F2",
+        "F3"
+      ]
+    },
+    {
+      "text": "Her valuables were stolen due to hotel staff negligence, but the hotel seeks to rely on an exclusion clause visible only after contract formation to disclaim liability (F5,F6).",
+      "citations": [
+        "F5",
+        "F6"
+      ]
+    },
+    {
+      "text": "The debate concerns incorporation of the exclusion term into the contract, the duty of care owed by the hotel, the enforceability of the exclusion notice, and the reasonableness of Ms Adeyemi's actions in failing to deposit valuables at reception.",
+      "citations": [
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Ms Adeyemi arrived at the hotel without a booking and requested a room on 12 August 2025",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Ms Adeyemi signed a registration card at reception that recorded basic details but contained no terms or conditions",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "A notice on the back of the bedroom door excluded liability for loss or damage to guests' property and required valuables to be deposited at reception",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "The same exclusion terms appeared on the hotel's website, which Ms Adeyemi had never visited",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "On 13 August 2025, Ms Adeyemi's laptop and diamond bracelet worth £6,500 were stolen from her room without forced entry; a member of staff had left a master key unattended on a cleaning trolley",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "The hotel relies on the bedroom door notice to exclude liability and argues Ms Adeyemi should have deposited valuables at reception",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Ms Adeyemi seeks to recover the value of her stolen property and argues the exclusion notice is not part of her contract with the hotel",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Is the exclusion notice on the bedroom door incorporated into the contract between Ms Adeyemi and the Harbourside Hotel?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "supporting",
+          "proposition": {
+            "text": "An exclusion clause first seen after contract formation is not incorporated into the contract.",
+            "citations": [
+              "J42:p2",
+              "J42:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J41",
+          "case_name": "Parker v South Eastern Railway Co",
+          "citation": "(1877) 2 CPD 416",
+          "stance": "opposing",
+          "proposition": {
+            "text": "An exclusion clause is incorporated if reasonable steps were taken to bring it to the party's notice before or at contract formation.",
+            "citations": [
+              "J41:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The contract was concluded at reception upon signing the registration card without any reference to terms, so the bedroom door notice came too late to be contractually binding, consistent with Olley v Marlborough Court Ltd.",
+          "citations": [
+            "J42:p2",
+            "J42:p3",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The hotel took reasonable steps to bring terms to the guest's attention by placing the notice in the room, akin to Parker where reasonable notice on a ticket incorporated terms.",
+          "citations": [
+            "J41:p3",
+            "F3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The precedent in Olley directly addresses this situation, emphasizing that terms must be communicated before or at contract formation. Since the bedroom notice appeared only after contract conclusion at reception, it was not incorporated. The hotel did not provide notice at reception or on the registration card, distinguishing the case from Parker where reasonable notice was given beforehand. Thus, the exclusion notice is not incorporated.",
+        "citations": [
+          "J42:p2",
+          "J42:p3",
+          "J41:p3",
+          "F2",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Did the Harbourside Hotel owe a duty of care to Ms Adeyemi for the security of her belongings?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J01",
+          "case_name": "Donoghue v Stevenson",
+          "citation": "[1932] AC 562",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A duty of care arises to avoid foreseeable harm to individuals closely affected by one's acts or omissions, including guests.",
+            "citations": [
+              "J01:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [],
+      "supporting_argument": [
+        {
+          "text": "The hotel owed a duty of care to Ms Adeyemi as a guest because it was foreseeable her belongings could be stolen, consistent with the neighbour principle in Donoghue v Stevenson.",
+          "citations": [
+            "J01:p2",
+            "F5"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The hotel contends no such duty arises beyond contractual obligations for accommodation, as in Donoghue the duty related to product safety, not property security within a contractual context.",
+          "citations": [
+            "J01:p2",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Although the hotel argues the duty is limited to contractual terms, the fundamental principle in Donoghue imposes a duty to take reasonable care to prevent foreseeable harm to guests' property. Given the staff's negligence and foreseeable risk of theft, a duty of care likely exists. The contractual nature of the relationship does not exclude this duty regarding safety of possessions on premises.",
+        "citations": [
+          "J01:p2",
+          "F5"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Is the exclusion notice valid and enforceable against Ms Adeyemi?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "supporting",
+          "proposition": {
+            "text": "An exclusion clause not incorporated before or at contract formation is invalid and unenforceable.",
+            "citations": [
+              "J42:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J44",
+          "case_name": "Photo Production Ltd v Securicor Transport Ltd",
+          "citation": "[1980] AC 827",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Clear, commercial exclusion clauses are valid and enforceable if properly brought to the other party's attention.",
+            "citations": [
+              "J44:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J41",
+          "case_name": "Parker v South Eastern Railway Co",
+          "citation": "(1877) 2 CPD 416",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Reasonable steps to bring notice of terms before or at contract formation can render exclusion clauses enforceable.",
+            "citations": [
+              "J41:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The exclusion notice is invalid because it was neither incorporated into the contract nor clearly communicated prior to or at contract formation, as Olley requires pre-contract notice for exclusion clauses.",
+          "citations": [
+            "J42:p3",
+            "F2",
+            "F3",
+            "J41:p3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The hotel claims the clause is valid as the notice was displayed and reasonable steps were taken to give notice, similar to Parker, and commercial contracts favor enforcing clear exclusion clauses per Photo Production Ltd v Securicor.",
+          "citations": [
+            "J41:p3",
+            "J44:p2",
+            "F3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The exclusion clause is not valid because the hotel did not bring it to Ms Adeyemi's attention prior to contract formation. The notice arose only after contract formation, failing the incorporation requirement. While Photo Production supports enforcing clear clauses, this presupposes prior incorporation, absent here. Therefore, the clause is unenforceable.",
+        "citations": [
+          "J42:p3",
+          "J41:p3",
+          "J44:p2",
+          "F2",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I4",
+      "question": "Did Ms Adeyemi act reasonably in not depositing valuables at reception as required by the notice?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J41",
+          "case_name": "Parker v South Eastern Railway Co",
+          "citation": "(1877) 2 CPD 416",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A party is bound by terms only if reasonable steps were taken to bring them to attention; the reasonableness of the party’s conduct depends on prior notice of terms.",
+            "citations": [
+              "J41:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [],
+      "supporting_argument": [
+        {
+          "text": "Ms Adeyemi acted reasonably in not depositing valuables because she had no contractual notice requiring this, and the hotel had the burden to secure possessions and provide clear contract terms beforehand.",
+          "citations": [
+            "J41:p3",
+            "F3",
+            "F6"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The hotel argues she was unreasonable in failing to follow posted instructions, and can rely on this failure to exclude liability, relying on notice given within the room.",
+          "citations": [
+            "J41:p3",
+            "F3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Given the exclusion notice was not part of the contract, Ms Adeyemi cannot be deemed unreasonable for not depositing valuables. The hotel's reliance on a post-contract notice to impose this obligation is unsupported. Therefore, her conduct was reasonable under the circumstances.",
+        "citations": [
+          "J41:p3",
+          "F3",
+          "F6"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "The exclusion notice on the bedroom door was not incorporated into the contract, as the contract was completed at reception without reference to terms, consistent with Olley v Marlborough Court Ltd (J42:p2,p3; F2,F3).",
+      "citations": [
+        "J42:p2",
+        "J42:p3",
+        "F2",
+        "F3"
+      ]
+    },
+    {
+      "text": "The Harbourside Hotel owed Ms Adeyemi a duty of care to protect her belongings, given the foreseeability of theft, grounded in Donoghue v Stevenson (J01:p2; F5).",
+      "citations": [
+        "J01:p2",
+        "F5"
+      ]
+    },
+    {
+      "text": "The exclusion clause is invalid and unenforceable because it was not brought to Ms Adeyemi's attention before contract formation, per Olley and Parker (J42:p3,J41:p3; F2,F3).",
+      "citations": [
+        "J42:p3",
+        "J41:p3",
+        "F2",
+        "F3"
+      ]
+    },
+    {
+      "text": "Ms Adeyemi acted reasonably in failing to deposit valuables at reception since the contractual terms imposing this requirement were not communicated before or at formation; the hotel cannot rely on post-contract notices to shift liability (J41:p3; F3,F6).",
+      "citations": [
+        "J41:p3",
+        "F3",
+        "F6"
+      ]
+    }
+  ],
+  "warnings": []
+}

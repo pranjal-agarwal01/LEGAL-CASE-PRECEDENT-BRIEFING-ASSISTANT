@@ -1,0 +1,358 @@
+{
+  "case_id": "FS04",
+  "title": "Rowe v Skyline Terraces Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Mr Rowe contracted to hire Skyline's terrace primarily to view the cancelled fireworks, which both parties acknowledged as central to the agreement (F2).",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "Under the frustration doctrine, the cancellation of the fundamental event frustrates the contract, excusing performance, as established in Krell v Henry where the cancelled coronation processions released the hirer from payment (J37:p1-J37:p3).",
+      "citations": [
+        "J37:p1",
+        "J37:p2",
+        "J37:p3"
+      ]
+    },
+    {
+      "text": "Skyline's emails promising 'front-row seats' constituted a binding collateral contract term about the fireworks, supported by principles in Carlill v Carbolic Smoke Ball Co recognizing firm offers through clear communication beyond the main written contract (J23:p2-J23:p3, F2).",
+      "citations": [
+        "J23:p2",
+        "J23:p3",
+        "F2"
+      ]
+    },
+    {
+      "text": "Due to frustration, Mr Rowe is entitled to recover his deposit and avoid paying the balance, as performance was excused and retention of the deposit unjustified (J37:p2, F4, F5, F7).",
+      "citations": [
+        "J37:p2",
+        "F4",
+        "F5",
+        "F7"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Mr Rowe agreed on 10 May 2025 to hire the rooftop terrace for 5 July 2025, paying £12,000 with a £4,000 deposit.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Skyline advertised the terrace as offering the best view of the Thames Victory Fireworks and promised front-row seats, which influenced Mr Rowe's decision as he planned his guests to watch the fireworks.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "The hire agreement only described exclusive use of the terrace from 6pm to midnight with bar service and did not mention the fireworks display.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "The council cancelled the fireworks display on 28 June 2025 after a safety review.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "The terrace, bar, and staff remained available on 5 July 2025, but Mr Rowe cancelled his event and requested his deposit back on 29 June 2025.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Skyline refused to return the deposit and claims the balance of £8,000, arguing the terrace could still be used and the fireworks were only Mr Rowe's own commercial purpose.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Mr Rowe asserts that the contract was frustrated by the cancellation of the fireworks, seeking a refund of his deposit and to avoid paying the remaining balance.",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Is the hire contract between Mr Rowe and Skyline frustrated by the cancellation of the fireworks?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J37",
+          "case_name": "Krell v Henry",
+          "citation": "[1903] 2 KB 740",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Cancellation of a foundational event that both parties recognised as basis of the contract frustrates the contract and excuses performance.",
+            "citations": [
+              "J37:p1",
+              "J37:p2",
+              "J37:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J36",
+          "case_name": "Taylor v Caldwell",
+          "citation": "(1863) 3 B & S 826",
+          "stance": "supporting",
+          "proposition": {
+            "text": "If performance depends on a specific thing that perishes without fault, the contract is discharged.",
+            "citations": [
+              "J36:p1",
+              "J36:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J38",
+          "case_name": "Herne Bay Steam Boat Co v Hutton",
+          "citation": "[1903] 2 KB 683",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Frustration does not apply where performance remains possible and the cancelled event is only one party’s commercial purpose, making the contract less attractive but not radically different.",
+            "citations": [
+              "J38:p1",
+              "J38:p2",
+              "J38:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J39",
+          "case_name": "Davis Contractors Ltd v Fareham Urban District Council",
+          "citation": "[1956] AC 696",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Hardship or extra cost that does not make performance radically different does not amount to frustration.",
+            "citations": [
+              "J39:p2",
+              "J39:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "The termination of the fireworks, which was the principal and mutually recognised purpose of the contract, destroyed the foundation of the agreement as per Krell v Henry, even though the terrace remained available.",
+          "citations": [
+            "J37:p1",
+            "J37:p2",
+            "J37:p3",
+            "F2"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Since the terrace, bar, and staff remained available, cancelling the fireworks made the event less attractive but did not frustrate the contract, similar to Herne Bay Steam Boat Co v Hutton where the naval review cancellation did not frustrate the contract.",
+          "citations": [
+            "J38:p1",
+            "J38:p2",
+            "J38:p3",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Considering the parties' shared understanding that viewing the fireworks was the contract's core objective (F2), the reasoning in Krell v Henry is the stronger authority. The event’s cancellation fundamentally changes the performance’s purpose, distinguishing this from Herne Bay where alternative use remained viable. Thus, the contract was frustrated.",
+        "citations": [
+          "J37:p1",
+          "J37:p2",
+          "J37:p3",
+          "F2",
+          "F4"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Was there a binding contractual term between Mr Rowe and Skyline about the fireworks view that affects the parties' obligations or breach?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J23",
+          "case_name": "Carlill v Carbolic Smoke Ball Co",
+          "citation": "[1893] 1 QB 256",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A clear offer with intention to be bound can arise through unequivocal communications, even outside the main written contract, creating a collateral contract.",
+            "citations": [
+              "J23:p2",
+              "J23:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J50",
+          "case_name": "Fisher v Bell",
+          "citation": "[1961] 1 QB 394",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Advertisements and price displays are invitations to treat, not offers, preventing collateral contract formation.",
+            "citations": [
+              "J50:p2",
+              "J50:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J24",
+          "case_name": "Partridge v Crittenden",
+          "citation": "[1968] 1 WLR 1204",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Advertisements are ordinarily invitations to treat, not offers, because the advertiser can't bind themselves to all who respond.",
+            "citations": [
+              "J24:p2",
+              "J24:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Skyline’s promise of 'front-row seats for the display' in emails was a definitive assurance intended to be binding, fulfilling criteria under Carlill v Carbolic Smoke Ball Co, especially as Mr Rowe relied on and communicated his purpose to view the fireworks.",
+          "citations": [
+            "J23:p2",
+            "J23:p3",
+            "F2"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The online listing and email statements are analogous to advertisements and invitations to treat, as seen in Fisher v Bell and Partridge v Crittenden, so do not constitute binding terms; moreover, the absence of the fireworks in the signed agreement weakens any collateral contract claim.",
+          "citations": [
+            "J50:p2",
+            "J50:p3",
+            "J24:p2",
+            "J24:p3",
+            "F2",
+            "F3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The direct promise of 'front-row seats' in response to Mr Rowe’s specific inquiries distinguishes these communications from typical advertisements or invitations to treat, favoring recognition of a binding collateral term. This aligns with Carlill, not with the invitation to treat cases. Hence, a collateral contractual obligation on the fireworks exists.",
+        "citations": [
+          "J23:p2",
+          "J23:p3",
+          "F2"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Can Skyline retain the deposit despite Mr Rowe's cancellation following the fireworks cancellation and refusal to perform?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J37",
+          "case_name": "Krell v Henry",
+          "citation": "[1903] 2 KB 740",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Where the contract is frustrated by cancellation of the fundamental event, the hirer is released from payment obligations and deposit return is due.",
+            "citations": [
+              "J37:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J38",
+          "case_name": "Herne Bay Steam Boat Co v Hutton",
+          "citation": "[1903] 2 KB 683",
+          "stance": "opposing",
+          "proposition": {
+            "text": "If performance remains possible, hardship or loss does not justify contract termination or repayment of deposits; risk of loss lies with the party undertaking the venture.",
+            "citations": [
+              "J38:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J39",
+          "case_name": "Davis Contractors Ltd v Fareham Urban District Council",
+          "citation": "[1956] AC 696",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Frustration requires impossibility or radical difference; mere hardship does not excuse performance or require deposits to be returned.",
+            "citations": [
+              "J39:p2",
+              "J39:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Following Krell v Henry, where the foundational event’s cancellation excused payment obligations, Mr Rowe should recover his deposit and avoid paying the balance because the contract was frustrated and performance excused.",
+          "citations": [
+            "J37:p2",
+            "F4",
+            "F7"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Since the contract remains performable and the event only became less attractive, Skyline has the right to retain the deposit and claim the balance, as the risk of such commercial disappointment falls on the hirer, consistent with Herne Bay and Davis Contractors.",
+          "citations": [
+            "J38:p3",
+            "J39:p2",
+            "J39:p3",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Because frustration discharged obligations and excused performance due to the cancellation of the fireworks foundational to the contract, retaining the deposit would be unjust. The reasoning in Krell v Henry applying to foundational event cancellation outweighs the risk allocation in Herne Bay where performance was still possible. Thus, Mr Rowe should recover the deposit and avoid further payment.",
+        "citations": [
+          "J37:p2",
+          "F4",
+          "F7"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "The hire contract is frustrated by the cancellation of the fireworks, which was the fundamental basis recognized by both parties, excusing Mr Rowe from further performance.",
+      "citations": [
+        "J37:p1",
+        "J37:p2",
+        "J37:p3",
+        "F2"
+      ]
+    },
+    {
+      "text": "Skyline's promise of 'front-row seats' in emails constitutes a binding collateral term about the fireworks view, integral to the contract.",
+      "citations": [
+        "J23:p2",
+        "J23:p3",
+        "F2"
+      ]
+    },
+    {
+      "text": "Accordingly, Mr Rowe is entitled to recover his deposit and avoid paying the remaining balance as the contract obligations have been discharged by frustration.",
+      "citations": [
+        "J37:p2",
+        "F4",
+        "F7"
+      ]
+    }
+  ],
+  "warnings": []
+}

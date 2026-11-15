@@ -1,0 +1,452 @@
+{
+  "case_id": "FS02",
+  "title": "Okafor v St Aldhelm's Hospital NHS Trust",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Mr Okafor consulted Mr Lyle regarding a cervical decompression surgery recommended for his chronic neck pain, without being warned of a 2% risk of nerve damage or alternative treatments, despite his career depending on fine motor control of his left hand (F1-F3).",
+      "citations": [
+        "F1",
+        "F2",
+        "F3"
+      ]
+    },
+    {
+      "text": "Following the operation, Mr Okafor suffered permanent loss of fine motor control in two fingers, rendering him unable to work professionally (F5).",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Mr Okafor claims damages for negligence due to failure to warn him of material risks and alternatives prior to surgery, asserting that this omission caused his loss (F8).",
+      "citations": [
+        "F8"
+      ]
+    },
+    {
+      "text": "The opposing party relies on medical opinion evidence to argue non-negligence and lack of causation and remoteness of the claimed loss (F7).",
+      "citations": [
+        "F7"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "On 2 February 2024, Mr Okafor consulted Mr Lyle about chronic neck pain radiating into his left arm.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Mr Lyle recommended cervical decompression surgery but did not mention a roughly 2% risk of nerve root damage or the alternative treatment of physiotherapy and steroid injections.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "Mr Okafor informed Mr Lyle that his career depended on fine finger control of his left hand.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "Mr Okafor signed a consent form and underwent surgery on 11 April 2024, which was performed with proper skill.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "The risk of nerve damage materialized, causing permanent loss of fine motor control in two fingers of Mr Okafor's left hand, ending his professional career.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Mr Okafor says he would not have consented to surgery on that date if warned of the risk and would have tried physiotherapy and sought a second opinion, though he might have had surgery eventually.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "The Trust relies on evidence that many responsible spinal surgeons in 2024 did not routinely mention the 2% risk and argues the surgery was not negligent, so failure to warn caused no loss.",
+      "citations": [
+        "F7"
+      ]
+    },
+    {
+      "text": "Mr Okafor seeks damages for negligence based on failure to warn of material risk and alternative treatment before consenting to surgery.",
+      "citations": [
+        "F8"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Did St Aldhelm's Hospital NHS Trust owe a duty of care to Mr Okafor regarding information about material risks and alternative treatments?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J06",
+          "case_name": "Montgomery v Lanarkshire Health Board",
+          "citation": "[2015] UKSC 11",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A doctor owes a duty to take reasonable care to ensure the patient is aware of any material risks and reasonable alternatives before treatment.",
+            "citations": [
+              "J06:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J01",
+          "case_name": "Donoghue v Stevenson",
+          "citation": "[1932] AC 562",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A duty of care arises where harm to a person is foreseeable and they are closely affected by the act or omission.",
+            "citations": [
+              "J01:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J04",
+          "case_name": "Bolam v Friern Hospital Management Committee",
+          "citation": "[1957] 1 WLR 582",
+          "stance": "opposing",
+          "proposition": {
+            "text": "The standard of care is judged by a responsible body of medical opinion, which might negate duty to warn if not customary practice.",
+            "citations": [
+              "J04:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Montgomery establishes a clear duty on doctors to disclose material risks and reasonable alternatives to support patient autonomy (J06:p2).",
+          "citations": [
+            "J06:p2"
+          ]
+        },
+        {
+          "text": "The duty arises due to foreseeability of harm and proximity in the doctor-patient relationship, consistent with Lord Atkin’s neighbour principle in Donoghue (J01:p3).",
+          "citations": [
+            "J01:p3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Bolam test supports that if a responsible body of surgeons does not customarily disclose a 2% risk, there may be no breach of duty in warning (J04:p2; F7).",
+          "citations": [
+            "J04:p2",
+            "F7"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Given the Supreme Court’s departure from Bolam for disclosure of risks in Montgomery, the hospital owed Mr Okafor a duty to inform him of the 2% risk and alternatives due to his specific concerns and the materiality of the risk (J06:p2, J06:p3, J01:p3).",
+        "citations": [
+          "J06:p2",
+          "J06:p3",
+          "J01:p3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Did Mr Lyle breach the standard of care by failing to warn Mr Okafor of the roughly 2% risk and alternative treatments before surgery?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J06",
+          "case_name": "Montgomery v Lanarkshire Health Board",
+          "citation": "[2015] UKSC 11",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Doctors must disclose material risks and alternatives relevant to the patient’s informed decision, regardless of accepted medical practice.",
+            "citations": [
+              "J06:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J04",
+          "case_name": "Bolam v Friern Hospital Management Committee",
+          "citation": "[1957] 1 WLR 582",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Medical standard of care is based on a responsible body of professional opinion, which here supports not disclosing small risks routinely.",
+            "citations": [
+              "J04:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Montgomery makes clear that failure to disclose a material risk and alternatives constitutes breach of the standard of care (J06:p2).",
+          "citations": [
+            "J06:p2"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Since many spinal surgeons in 2024 do not routinely disclose this small risk, omission by Mr Lyle aligns with a responsible body of medical opinion and is not negligent under Bolam (J04:p2; F7).",
+          "citations": [
+            "J04:p2",
+            "F7"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Montgomery displaces Bolam’s deference in disclosure of risks; thus, failure to warn about a risk significant to Mr Okafor given his professional needs breaches the standard of care (J06:p2, J06:p3, F3).",
+        "citations": [
+          "J06:p2",
+          "J06:p3",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Was the risk of nerve damage a material risk requiring disclosure under informed consent principles?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J06",
+          "case_name": "Montgomery v Lanarkshire Health Board",
+          "citation": "[2015] UKSC 11",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A risk is material if a reasonable person in the patient's position would likely attach significance to it, or if the doctor knows the patient would (J06:p3).",
+            "citations": [
+              "J06:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J04",
+          "case_name": "Bolam v Friern Hospital Management Committee",
+          "citation": "[1957] 1 WLR 582",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Low probability risks accepted by a responsible medical body may not require disclosure (Bolam test).",
+            "citations": [
+              "J04:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J12",
+          "case_name": "Bolton v Stone",
+          "citation": "[1951] AC 850",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Very small probability of harm may not require precautions or warnings (J12:p2).",
+            "citations": [
+              "J12:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Given Mr Okafor’s career reliance on fine motor control, the 2% risk is material under Montgomery’s test (J06:p3; F3).",
+          "citations": [
+            "J06:p3",
+            "F3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The 2% risk is arguably too small to require disclosure, especially where it aligns with accepted professional practice (J12:p2; J04:p2; F7).",
+          "citations": [
+            "J12:p2",
+            "J04:p2",
+            "F7"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Informed consent requires disclosure of risks material to the patient’s decision; Mr Okafor’s specific circumstances make this 2% risk material despite its low probability (J06:p3, F3).",
+        "citations": [
+          "J06:p3",
+          "F3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I4",
+      "question": "Did the failure to warn cause Mr Okafor's loss, considering he might have had the surgery eventually?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J07",
+          "case_name": "Chester v Afshar",
+          "citation": "[2004] UKHL 41",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Liability arises for injury from a risk a doctor must warn about even if surgery would have occurred later, respecting patient autonomy (J07:p1, J07:p2).",
+            "citations": [
+              "J07:p1",
+              "J07:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J08",
+          "case_name": "Barnett v Chelsea and Kensington Hospital Management Committee",
+          "citation": "[1969] 1 QB 428",
+          "stance": "opposing",
+          "proposition": {
+            "text": "But-for causation requires proof that harm would not have occurred but for the breach, and injury would have occurred anyway (J08:p2).",
+            "citations": [
+              "J08:p2"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Chester v Afshar modifies but-for causation to hold doctor liable when undisclosed risks materialise, to vindicate patient autonomy (J07:p1, J07:p2).",
+          "citations": [
+            "J07:p1",
+            "J07:p2"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Mr Okafor’s admission that he might have had surgery later undermines causation, applying conventional but-for logic (J08:p2; F6).",
+          "citations": [
+            "J08:p2",
+            "F6"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Following Chester, causation is established as the injury resulted from the very risk about which Mr Okafor was not warned, despite timing uncertainty (J07:p1, J07:p2, F6).",
+        "citations": [
+          "J07:p1",
+          "J07:p2",
+          "F6"
+        ]
+      }
+    },
+    {
+      "issue_id": "I5",
+      "question": "Is the loss suffered by Mr Okafor recoverable as damage resulting from negligent omission to warn?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J06",
+          "case_name": "Montgomery v Lanarkshire Health Board",
+          "citation": "[2015] UKSC 11",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Loss from undisclosed material risks is recoverable if reasonably foreseeable (J06:p2).",
+            "citations": [
+              "J06:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J07",
+          "case_name": "Chester v Afshar",
+          "citation": "[2004] UKHL 41",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Loss is not too remote where injury arises from material risk not disclosed, even if timing differs (J07:p3).",
+            "citations": [
+              "J07:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J09",
+          "case_name": "Overseas Tankship (UK) Ltd v Morts Dock and Engineering Co Ltd (The Wagon Mound No 1)",
+          "citation": "[1961] AC 388",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Liability is limited to reasonably foreseeable damage; loss from surgical risk without direct link to non-disclosure may be too remote (J09:p3).",
+            "citations": [
+              "J09:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Montgomery and Chester affirm recovery for loss caused by failure to warn about material risks (J06:p2, J07:p3).",
+          "citations": [
+            "J06:p2",
+            "J07:p3"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The Wagon Mound principle limits liability to damage of a foreseeable kind; loss from injury due to accepted surgical risk may be too remote from omission (J09:p3; F5).",
+          "citations": [
+            "J09:p3",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "The loss of fine motor control is a foreseeable consequence of the undisclosed risk and thus recoverable as damages following Montgomery and Chester (J06:p2, J07:p3, F5).",
+        "citations": [
+          "J06:p2",
+          "J07:p3",
+          "F5"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Mr Okafor is owed a duty of care to be informed of material risks and reasonable alternatives before consenting to surgery, as required by Montgomery and supported by fundamental negligence principles (J06:p2; J01:p3).",
+      "citations": [
+        "J06:p2",
+        "J01:p3"
+      ]
+    },
+    {
+      "text": "Mr Lyle breached the standard of care by failing to warn Mr Okafor of the specific 2% risk and alternative treatments, as such risks are material to a patient in Mr Okafor's position (J06:p2, J06:p3; F3).",
+      "citations": [
+        "J06:p2",
+        "J06:p3",
+        "F3"
+      ]
+    },
+    {
+      "text": "The failure to warn caused Mr Okafor's loss, with causation established through the principle in Chester v Afshar protecting patient autonomy even if surgery might have occurred later (J07:p1, J07:p2; F6).",
+      "citations": [
+        "J07:p1",
+        "J07:p2",
+        "F6"
+      ]
+    },
+    {
+      "text": "Therefore, the loss suffered by Mr Okafor is recoverable as foreseeable damage resulting from the negligent omission to warn, entitling him to damages in negligence (J06:p2, J07:p3; F5).",
+      "citations": [
+        "J06:p2",
+        "J07:p3",
+        "F5"
+      ]
+    }
+  ],
+  "warnings": [
+    "counter_argument: LLM step 'prepare' failed (ValidationError: 1 validation error for PrepareLLM\n  Invalid JSON: trailing characters at line 2 column 1 [type=json_invalid, input_value='{\"framed_issues\":[],\"new...es\":[],\"new_issues\":[]}', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/json_invalid); used the offline baseline instead."
+  ]
+}

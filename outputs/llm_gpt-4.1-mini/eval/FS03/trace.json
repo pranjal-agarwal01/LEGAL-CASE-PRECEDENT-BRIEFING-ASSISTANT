@@ -1,0 +1,275 @@
+{
+  "mode": "llm:foundry",
+  "llm_calls": 9,
+  "seconds": 43.504,
+  "structured_facts": {
+    "case_id": "FS03",
+    "title": "Hughes v PeakFit Ltd",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Megan Hughes",
+        "role": "claimant",
+        "description": "A 29-year-old nurse who participated in the PeakFit 100 promotion."
+      },
+      {
+        "name": "PeakFit Ltd",
+        "role": "defendant",
+        "description": "The company that operates the \"PeakFit 100\" fitness app."
+      }
+    ],
+    "chronology": [
+      {
+        "date": "5 January 2025",
+        "iso_date": "2025-01-05",
+        "event": "PeakFit published an advertisement promising \u00a32,000 to anyone who completed 100 workouts by 15 April and lost 5 kg, and placed \u00a3100,000 with Barclays to show their commitment.",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "6 January 2025",
+        "iso_date": "2025-01-06",
+        "event": "Ms Hughes downloaded the app and paid the subscription.",
+        "fact_ref": "F3"
+      },
+      {
+        "date": "15 April 2025",
+        "iso_date": "2025-04-15",
+        "event": "Ms Hughes completed all workouts and weighed in, showing a 1.2 kg weight loss.",
+        "fact_ref": "F3"
+      },
+      {
+        "date": "20 April 2025",
+        "iso_date": "2025-04-20",
+        "event": "Ms Hughes emailed PeakFit claiming \u00a32,000 under the advertisement's promise. PeakFit responded denying contractual obligation.",
+        "fact_ref": "F4"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Megan Hughes",
+        "respondent": "PeakFit Ltd",
+        "claim": "Enforcement of PeakFit's promise to pay \u00a32,000 for completing the PeakFit 100 and weight loss requirement.",
+        "legal_basis": "Breach of contract based on the advertisement being a binding offer and acceptance.",
+        "fact_refs": [
+          "F1",
+          "F3",
+          "F4",
+          "F7"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "PeakFit published an advertisement on 5 January 2025 promising \u00a32,000 to anyone completing 100 workouts and losing 5 kg by 15 April, backing it with \u00a3100,000 in Barclays.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "The advertisement required participants to log all workouts and weigh in using the app's connected scales on 15 April.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "Ms Hughes downloaded the app on 6 January, paid the subscription fee, completed all workouts, and weighed in on 15 April with a loss of 1.2 kg.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "On 20 April, Ms Hughes claimed the \u00a32,000 but PeakFit denied contractual obligation arguing the advertisement was only an invitation to treat and not an offer.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "PeakFit's terms allowed withdrawal of promotions at any time, but no withdrawal occurred before 15 April.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "More than 3,000 people participated, and PeakFit claims the advertisement was marketing puff, not a binding offer.",
+        "citations": [
+          "F6"
+        ]
+      },
+      {
+        "text": "Ms Hughes aims to enforce the promise to pay \u00a32,000 as a binding contract.",
+        "citations": [
+          "F7"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Ms Hughes wants to enforce PeakFit's promise to pay \u00a32,000 as a binding contract and claim the money.",
+      "citations": [
+        "F7"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 93,
+    "valid_citations": 90,
+    "existence_rate": 0.9677,
+    "judgment_citations": 54,
+    "valid_judgment_citations": 51,
+    "statements": 29,
+    "statements_with_valid_citation": 28,
+    "claim_coverage": 0.9655,
+    "by_status": {
+      "valid": 90,
+      "malformed": 3
+    },
+    "invalid_examples": [
+      "I1 (malformed)",
+      "I2 (malformed)",
+      "I3 (malformed)"
+    ],
+    "cited_judgments": [
+      "J23",
+      "J24",
+      "J50",
+      "J29",
+      "J42"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 90,
+    "valid_citations": 90,
+    "existence_rate": 1.0,
+    "judgment_citations": 51,
+    "valid_judgment_citations": 51,
+    "statements": 28,
+    "statements_with_valid_citation": 28,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 90
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J23",
+      "J24",
+      "J50",
+      "J29",
+      "J42"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.015,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS03: 7 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 5.978,
+      "agent": "fact_extractor",
+      "action": "llm_extract",
+      "detail": "doctrine cue scores: {'offer_acceptance': 4, 'communication_of_acceptance': 1, 'intention_legal_relations': 4, 'consideration_variation': 1}",
+      "round": 0
+    },
+    {
+      "t": 5.978,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "2 parties, 4 dated events, 1 claims, 5 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 5.979,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1, I2, I3",
+      "round": 0
+    },
+    {
+      "t": 9.712,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J23', 'J24', 'J50', 'J25', 'J26']",
+      "round": 0
+    },
+    {
+      "t": 9.712,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I2: ['J29', 'J30', 'J23', 'J31', 'J32']",
+      "round": 0
+    },
+    {
+      "t": 9.712,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I3: ['J42', 'J43', 'J41', 'J47', 'J32']",
+      "round": 0
+    },
+    {
+      "t": 12.619,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "3 framed, 0 added",
+      "round": 0
+    },
+    {
+      "t": 15.963,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "3 points",
+      "round": 1
+    },
+    {
+      "t": 17.684,
+      "agent": "counter_argument",
+      "action": "defences",
+      "detail": "0 defence issue(s) proposed",
+      "round": 1
+    },
+    {
+      "t": 21.584,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "3 points",
+      "round": 1
+    },
+    {
+      "t": 26.792,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "3 points",
+      "round": 2
+    },
+    {
+      "t": 31.721,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "3 points",
+      "round": 2
+    },
+    {
+      "t": 31.722,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 3 issues",
+      "round": 3
+    },
+    {
+      "t": 43.502,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 96.77%, 2 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 43.502,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

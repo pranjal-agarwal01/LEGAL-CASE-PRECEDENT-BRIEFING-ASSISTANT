@@ -1,0 +1,754 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Was Skyline under a duty of care to ensure the fireworks display would occur?",
+      "doctrine": "duty_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J19",
+          "passage_refs": [
+            "J19:p2",
+            "J19:p3"
+          ],
+          "score": 0.879,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was Skyline under a duty of care to ensure the fireworks display would occur? duty of care negligence neighbour principle manufacturer ultimate consumer foresee",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J01",
+          "passage_refs": [
+            "J01:p2",
+            "J01:p3"
+          ],
+          "score": 1.5622,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was Skyline under a duty of care to ensure the fireworks display would occur? duty of care negligence neighbour principle manufacturer ultimate consumer foresee",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p2",
+            "J12:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "duty of care fireworks event hire contractual promise",
+          "reason": "For the issue of duty of care regarding fireworks event hire, key judgments include Robinson v Chief Constable of West Yorkshire Police (J19) and Donoghue v Stevenson (J01) which establish general principles of duty of care and foreseeability of harm. Bolton v Stone (J12) is relevant regarding foreseeability and risk assessment for breach of duty."
+        },
+        {
+          "judgment_id": "J02",
+          "passage_refs": [
+            "J02:p3",
+            "J02:p2"
+          ],
+          "score": 0.8479,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was Skyline under a duty of care to ensure the fireworks display would occur? duty of care negligence neighbour principle manufacturer ultimate consumer foresee",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p2",
+            "J08:p1"
+          ],
+          "score": 0.5497,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was Skyline under a duty of care to ensure the fireworks display would occur? duty of care negligence neighbour principle manufacturer ultimate consumer foresee",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p1",
+            "J13:p2"
+          ],
+          "score": 0.4296,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was Skyline under a duty of care to ensure the fireworks display would occur? duty of care negligence neighbour principle manufacturer ultimate consumer foresee",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J19"
+      ],
+      "opposing": [
+        "J19"
+      ],
+      "notes": [
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "Skyline is unlikely to be under a duty of care for the fireworks cancellation as it was an external event beyond their control; the duty of care principles from police cases do not apply here."
+    },
+    {
+      "id": "I2",
+      "question": "Does the absence of mention of the fireworks in the written contract affect the contractual obligations?",
+      "doctrine": "offer_acceptance",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p3",
+            "J23:p2"
+          ],
+          "score": 1.4485,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does the absence of mention of the fireworks in the written contract affect the contractual obligations? offer unilateral contract advertisement invitation to t",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p2",
+            "J32:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "contractual effect of oral promises not in writing fireworks terrace hire; oral promise and exclusion in written hire contract fireworks question; implied terms",
+          "reason": "For the issue on the absence of mention of the fireworks in the written contract affecting obligations, key cases include Carlill v Carbolic Smoke Ball Co (J23) on enforceability of promises not in writing, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) on consideration, and cases such as Fisher v Bell (J50), Parker v South Eastern Railway (J41), Olley v Marlborough Court (J42), and Thornton v Shoe Lane Parking (J43) on incorporation of terms and exclusion clauses."
+        },
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p2",
+            "J31:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "contractual effect of oral promises not in writing fireworks terrace hire; oral promise and exclusion in written hire contract fireworks question; implied terms",
+          "reason": "For the issue on the absence of mention of the fireworks in the written contract affecting obligations, key cases include Carlill v Carbolic Smoke Ball Co (J23) on enforceability of promises not in writing, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) on consideration, and cases such as Fisher v Bell (J50), Parker v South Eastern Railway (J41), Olley v Marlborough Court (J42), and Thornton v Shoe Lane Parking (J43) on incorporation of terms and exclusion clauses."
+        },
+        {
+          "judgment_id": "J50",
+          "passage_refs": [
+            "J50:p2",
+            "J50:p3"
+          ],
+          "score": 1.3706,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does the absence of mention of the fireworks in the written contract affect the contractual obligations? offer unilateral contract advertisement invitation to t",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p2",
+            "J41:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "contractual effect of oral promises not in writing fireworks terrace hire; oral promise and exclusion in written hire contract fireworks question; implied terms",
+          "reason": "For the issue on the absence of mention of the fireworks in the written contract affecting obligations, key cases include Carlill v Carbolic Smoke Ball Co (J23) on enforceability of promises not in writing, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) on consideration, and cases such as Fisher v Bell (J50), Parker v South Eastern Railway (J41), Olley v Marlborough Court (J42), and Thornton v Shoe Lane Parking (J43) on incorporation of terms and exclusion clauses."
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "contractual effect of oral promises not in writing fireworks terrace hire; oral promise and exclusion in written hire contract fireworks question; implied terms",
+          "reason": "For the issue on the absence of mention of the fireworks in the written contract affecting obligations, key cases include Carlill v Carbolic Smoke Ball Co (J23) on enforceability of promises not in writing, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) on consideration, and cases such as Fisher v Bell (J50), Parker v South Eastern Railway (J41), Olley v Marlborough Court (J42), and Thornton v Shoe Lane Parking (J43) on incorporation of terms and exclusion clauses."
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p2",
+            "J43:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "contractual effect of oral promises not in writing fireworks terrace hire; oral promise and exclusion in written hire contract fireworks question; implied terms",
+          "reason": "For the issue on the absence of mention of the fireworks in the written contract affecting obligations, key cases include Carlill v Carbolic Smoke Ball Co (J23) on enforceability of promises not in writing, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) on consideration, and cases such as Fisher v Bell (J50), Parker v South Eastern Railway (J41), Olley v Marlborough Court (J42), and Thornton v Shoe Lane Parking (J43) on incorporation of terms and exclusion clauses."
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p2",
+            "J24:p3"
+          ],
+          "score": 1.5923,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does the absence of mention of the fireworks in the written contract affect the contractual obligations? offer unilateral contract advertisement invitation to t",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J50",
+        "J24"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "Despite the written contract's silence, the clear advertising and correspondence create a binding contractual term about the fireworks, aligning with Carlill rather than the usual rule that advertisements are invitations to treat."
+    },
+    {
+      "id": "I3",
+      "question": "Is the cancellation of the fireworks a frustrating event that discharges the hire contract?",
+      "doctrine": "frustration",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J37",
+          "passage_refs": [
+            "J37:p3",
+            "J37:p2"
+          ],
+          "score": 1.5604,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the cancellation of the fireworks a frustrating event that discharges the hire contract? frustration supervening event foundation of the contract cancelled h",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J38",
+          "passage_refs": [
+            "J38:p2",
+            "J38:p1"
+          ],
+          "score": 1.1501,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the cancellation of the fireworks a frustrating event that discharges the hire contract? frustration supervening event foundation of the contract cancelled h",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J36",
+          "passage_refs": [
+            "J36:p2",
+            "J36:p3"
+          ],
+          "score": 0.8118,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the cancellation of the fireworks a frustrating event that discharges the hire contract? frustration supervening event foundation of the contract cancelled h",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J39",
+          "passage_refs": [
+            "J39:p2",
+            "J39:p3"
+          ],
+          "score": 1.3278,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the cancellation of the fireworks a frustrating event that discharges the hire contract? frustration supervening event foundation of the contract cancelled h",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J15",
+          "passage_refs": [
+            "J15:p2",
+            "J15:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "frustration cancellation of event fireworks contract hire rooftop terrace; frustration doctrine hire contract cancellation of fireworks display",
+          "reason": "For frustration on cancellation of fireworks event hire, Krell v Henry (J37) is primary authority where the cancellation frustrated the contract. Herne Bay Steam Boat Co v Hutton (J38) and Taylor v Caldwell (J36) provide distinction on frustration, while Davis Contractors v Fareham (J39) explains limitations of frustration. Alcock v Chief Constable (J15) is less directly relevant but included from shortlist."
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p1",
+            "J13:p2"
+          ],
+          "score": 0.3144,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the cancellation of the fireworks a frustrating event that discharges the hire contract? frustration supervening event foundation of the contract cancelled h",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J37"
+      ],
+      "opposing": [
+        "J38"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 3 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "The strongest case supports frustration since both parties understood the contract's foundation was the fireworks viewing, making the supervening cancellation a frustrating event despite the terrace's availability."
+    },
+    {
+      "id": "I4",
+      "question": "Was Mr Rowe's deposit refundable upon cancellation of the event?",
+      "doctrine": "termination",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J37",
+          "passage_refs": [
+            "J37:p1",
+            "J37:p3"
+          ],
+          "score": 0.4036,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was Mr Rowe's deposit refundable upon cancellation of the event? termination innominate term deprived of substantially the whole benefit The terrace, bar and st",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J44",
+          "passage_refs": [
+            "J44:p2",
+            "J44:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "refund deposit cancellation event rooftop terrace fireworks; deposit refundable breach or cancellation event",
+          "reason": "For refundability of deposit on cancellation, Krell v Henry (J37) supports deposit refund due to frustration, Photo Production Ltd v Securicor (J44) on exclusion clauses and risk allocation, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) for contract performance and payment, L'Estrange v Graucob (J40) for signature binding terms, Taylor v Caldwell (J36) on frustration discharge, and Parker v South Eastern Railway (J41) on reasonable notice of contractual terms."
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p2",
+            "J32:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "refund deposit cancellation event rooftop terrace fireworks; deposit refundable breach or cancellation event",
+          "reason": "For refundability of deposit on cancellation, Krell v Henry (J37) supports deposit refund due to frustration, Photo Production Ltd v Securicor (J44) on exclusion clauses and risk allocation, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) for contract performance and payment, L'Estrange v Graucob (J40) for signature binding terms, Taylor v Caldwell (J36) on frustration discharge, and Parker v South Eastern Railway (J41) on reasonable notice of contractual terms."
+        },
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p2",
+            "J31:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "refund deposit cancellation event rooftop terrace fireworks; deposit refundable breach or cancellation event",
+          "reason": "For refundability of deposit on cancellation, Krell v Henry (J37) supports deposit refund due to frustration, Photo Production Ltd v Securicor (J44) on exclusion clauses and risk allocation, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) for contract performance and payment, L'Estrange v Graucob (J40) for signature binding terms, Taylor v Caldwell (J36) on frustration discharge, and Parker v South Eastern Railway (J41) on reasonable notice of contractual terms."
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "refund deposit cancellation event rooftop terrace fireworks; deposit refundable breach or cancellation event",
+          "reason": "For refundability of deposit on cancellation, Krell v Henry (J37) supports deposit refund due to frustration, Photo Production Ltd v Securicor (J44) on exclusion clauses and risk allocation, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) for contract performance and payment, L'Estrange v Graucob (J40) for signature binding terms, Taylor v Caldwell (J36) on frustration discharge, and Parker v South Eastern Railway (J41) on reasonable notice of contractual terms."
+        },
+        {
+          "judgment_id": "J36",
+          "passage_refs": [
+            "J36:p2",
+            "J36:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "refund deposit cancellation event rooftop terrace fireworks; deposit refundable breach or cancellation event",
+          "reason": "For refundability of deposit on cancellation, Krell v Henry (J37) supports deposit refund due to frustration, Photo Production Ltd v Securicor (J44) on exclusion clauses and risk allocation, Williams v Roffey Bros (J32) and Stilk v Myrick (J31) for contract performance and payment, L'Estrange v Graucob (J40) for signature binding terms, Taylor v Caldwell (J36) on frustration discharge, and Parker v South Eastern Railway (J41) on reasonable notice of contractual terms."
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p1",
+            "J41:p3"
+          ],
+          "score": 0.3005,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was Mr Rowe's deposit refundable upon cancellation of the event? termination innominate term deprived of substantially the whole benefit The terrace, bar and st",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J47",
+          "passage_refs": [
+            "J47:p2",
+            "J47:p3"
+          ],
+          "score": 1.5598,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was Mr Rowe's deposit refundable upon cancellation of the event? termination innominate term deprived of substantially the whole benefit The terrace, bar and st",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J36",
+        "J37"
+      ],
+      "opposing": [
+        "J36"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "If the contract is found frustrated by cancellation of the fireworks, deposit refund and discharge of balance is appropriate; if not, deposit is forfeited due to cancellation by Mr Rowe despite terrace availability."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Was Skyline under a duty of care to ensure the fireworks display would occur? [duty_of_care] The contract involved use of the terrace specifically promoted for viewing the fireworks, raising whether a duty arose regarding the events display."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Does the absence of mention of the fireworks in the written contract affect the contractual obligations? [offer_acceptance] The discrepancy between advertising, emails, and written contract raises questions about terms incorporated into the contract."
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Is the cancellation of the fireworks a frustrating event that discharges the hire contract? [frustration] The cancellation prevented the fulfilment of the contract's commercial purpose related to watching the fireworks."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I4",
+      "detail": "Was Mr Rowe's deposit refundable upon cancellation of the event? [termination] The contractual and legal rules on cancellation and entitlement to deposits are implicated."
+    },
+    {
+      "seq": 5,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I3",
+      "detail": "Is Skyline entitled to claim the balance of the hire fee despite no fireworks display?"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J19, J01, J12, J02, J08, J13"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J23, J32, J31, J50, J41, J42, J43, J24"
+    },
+    {
+      "seq": 8,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J37, J38, J36, J39, J15, J13"
+    },
+    {
+      "seq": 9,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I4",
+      "detail": "J37, J44, J32, J31, J40, J36, J41, J47"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Was Skyline under a duty of care to ensure the fireworks display would occur? (client needs: pro)"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Does the absence of mention of the fireworks in the written contract affect the contractual obligations? (client needs: pro)"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Is the cancellation of the fireworks a frustrating event that discharges the hire contract? (client needs: pro)"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I4",
+      "detail": "Was Mr Rowe's deposit refundable upon cancellation of the event? (client needs: pro)"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J37 argument relies on it"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J38 argument attacks it"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I4",
+      "detail": "J36 argument relies on it"
+    },
+    {
+      "seq": 18,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I4",
+      "detail": "J37 argument relies on it"
+    },
+    {
+      "seq": 19,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 2 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 20,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 21,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J19 counter attacks it"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J50 counter relies on it"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J24 counter relies on it"
+    },
+    {
+      "seq": 25,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I4",
+      "detail": "J36 counter relies on it"
+    },
+    {
+      "seq": 26,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 27,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 30,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 2 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 31,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 32,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 33,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J19 counter relies on it"
+    },
+    {
+      "seq": 34,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 35,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 2 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 36,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 3 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 37,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 2 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 38,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Skyline is unlikely to be under a duty of care for the fireworks cancellation as it was an external event beyond their control; the duty of care principles from"
+    },
+    {
+      "seq": 39,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Despite the written contract's silence, the clear advertising and correspondence create a binding contractual term about the fireworks, aligning with Carlill ra"
+    },
+    {
+      "seq": 40,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "The strongest case supports frustration since both parties understood the contract's foundation was the fireworks viewing, making the supervening cancellation a"
+    },
+    {
+      "seq": 41,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I4",
+      "detail": "If the contract is found frustrated by cancellation of the fireworks, deposit refund and discharge of balance is appropriate; if not, deposit is forfeited due t"
+    }
+  ]
+}

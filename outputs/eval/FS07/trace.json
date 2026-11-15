@@ -1,0 +1,231 @@
+{
+  "mode": "offline",
+  "llm_calls": 0,
+  "seconds": 0.03,
+  "structured_facts": {
+    "case_id": "FS07",
+    "title": "Brennan Joinery Ltd v Castlegate Developments Ltd",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Brennan Joinery Ltd",
+        "role": "claimant",
+        "description": "a joinery subcontractor."
+      },
+      {
+        "name": "Castlegate Developments Ltd",
+        "role": "defendant",
+        "description": "the main contractor on a housing scheme."
+      }
+    ],
+    "chronology": [
+      {
+        "date": "April 2025",
+        "iso_date": "2025-04-01",
+        "event": "By April 2025 Brennan had completed 12 houses.",
+        "fact_ref": "F3"
+      },
+      {
+        "date": "14 April 2025",
+        "iso_date": "2025-04-14",
+        "event": "On 14 April 2025 Castlegate's project director promised by email to pay Brennan an extra \u00a31,000 for each remaining house completed on schedule, \"so we don't get hit with the developer's penalties or have to find another joiner\".",
+        "fact_ref": "F4"
+      },
+      {
+        "date": "30 June 2025",
+        "iso_date": "2025-06-30",
+        "event": "In January 2025 Castlegate engaged Brennan to fit kitchens and staircases in 30 new townhouses for a fixed price of \u00a3150,000, to be completed by 30 June 2025.",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "30 June 2025",
+        "iso_date": "2025-06-30",
+        "event": "Brennan completed the remaining 18 houses by 30 June 2025.",
+        "fact_ref": "F5"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Brennan Joinery Ltd",
+        "respondent": "Castlegate Developments Ltd",
+        "claim": "Brennan wants to recover the promised extra payment of \u00a318,000.",
+        "legal_basis": "Contract",
+        "fact_refs": [
+          "F4",
+          "F5",
+          "F6"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "In January 2025 Castlegate engaged Brennan to fit kitchens and staircases in 30 new townhouses for a fixed price of \u00a3150,000, to be completed by 30 June 2025.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "Castlegate's own contract with the developer contains a liquidated damages clause of \u00a35,000 per day for late completion.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "By April 2025 Brennan had completed 12 houses. It told Castlegate that it was running out of money because the price was too low and that it might not be able to finish.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "On 14 April 2025 Castlegate's project director promised by email to pay Brennan an extra \u00a31,000 for each remaining house completed on schedule, \"so we don't get hit with the developer's penalties or have to find another joiner\".",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "Brennan completed the remaining 18 houses by 30 June 2025. Castlegate paid the original contract price but refused to pay the extra \u00a318,000, saying Brennan was already obliged under the existing contract to do that work.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "There is no suggestion that Brennan threatened to walk away to obtain the promise; the offer of extra payment came from Castlegate.",
+        "citations": [
+          "F6"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Brennan wants to recover the promised extra payment of \u00a318,000.",
+      "citations": [
+        "F7"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 33,
+    "valid_citations": 33,
+    "existence_rate": 1.0,
+    "judgment_citations": 20,
+    "valid_judgment_citations": 20,
+    "statements": 20,
+    "statements_with_valid_citation": 20,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 33
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J32",
+      "J31",
+      "J33"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 33,
+    "valid_citations": 33,
+    "existence_rate": 1.0,
+    "judgment_citations": 20,
+    "valid_judgment_citations": 20,
+    "statements": 20,
+    "statements_with_valid_citation": 20,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 33
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J32",
+      "J31",
+      "J33"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.003,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS07: 7 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 0.006,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "2 parties, 4 dated events, 1 claims, 1 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 0.006,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1",
+      "round": 0
+    },
+    {
+      "t": 0.009,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J32', 'J31', 'J33', 'J47', 'J23']",
+      "round": 0
+    },
+    {
+      "t": 0.01,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "1 issues",
+      "round": 0
+    },
+    {
+      "t": 0.012,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "2 points",
+      "round": 1
+    },
+    {
+      "t": 0.015,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "2 points",
+      "round": 1
+    },
+    {
+      "t": 0.016,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "1 points",
+      "round": 2
+    },
+    {
+      "t": 0.018,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "0 points",
+      "round": 2
+    },
+    {
+      "t": 0.019,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 1 issues",
+      "round": 3
+    },
+    {
+      "t": 0.028,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 100.00%, 0 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 0.028,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

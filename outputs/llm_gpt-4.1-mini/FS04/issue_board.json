@@ -1,0 +1,437 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Was there a valid contract between Mr Rowe and Skyline Terraces Ltd incorporating the fireworks event or promises about them?",
+      "doctrine": "offer_acceptance",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p3"
+          ],
+          "score": 1.4846,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a valid contract incorporating the fireworks event or promises about them? offer unilateral contract advertisement invitation to treat acceptance by p",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J27",
+          "passage_refs": [
+            "J27:p1",
+            "J27:p3"
+          ],
+          "score": 0.9161,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a valid contract incorporating the fireworks event or promises about them? offer unilateral contract advertisement invitation to treat acceptance by p",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J26",
+          "passage_refs": [
+            "J26:p2",
+            "J26:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "valid incorporation of fireworks event or promises in contract offer acceptance terms",
+          "reason": "For issue I1 about whether the contract validly incorporated promises about the fireworks, Carlill v Carbolic Smoke Ball Co (J23) is highly relevant as it shows how an advertisement and promises made can be incorporated as binding terms if there is clear intention to be bound and performance or deposit indicating acceptance. Adams v Lindsell (J27) and Hyde v Wrench (J26) clarify offer and acceptance principles including counter-offers. Olley v Marlborough Court Ltd (J42) and L'Estrange v F Graucob Ltd (J40) cover incorporation of terms and notice before contract formation. The hybrid shortlist cases Partridge v Crittenden (J24) and Fisher v Bell (J50) are classic authorities on offers and invitations to treat, useful against incorporation."
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "valid incorporation of fireworks event or promises in contract offer acceptance terms",
+          "reason": "For issue I1 about whether the contract validly incorporated promises about the fireworks, Carlill v Carbolic Smoke Ball Co (J23) is highly relevant as it shows how an advertisement and promises made can be incorporated as binding terms if there is clear intention to be bound and performance or deposit indicating acceptance. Adams v Lindsell (J27) and Hyde v Wrench (J26) clarify offer and acceptance principles including counter-offers. Olley v Marlborough Court Ltd (J42) and L'Estrange v F Graucob Ltd (J40) cover incorporation of terms and notice before contract formation. The hybrid shortlist cases Partridge v Crittenden (J24) and Fisher v Bell (J50) are classic authorities on offers and invitations to treat, useful against incorporation."
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "valid incorporation of fireworks event or promises in contract offer acceptance terms",
+          "reason": "For issue I1 about whether the contract validly incorporated promises about the fireworks, Carlill v Carbolic Smoke Ball Co (J23) is highly relevant as it shows how an advertisement and promises made can be incorporated as binding terms if there is clear intention to be bound and performance or deposit indicating acceptance. Adams v Lindsell (J27) and Hyde v Wrench (J26) clarify offer and acceptance principles including counter-offers. Olley v Marlborough Court Ltd (J42) and L'Estrange v F Graucob Ltd (J40) cover incorporation of terms and notice before contract formation. The hybrid shortlist cases Partridge v Crittenden (J24) and Fisher v Bell (J50) are classic authorities on offers and invitations to treat, useful against incorporation."
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p3",
+            "J24:p2"
+          ],
+          "score": 1.5927,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a valid contract incorporating the fireworks event or promises about them? offer unilateral contract advertisement invitation to treat acceptance by p",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J50",
+          "passage_refs": [
+            "J50:p3",
+            "J50:p2"
+          ],
+          "score": 1.4867,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a valid contract incorporating the fireworks event or promises about them? offer unilateral contract advertisement invitation to treat acceptance by p",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J25",
+          "passage_refs": [
+            "J25:p3",
+            "J25:p2"
+          ],
+          "score": 1.2261,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a valid contract incorporating the fireworks event or promises about them? offer unilateral contract advertisement invitation to treat acceptance by p",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J24",
+        "J50",
+        "J42"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 3 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "Considering the communications focus on fireworks, the promise of front-row seats, and deposit payment, the evidence supports that the fireworks event was incorporated into the contract as a fundamental term despite the written agreement's silence. The online promise is likely more than a mere invitation to treat given the context and parties' shared understanding."
+    },
+    {
+      "id": "I2",
+      "question": "Did the cancellation of the fireworks frustrate the contract for the hire of the terrace between Mr Rowe and Skyline Terraces Ltd?",
+      "doctrine": "frustration",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J37",
+          "passage_refs": [
+            "J37:p3",
+            "J37:p1"
+          ],
+          "score": 1.5867,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the cancellation of the fireworks frustrate the contract for the hire of the terrace? frustration supervening event foundation of the contract cancelled hir",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J38",
+          "passage_refs": [
+            "J38:p1",
+            "J38:p3"
+          ],
+          "score": 0.9197,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the cancellation of the fireworks frustrate the contract for the hire of the terrace? frustration supervening event foundation of the contract cancelled hir",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J36",
+          "passage_refs": [
+            "J36:p2",
+            "J36:p1"
+          ],
+          "score": 0.5986,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the cancellation of the fireworks frustrate the contract for the hire of the terrace? frustration supervening event foundation of the contract cancelled hir",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J39",
+          "passage_refs": [
+            "J39:p2",
+            "J39:p3"
+          ],
+          "score": 1.0837,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the cancellation of the fireworks frustrate the contract for the hire of the terrace? frustration supervening event foundation of the contract cancelled hir",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J30",
+          "passage_refs": [
+            "J30:p3",
+            "J30:p2"
+          ],
+          "score": 0.2921,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the cancellation of the fireworks frustrate the contract for the hire of the terrace? frustration supervening event foundation of the contract cancelled hir",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J15",
+          "passage_refs": [
+            "J15:p2",
+            "J15:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "frustration cancellation of fireworks event impact on contract terrace hire",
+          "reason": "For issue I2 on frustration by cancellation of the fireworks, Krell v Henry (J37) is the leading case where cancellation of a central event frustrated a contract for hire of a viewing flat, directly analogous here. Herne Bay Steam Boat Co v Hutton (J38) and Taylor v Caldwell (J36) speak to when frustration does and does not apply based on the foundation and impossibility doctrines. Davis Contractors Ltd v Fareham Urban District Council (J39) distinguishes hardship from frustrating events. Merritt v Merritt (J30) is relevant for contractual obligations and their discharge. Alcock v Chief Constable (J15) is less central but included for completeness on event-related claims. Fisher v Bell (J50) from the shortlist is less relevant here but noted."
+        },
+        {
+          "judgment_id": "J50",
+          "passage_refs": [
+            "J50:p2",
+            "J50:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "frustration cancellation of fireworks event impact on contract terrace hire",
+          "reason": "For issue I2 on frustration by cancellation of the fireworks, Krell v Henry (J37) is the leading case where cancellation of a central event frustrated a contract for hire of a viewing flat, directly analogous here. Herne Bay Steam Boat Co v Hutton (J38) and Taylor v Caldwell (J36) speak to when frustration does and does not apply based on the foundation and impossibility doctrines. Davis Contractors Ltd v Fareham Urban District Council (J39) distinguishes hardship from frustrating events. Merritt v Merritt (J30) is relevant for contractual obligations and their discharge. Alcock v Chief Constable (J15) is less central but included for completeness on event-related claims. Fisher v Bell (J50) from the shortlist is less relevant here but noted."
+        }
+      ],
+      "supporting": [
+        "J37"
+      ],
+      "opposing": [
+        "J39",
+        "J38"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 3 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 3 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "Given the parties' mutual recognition of the fireworks as the contract's foundation, cancellation frustrates the contract despite continued physical availability of the terrace. The case aligns with Krell v Henry rather than Herne Bay or Davis Contractors, where frustration was denied due to viable alternate performance or unilateral frustration."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Was there a valid contract incorporating the fireworks event or promises about them? [offer_acceptance] Key to whether the fireworks were part of the contract or a collateral statement affects frustration applicability"
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Did the cancellation of the fireworks frustrate the contract for the hire of the terrace? [frustration] Central question is whether the main purpose of the contract was defeated by the cancellation"
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I1",
+      "detail": "Does the written contract's omission of the fireworks render the fireworks cancellation irrelevant to the hire contract obligations?"
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I2",
+      "detail": "Is Skyline entitled to retain the deposit given the cancellation and contract terms?"
+    },
+    {
+      "seq": 5,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I1",
+      "detail": "Was there any breach of contract by Skyline in failing to deliver access to fireworks view or any representations amounting to collateral contracts?"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J23, J27, J26, J42, J40, J24, J50, J25"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J37, J38, J36, J39, J30, J15, J50"
+    },
+    {
+      "seq": 8,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Was there a valid contract between Mr Rowe and Skyline Terraces Ltd incorporating the fireworks event or promises about them? (client needs: pro)"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Did the cancellation of the fireworks frustrate the contract for the hire of the terrace between Mr Rowe and Skyline Terraces Ltd? (client needs: pro)"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J37 argument relies on it"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 14,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J24 counter relies on it"
+    },
+    {
+      "seq": 15,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J50 counter relies on it"
+    },
+    {
+      "seq": 16,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J42 counter relies on it"
+    },
+    {
+      "seq": 17,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J39 counter relies on it"
+    },
+    {
+      "seq": 18,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J38 counter relies on it"
+    },
+    {
+      "seq": 19,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 20,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 2 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 21,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 3 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 22,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 3 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 3 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 25,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Considering the communications focus on fireworks, the promise of front-row seats, and deposit payment, the evidence supports that the fireworks event was incor"
+    },
+    {
+      "seq": 26,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Given the parties' mutual recognition of the fireworks as the contract's foundation, cancellation frustrates the contract despite continued physical availabilit"
+    }
+  ]
+}

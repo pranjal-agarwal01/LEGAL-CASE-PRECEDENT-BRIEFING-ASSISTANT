@@ -1,0 +1,196 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Is the contract between Mr Rowe and Skyline Terraces Ltd frustrated by the cancellation of the Thames Victory Fireworks on 5 July 2025?",
+      "doctrine": "frustration",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J37",
+          "passage_refs": [
+            "J37:p3",
+            "J37:p2"
+          ],
+          "score": 1.5627,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically different imp",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J38",
+          "passage_refs": [
+            "J38:p2",
+            "J38:p1"
+          ],
+          "score": 1.1739,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically different imp",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J39",
+          "passage_refs": [
+            "J39:p2",
+            "J39:p3"
+          ],
+          "score": 1.3687,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically different imp",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J36",
+          "passage_refs": [
+            "J36:p2",
+            "J36:p1"
+          ],
+          "score": 0.5794,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically different imp",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p1",
+            "J13:p2"
+          ],
+          "score": 0.3234,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically different imp",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J37",
+        "J36"
+      ],
+      "opposing": [
+        "J38",
+        "J39",
+        "J36"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 3 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 3 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 5 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 5 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "The strongest supporting precedent is Krell v Henry, which establishes that frustration can arise when a supervening event destroys the common foundation of a contract, even if physical performance remains possible, directly paralleling the cancellation of the fireworks which was the contract's foundation as shown by advertisements and communications (J37:p1, J37:p2, J37:p3, F2, F4). Taylor v Caldwell further supports that destruction or unavailability of the essential contractual purpose (here, fireworks viewing) discharges performance obligations (J36:p1, J36:p2, J36:p3). The opposing authorities Herne Bay and Davis Contractors emphasize that frustration is not made out merely because the event is less profitable or less attractive if substantial performance remains possible, but they are distinguishable as in those cases the frustrating event was not the shared foundation of the contract (J38:p2, J39:p3, F3, F6). Consequently, the facts and case law support that the contract was frustrated, entitling Mr Rowe to a refund of the deposit and discharge of the balance."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Is the contract frustrated by the cancellation of the fireworks? [frustration] The fireworks were a central commercial purpose of the hire; their cancellation may affect the contract's performance."
+    },
+    {
+      "seq": 2,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J37, J38, J39, J36, J13"
+    },
+    {
+      "seq": 3,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Is the contract between Mr Rowe and Skyline Terraces Ltd frustrated by the cancellation of the Thames Victory Fireworks on 5 July 2025? (client needs: pro)"
+    },
+    {
+      "seq": 4,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J37 argument relies on it"
+    },
+    {
+      "seq": 5,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J36 argument relies on it"
+    },
+    {
+      "seq": 6,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 3 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 7,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J38 counter relies on it"
+    },
+    {
+      "seq": 8,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J39 counter relies on it"
+    },
+    {
+      "seq": 9,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J36 counter relies on it"
+    },
+    {
+      "seq": 10,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 3 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 5 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 12,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 5 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 13,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "The strongest supporting precedent is Krell v Henry, which establishes that frustration can arise when a supervening event destroys the common foundation of a c"
+    }
+  ]
+}

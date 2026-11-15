@@ -1,0 +1,530 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Did Brightwater Beverages Ltd owe Priya Nair a duty of care in negligence?",
+      "doctrine": "duty_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J01",
+          "passage_refs": [
+            "J01:p2",
+            "J01:p3"
+          ],
+          "score": 1.5898,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater Beverages Ltd owe Priya Nair a duty of care in negligence? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeabl",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J19",
+          "passage_refs": [
+            "J19:p2",
+            "J19:p3"
+          ],
+          "score": 0.837,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater Beverages Ltd owe Priya Nair a duty of care in negligence? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeabl",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J02",
+          "passage_refs": [
+            "J02:p3",
+            "J02:p2"
+          ],
+          "score": 0.8265,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater Beverages Ltd owe Priya Nair a duty of care in negligence? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeabl",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p2",
+            "J08:p1"
+          ],
+          "score": 0.5984,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater Beverages Ltd owe Priya Nair a duty of care in negligence? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeabl",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J20",
+          "passage_refs": [
+            "J20:p1",
+            "J20:p2"
+          ],
+          "score": 0.3527,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did Brightwater Beverages Ltd owe Priya Nair a duty of care in negligence? duty of care negligence neighbour principle manufacturer ultimate consumer foreseeabl",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J01",
+        "J19",
+        "J08"
+      ],
+      "opposing": [
+        "J02"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+        }
+      ],
+      "assessment": "Favourable: the authorities on balance support Priya Nair, led by Donoghue v Stevenson; Caparo Industries plc v Dickman is the main authority the other side will rely on."
+    },
+    {
+      "id": "I2",
+      "question": "Can Priya Nair prove that the breach caused the harm, on the but-for test or a modified approach?",
+      "doctrine": "causation",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p3",
+            "J08:p1"
+          ],
+          "score": 1.4828,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Priya Nair prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance of p",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J22",
+          "passage_refs": [
+            "J22:p2",
+            "J22:p3"
+          ],
+          "score": 1.0999,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Priya Nair prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance of p",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J05",
+          "passage_refs": [
+            "J05:p3",
+            "J05:p2"
+          ],
+          "score": 0.6823,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Priya Nair prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance of p",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p3",
+            "J12:p2"
+          ],
+          "score": 0.5745,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Priya Nair prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance of p",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J07",
+          "passage_refs": [
+            "J07:p2",
+            "J07:p3"
+          ],
+          "score": 0.5673,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Priya Nair prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance of p",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J07"
+      ],
+      "opposing": [
+        "J08",
+        "J22",
+        "J05"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Brightwater Beverages Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+        }
+      ],
+      "assessment": "Unfavourable: the weight of authority is against Priya Nair, chiefly Barnett v Chelsea and Kensington Hospital Management Committee; the best answer is to rely on Chester v Afshar and distinguish the facts."
+    },
+    {
+      "id": "I3",
+      "question": "Is Brightwater Beverages Ltd liable for the full extent of the harm, including harm made worse by Priya Nair's pre-existing condition?",
+      "doctrine": "remoteness_tort",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J10",
+          "passage_refs": [
+            "J10:p3",
+            "J10:p2"
+          ],
+          "score": 1.5808,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Brightwater Beverages Ltd liable for the full extent of the harm, including harm made worse by Priya Nair's pre-existing condition? remoteness foreseeable ki",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J17",
+          "passage_refs": [
+            "J17:p3",
+            "J17:p2"
+          ],
+          "score": 1.0581,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Brightwater Beverages Ltd liable for the full extent of the harm, including harm made worse by Priya Nair's pre-existing condition? remoteness foreseeable ki",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J09",
+          "passage_refs": [
+            "J09:p3",
+            "J09:p2"
+          ],
+          "score": 0.7757,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Brightwater Beverages Ltd liable for the full extent of the harm, including harm made worse by Priya Nair's pre-existing condition? remoteness foreseeable ki",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J35",
+          "passage_refs": [
+            "J35:p3",
+            "J35:p2"
+          ],
+          "score": 0.2974,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Brightwater Beverages Ltd liable for the full extent of the harm, including harm made worse by Priya Nair's pre-existing condition? remoteness foreseeable ki",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J28",
+          "passage_refs": [
+            "J28:p2",
+            "J28:p1"
+          ],
+          "score": 0.2611,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is Brightwater Beverages Ltd liable for the full extent of the harm, including harm made worse by Priya Nair's pre-existing condition? remoteness foreseeable ki",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J10",
+        "J17"
+      ],
+      "opposing": [
+        "J09"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Priya Nair"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Priya Nair"
+        }
+      ],
+      "assessment": "Favourable: the authorities on balance support Priya Nair, led by Smith v Leech Brain & Co Ltd; Overseas Tankship (UK) Ltd v Morts Dock and Engineering Co Ltd (The Wagon Mound No 1) is the main authority the other side will rely on."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Did Brightwater Beverages Ltd owe Priya Nair a duty of care in negligence? [duty_of_care] 5 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Can Priya Nair prove that the breach caused the harm, on the but-for test or a modified approach? [causation] 4 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Is Brightwater Beverages Ltd liable for the full extent of the harm, including harm made worse by Priya Nair's pre-existing condition? [remoteness_tort] 3 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 4,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J01, J19, J02, J08, J20"
+    },
+    {
+      "seq": 5,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J08, J22, J05, J12, J07"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J10, J17, J09, J35, J28"
+    },
+    {
+      "seq": 7,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Did Brightwater Beverages Ltd owe Priya Nair a duty of care in negligence? (client needs: pro)"
+    },
+    {
+      "seq": 8,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J01 framing review"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J19 framing review"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J08 framing review"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Can Priya Nair prove that the breach caused the harm, on the but-for test or a modified approach? (client needs: pro)"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J07 framing review"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Is Brightwater Beverages Ltd liable for the full extent of the harm, including harm made worse by Priya Nair's pre-existing condition? (client needs: pro)"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J10 framing review"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J17 framing review"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for Priya Nair"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 18,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 2 point(s) for Priya Nair"
+    },
+    {
+      "seq": 19,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J02 doctrine tag matches position"
+    },
+    {
+      "seq": 20,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J08 doctrine tag matches position"
+    },
+    {
+      "seq": 21,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J22 doctrine tag matches position"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J09 doctrine tag matches position"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 2 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 25,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 26,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for Priya Nair"
+    },
+    {
+      "seq": 27,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 2 point(s) for Priya Nair"
+    },
+    {
+      "seq": 28,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Priya Nair"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J05 doctrine tag matches position"
+    },
+    {
+      "seq": 30,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 31,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Brightwater Beverages Ltd"
+    },
+    {
+      "seq": 32,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Favourable: the authorities on balance support Priya Nair, led by Donoghue v Stevenson; Caparo Industries plc v Dickman is the main authority the other side wil"
+    },
+    {
+      "seq": 33,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Unfavourable: the weight of authority is against Priya Nair, chiefly Barnett v Chelsea and Kensington Hospital Management Committee; the best answer is to rely "
+    },
+    {
+      "seq": 34,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "Favourable: the authorities on balance support Priya Nair, led by Smith v Leech Brain & Co Ltd; Overseas Tankship (UK) Ltd v Morts Dock and Engineering Co Ltd ("
+    }
+  ]
+}

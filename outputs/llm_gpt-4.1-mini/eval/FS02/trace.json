@@ -1,0 +1,299 @@
+{
+  "mode": "llm:foundry",
+  "llm_calls": 10,
+  "seconds": 56.491,
+  "structured_facts": {
+    "case_id": "FS02",
+    "title": "Okafor v St Aldhelm's Hospital NHS Trust",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Daniel Okafor",
+        "role": "claimant",
+        "description": "A 52-year-old professional violinist."
+      },
+      {
+        "name": "St Aldhelm's Hospital NHS Trust",
+        "role": "defendant",
+        "description": "Employer of Mr Graham Lyle, consultant spinal surgeon."
+      }
+    ],
+    "chronology": [
+      {
+        "date": "2 February 2024",
+        "iso_date": "2024-02-02",
+        "event": "Mr Okafor consulted Mr Lyle about chronic neck pain radiating into his left arm.",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "11 April 2024",
+        "iso_date": "2024-04-11",
+        "event": "Mr Okafor underwent cervical decompression surgery performed by Mr Lyle.",
+        "fact_ref": "F4"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Daniel Okafor",
+        "respondent": "St Aldhelm's Hospital NHS Trust",
+        "claim": "Claim damages in negligence for failure to warn of a material risk and alternative treatment before consent to surgery.",
+        "legal_basis": "Negligence (failure to warn/informed consent)",
+        "fact_refs": [
+          "F2",
+          "F3",
+          "F5",
+          "F6",
+          "F8"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "On 2 February 2024, Mr Okafor consulted Mr Lyle about chronic neck pain radiating into his left arm.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "Mr Lyle recommended cervical decompression surgery but did not mention a roughly 2% risk of nerve root damage or the alternative treatment of physiotherapy and steroid injections.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "Mr Okafor informed Mr Lyle that his career depended on fine finger control of his left hand.",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "Mr Okafor signed a consent form and underwent surgery on 11 April 2024, which was performed with proper skill.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "The risk of nerve damage materialized, causing permanent loss of fine motor control in two fingers of Mr Okafor's left hand, ending his professional career.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "Mr Okafor says he would not have consented to surgery on that date if warned of the risk and would have tried physiotherapy and sought a second opinion, though he might have had surgery eventually.",
+        "citations": [
+          "F6"
+        ]
+      },
+      {
+        "text": "The Trust relies on evidence that many responsible spinal surgeons in 2024 did not routinely mention the 2% risk and argues the surgery was not negligent, so failure to warn caused no loss.",
+        "citations": [
+          "F7"
+        ]
+      },
+      {
+        "text": "Mr Okafor seeks damages for negligence based on failure to warn of material risk and alternative treatment before consenting to surgery.",
+        "citations": [
+          "F8"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Mr Okafor wants to claim damages in negligence for the failure to warn him of a material risk and of the alternative treatment before he consented to surgery.",
+      "citations": [
+        "F8"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 75,
+    "valid_citations": 75,
+    "existence_rate": 1.0,
+    "judgment_citations": 48,
+    "valid_judgment_citations": 48,
+    "statements": 45,
+    "statements_with_valid_citation": 45,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 75
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J06",
+      "J01",
+      "J04",
+      "J12",
+      "J07",
+      "J08",
+      "J09"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 75,
+    "valid_citations": 75,
+    "existence_rate": 1.0,
+    "judgment_citations": 48,
+    "valid_judgment_citations": 48,
+    "statements": 45,
+    "statements_with_valid_citation": 45,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 75
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J06",
+      "J01",
+      "J04",
+      "J12",
+      "J07",
+      "J08",
+      "J09"
+    ]
+  },
+  "warnings": [
+    "counter_argument: LLM step 'prepare' failed (ValidationError: 1 validation error for PrepareLLM\n  Invalid JSON: trailing characters at line 2 column 1 [type=json_invalid, input_value='{\"framed_issues\":[],\"new...es\":[],\"new_issues\":[]}', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/json_invalid); used the offline baseline instead."
+  ],
+  "events": [
+    {
+      "t": 0.019,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS02: 8 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 5.603,
+      "agent": "fact_extractor",
+      "action": "llm_extract",
+      "detail": "doctrine cue scores: {'duty_of_care': 1, 'medical_standard': 4, 'informed_consent': 5, 'causation': 2, 'exclusion_clause': 1}",
+      "round": 0
+    },
+    {
+      "t": 5.603,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "2 parties, 2 dated events, 1 claims, 5 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 5.604,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1, I2, I3, I4, I5",
+      "round": 0
+    },
+    {
+      "t": 10.918,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J06', 'J01', 'J02', 'J19', 'J08']",
+      "round": 0
+    },
+    {
+      "t": 10.918,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I2: ['J06', 'J11', 'J04', 'J12', 'J14', 'J13']",
+      "round": 0
+    },
+    {
+      "t": 10.918,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I3: ['J06', 'J07', 'J04', 'J14', 'J19']",
+      "round": 0
+    },
+    {
+      "t": 10.918,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I4: ['J07', 'J05', 'J22', 'J08', 'J04']",
+      "round": 0
+    },
+    {
+      "t": 10.918,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I5: ['J09', 'J06', 'J04', 'J05', 'J07', 'J10', 'J17', 'J34']",
+      "round": 0
+    },
+    {
+      "t": 14.193,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "5 framed, 0 added",
+      "round": 0
+    },
+    {
+      "t": 20.415,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "6 points",
+      "round": 1
+    },
+    {
+      "t": 23.459,
+      "agent": "counter_argument",
+      "action": "llm_fallback",
+      "detail": "counter_argument: LLM step 'prepare' failed (ValidationError: 1 validation error for PrepareLLM\n  Invalid JSON: trailing characters at line 2 column 1 [type=json_invalid, input_value='{\"framed_issues\":[],\"new...es\":[],\"new_issues\":[]}', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/json_invalid); used the offline baseline instead.",
+      "round": 1
+    },
+    {
+      "t": 23.462,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I6",
+      "round": 1
+    },
+    {
+      "t": 26.354,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I6: ['J06', 'J04', 'J05', 'J07', 'J11', 'J48']",
+      "round": 1
+    },
+    {
+      "t": 31.297,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "5 points",
+      "round": 1
+    },
+    {
+      "t": 37.97,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "6 points",
+      "round": 2
+    },
+    {
+      "t": 42.658,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "5 points",
+      "round": 2
+    },
+    {
+      "t": 42.66,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 6 issues",
+      "round": 3
+    },
+    {
+      "t": 56.487,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 100.00%, 0 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 56.487,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:prepare -> precedent_retrieval -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

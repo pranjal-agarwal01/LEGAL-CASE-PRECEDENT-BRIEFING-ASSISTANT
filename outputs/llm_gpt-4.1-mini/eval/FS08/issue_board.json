@@ -1,0 +1,168 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim?",
+      "doctrine": "psychiatric_harm",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J15",
+          "passage_refs": [
+            "J15:p3",
+            "J15:p2"
+          ],
+          "score": 1.457,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim? psychiatric injury nervous shock secondary victim immed",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J16",
+          "passage_refs": [
+            "J16:p3",
+            "J16:p2"
+          ],
+          "score": 1.0681,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim? psychiatric injury nervous shock secondary victim immed",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J17",
+          "passage_refs": [
+            "J17:p2",
+            "J17:p3"
+          ],
+          "score": 1.0352,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim? psychiatric injury nervous shock secondary victim immed",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J49",
+          "passage_refs": [
+            "J49:p3",
+            "J49:p2"
+          ],
+          "score": 0.2172,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim? psychiatric injury nervous shock secondary victim immed",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J27",
+          "passage_refs": [
+            "J27:p1",
+            "J27:p2"
+          ],
+          "score": 0.2126,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim? psychiatric injury nervous shock secondary victim immed",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J16",
+        "J17"
+      ],
+      "opposing": [
+        "J15"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Helen Clarke and Ryan Clarke"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Dunmore Haulage Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Helen Clarke and Ryan Clarke"
+        }
+      ],
+      "assessment": "Favourable: the authorities on balance support Helen Clarke and Ryan Clarke, led by McLoughlin v O'Brian; Alcock v Chief Constable of South Yorkshire Police is the main authority the other side will rely on."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim? [psychiatric_harm] 8 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 2,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J15, J16, J17, J49, J27"
+    },
+    {
+      "seq": 3,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Can Helen Clarke and Ryan Clarke recover for psychiatric injury, and as a primary or a secondary victim? (client needs: pro)"
+    },
+    {
+      "seq": 4,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J16 framing review"
+    },
+    {
+      "seq": 5,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J17 framing review"
+    },
+    {
+      "seq": 6,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for Helen Clarke and Ryan Clarke"
+    },
+    {
+      "seq": 7,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J15 doctrine tag matches position"
+    },
+    {
+      "seq": 8,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Dunmore Haulage Ltd"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Helen Clarke and Ryan Clarke"
+    },
+    {
+      "seq": 10,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Favourable: the authorities on balance support Helen Clarke and Ryan Clarke, led by McLoughlin v O'Brian; Alcock v Chief Constable of South Yorkshire Police is "
+    }
+  ]
+}

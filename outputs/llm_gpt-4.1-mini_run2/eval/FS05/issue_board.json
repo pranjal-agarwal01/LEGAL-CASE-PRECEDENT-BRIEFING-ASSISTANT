@@ -1,0 +1,690 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Did SwiftHaul owe a duty of care to Kaur Artisan Bakery Ltd in performing the delivery contract?",
+      "doctrine": "duty_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J01",
+          "passage_refs": [
+            "J01:p2",
+            "J01:p3"
+          ],
+          "score": 1.5601,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did SwiftHaul owe a duty of care to the bakery in performing the delivery contract? duty of care negligence neighbour principle manufacturer ultimate consumer f",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J02",
+          "passage_refs": [
+            "J02:p3",
+            "J02:p2"
+          ],
+          "score": 0.8346,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did SwiftHaul owe a duty of care to the bakery in performing the delivery contract? duty of care negligence neighbour principle manufacturer ultimate consumer f",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J19",
+          "passage_refs": [
+            "J19:p2",
+            "J19:p3"
+          ],
+          "score": 0.8708,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did SwiftHaul owe a duty of care to the bakery in performing the delivery contract? duty of care negligence neighbour principle manufacturer ultimate consumer f",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J06",
+          "passage_refs": [
+            "J06:p2",
+            "J06:p1"
+          ],
+          "score": 0.3706,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did SwiftHaul owe a duty of care to the bakery in performing the delivery contract? duty of care negligence neighbour principle manufacturer ultimate consumer f",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p2",
+            "J08:p1"
+          ],
+          "score": 0.5542,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did SwiftHaul owe a duty of care to the bakery in performing the delivery contract? duty of care negligence neighbour principle manufacturer ultimate consumer f",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J01",
+        "J19"
+      ],
+      "opposing": [
+        "J02"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+        }
+      ],
+      "assessment": "The duty of care likely exists in contract delivery given direct foreseeability of harm from delayed delivery and close relationship, aligning with established negligence principles (J01,p3; J19,p2). While Caparo requires proximity, the bakery's reliance on guaranteed next-day service and the direct effect of delay likely satisfies this."
+    },
+    {
+      "id": "I2",
+      "question": "Was SwiftHaul's standard of care in delivering the parcel breached by sending it to the wrong depot causing delay?",
+      "doctrine": "standard_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J11",
+          "passage_refs": [
+            "J11:p3",
+            "J11:p2"
+          ],
+          "score": 1.3821,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was SwiftHaul's standard of care in delivering the parcel breached by sending it to the wrong depot causing delay? breach standard of care reasonable person pre",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p3",
+            "J12:p2"
+          ],
+          "score": 1.4293,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was SwiftHaul's standard of care in delivering the parcel breached by sending it to the wrong depot causing delay? breach standard of care reasonable person pre",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p3",
+            "J13:p2"
+          ],
+          "score": 0.9354,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was SwiftHaul's standard of care in delivering the parcel breached by sending it to the wrong depot causing delay? breach standard of care reasonable person pre",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J14",
+          "passage_refs": [
+            "J14:p2",
+            "J14:p3"
+          ],
+          "score": 1.0789,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was SwiftHaul's standard of care in delivering the parcel breached by sending it to the wrong depot causing delay? breach standard of care reasonable person pre",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J20",
+          "passage_refs": [
+            "J20:p3",
+            "J20:p2"
+          ],
+          "score": 0.589,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was SwiftHaul's standard of care in delivering the parcel breached by sending it to the wrong depot causing delay? breach standard of care reasonable person pre",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J11"
+      ],
+      "opposing": [
+        "J12"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+        }
+      ],
+      "assessment": "SwiftHaul likely breached the standard of care by mis-routing a guaranteed next-day delivery, given the objective competent courier standard (J11:p3). The opposing argument depends on absence of proof of negligence, but a fundamental error causing 11-day delay undermines such defense (J12:p3)."
+    },
+    {
+      "id": "I3",
+      "question": "Are Kaur Artisan Bakery Ltd's lost profits and lost contract recoverable given the exclusion clause in SwiftHaul's terms?",
+      "doctrine": "exclusion_clause",
+      "raised_by": "fact_extractor",
+      "client_position": "contra",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J44",
+          "passage_refs": [
+            "J44:p3",
+            "J44:p2"
+          ],
+          "score": 1.5587,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits and lost contract recoverable given the exclusion clause in the terms? exclusion clause incorporation notice before contract signa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p1"
+          ],
+          "score": 1.5635,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits and lost contract recoverable given the exclusion clause in the terms? exclusion clause incorporation notice before contract signa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p1"
+          ],
+          "score": 1.381,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits and lost contract recoverable given the exclusion clause in the terms? exclusion clause incorporation notice before contract signa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p2",
+            "J43:p3"
+          ],
+          "score": 1.2615,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits and lost contract recoverable given the exclusion clause in the terms? exclusion clause incorporation notice before contract signa",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p2",
+            "J41:p3"
+          ],
+          "score": 0.9963,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits and lost contract recoverable given the exclusion clause in the terms? exclusion clause incorporation notice before contract signa",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J42"
+      ],
+      "opposing": [
+        "J40",
+        "J44"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 3 point(s) for SwiftHaul Couriers Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 3 point(s) for SwiftHaul Couriers Ltd"
+        }
+      ],
+      "assessment": "The bakery's acceptance by ticking the box supports incorporation of the exclusion clause under L'Estrange and Photo Production, favoring enforcement (J40:p2; J44:p2). However, the argument that such onerous clauses require explicit prior notice may favor narrow construction against SwiftHaul (J42:p2). The balance leans to enforcement given commercial context and clearness of clause (F3)."
+    },
+    {
+      "id": "I4",
+      "question": "Could Kaur Artisan Bakery Ltd recover loss for the exceptional wedding contract despite SwiftHaul's lack of knowledge about it?",
+      "doctrine": "remoteness_contract",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J34",
+          "passage_refs": [
+            "J34:p2",
+            "J34:p3"
+          ],
+          "score": 1.5935,
+          "retrieved_by": "hybrid_rag",
+          "query": "Could the bakery recover loss for the exceptional wedding contract despite SwiftHaul's lack of knowledge about it? remoteness damages lost profits reasonable co",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J35",
+          "passage_refs": [
+            "J35:p3",
+            "J35:p2"
+          ],
+          "score": 1.3052,
+          "retrieved_by": "hybrid_rag",
+          "query": "Could the bakery recover loss for the exceptional wedding contract despite SwiftHaul's lack of knowledge about it? remoteness damages lost profits reasonable co",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J21",
+          "passage_refs": [
+            "J21:p2",
+            "J21:p1"
+          ],
+          "score": 0.5475,
+          "retrieved_by": "hybrid_rag",
+          "query": "Could the bakery recover loss for the exceptional wedding contract despite SwiftHaul's lack of knowledge about it? remoteness damages lost profits reasonable co",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J27",
+          "passage_refs": [
+            "J27:p3",
+            "J27:p2"
+          ],
+          "score": 0.5379,
+          "retrieved_by": "hybrid_rag",
+          "query": "Could the bakery recover loss for the exceptional wedding contract despite SwiftHaul's lack of knowledge about it? remoteness damages lost profits reasonable co",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J03",
+          "passage_refs": [
+            "J03:p2",
+            "J03:p1"
+          ],
+          "score": 0.396,
+          "retrieved_by": "hybrid_rag",
+          "query": "Could the bakery recover loss for the exceptional wedding contract despite SwiftHaul's lack of knowledge about it? remoteness damages lost profits reasonable co",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J35"
+      ],
+      "opposing": [
+        "J34"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+        }
+      ],
+      "assessment": "Hadley v Baxendale strongly supports barring recovery of losses from unknown special circumstances like the wedding contract (J34:p2). Victoria Laundry allows recovery of ordinary lost profits and known special contracts, which does not apply here due to SwiftHaul's ignorance. The opposing view aligns with established remoteness principles and likely prevails."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Did SwiftHaul owe a duty of care to the bakery in performing the delivery contract? [duty_of_care] The facts raise the question of whether a duty arises under contract terms to avoid delay causing loss."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Was SwiftHaul's standard of care in delivering the parcel breached by sending it to the wrong depot causing delay? [standard_of_care] The facts suggest SwiftHaul's error caused the late delivery."
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Are the bakery's lost profits and lost contract recoverable given the exclusion clause in the terms? [exclusion_clause] Clause 9 excludes liability for loss of profits or business due to delay, raising the question of its applicability and enforceability."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I4",
+      "detail": "Could the bakery recover loss for the exceptional wedding contract despite SwiftHaul's lack of knowledge about it? [remoteness_contract] The bakery did not inform SwiftHaul of the special contract, so remoteness principles apply."
+    },
+    {
+      "seq": 5,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I4",
+      "detail": "Are the losses claimed by the bakery too remote from the late delivery to be recoverable?"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J01, J02, J19, J06, J08"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J11, J12, J13, J14, J20"
+    },
+    {
+      "seq": 8,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J44, J40, J42, J43, J41"
+    },
+    {
+      "seq": 9,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I4",
+      "detail": "J34, J35, J21, J27, J03"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Did SwiftHaul owe a duty of care to Kaur Artisan Bakery Ltd in performing the delivery contract? (client needs: pro)"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Was SwiftHaul's standard of care in delivering the parcel breached by sending it to the wrong depot causing delay? (client needs: pro)"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Are Kaur Artisan Bakery Ltd's lost profits and lost contract recoverable given the exclusion clause in SwiftHaul's terms? (client needs: contra)"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I4",
+      "detail": "Could Kaur Artisan Bakery Ltd recover loss for the exceptional wedding contract despite SwiftHaul's lack of knowledge about it? (client needs: pro)"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J01 argument relies on it"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J19 argument relies on it"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J11 argument relies on it"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J42 argument relies on it"
+    },
+    {
+      "seq": 18,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I4",
+      "detail": "J35 argument relies on it"
+    },
+    {
+      "seq": 19,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 20,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 21,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 22,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J02 counter relies on it"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J12 counter relies on it"
+    },
+    {
+      "seq": 25,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J40 counter relies on it"
+    },
+    {
+      "seq": 26,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J44 counter relies on it"
+    },
+    {
+      "seq": 27,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I4",
+      "detail": "J34 counter relies on it"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 30,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 3 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 31,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 32,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 33,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 34,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 35,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 36,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 37,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 38,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 3 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 39,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 40,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "The duty of care likely exists in contract delivery given direct foreseeability of harm from delayed delivery and close relationship, aligning with established "
+    },
+    {
+      "seq": 41,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "SwiftHaul likely breached the standard of care by mis-routing a guaranteed next-day delivery, given the objective competent courier standard (J11:p3). The oppos"
+    },
+    {
+      "seq": 42,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "The bakery's acceptance by ticking the box supports incorporation of the exclusion clause under L'Estrange and Photo Production, favoring enforcement (J40:p2; J"
+    },
+    {
+      "seq": 43,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I4",
+      "detail": "Hadley v Baxendale strongly supports barring recovery of losses from unknown special circumstances like the wedding contract (J34:p2). Victoria Laundry allows r"
+    }
+  ]
+}

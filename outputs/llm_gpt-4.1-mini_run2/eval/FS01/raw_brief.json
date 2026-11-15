@@ -1,0 +1,432 @@
+{
+  "case_id": "FS01",
+  "title": "Nair v Brightwater Beverages Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Ms Nair seeks damages for injury caused by contaminated kombucha manufactured by Brightwater, relying on negligence despite no contractual relationship with the manufacturer (F1-F8).",
+      "citations": [
+        "F1",
+        "F3",
+        "F4",
+        "F8"
+      ]
+    },
+    {
+      "text": "The key issues are whether Brightwater owed a duty of care to Ms Nair, breached the standard of care in manufacturing, whether her pre-existing ulcer affects causation and damages, and the recoverability of her losses absent contract.",
+      "citations": [
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ]
+    },
+    {
+      "text": "The claimant relies primarily on Donoghue v Stevenson to establish duty and breach in strict manufacturer-consumer context, applies the eggshell skull rule for causation, and distinguishes pure economic loss from recoverable losses consequential on physical injury.",
+      "citations": [
+        "J01:p1",
+        "J01:p2",
+        "J01:p3",
+        "J10:p3",
+        "J21:p2"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "Arjun Mehta bought two bottles of Fizzleaf kombucha on 14 March 2025 and gave one to Ms Nair.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "The bottle was dark brown glass, sealed with Brightwater's metal cap, preventing prior inspection.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "Ms Nair drank half the bottle before seeing a sharp sliver of glass and mould inside.",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "Ms Nair suffered severe abdominal pain the same evening and was admitted to hospital the next day with a lacerated oesophagus and stomach lining.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "Ms Nair has a pre-existing gastric ulcer that increased the severity of the internal injury.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "Ms Nair was unable to work until 30 June 2025 and needed two further medical procedures.",
+      "citations": [
+        "F6"
+      ]
+    },
+    {
+      "text": "Brightwater's bottling line passed inspection on 1 March 2025 and it suggests the cafe may have tampered with the bottle.",
+      "citations": [
+        "F7"
+      ]
+    },
+    {
+      "text": "Brightwater's medical expert claims the ulcer caused most damage and treatment was likely needed regardless of glass injury.",
+      "citations": [
+        "F7"
+      ]
+    },
+    {
+      "text": "Ms Nair claims damages in negligence against Brightwater despite having no contract with the company as she did not buy the drink herself.",
+      "citations": [
+        "F8"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Did Brightwater owe a duty of care to Ms Nair as a consumer of its product?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J01",
+          "case_name": "Donoghue v Stevenson",
+          "citation": "[1932] AC 562",
+          "stance": "supporting",
+          "proposition": {
+            "text": "A manufacturer owes a duty of care to the ultimate consumer of its product even absent a contract, if the product is intended to reach the consumer sealed and reasonably foreseeable harm may result.",
+            "citations": [
+              "J01:p1",
+              "J01:p2",
+              "J01:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J02",
+          "case_name": "Caparo Industries plc v Dickman",
+          "citation": "[1990] 2 AC 605",
+          "stance": "opposing",
+          "proposition": {
+            "text": "A duty of care requires foreseeability, proximity and that it be fair, just, and reasonable to impose it; new duty categories must arise incrementally and by analogy with established relationships, which is lacking here.",
+            "citations": [
+              "J02:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Brightwater manufactured a sealed kombucha bottle intended to reach consumers like Ms Nair without opportunity for intermediate inspection, creating a foreseeable risk of harm, so under Donoghue v Stevenson it owed her a duty of care despite no contract.",
+          "citations": [
+            "J01:p1",
+            "J01:p2",
+            "J01:p3",
+            "F2",
+            "F3",
+            "F8"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Under Caparo, the absence of a proximate relationship or established duty category means imposing a duty on Brightwater to Ms Nair is not fair, just, or reasonable, so no duty of care arises here.",
+          "citations": [
+            "J02:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Donoghue v Stevenson firmly establishes the duty of care from manufacturers to ultimate consumers of sealed products, binding even without contract; the incremental approach of Caparo does not undermine this established category. Brightwater therefore owed Ms Nair a duty of care.",
+        "citations": [
+          "J01:p2",
+          "J01:p3",
+          "J02:p3",
+          "F2",
+          "F3",
+          "F8"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Did Brightwater breach the standard of care in manufacturing or bottling the kombucha?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J01",
+          "case_name": "Donoghue v Stevenson",
+          "citation": "[1932] AC 562",
+          "stance": "supporting",
+          "proposition": {
+            "text": "The manufacturer must exercise reasonable care to avoid foreseeable harm, judged objectively against a reasonable standard.",
+            "citations": [
+              "J01:p1",
+              "J01:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J11",
+          "case_name": "Nettleship v Weston",
+          "citation": "[1971] 2 QB 691",
+          "stance": "supporting",
+          "proposition": {
+            "text": "The standard of care in negligence is objective and does not adjust to the defendant's personal skill or situation.",
+            "citations": [
+              "J11:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J12",
+          "case_name": "Bolton v Stone",
+          "citation": "[1951] AC 850",
+          "stance": "opposing",
+          "proposition": {
+            "text": "A very low probability risk does not necessarily constitute breach; reasonable precautions are proportional to the risk magnitude and practicability.",
+            "citations": [
+              "J12:p2"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J14",
+          "case_name": "Latimer v AEC Ltd",
+          "citation": "[1953] AC 643",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Measures that are disproportionate to the risk are not required to meet the standard of care.",
+            "citations": [
+              "J14:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Presence of a sharp glass sliver and mould in a sealed bottle indicates a failure to meet the objective standard of a reasonably competent manufacturer to take precautions against foreseeable harm.",
+          "citations": [
+            "J01:p1",
+            "J01:p3",
+            "J11:p3",
+            "F3",
+            "F2"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "The risk of contamination may be so minimal that a reasonable manufacturer would not take extraordinary measures beyond a passed safety inspection, consistent with Bolton and Latimer which assess breach by weighing risk probability and precaution cost.",
+          "citations": [
+            "J12:p2",
+            "J14:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Given the actual presence of dangerous defects (glass and mould) in a sealed bottle, it is difficult to regard Brightwater as having met the standard of care; reasonable care requires avoiding such foreseeable harms especially in consumer products, outweighing arguments based on low risk incidence.",
+        "citations": [
+          "J01:p1",
+          "J11:p3",
+          "F3",
+          "F2"
+        ]
+      }
+    },
+    {
+      "issue_id": "I3",
+      "question": "Is the claimant's pre-existing gastric ulcer relevant to the assessment of damages and causation?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J10",
+          "case_name": "Smith v Leech Brain & Co Ltd",
+          "citation": "[1962] 2 QB 405",
+          "stance": "supporting",
+          "proposition": {
+            "text": "The tortfeasor takes the claimant as found, and is liable for full extent of harm including aggravation of pre-existing conditions (eggshell skull rule).",
+            "citations": [
+              "J10:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J22",
+          "case_name": "Wilsher v Essex Area Health Authority",
+          "citation": "[1988] AC 1074",
+          "stance": "opposing",
+          "proposition": {
+            "text": "In multiple possible causation scenarios, the claimant must prove on the balance of probabilities that the defendant's breach caused the harm; mere possibility of contribution is insufficient.",
+            "citations": [
+              "J22:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J08",
+          "case_name": "Barnett v Chelsea and Kensington Hospital Management Committee",
+          "citation": "[1969] 1 QB 428",
+          "stance": "opposing",
+          "proposition": {
+            "text": "But-for causation requires proof that without the breach the harm would not have occurred; failure to establish this negates liability.",
+            "citations": [
+              "J08:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Ms Nair's pre-existing ulcer increased the severity but not the cause of her injury, and under Smith v Leech Brain the defendant must accept her pre-existing vulnerability and is liable for the full extent of the harm caused by the glass injury she suffered.",
+          "citations": [
+            "J10:p3",
+            "F4",
+            "F5"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Given the ulcer and possible cafe tampering, Ms Nair cannot prove on the balance of probabilities that Brightwater's breach caused her injury, and under Wilsher and Barnett this fails causation requirements.",
+          "citations": [
+            "J22:p3",
+            "J08:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Applying the eggshell skull rule protects Ms Nair's claim since the injury type was foreseeable and caused by the glass contamination, making the ulcer relevant only to harm extent, not negating causation. The defendant cannot avoid liability by pointing to the claimant's pre-existing condition.",
+        "citations": [
+          "J10:p3",
+          "F4",
+          "F5"
+        ]
+      }
+    },
+    {
+      "issue_id": "I4",
+      "question": "Are Ms Nair's claimed losses recoverable given she has no contract with Brightwater?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J01",
+          "case_name": "Donoghue v Stevenson",
+          "citation": "[1932] AC 562",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Losses consequential on physical injury caused by a defective product are recoverable in negligence even without contract.",
+            "citations": [
+              "J01:p2",
+              "J01:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J21",
+          "case_name": "Spartan Steel & Alloys Ltd v Martin & Co (Contractors) Ltd",
+          "citation": "[1973] QB 27",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Economic loss consequential on physical damage is recoverable; pure economic loss unconnected to physical damage is not.",
+            "citations": [
+              "J21:p2"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J02",
+          "case_name": "Caparo Industries plc v Dickman",
+          "citation": "[1990] 2 AC 605",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Negligence claims for pure economic loss are limited; without a special relationship or contract, recovery is generally barred.",
+            "citations": [
+              "J02:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Ms Nair's injuries caused physical harm and consequent medical expenses and lost earnings, which are recoverable damages; following Donoghue and Spartan Steel, these are not pure economic loss but losses flowing from physical damage to her person.",
+          "citations": [
+            "J01:p2",
+            "J21:p2",
+            "F4",
+            "F6",
+            "F8"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Absent a contract, losses are pure economic loss and thus not recoverable in negligence; imposing liability here would contradict Caparo's requirement for fairness and proximity, limiting claims for pure economic loss.",
+          "citations": [
+            "J02:p3",
+            "J21:p3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Ms Nair's losses stem from physical injury and therefore are consequential damages recoverable in negligence despite lack of contract, consistent with established consumer protection in Donoghue. The defendant's argument conflates pure economic loss with recoverable injury-related losses.",
+        "citations": [
+          "J01:p2",
+          "J21:p2",
+          "F4",
+          "F6",
+          "F8"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Brightwater owed Ms Nair a duty of care as a manufacturer selling sealed products intended for ultimate consumer use, established by Donoghue v Stevenson and confirmed by relevant facts (F2, F3, F8).",
+      "citations": [
+        "J01:p2",
+        "J01:p3",
+        "F2",
+        "F3",
+        "F8"
+      ]
+    },
+    {
+      "text": "Brightwater breached the duty by allowing dangerous contamination (glass and mould) in a sealed bottle, failing the objective standard of care for a reasonable manufacturer (J01, J11, F3).",
+      "citations": [
+        "J01:p1",
+        "J11:p3",
+        "F3"
+      ]
+    },
+    {
+      "text": "Ms Nair's pre-existing ulcer does not break causation; the harm type was foreseeable, and the eggshell skull rule mandates taking the claimant as found (J10, F4, F5).",
+      "citations": [
+        "J10:p3",
+        "F4",
+        "F5"
+      ]
+    },
+    {
+      "text": "Her losses from physical injury, including treatment costs and lost earnings, are recoverable damages in negligence even without contract, as they flow from physical harm (J01, J21, F4, F6, F8).",
+      "citations": [
+        "J01:p2",
+        "J21:p2",
+        "F4",
+        "F6",
+        "F8"
+      ]
+    }
+  ],
+  "warnings": []
+}

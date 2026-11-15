@@ -1,0 +1,573 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Is the hire contract between Mr Rowe and Skyline frustrated by the cancellation of the fireworks?",
+      "doctrine": "frustration",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J37",
+          "passage_refs": [
+            "J37:p3",
+            "J37:p2"
+          ],
+          "score": 1.565,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the hire contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically differen",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J38",
+          "passage_refs": [
+            "J38:p2",
+            "J38:p1"
+          ],
+          "score": 1.1543,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the hire contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically differen",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J36",
+          "passage_refs": [
+            "J36:p2",
+            "J36:p1"
+          ],
+          "score": 0.5744,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the hire contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically differen",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J39",
+          "passage_refs": [
+            "J39:p2",
+            "J39:p3"
+          ],
+          "score": 1.3481,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the hire contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically differen",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p1",
+            "J13:p2"
+          ],
+          "score": 0.3191,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the hire contract frustrated by the cancellation of the fireworks? frustration supervening event foundation of the contract cancelled hire radically differen",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J37"
+      ],
+      "opposing": [
+        "J38"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "Considering the parties' shared understanding that viewing the fireworks was the contract's core objective (F2), the reasoning in Krell v Henry is the stronger authority. The event\u2019s cancellation fundamentally changes the performance\u2019s purpose, distinguishing this from Herne Bay where alternative use remained viable. Thus, the contract was frustrated."
+    },
+    {
+      "id": "I2",
+      "question": "Was there a binding contractual term between Mr Rowe and Skyline about the fireworks view that affects the parties' obligations or breach?",
+      "doctrine": "offer_acceptance",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J37",
+          "passage_refs": [
+            "J37:p2",
+            "J37:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "contractual term fireworks view terrace exclusivity advertising promises",
+          "reason": "On whether there was a binding contractual term about the fireworks view, Krell v Henry (J37) is again relevant for implied terms from advertising and common purpose; L'Estrange v Graucob (J40) on binding terms in signed contracts; Carlill v Carbolic Smoke Ball Co (J23) on intention to be bound from advertisements; Williams v Roffey Bros (J32) about consideration and promises; and Fisher v Bell (J50) on offer versus invitation to treat."
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "contractual term fireworks view terrace exclusivity advertising promises",
+          "reason": "On whether there was a binding contractual term about the fireworks view, Krell v Henry (J37) is again relevant for implied terms from advertising and common purpose; L'Estrange v Graucob (J40) on binding terms in signed contracts; Carlill v Carbolic Smoke Ball Co (J23) on intention to be bound from advertisements; Williams v Roffey Bros (J32) about consideration and promises; and Fisher v Bell (J50) on offer versus invitation to treat."
+        },
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p3"
+          ],
+          "score": 1.5038,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a binding contractual term about the fireworks view which affects the obligations or breach? offer unilateral contract advertisement invitation to tre",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p2",
+            "J32:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "contractual term fireworks view terrace exclusivity advertising promises",
+          "reason": "On whether there was a binding contractual term about the fireworks view, Krell v Henry (J37) is again relevant for implied terms from advertising and common purpose; L'Estrange v Graucob (J40) on binding terms in signed contracts; Carlill v Carbolic Smoke Ball Co (J23) on intention to be bound from advertisements; Williams v Roffey Bros (J32) about consideration and promises; and Fisher v Bell (J50) on offer versus invitation to treat."
+        },
+        {
+          "judgment_id": "J50",
+          "passage_refs": [
+            "J50:p2",
+            "J50:p3"
+          ],
+          "score": 1.5971,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a binding contractual term about the fireworks view which affects the obligations or breach? offer unilateral contract advertisement invitation to tre",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p3",
+            "J24:p2"
+          ],
+          "score": 1.5691,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a binding contractual term about the fireworks view which affects the obligations or breach? offer unilateral contract advertisement invitation to tre",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J25",
+          "passage_refs": [
+            "J25:p3",
+            "J25:p2"
+          ],
+          "score": 1.2038,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a binding contractual term about the fireworks view which affects the obligations or breach? offer unilateral contract advertisement invitation to tre",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J27",
+          "passage_refs": [
+            "J27:p1",
+            "J27:p2"
+          ],
+          "score": 0.9133,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was there a binding contractual term about the fireworks view which affects the obligations or breach? offer unilateral contract advertisement invitation to tre",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J50",
+        "J24"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "The direct promise of 'front-row seats' in response to Mr Rowe\u2019s specific inquiries distinguishes these communications from typical advertisements or invitations to treat, favoring recognition of a binding collateral term. This aligns with Carlill, not with the invitation to treat cases. Hence, a collateral contractual obligation on the fireworks exists."
+    },
+    {
+      "id": "I3",
+      "question": "Can Skyline retain the deposit despite Mr Rowe's cancellation following the fireworks cancellation and refusal to perform?",
+      "doctrine": "termination",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J47",
+          "passage_refs": [
+            "J47:p2",
+            "J47:p3"
+          ],
+          "score": 1.5459,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Skyline retain the deposit despite the cancellation and refusal to perform? termination innominate term deprived of substantially the whole benefit On 10 Ma",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J37",
+          "passage_refs": [
+            "J37:p1",
+            "J37:p2"
+          ],
+          "score": 0.6564,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Skyline retain the deposit despite the cancellation and refusal to perform? termination innominate term deprived of substantially the whole benefit On 10 Ma",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p2",
+            "J12:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "deposit retention cancellation event termination contract breach refund",
+          "reason": "Regarding Skyline's ability to retain the deposit after cancellation, Hongkong Fir Shipping Co Ltd v Kawasaki (J47) covers termination rights and breach consequences; Krell v Henry (J37) for frustration consequences and refund of balances; Bolton v Stone (J12) relates to risk and foreseeability; Herne Bay Steam Boat Co v Hutton (J38) on partial failure of purpose; and Carlill v Carbolic Smoke Ball Co (J23) concerning binding offers and the treatment of deposits."
+        },
+        {
+          "judgment_id": "J38",
+          "passage_refs": [
+            "J38:p2",
+            "J38:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "deposit retention cancellation event termination contract breach refund",
+          "reason": "Regarding Skyline's ability to retain the deposit after cancellation, Hongkong Fir Shipping Co Ltd v Kawasaki (J47) covers termination rights and breach consequences; Krell v Henry (J37) for frustration consequences and refund of balances; Bolton v Stone (J12) relates to risk and foreseeability; Herne Bay Steam Boat Co v Hutton (J38) on partial failure of purpose; and Carlill v Carbolic Smoke Ball Co (J23) concerning binding offers and the treatment of deposits."
+        },
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p1",
+            "J23:p2"
+          ],
+          "score": 0.387,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Skyline retain the deposit despite the cancellation and refusal to perform? termination innominate term deprived of substantially the whole benefit On 10 Ma",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p3",
+            "J32:p1"
+          ],
+          "score": 0.3445,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Skyline retain the deposit despite the cancellation and refusal to perform? termination innominate term deprived of substantially the whole benefit On 10 Ma",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J30",
+          "passage_refs": [
+            "J30:p1",
+            "J30:p3"
+          ],
+          "score": 0.2439,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Skyline retain the deposit despite the cancellation and refusal to perform? termination innominate term deprived of substantially the whole benefit On 10 Ma",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J37"
+      ],
+      "opposing": [
+        "J38",
+        "J39"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Skyline Terraces Ltd"
+        }
+      ],
+      "assessment": "Because frustration discharged obligations and excused performance due to the cancellation of the fireworks foundational to the contract, retaining the deposit would be unjust. The reasoning in Krell v Henry applying to foundational event cancellation outweighs the risk allocation in Herne Bay where performance was still possible. Thus, Mr Rowe should recover the deposit and avoid further payment."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Is the hire contract frustrated by the cancellation of the fireworks? [frustration] Mr Rowe claims the cancellation of the fireworks made the event purpose impossible, potentially frustrating the contract."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Was there a binding contractual term about the fireworks view which affects the obligations or breach? [offer_acceptance] The contract does not mention fireworks but advertising and correspondence discuss them, raising the issue of contractual terms."
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Can Skyline retain the deposit despite the cancellation and refusal to perform? [termination] Mr Rowe cancelled the event and asked for deposit back after the fireworks were cancelled, raising issues on termination and deposit retention."
+    },
+    {
+      "seq": 4,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J37, J38, J36, J39, J13"
+    },
+    {
+      "seq": 5,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J37, J40, J23, J32, J50, J24, J25, J27"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J47, J37, J12, J38, J23, J32, J30"
+    },
+    {
+      "seq": 7,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Is the hire contract between Mr Rowe and Skyline frustrated by the cancellation of the fireworks? (client needs: pro)"
+    },
+    {
+      "seq": 8,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Was there a binding contractual term between Mr Rowe and Skyline about the fireworks view that affects the parties' obligations or breach? (client needs: pro)"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Can Skyline retain the deposit despite Mr Rowe's cancellation following the fireworks cancellation and refusal to perform? (client needs: pro)"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J37 argument relies on it"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J37 argument relies on it"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 16,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J38 counter relies on it"
+    },
+    {
+      "seq": 17,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J50 counter relies on it"
+    },
+    {
+      "seq": 18,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J24 counter relies on it"
+    },
+    {
+      "seq": 19,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J38 counter relies on it"
+    },
+    {
+      "seq": 20,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J39 counter relies on it"
+    },
+    {
+      "seq": 21,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 24,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 25,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 26,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 27,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 1 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 30,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Considering the parties' shared understanding that viewing the fireworks was the contract's core objective (F2), the reasoning in Krell v Henry is the stronger "
+    },
+    {
+      "seq": 31,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "The direct promise of 'front-row seats' in response to Mr Rowe\u2019s specific inquiries distinguishes these communications from typical advertisements or invitation"
+    },
+    {
+      "seq": 32,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "Because frustration discharged obligations and excused performance due to the cancellation of the fireworks foundational to the contract, retaining the deposit "
+    }
+  ]
+}

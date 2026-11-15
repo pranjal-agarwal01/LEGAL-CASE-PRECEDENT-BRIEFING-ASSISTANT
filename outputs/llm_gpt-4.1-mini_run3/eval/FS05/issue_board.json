@@ -1,0 +1,585 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Is SwiftHaul liable for breach of contract for the delayed delivery of the electronic component to Kaur Artisan Bakery Ltd?",
+      "doctrine": "standard_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J11",
+          "passage_refs": [
+            "J11:p3",
+            "J11:p2"
+          ],
+          "score": 1.3156,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is SwiftHaul liable for breach of contract for the delayed delivery? breach standard of care reasonable person precautions risk probability When booking, the ba",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J19",
+          "passage_refs": [
+            "J19:p2",
+            "J19:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "breach of contract delayed delivery standard of care",
+          "reason": "For the issue of breach of contract and the standard of care in delivery delay, cases such as Nettleship v Weston establish the objective standard of care. Robinson v Chief Constable supports breach finding where duty and foreseeability are established. The initial hybrid shortlist cases (Bolton v Stone, Paris v Stepney Borough Council etc.) also consider standards of care but did not appear with top scores in search. Davis Contractors clarifies non-frustration despite delays, relevant to contractual performance."
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p3",
+            "J12:p2"
+          ],
+          "score": 1.5363,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is SwiftHaul liable for breach of contract for the delayed delivery? breach standard of care reasonable person precautions risk probability When booking, the ba",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p3",
+            "J13:p2"
+          ],
+          "score": 0.9757,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is SwiftHaul liable for breach of contract for the delayed delivery? breach standard of care reasonable person precautions risk probability When booking, the ba",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J14",
+          "passage_refs": [
+            "J14:p2",
+            "J14:p3"
+          ],
+          "score": 1.16,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is SwiftHaul liable for breach of contract for the delayed delivery? breach standard of care reasonable person precautions risk probability When booking, the ba",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J20",
+          "passage_refs": [
+            "J20:p2",
+            "J20:p3"
+          ],
+          "score": 0.8838,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is SwiftHaul liable for breach of contract for the delayed delivery? breach standard of care reasonable person precautions risk probability When booking, the ba",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J11"
+      ],
+      "opposing": [
+        "J12"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+        }
+      ],
+      "assessment": "Given the clear error in delivery timing and the objective standard requiring a reasonably competent carrier, SwiftHaul is liable for breach. The low probability reasoning is less persuasive here as the breach was a fundamental failure to timely deliver."
+    },
+    {
+      "id": "I2",
+      "question": "Are Kaur Artisan Bakery Ltd's lost profits recoverable as damages for SwiftHaul's breach of contract?",
+      "doctrine": "remoteness_contract",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J34",
+          "passage_refs": [
+            "J34:p2",
+            "J34:p3"
+          ],
+          "score": 1.5964,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits recoverable as damages for breach of contract? remoteness damages lost profits reasonable contemplation special circumstances carr",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J35",
+          "passage_refs": [
+            "J35:p3",
+            "J35:p2"
+          ],
+          "score": 1.0835,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits recoverable as damages for breach of contract? remoteness damages lost profits reasonable contemplation special circumstances carr",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J21",
+          "passage_refs": [
+            "J21:p2",
+            "J21:p3"
+          ],
+          "score": 0.4306,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits recoverable as damages for breach of contract? remoteness damages lost profits reasonable contemplation special circumstances carr",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J27",
+          "passage_refs": [
+            "J27:p3",
+            "J27:p2"
+          ],
+          "score": 0.5017,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits recoverable as damages for breach of contract? remoteness damages lost profits reasonable contemplation special circumstances carr",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J48",
+          "passage_refs": [
+            "J48:p2",
+            "J48:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "recoverability of lost profits damages contract remoteness",
+          "reason": "Hadley v Baxendale and Victoria Laundry are classic authorities on remoteness of contract damages involving lost profits, distinguishing ordinary and exceptional losses. Spartan Steel explains recoverability of loss consequential on physical damage versus pure economic loss. Adams v Lindsell concerns contract formation. Dunlop Pneumatic Tyre and Caparo consider damages and foreseeability broadly related to loss but with emphasis on contractual context."
+        },
+        {
+          "judgment_id": "J03",
+          "passage_refs": [
+            "J03:p2",
+            "J03:p1"
+          ],
+          "score": 0.4143,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are the bakery's lost profits recoverable as damages for breach of contract? remoteness damages lost profits reasonable contemplation special circumstances carr",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J35"
+      ],
+      "opposing": [
+        "J34"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+        }
+      ],
+      "assessment": "The bakery can recover ordinary lost profits as SwiftHaul knew the component was critical for immediate use, but special contract losses are likely unrecoverable due to lack of notice of those special circumstances."
+    },
+    {
+      "id": "I3",
+      "question": "Does Clause 9 of SwiftHaul's terms and conditions validly exclude liability for loss of profits and the one-off contract claimed by Kaur Artisan Bakery Ltd?",
+      "doctrine": "exclusion_clause",
+      "raised_by": "fact_extractor",
+      "client_position": "contra",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J44",
+          "passage_refs": [
+            "J44:p3",
+            "J44:p2"
+          ],
+          "score": 1.4419,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Clause 9 validly exclude liability for loss of profits and the one-off contract? exclusion clause incorporation notice before contract signature constructi",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p1"
+          ],
+          "score": 1.5813,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Clause 9 validly exclude liability for loss of profits and the one-off contract? exclusion clause incorporation notice before contract signature constructi",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p3"
+          ],
+          "score": 1.3509,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Clause 9 validly exclude liability for loss of profits and the one-off contract? exclusion clause incorporation notice before contract signature constructi",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J21",
+          "passage_refs": [
+            "J21:p2",
+            "J21:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "exclusion clause validity loss of profits one-off contract",
+          "reason": "Photo Production clarifies exclusion clause enforceability by construction even for fundamental breaches. L'Estrange establishes signature binds to exclusion clauses. Olley stresses notice before contract for incorporation of terms. Spartan Steel linked economic loss and exclusion clauses. Hadley v Baxendale underpins contemplation linked to liability scope and may cross-relate."
+        },
+        {
+          "judgment_id": "J34",
+          "passage_refs": [
+            "J34:p2",
+            "J34:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "exclusion clause validity loss of profits one-off contract",
+          "reason": "Photo Production clarifies exclusion clause enforceability by construction even for fundamental breaches. L'Estrange establishes signature binds to exclusion clauses. Olley stresses notice before contract for incorporation of terms. Spartan Steel linked economic loss and exclusion clauses. Hadley v Baxendale underpins contemplation linked to liability scope and may cross-relate."
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p2",
+            "J43:p1"
+          ],
+          "score": 1.304,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Clause 9 validly exclude liability for loss of profits and the one-off contract? exclusion clause incorporation notice before contract signature constructi",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p2",
+            "J41:p3"
+          ],
+          "score": 0.9614,
+          "retrieved_by": "hybrid_rag",
+          "query": "Does Clause 9 validly exclude liability for loss of profits and the one-off contract? exclusion clause incorporation notice before contract signature constructi",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J40",
+        "J41",
+        "J44"
+      ],
+      "opposing": [
+        "J40",
+        "J41",
+        "J44"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for SwiftHaul Couriers Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for SwiftHaul Couriers Ltd"
+        }
+      ],
+      "assessment": "Clause 9 is validly incorporated and binding. Although SwiftHaul may argue strict enforcement, fairness and undisclosed circumstances warrant strict construction, potentially limiting exclusion of liability for losses claimed by the bakery."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Is SwiftHaul liable for breach of contract for the delayed delivery? [standard_of_care] The facts raise the question of whether SwiftHaul's failure to deliver on time breached the contract's standard of care."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Are the bakery's lost profits recoverable as damages for breach of contract? [remoteness_contract] Whether the lost profits were reasonably foreseeable and thus not too remote."
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Does Clause 9 validly exclude liability for loss of profits and the one-off contract? [exclusion_clause] Clause 9 excludes liability for loss of profits and business arising from delay; its effectiveness is in question."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I2",
+      "detail": "Could SwiftHaul have contemplated the bakery's inability to trade and the wedding contract?"
+    },
+    {
+      "seq": 5,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J11, J19, J12, J13, J14, J20"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J34, J35, J21, J27, J48, J03"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J44, J40, J42, J21, J34, J43, J41"
+    },
+    {
+      "seq": 8,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Is SwiftHaul liable for breach of contract for the delayed delivery of the electronic component to Kaur Artisan Bakery Ltd? (client needs: pro)"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Are Kaur Artisan Bakery Ltd's lost profits recoverable as damages for SwiftHaul's breach of contract? (client needs: pro)"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Does Clause 9 of SwiftHaul's terms and conditions validly exclude liability for loss of profits and the one-off contract claimed by Kaur Artisan Bakery Ltd? (client needs: contra)"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J11 argument relies on it"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J35 argument relies on it"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J40 argument attacks it"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J41 argument attacks it"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 18,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J12 counter relies on it"
+    },
+    {
+      "seq": 19,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J34 counter relies on it"
+    },
+    {
+      "seq": 20,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J44 counter relies on it"
+    },
+    {
+      "seq": 21,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 2 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 24,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J40 argument relies on it"
+    },
+    {
+      "seq": 25,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J41 argument relies on it"
+    },
+    {
+      "seq": 26,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 27,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 28,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 2 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J44 counter attacks it"
+    },
+    {
+      "seq": 30,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 31,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 32,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 2 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 33,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Given the clear error in delivery timing and the objective standard requiring a reasonably competent carrier, SwiftHaul is liable for breach. The low probabilit"
+    },
+    {
+      "seq": 34,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "The bakery can recover ordinary lost profits as SwiftHaul knew the component was critical for immediate use, but special contract losses are likely unrecoverabl"
+    },
+    {
+      "seq": 35,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "Clause 9 is validly incorporated and binding. Although SwiftHaul may argue strict enforcement, fairness and undisclosed circumstances warrant strict constructio"
+    }
+  ]
+}

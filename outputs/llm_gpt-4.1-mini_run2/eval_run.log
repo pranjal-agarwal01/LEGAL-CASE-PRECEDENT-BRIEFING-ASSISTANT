@@ -1,0 +1,30 @@
+FS01: retrieval recall 100% · brief recall 100% · citations exist (raw) 96% · 
+56.12s
+FS02: retrieval recall 100% · brief recall 100% · citations exist (raw) 100% · 
+52.20s
+FS03: retrieval recall 67% · brief recall 67% · citations exist (raw) 95% · 
+54.05s
+FS04: retrieval recall 100% · brief recall 100% · citations exist (raw) 98% · 
+36.64s
+FS05: retrieval recall 100% · brief recall 100% · citations exist (raw) 100% · 
+52.44s
+FS06: retrieval recall 100% · brief recall 50% · citations exist (raw) 95% · 
+47.26s
+FS07: retrieval recall 100% · brief recall 100% · citations exist (raw) 97% · 
+34.23s
+FS08: retrieval recall 100% · brief recall 100% · citations exist (raw) 100% · 
+28.20s
+                   Evaluation (foundry, 8 fact sheets)                    
+┌────────────────────────────────────────────────────────────┬───────────┐
+│ Metric                                                     │ Macro avg │
+├────────────────────────────────────────────────────────────┼───────────┤
+│ Precedent recall: retrieval (issue list)                   │     95.8% │
+│ Precedent recall: retrieval, text only (no doctrine boost) │    100.0% │
+│ Precedent recall: final brief                              │     89.6% │
+│ Citations that exist in corpus: raw compiler output        │     97.7% │
+│ Case-law citations that exist: raw compiler output         │     95.7% │
+│ Citations that exist in corpus: final brief                │    100.0% │
+│ Claims carrying a verified citation                        │    100.0% │
+│ Cited judgments that are on the gold list                  │     66.7% │
+└────────────────────────────────────────────────────────────┴───────────┘
+Report: outputs\llm_gpt-4.1-mini_run2\eval\report.md

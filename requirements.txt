@@ -1,0 +1,12 @@
+# Core (offline mode runs with these alone)
+agent-framework-core==1.24.0
+numpy>=1.26
+pydantic>=2.7
+rich>=13.7
+
+# LLM connectors (install the ones you use)
+agent-framework-openai==1.18.0          # OpenAI / Azure OpenAI / Ollama (OpenAI-compatible)
+# agent-framework-anthropic==1.0.0b261030  # Claude; preview build, needs: pip install --pre
+
+# Tests
+pytest>=8

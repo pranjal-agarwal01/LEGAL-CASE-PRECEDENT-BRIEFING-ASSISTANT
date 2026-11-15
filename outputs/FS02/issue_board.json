@@ -1,0 +1,477 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given?",
+      "doctrine": "informed_consent",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J07",
+          "passage_refs": [
+            "J07:p3",
+            "J07:p1"
+          ],
+          "score": 1.581,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given? duty to warn m",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J06",
+          "passage_refs": [
+            "J06:p2",
+            "J06:p3"
+          ],
+          "score": 1.4585,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given? duty to warn m",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J04",
+          "passage_refs": [
+            "J04:p1",
+            "J04:p3"
+          ],
+          "score": 0.9674,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given? duty to warn m",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p1",
+            "J40:p2"
+          ],
+          "score": 0.4485,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given? duty to warn m",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p2",
+            "J08:p1"
+          ],
+          "score": 0.431,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given? duty to warn m",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J07",
+        "J06"
+      ],
+      "opposing": [
+        "J04"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Daniel Okafor"
+        }
+      ],
+      "assessment": "Favourable: the authorities on balance support Daniel Okafor, led by Chester v Afshar; Bolam v Friern Hospital Management Committee is the main authority the other side will rely on."
+    },
+    {
+      "id": "I2",
+      "question": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion?",
+      "doctrine": "medical_standard",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J05",
+          "passage_refs": [
+            "J05:p2",
+            "J05:p3"
+          ],
+          "score": 1.5638,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion? responsible body of medical opinion professional practice doctor s",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J04",
+          "passage_refs": [
+            "J04:p2",
+            "J04:p3"
+          ],
+          "score": 1.4347,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion? responsible body of medical opinion professional practice doctor s",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J06",
+          "passage_refs": [
+            "J06:p3",
+            "J06:p2"
+          ],
+          "score": 0.8345,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion? responsible body of medical opinion professional practice doctor s",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J07",
+          "passage_refs": [
+            "J07:p2",
+            "J07:p1"
+          ],
+          "score": 0.3968,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion? responsible body of medical opinion professional practice doctor s",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J48",
+          "passage_refs": [
+            "J48:p1",
+            "J48:p3"
+          ],
+          "score": 0.2993,
+          "retrieved_by": "hybrid_rag",
+          "query": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion? responsible body of medical opinion professional practice doctor s",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J05",
+        "J06"
+      ],
+      "opposing": [
+        "J05",
+        "J06"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for St Aldhelm's Hospital NHS Trust"
+        }
+      ],
+      "assessment": "Finely balanced: Bolitho v City and Hackney Health Authority supports Daniel Okafor, but Bolitho v City and Hackney Health Authority gives the other side a real argument; the outcome will turn on the facts the court accepts."
+    },
+    {
+      "id": "I3",
+      "question": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach?",
+      "doctrine": "causation",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J08",
+          "passage_refs": [
+            "J08:p3",
+            "J08:p2"
+          ],
+          "score": 1.4583,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance o",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J22",
+          "passage_refs": [
+            "J22:p2",
+            "J22:p3"
+          ],
+          "score": 1.1418,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance o",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J05",
+          "passage_refs": [
+            "J05:p3",
+            "J05:p2"
+          ],
+          "score": 0.708,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance o",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J17",
+          "passage_refs": [
+            "J17:p1",
+            "J17:p2"
+          ],
+          "score": 0.6411,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance o",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p3",
+            "J12:p2"
+          ],
+          "score": 0.6044,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach? causation but for test would have happened anyway balance o",
+          "reason": ""
+        }
+      ],
+      "supporting": [],
+      "opposing": [
+        "J08",
+        "J22"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Daniel Okafor"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for St Aldhelm's Hospital NHS Trust"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Daniel Okafor"
+        }
+      ],
+      "assessment": "Unfavourable: the weight of authority is against Daniel Okafor, chiefly Barnett v Chelsea and Kensington Hospital Management Committee; the facts must be distinguished."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given? [informed_consent] 5 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion? [medical_standard] 4 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach? [causation] 2 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 4,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J07, J06, J04, J40, J08"
+    },
+    {
+      "seq": 5,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J05, J04, J06, J07, J48"
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J08, J22, J05, J17, J12"
+    },
+    {
+      "seq": 7,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Did St Aldhelm's Hospital NHS Trust breach the duty to warn Daniel Okafor of material risks and reasonable alternatives before consent was given? (client needs: pro)"
+    },
+    {
+      "seq": 8,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J07 framing review"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J06 framing review"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Did the clinician's conduct fall below the standard of a responsible body of medical opinion? (client needs: pro)"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J05 framing review"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J06 framing review"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Can Daniel Okafor prove that the breach caused the harm, on the but-for test or a modified approach? (client needs: pro)"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 17,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J04 doctrine tag matches position"
+    },
+    {
+      "seq": 18,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J05 doctrine tag matches position"
+    },
+    {
+      "seq": 19,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J06 doctrine tag matches position"
+    },
+    {
+      "seq": 20,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J08 doctrine tag matches position"
+    },
+    {
+      "seq": 21,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J22 doctrine tag matches position"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 2 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 2 point(s) for St Aldhelm's Hospital NHS Trust"
+    },
+    {
+      "seq": 25,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 26,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 2 point(s) for Daniel Okafor"
+    },
+    {
+      "seq": 27,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Favourable: the authorities on balance support Daniel Okafor, led by Chester v Afshar; Bolam v Friern Hospital Management Committee is the main authority the ot"
+    },
+    {
+      "seq": 28,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Finely balanced: Bolitho v City and Hackney Health Authority supports Daniel Okafor, but Bolitho v City and Hackney Health Authority gives the other side a real"
+    },
+    {
+      "seq": 29,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "Unfavourable: the weight of authority is against Daniel Okafor, chiefly Barnett v Chelsea and Kensington Hospital Management Committee; the facts must be distin"
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Is there a valid variation to the contract between Brennan Joinery Ltd and Castlegate Developments Ltd obliging Castlegate to pay the extra \u00a318,000?",
+      "doctrine": "consideration_variation",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p3",
+            "J32:p2"
+          ],
+          "score": 1.5839,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract obliging Castlegate to pay the extra \u00a318,000? consideration promise additional payment existing contractual duty prac",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p3",
+            "J31:p2"
+          ],
+          "score": 1.3291,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract obliging Castlegate to pay the extra \u00a318,000? consideration promise additional payment existing contractual duty prac",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J33",
+          "passage_refs": [
+            "J33:p3",
+            "J33:p2"
+          ],
+          "score": 0.499,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract obliging Castlegate to pay the extra \u00a318,000? consideration promise additional payment existing contractual duty prac",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J48",
+          "passage_refs": [
+            "J48:p2",
+            "J48:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "contract variation consideration promise extra payment for completing existing contractual duty Williams v Roffey Bros",
+          "reason": "The key judgments for whether there is valid consideration for the contract variation promise include Williams v Roffey Bros (J32) which established that a practical benefit can constitute good consideration for a promise of extra payment even for existing duties, provided there is no duress or fraud. Stilk v Myrick (J31) presents the traditional rule denying such consideration, which Williams refined rather than overruled. Central London Property Trust v High Trees (J33) is also relevant for principles of modification and estoppel. Dunlop Pneumatic Tyre Co v New Garage (J48) is important regarding liquidated damages context parallel to this case. Balfour v Balfour (J29) provides contrast on intention to create legal relations but is less directly related to consideration in contract variation."
+        },
+        {
+          "judgment_id": "J29",
+          "passage_refs": [
+            "J29:p1",
+            "J29:p2"
+          ],
+          "score": 0.4536,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract obliging Castlegate to pay the extra \u00a318,000? consideration promise additional payment existing contractual duty prac",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J26",
+          "passage_refs": [
+            "J26:p1",
+            "J26:p3"
+          ],
+          "score": 0.4612,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there a valid variation to the contract obliging Castlegate to pay the extra \u00a318,000? consideration promise additional payment existing contractual duty prac",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J32"
+      ],
+      "opposing": [
+        "J31"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Castlegate Developments Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Castlegate Developments Ltd"
+        }
+      ],
+      "assessment": "The balance of authorities favors finding a valid variation under Williams v Roffey Bros since Castlegate obtained a practical benefit preventing penalties and replacement costs, and there was no economic duress; the absence of a refusal to perform does not preclude variation when a practical benefit is gained."
+    },
+    {
+      "id": "I2",
+      "question": "Can Brennan Joinery Ltd enforce Castlegate Developments Ltd's promise to pay the extra \u00a318,000 on the basis of promissory estoppel?",
+      "doctrine": "promissory_estoppel",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J33",
+          "passage_refs": [
+            "J33:p3",
+            "J33:p2"
+          ],
+          "score": 1.6106,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Brennan enforce Castlegate's promise on the basis of promissory estoppel? promissory estoppel promise intended to be acted on relied on reduce rent There is",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p2",
+            "J32:p3"
+          ],
+          "score": 0.6269,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Brennan enforce Castlegate's promise on the basis of promissory estoppel? promissory estoppel promise intended to be acted on relied on reduce rent There is",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p3",
+            "J31:p2"
+          ],
+          "score": 0.4747,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Brennan enforce Castlegate's promise on the basis of promissory estoppel? promissory estoppel promise intended to be acted on relied on reduce rent There is",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J48",
+          "passage_refs": [
+            "J48:p2",
+            "J48:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "promissory estoppel enforcement promise to pay new amount extra payment Brennan Castlegate",
+          "reason": "For enforcing Castlegate's promise on promissory estoppel grounds, Central London Property Trust v High Trees (J33) is the leading case establishing promissory estoppel principles. Williams v Roffey Bros (J32) can also support some estoppel reasoning though it is primarily about consideration. Stilk v Myrick (J31) is relevant as contrasting position pre-estoppel development. Dunlop (J48) and Balfour (J29) are less directly relevant but can be cited either for context or to distinguish intention to be bound or penalty clauses."
+        },
+        {
+          "judgment_id": "J29",
+          "passage_refs": [
+            "J29:p2",
+            "J29:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "promissory estoppel enforcement promise to pay new amount extra payment Brennan Castlegate",
+          "reason": "For enforcing Castlegate's promise on promissory estoppel grounds, Central London Property Trust v High Trees (J33) is the leading case establishing promissory estoppel principles. Williams v Roffey Bros (J32) can also support some estoppel reasoning though it is primarily about consideration. Stilk v Myrick (J31) is relevant as contrasting position pre-estoppel development. Dunlop (J48) and Balfour (J29) are less directly relevant but can be cited either for context or to distinguish intention to be bound or penalty clauses."
+        },
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p3"
+          ],
+          "score": 0.2383,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Brennan enforce Castlegate's promise on the basis of promissory estoppel? promissory estoppel promise intended to be acted on relied on reduce rent There is",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J47",
+          "passage_refs": [
+            "J47:p3",
+            "J47:p2"
+          ],
+          "score": 0.2255,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can Brennan enforce Castlegate's promise on the basis of promissory estoppel? promissory estoppel promise intended to be acted on relied on reduce rent There is",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J33"
+      ],
+      "opposing": [],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Brennan Joinery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Castlegate Developments Ltd"
+        }
+      ],
+      "assessment": "Although promissory estoppel prevents Castlegate from denying the promise, it traditionally does not provide an independent cause of action to enforce new payment obligations absent consideration, limiting its practical application here."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Is there a valid variation to the contract obliging Castlegate to pay the extra \u00a318,000? [consideration_variation] The facts raise whether the promise to pay extra is supported by consideration or is a binding variation."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Can Brennan enforce Castlegate's promise on the basis of promissory estoppel? [promissory_estoppel] The promise was made to induce performance, and Brennan completed the work accordingly."
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I1",
+      "detail": "Did Brennan provide any new consideration beyond its original contractual obligation?"
+    },
+    {
+      "seq": 4,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J32, J31, J33, J48, J29, J26"
+    },
+    {
+      "seq": 5,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J33, J32, J31, J48, J29, J23, J47"
+    },
+    {
+      "seq": 6,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Is there a valid variation to the contract between Brennan Joinery Ltd and Castlegate Developments Ltd obliging Castlegate to pay the extra \u00a318,000? (client needs: pro)"
+    },
+    {
+      "seq": 7,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Can Brennan Joinery Ltd enforce Castlegate Developments Ltd's promise to pay the extra \u00a318,000 on the basis of promissory estoppel? (client needs: pro)"
+    },
+    {
+      "seq": 8,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J32 argument relies on it"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J33 argument relies on it"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 12,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J31 counter relies on it"
+    },
+    {
+      "seq": 13,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Brennan Joinery Ltd"
+    },
+    {
+      "seq": 16,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 17,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Castlegate Developments Ltd"
+    },
+    {
+      "seq": 18,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "The balance of authorities favors finding a valid variation under Williams v Roffey Bros since Castlegate obtained a practical benefit preventing penalties and "
+    },
+    {
+      "seq": 19,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Although promissory estoppel prevents Castlegate from denying the promise, it traditionally does not provide an independent cause of action to enforce new payme"
+    }
+  ]
+}

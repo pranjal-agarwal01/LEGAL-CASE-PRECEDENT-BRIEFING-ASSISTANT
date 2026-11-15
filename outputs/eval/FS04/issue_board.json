@@ -1,0 +1,176 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Was the contract frustrated by a supervening event that destroyed its common foundation?",
+      "doctrine": "frustration",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J37",
+          "passage_refs": [
+            "J37:p3",
+            "J37:p2"
+          ],
+          "score": 1.5668,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the contract frustrated by a supervening event that destroyed its common foundation? frustration supervening event foundation of the contract cancelled hire",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J39",
+          "passage_refs": [
+            "J39:p2",
+            "J39:p3"
+          ],
+          "score": 0.9999,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the contract frustrated by a supervening event that destroyed its common foundation? frustration supervening event foundation of the contract cancelled hire",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J38",
+          "passage_refs": [
+            "J38:p2",
+            "J38:p3"
+          ],
+          "score": 0.826,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the contract frustrated by a supervening event that destroyed its common foundation? frustration supervening event foundation of the contract cancelled hire",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J36",
+          "passage_refs": [
+            "J36:p1",
+            "J36:p2"
+          ],
+          "score": 0.6296,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the contract frustrated by a supervening event that destroyed its common foundation? frustration supervening event foundation of the contract cancelled hire",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J01",
+          "passage_refs": [
+            "J01:p1",
+            "J01:p2"
+          ],
+          "score": 0.2515,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the contract frustrated by a supervening event that destroyed its common foundation? frustration supervening event foundation of the contract cancelled hire",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J37",
+        "J36"
+      ],
+      "opposing": [
+        "J39",
+        "J38"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Thomas Rowe"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Skyline Terraces Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Thomas Rowe"
+        }
+      ],
+      "assessment": "Finely balanced: Krell v Henry supports Thomas Rowe, but Davis Contractors Ltd v Fareham Urban District Council gives the other side a real argument; the outcome will turn on the facts the court accepts."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Was the contract frustrated by a supervening event that destroyed its common foundation? [frustration] 4 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 2,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J37, J39, J38, J36, J01"
+    },
+    {
+      "seq": 3,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Was the contract frustrated by a supervening event that destroyed its common foundation? (client needs: pro)"
+    },
+    {
+      "seq": 4,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J37 framing review"
+    },
+    {
+      "seq": 5,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J36 framing review"
+    },
+    {
+      "seq": 6,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 7,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J39 doctrine tag matches position"
+    },
+    {
+      "seq": 8,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J38 doctrine tag matches position"
+    },
+    {
+      "seq": 9,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for Skyline Terraces Ltd"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for Thomas Rowe"
+    },
+    {
+      "seq": 11,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Finely balanced: Krell v Henry supports Thomas Rowe, but Davis Contractors Ltd v Fareham Urban District Council gives the other side a real argument; the outcom"
+    }
+  ]
+}

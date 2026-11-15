@@ -1,0 +1,753 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Was the PeakFit advertisement a binding offer or merely an invitation to treat?",
+      "doctrine": "offer_acceptance",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p3"
+          ],
+          "score": 1.5642,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance by perfor",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p2",
+            "J24:p3"
+          ],
+          "score": 1.4968,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance by perfor",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J50",
+          "passage_refs": [
+            "J50:p2",
+            "J50:p3"
+          ],
+          "score": 1.2336,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance by perfor",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J25",
+          "passage_refs": [
+            "J25:p3",
+            "J25:p2"
+          ],
+          "score": 0.9573,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance by perfor",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J26",
+          "passage_refs": [
+            "J26:p1",
+            "J26:p2"
+          ],
+          "score": 0.9437,
+          "retrieved_by": "hybrid_rag",
+          "query": "Was the PeakFit advertisement a binding offer or merely an invitation to treat? offer unilateral contract advertisement invitation to treat acceptance by perfor",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J24",
+        "J50"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "The claimant's reliance on Carlill is strong given the clarity of terms, evidence of seriousness by deposit, and unilateral contract framework allowing acceptance by performance without notification. The mass participation concern in Partridge has less force where the ad promises payment contingent on performance with a deposited fund backing seriousness, aligning more with Carlill than general invitations to treat."
+    },
+    {
+      "id": "I2",
+      "question": "Is there valid consideration for Ms Hughes' acceptance of the PeakFit advertisement's promise?",
+      "doctrine": "consideration_variation",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J31",
+          "passage_refs": [
+            "J31:p3",
+            "J31:p2"
+          ],
+          "score": 1.3141,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there consideration for the alleged contract? consideration promise additional payment existing contractual duty practical benefit economic duress On 5 Janua",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J32",
+          "passage_refs": [
+            "J32:p3",
+            "J32:p2"
+          ],
+          "score": 1.5285,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there consideration for the alleged contract? consideration promise additional payment existing contractual duty practical benefit economic duress On 5 Janua",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p3",
+            "J23:p1"
+          ],
+          "score": 0.4298,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there consideration for the alleged contract? consideration promise additional payment existing contractual duty practical benefit economic duress On 5 Janua",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J33",
+          "passage_refs": [
+            "J33:p3",
+            "J33:p2"
+          ],
+          "score": 0.5348,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there consideration for the alleged contract? consideration promise additional payment existing contractual duty practical benefit economic duress On 5 Janua",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p1",
+            "J24:p3"
+          ],
+          "score": 0.2519,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is there consideration for the alleged contract? consideration promise additional payment existing contractual duty practical benefit economic duress On 5 Janua",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J31"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "Ms Hughes likely provided valid consideration because her actions were undertaken specifically to fulfill the advertisement's unilateral offer conditions and were not already contractual duties under subscription terms. This aligns with Carlill's approach and distinguishes from Stilk, which involved existing contractual duties owed to the promisor."
+    },
+    {
+      "id": "I3",
+      "question": "Can Ms Hughes enforce the \u00a32,000 promise despite PeakFit's general terms allowing withdrawal of promotions?",
+      "doctrine": "exclusion_clause",
+      "raised_by": "fact_extractor",
+      "client_position": "contra",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J44",
+          "passage_refs": [
+            "J44:p3",
+            "J44:p2"
+          ],
+          "score": 1.362,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can the \u00a32,000 promise be enforced despite the terms allowing withdrawal of promotions? exclusion clause incorporation notice before contract signature construc",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p3"
+          ],
+          "score": 1.5629,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can the \u00a32,000 promise be enforced despite the terms allowing withdrawal of promotions? exclusion clause incorporation notice before contract signature construc",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p3"
+          ],
+          "score": 1.3623,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can the \u00a32,000 promise be enforced despite the terms allowing withdrawal of promotions? exclusion clause incorporation notice before contract signature construc",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p3",
+            "J43:p2"
+          ],
+          "score": 1.1393,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can the \u00a32,000 promise be enforced despite the terms allowing withdrawal of promotions? exclusion clause incorporation notice before contract signature construc",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p3",
+            "J41:p2"
+          ],
+          "score": 1.0872,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can the \u00a32,000 promise be enforced despite the terms allowing withdrawal of promotions? exclusion clause incorporation notice before contract signature construc",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J44"
+      ],
+      "opposing": [
+        "J44",
+        "J42",
+        "J43"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 2 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "Although PeakFit had a term allowing withdrawal, it was not effectively exercised before Ms Hughes completed performance. Moreover, any unclear incorporation of the term must be construed against PeakFit, favoring enforceability of the promise. This supports Ms Hughes' claim that the promise is binding despite the general terms."
+    },
+    {
+      "id": "I4",
+      "question": "Is the \u00a32,000 promise a binding term of contract or merely marketing puff by PeakFit?",
+      "doctrine": "standard_of_care",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J23",
+          "passage_refs": [
+            "J23:p2",
+            "J23:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "advertisement promise term contract marketing puff binding intention",
+          "reason": "This issue is whether the \u00a32,000 promise is a contractual term or mere marketing puff. Carlill (J23) supports enforceability when intention to be bound is clear, Central London Property Trust v High Trees (J33) reinforces that promises intended to be binding and acted upon can create obligations. Merritt v Merritt (J30) and Balfour v Balfour (J29) distinguish intention in social/domestic agreements. Partridge v Crittenden (J24) is relevant for advertisement context."
+        },
+        {
+          "judgment_id": "J33",
+          "passage_refs": [
+            "J33:p2",
+            "J33:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "advertisement promise term contract marketing puff binding intention",
+          "reason": "This issue is whether the \u00a32,000 promise is a contractual term or mere marketing puff. Carlill (J23) supports enforceability when intention to be bound is clear, Central London Property Trust v High Trees (J33) reinforces that promises intended to be binding and acted upon can create obligations. Merritt v Merritt (J30) and Balfour v Balfour (J29) distinguish intention in social/domestic agreements. Partridge v Crittenden (J24) is relevant for advertisement context."
+        },
+        {
+          "judgment_id": "J30",
+          "passage_refs": [
+            "J30:p2",
+            "J30:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "advertisement promise term contract marketing puff binding intention",
+          "reason": "This issue is whether the \u00a32,000 promise is a contractual term or mere marketing puff. Carlill (J23) supports enforceability when intention to be bound is clear, Central London Property Trust v High Trees (J33) reinforces that promises intended to be binding and acted upon can create obligations. Merritt v Merritt (J30) and Balfour v Balfour (J29) distinguish intention in social/domestic agreements. Partridge v Crittenden (J24) is relevant for advertisement context."
+        },
+        {
+          "judgment_id": "J24",
+          "passage_refs": [
+            "J24:p2",
+            "J24:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "advertisement promise term contract marketing puff binding intention",
+          "reason": "This issue is whether the \u00a32,000 promise is a contractual term or mere marketing puff. Carlill (J23) supports enforceability when intention to be bound is clear, Central London Property Trust v High Trees (J33) reinforces that promises intended to be binding and acted upon can create obligations. Merritt v Merritt (J30) and Balfour v Balfour (J29) distinguish intention in social/domestic agreements. Partridge v Crittenden (J24) is relevant for advertisement context."
+        },
+        {
+          "judgment_id": "J29",
+          "passage_refs": [
+            "J29:p2",
+            "J29:p3"
+          ],
+          "score": 0.0,
+          "retrieved_by": "agent_search",
+          "query": "advertisement promise term contract marketing puff binding intention",
+          "reason": "This issue is whether the \u00a32,000 promise is a contractual term or mere marketing puff. Carlill (J23) supports enforceability when intention to be bound is clear, Central London Property Trust v High Trees (J33) reinforces that promises intended to be binding and acted upon can create obligations. Merritt v Merritt (J30) and Balfour v Balfour (J29) distinguish intention in social/domestic agreements. Partridge v Crittenden (J24) is relevant for advertisement context."
+        },
+        {
+          "judgment_id": "J12",
+          "passage_refs": [
+            "J12:p3",
+            "J12:p2"
+          ],
+          "score": 1.5516,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the \u00a32,000 promise a term of contract or mere marketing puff? breach standard of care reasonable person precautions risk probability PeakFit's general terms ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J11",
+          "passage_refs": [
+            "J11:p3",
+            "J11:p2"
+          ],
+          "score": 1.2846,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the \u00a32,000 promise a term of contract or mere marketing puff? breach standard of care reasonable person precautions risk probability PeakFit's general terms ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J14",
+          "passage_refs": [
+            "J14:p2",
+            "J14:p3"
+          ],
+          "score": 1.1462,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the \u00a32,000 promise a term of contract or mere marketing puff? breach standard of care reasonable person precautions risk probability PeakFit's general terms ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J13",
+          "passage_refs": [
+            "J13:p3",
+            "J13:p2"
+          ],
+          "score": 0.9592,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the \u00a32,000 promise a term of contract or mere marketing puff? breach standard of care reasonable person precautions risk probability PeakFit's general terms ",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J20",
+          "passage_refs": [
+            "J20:p3",
+            "J20:p2"
+          ],
+          "score": 0.796,
+          "retrieved_by": "hybrid_rag",
+          "query": "Is the \u00a32,000 promise a term of contract or mere marketing puff? breach standard of care reasonable person precautions risk probability PeakFit's general terms ",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J23"
+      ],
+      "opposing": [
+        "J24"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for PeakFit Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Megan Hughes"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for PeakFit Ltd"
+        }
+      ],
+      "assessment": "The clear conditions and deposited fund favor treating the promise as a serious contractual offer rather than puff, consistent with Carlill. The opposition's reliance on general principles about advertisements as invitations to treat is outweighed by facts evidencing PeakFit's intention to be bound."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Was the PeakFit advertisement a binding offer or merely an invitation to treat? [offer_acceptance] PeakFit claims the advertisement was an invitation to treat and marketing puff, not an offer."
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "duplicate_issue_ignored",
+      "issue_id": "I1",
+      "detail": "Did PeakFit accept Ms Hughes as a participant, establishing a contract?"
+    },
+    {
+      "seq": 3,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Is there consideration for the alleged contract? [consideration_variation] Ms Hughes paid a subscription and logged workouts; whether this constitutes consideration for the promise to pay is relevant."
+    },
+    {
+      "seq": 4,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I3",
+      "detail": "Can the \u00a32,000 promise be enforced despite the terms allowing withdrawal of promotions? [exclusion_clause] The promotion stated it could be withdrawn at any time but was not withdrawn."
+    },
+    {
+      "seq": 5,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I4",
+      "detail": "Is the \u00a32,000 promise a term of contract or mere marketing puff? [standard_of_care] Whether the advertisement is deemed a serious contractual offer or mere puff affects enforceability."
+    },
+    {
+      "seq": 6,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J23, J24, J50, J25, J26"
+    },
+    {
+      "seq": 7,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J31, J32, J23, J33, J24"
+    },
+    {
+      "seq": 8,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I3",
+      "detail": "J44, J40, J42, J43, J41"
+    },
+    {
+      "seq": 9,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I4",
+      "detail": "J23, J33, J30, J24, J29, J12, J11, J14, J13, J20"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Was the PeakFit advertisement a binding offer or merely an invitation to treat? (client needs: pro)"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Is there valid consideration for Ms Hughes' acceptance of the PeakFit advertisement's promise? (client needs: pro)"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I3",
+      "detail": "Can Ms Hughes enforce the \u00a32,000 promise despite PeakFit's general terms allowing withdrawal of promotions? (client needs: contra)"
+    },
+    {
+      "seq": 13,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I4",
+      "detail": "Is the \u00a32,000 promise a binding term of contract or merely marketing puff by PeakFit? (client needs: pro)"
+    },
+    {
+      "seq": 14,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 15,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 16,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I3",
+      "detail": "J44 argument relies on it"
+    },
+    {
+      "seq": 17,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I4",
+      "detail": "J23 argument relies on it"
+    },
+    {
+      "seq": 18,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 19,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 20,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 21,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J24 counter relies on it"
+    },
+    {
+      "seq": 23,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J50 counter relies on it"
+    },
+    {
+      "seq": 24,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J31 counter relies on it"
+    },
+    {
+      "seq": 25,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J44 counter relies on it"
+    },
+    {
+      "seq": 26,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J42 counter relies on it"
+    },
+    {
+      "seq": 27,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I3",
+      "detail": "J43 counter relies on it"
+    },
+    {
+      "seq": 28,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I4",
+      "detail": "J24 counter relies on it"
+    },
+    {
+      "seq": 29,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 30,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 31,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 1: 2 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 32,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 1: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 33,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 34,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 35,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 2 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 36,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for Megan Hughes"
+    },
+    {
+      "seq": 37,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 2 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 38,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 39,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I3",
+      "detail": "round 2: 2 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 40,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I4",
+      "detail": "round 2: 1 point(s) for PeakFit Ltd"
+    },
+    {
+      "seq": 41,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "The claimant's reliance on Carlill is strong given the clarity of terms, evidence of seriousness by deposit, and unilateral contract framework allowing acceptan"
+    },
+    {
+      "seq": 42,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Ms Hughes likely provided valid consideration because her actions were undertaken specifically to fulfill the advertisement's unilateral offer conditions and we"
+    },
+    {
+      "seq": 43,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I3",
+      "detail": "Although PeakFit had a term allowing withdrawal, it was not effectively exercised before Ms Hughes completed performance. Moreover, any unclear incorporation of"
+    },
+    {
+      "seq": 44,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I4",
+      "detail": "The clear conditions and deposited fund favor treating the promise as a serious contractual offer rather than puff, consistent with Carlill. The opposition's re"
+    }
+  ]
+}

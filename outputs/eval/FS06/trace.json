@@ -1,0 +1,223 @@
+{
+  "mode": "offline",
+  "llm_calls": 0,
+  "seconds": 0.035,
+  "structured_facts": {
+    "case_id": "FS06",
+    "title": "Adeyemi v Harbourside Hotel Ltd",
+    "acting_for": "Claimant",
+    "client_role": "claimant",
+    "parties": [
+      {
+        "name": "Folake Adeyemi",
+        "role": "claimant",
+        "description": "a management consultant."
+      },
+      {
+        "name": "Harbourside Hotel Ltd",
+        "role": "defendant",
+        "description": "which runs the Harbourside Hotel in Brighton."
+      }
+    ],
+    "chronology": [
+      {
+        "date": "12 August 2025",
+        "iso_date": "2025-08-12",
+        "event": "On 12 August 2025 Ms Adeyemi arrived at the Harbourside Hotel without a booking and asked for a room at the reception desk.",
+        "fact_ref": "F1"
+      },
+      {
+        "date": "13 August 2025",
+        "iso_date": "2025-08-13",
+        "event": "On 13 August 2025, while she was at dinner, her laptop and a diamond bracelet worth \u00a36,500 in total were stolen from her room.",
+        "fact_ref": "F5"
+      }
+    ],
+    "claims": [
+      {
+        "claimant": "Folake Adeyemi",
+        "respondent": "Harbourside Hotel Ltd",
+        "claim": "Ms Adeyemi wants to recover the value of her stolen property and argues that the notice excluding liability is not part of her contract with the hotel.",
+        "legal_basis": "Contract",
+        "fact_refs": [
+          "F2",
+          "F3",
+          "F6"
+        ]
+      }
+    ],
+    "key_facts": [
+      {
+        "text": "On 12 August 2025 Ms Adeyemi arrived at the Harbourside Hotel without a booking and asked for a room at the reception desk.",
+        "citations": [
+          "F1"
+        ]
+      },
+      {
+        "text": "At reception she signed a registration card recording her name, address and car registration. The card contained no terms and conditions and did not refer to any. She paid for two nights and was given a key card.",
+        "citations": [
+          "F2"
+        ]
+      },
+      {
+        "text": "A notice on the back of her bedroom door stated: \"The hotel accepts no liability for loss of or damage to guests' property left in rooms. Valuables must be deposited at reception.\"",
+        "citations": [
+          "F3"
+        ]
+      },
+      {
+        "text": "The same terms appear on the hotel's website, which Ms Adeyemi had never visited.",
+        "citations": [
+          "F4"
+        ]
+      },
+      {
+        "text": "On 13 August 2025, while she was at dinner, her laptop and a diamond bracelet worth \u00a36,500 in total were stolen from her room. The police found no forced entry; a member of staff had left a master key card unattended on a cleaning trolley.",
+        "citations": [
+          "F5"
+        ]
+      },
+      {
+        "text": "The hotel relies on the bedroom notice to exclude liability and says Ms Adeyemi should have deposited her valuables at reception.",
+        "citations": [
+          "F6"
+        ]
+      }
+    ],
+    "objective": {
+      "text": "Ms Adeyemi wants to recover the value of her stolen property and argues that the notice excluding liability is not part of her contract with the hotel.",
+      "citations": [
+        "F7"
+      ]
+    }
+  },
+  "citation_report_raw": {
+    "total_citations": 43,
+    "valid_citations": 43,
+    "existence_rate": 1.0,
+    "judgment_citations": 27,
+    "valid_judgment_citations": 27,
+    "statements": 25,
+    "statements_with_valid_citation": 25,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 43
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J42",
+      "J44",
+      "J41",
+      "J43",
+      "J40"
+    ]
+  },
+  "citation_report_final": {
+    "total_citations": 43,
+    "valid_citations": 43,
+    "existence_rate": 1.0,
+    "judgment_citations": 27,
+    "valid_judgment_citations": 27,
+    "statements": 25,
+    "statements_with_valid_citation": 25,
+    "claim_coverage": 1.0,
+    "by_status": {
+      "valid": 43
+    },
+    "invalid_examples": [],
+    "cited_judgments": [
+      "J42",
+      "J44",
+      "J41",
+      "J43",
+      "J40"
+    ]
+  },
+  "warnings": [],
+  "events": [
+    {
+      "t": 0.002,
+      "agent": "fact_extractor",
+      "action": "start",
+      "detail": "FS06: 7 paragraphs",
+      "round": 0
+    },
+    {
+      "t": 0.003,
+      "agent": "fact_extractor",
+      "action": "done",
+      "detail": "2 parties, 2 dated events, 1 claims, 1 candidate issues",
+      "round": 0
+    },
+    {
+      "t": 0.004,
+      "agent": "precedent_retrieval",
+      "action": "start",
+      "detail": "issues: I1",
+      "round": 0
+    },
+    {
+      "t": 0.007,
+      "agent": "precedent_retrieval",
+      "action": "attached",
+      "detail": "I1: ['J42', 'J44', 'J40', 'J41', 'J43']",
+      "round": 0
+    },
+    {
+      "t": 0.008,
+      "agent": "argument",
+      "action": "framed",
+      "detail": "1 issues",
+      "round": 0
+    },
+    {
+      "t": 0.01,
+      "agent": "argument",
+      "action": "turn_1",
+      "detail": "2 points",
+      "round": 1
+    },
+    {
+      "t": 0.014,
+      "agent": "counter_argument",
+      "action": "turn_1",
+      "detail": "2 points",
+      "round": 1
+    },
+    {
+      "t": 0.017,
+      "agent": "argument",
+      "action": "turn_2",
+      "detail": "3 points",
+      "round": 2
+    },
+    {
+      "t": 0.019,
+      "agent": "counter_argument",
+      "action": "turn_2",
+      "detail": "2 points",
+      "round": 2
+    },
+    {
+      "t": 0.02,
+      "agent": "brief_compiler",
+      "action": "start",
+      "detail": "4 debate turns, 1 issues",
+      "round": 3
+    },
+    {
+      "t": 0.034,
+      "agent": "brief_compiler",
+      "action": "citation_guard",
+      "detail": "raw existence 100.00%, 0 repair(s); final coverage 100.00%",
+      "round": 3
+    },
+    {
+      "t": 0.034,
+      "agent": "workflow",
+      "action": "path",
+      "detail": "fact_extractor -> precedent_retrieval -> argument:round1 -> counter:round1 -> argument:round2 -> counter:round2 -> brief_compiler",
+      "round": 3
+    }
+  ]
+}

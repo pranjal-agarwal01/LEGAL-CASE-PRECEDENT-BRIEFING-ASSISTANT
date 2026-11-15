@@ -1,0 +1,308 @@
+{
+  "case_id": "FS05",
+  "title": "Kaur Artisan Bakery Ltd v SwiftHaul Couriers Ltd",
+  "acting_for": "Claimant",
+  "summary": [
+    {
+      "text": "Acting for Kaur Artisan Bakery Ltd (claimant), this brief addresses 2 issue(s) arising from Kaur Artisan Bakery Ltd v SwiftHaul Couriers Ltd: The bakery wants to claim damages for breach of the delivery contract, including its lost profits and the lost wedding contract.",
+      "citations": [
+        "F7"
+      ]
+    },
+    {
+      "text": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted? Unfavourable for Kaur Artisan Bakery Ltd.",
+      "citations": [
+        "J35:p3",
+        "J34:p3"
+      ]
+    },
+    {
+      "text": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss? Finely balanced for Kaur Artisan Bakery Ltd.",
+      "citations": [
+        "J42:p3",
+        "J44:p3"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "text": "On 3 September 2025 the controller board of the bakery's only industrial oven failed. The manufacturer agreed to repair it if it was delivered to its workshop in Birmingham.",
+      "citations": [
+        "F1"
+      ]
+    },
+    {
+      "text": "On 4 September 2025 the bakery booked SwiftHaul's guaranteed next-day delivery service online for £45, describing the parcel only as \"electronic component\". It did not tell SwiftHaul that the bakery could not trade without it.",
+      "citations": [
+        "F2"
+      ]
+    },
+    {
+      "text": "When booking, the bakery's manager ticked a box confirming acceptance of SwiftHaul's terms and conditions. Clause 9 excludes liability \"for any loss of profit, business or contracts, however caused, arising from delay\".",
+      "citations": [
+        "F3"
+      ]
+    },
+    {
+      "text": "Through SwiftHaul's error the parcel was sent to the wrong depot and was delivered on 15 September 2025, eleven days late.",
+      "citations": [
+        "F4"
+      ]
+    },
+    {
+      "text": "The bakery could not bake for twelve days. It lost ordinary trade profits of about £18,000, and lost a one-off contract worth £40,000 to supply cakes for a celebrity wedding, which SwiftHaul knew nothing about.",
+      "citations": [
+        "F5"
+      ]
+    },
+    {
+      "text": "SwiftHaul says it could not have contemplated that the bakery would be unable to trade, that the wedding contract was exceptional, and that in any event clause 9 excludes all of these losses.",
+      "citations": [
+        "F6"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "I1",
+      "question": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J35",
+          "case_name": "Victoria Laundry (Windsor) Ltd v Newman Industries Ltd",
+          "citation": "[1949] 2 KB 528",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Recoverable loss is that which was reasonably foreseeable as liable to result from the breach, judged by the knowledge the defendant possessed at the time of contracting, whether imputed knowledge of the ordinary course of things or actual knowledge of special circumstances.",
+            "citations": [
+              "J35:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J34",
+          "case_name": "Hadley v Baxendale",
+          "citation": "(1854) 9 Exch 341",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Damages for breach of contract are recoverable for loss arising naturally, according to the usual course of things, from the breach, or for loss that may reasonably be supposed to have been in the contemplation of both parties at the time they made the contract as the probable result of its breach.",
+            "citations": [
+              "J34:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J35",
+          "case_name": "Victoria Laundry (Windsor) Ltd v Newman Industries Ltd",
+          "citation": "[1949] 2 KB 528",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Recoverable loss is that which was reasonably foreseeable as liable to result from the breach, judged by the knowledge the defendant possessed at the time of contracting, whether imputed knowledge of the ordinary course of things or actual knowledge of special circumstances.",
+            "citations": [
+              "J35:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Victoria Laundry (Windsor) Ltd v Newman Industries Ltd [1949] 2 KB 528 supports Kaur Artisan Bakery Ltd on this issue: Recoverable loss is that which was reasonably foreseeable as liable to result from the breach, judged by the knowledge the defendant possessed at the time of contracting, whether imputed knowledge of the ordinary course of things or actual knowledge of special circumstances. That reasoning applies here: When booking, the bakery's manager ticked a box confirming acceptance of SwiftHaul's terms and conditions. Clause 9 excludes liability \"for any loss of profit, business or contracts, however caused, arising from delay\".",
+          "citations": [
+            "J35:p3",
+            "F3"
+          ]
+        },
+        {
+          "text": "Hadley v Baxendale is distinguishable on its facts: The crankshaft of the claimants' mill broke. By contrast, in this case: The bakery could not bake for twelve days. It lost ordinary trade profits of about £18,000, and lost a one-off contract worth £40,000 to supply cakes for a celebrity wedding, which SwiftHaul knew nothing about.",
+          "citations": [
+            "J34:p1",
+            "F5"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Hadley v Baxendale (1854) 9 Exch 341 supports SwiftHaul Couriers Ltd on this issue: Damages for breach of contract are recoverable for loss arising naturally, according to the usual course of things, from the breach, or for loss that may reasonably be supposed to have been in the contemplation of both parties at the time they made the contract as the probable result of its breach. That reasoning applies here: SwiftHaul says it could not have contemplated that the bakery would be unable to trade, that the wedding contract was exceptional, and that in any event clause 9 excludes all of these losses.",
+          "citations": [
+            "J34:p3",
+            "F6"
+          ]
+        },
+        {
+          "text": "Victoria Laundry (Windsor) Ltd v Newman Industries Ltd [1949] 2 KB 528 supports SwiftHaul Couriers Ltd on this issue: Recoverable loss is that which was reasonably foreseeable as liable to result from the breach, judged by the knowledge the defendant possessed at the time of contracting, whether imputed knowledge of the ordinary course of things or actual knowledge of special circumstances. That reasoning applies here: When booking, the bakery's manager ticked a box confirming acceptance of SwiftHaul's terms and conditions. Clause 9 excludes liability \"for any loss of profit, business or contracts, however caused, arising from delay\".",
+          "citations": [
+            "J35:p3",
+            "F3"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Unfavourable: the weight of authority is against Kaur Artisan Bakery Ltd, chiefly Hadley v Baxendale; the best answer is to rely on Victoria Laundry (Windsor) Ltd v Newman Industries Ltd and distinguish the facts.",
+        "citations": [
+          "J35:p3",
+          "J34:p3"
+        ]
+      }
+    },
+    {
+      "issue_id": "I2",
+      "question": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss?",
+      "supporting_precedents": [
+        {
+          "judgment_id": "J42",
+          "case_name": "Olley v Marlborough Court Ltd",
+          "citation": "[1949] 1 KB 532",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Terms must be brought to a party's notice before or at the time the contract is made; a notice first seen after the contract has been concluded is not incorporated.",
+            "citations": [
+              "J42:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J43",
+          "case_name": "Thornton v Shoe Lane Parking Ltd",
+          "citation": "[1971] 2 QB 163",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Terms referred to on a ticket issued after the contract is concluded are not incorporated, and the more onerous or unusual a clause is, the more clearly it must be brought to the other party's attention.",
+            "citations": [
+              "J43:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J41",
+          "case_name": "Parker v South Eastern Railway Co",
+          "citation": "(1877) 2 CPD 416",
+          "stance": "supporting",
+          "proposition": {
+            "text": "Unsigned terms on a ticket or notice are incorporated if the party relying on them took reasonable steps to bring them to the other party's attention before or at the time the contract was made.",
+            "citations": [
+              "J41:p3"
+            ]
+          }
+        }
+      ],
+      "opposing_precedents": [
+        {
+          "judgment_id": "J44",
+          "case_name": "Photo Production Ltd v Securicor Transport Ltd",
+          "citation": "[1980] AC 827",
+          "stance": "opposing",
+          "proposition": {
+            "text": "In commercial contracts between parties of equal bargaining power who allocate risks, including by insurance, a clearly worded exclusion or limitation clause will be given effect according to its true construction.",
+            "citations": [
+              "J44:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J40",
+          "case_name": "L'Estrange v F Graucob Ltd",
+          "citation": "[1934] 2 KB 394",
+          "stance": "opposing",
+          "proposition": {
+            "text": "A party who signs a contractual document is bound by its terms in the absence of fraud or misrepresentation, regardless of whether they read them.",
+            "citations": [
+              "J40:p3"
+            ]
+          }
+        },
+        {
+          "judgment_id": "J41",
+          "case_name": "Parker v South Eastern Railway Co",
+          "citation": "(1877) 2 CPD 416",
+          "stance": "opposing",
+          "proposition": {
+            "text": "Unsigned terms on a ticket or notice are incorporated if the party relying on them took reasonable steps to bring them to the other party's attention before or at the time the contract was made.",
+            "citations": [
+              "J41:p3"
+            ]
+          }
+        }
+      ],
+      "supporting_argument": [
+        {
+          "text": "Olley v Marlborough Court Ltd [1949] 1 KB 532 supports Kaur Artisan Bakery Ltd on this issue: Terms must be brought to a party's notice before or at the time the contract is made; a notice first seen after the contract has been concluded is not incorporated. That reasoning applies here: When booking, the bakery's manager ticked a box confirming acceptance of SwiftHaul's terms and conditions. Clause 9 excludes liability \"for any loss of profit, business or contracts, however caused, arising from delay\".",
+          "citations": [
+            "J42:p3",
+            "F3"
+          ]
+        },
+        {
+          "text": "Thornton v Shoe Lane Parking Ltd [1971] 2 QB 163 supports Kaur Artisan Bakery Ltd on this issue: Terms referred to on a ticket issued after the contract is concluded are not incorporated, and the more onerous or unusual a clause is, the more clearly it must be brought to the other party's attention. That reasoning applies here: SwiftHaul says it could not have contemplated that the bakery would be unable to trade, that the wedding contract was exceptional, and that in any event clause 9 excludes all of these losses.",
+          "citations": [
+            "J43:p3",
+            "F6"
+          ]
+        },
+        {
+          "text": "Parker v South Eastern Railway Co (1877) 2 CPD 416 supports Kaur Artisan Bakery Ltd on this issue: Unsigned terms on a ticket or notice are incorporated if the party relying on them took reasonable steps to bring them to the other party's attention before or at the time the contract was made. That reasoning applies here: The bakery could not bake for twelve days. It lost ordinary trade profits of about £18,000, and lost a one-off contract worth £40,000 to supply cakes for a celebrity wedding, which SwiftHaul knew nothing about.",
+          "citations": [
+            "J41:p3",
+            "F5"
+          ]
+        },
+        {
+          "text": "Photo Production Ltd v Securicor Transport Ltd is distinguishable on its facts: Securicor contracted to provide night patrols at Photo Production's factory for a modest charge. By contrast, in this case: The bakery could not bake for twelve days. It lost ordinary trade profits of about £18,000, and lost a one-off contract worth £40,000 to supply cakes for a celebrity wedding, which SwiftHaul knew nothing about.",
+          "citations": [
+            "J44:p1",
+            "F5"
+          ]
+        }
+      ],
+      "opposing_argument": [
+        {
+          "text": "Photo Production Ltd v Securicor Transport Ltd [1980] AC 827 supports SwiftHaul Couriers Ltd on this issue: In commercial contracts between parties of equal bargaining power who allocate risks, including by insurance, a clearly worded exclusion or limitation clause will be given effect according to its true construction. That reasoning applies here: SwiftHaul says it could not have contemplated that the bakery would be unable to trade, that the wedding contract was exceptional, and that in any event clause 9 excludes all of these losses.",
+          "citations": [
+            "J44:p3",
+            "F6"
+          ]
+        },
+        {
+          "text": "L'Estrange v F Graucob Ltd [1934] 2 KB 394 supports SwiftHaul Couriers Ltd on this issue: A party who signs a contractual document is bound by its terms in the absence of fraud or misrepresentation, regardless of whether they read them. That reasoning applies here: When booking, the bakery's manager ticked a box confirming acceptance of SwiftHaul's terms and conditions. Clause 9 excludes liability \"for any loss of profit, business or contracts, however caused, arising from delay\".",
+          "citations": [
+            "J40:p3",
+            "F3"
+          ]
+        },
+        {
+          "text": "Parker v South Eastern Railway Co (1877) 2 CPD 416 supports SwiftHaul Couriers Ltd on this issue: Unsigned terms on a ticket or notice are incorporated if the party relying on them took reasonable steps to bring them to the other party's attention before or at the time the contract was made. That reasoning applies here: The bakery could not bake for twelve days. It lost ordinary trade profits of about £18,000, and lost a one-off contract worth £40,000 to supply cakes for a celebrity wedding, which SwiftHaul knew nothing about.",
+          "citations": [
+            "J41:p3",
+            "F5"
+          ]
+        }
+      ],
+      "assessment": {
+        "text": "Finely balanced: Olley v Marlborough Court Ltd supports Kaur Artisan Bakery Ltd, but Photo Production Ltd v Securicor Transport Ltd gives the other side a real argument; the outcome will turn on the facts the court accepts.",
+        "citations": [
+          "J42:p3",
+          "J44:p3"
+        ]
+      }
+    }
+  ],
+  "conclusion": [
+    {
+      "text": "Overall, Kaur Artisan Bakery Ltd's prospects look doubtful on the authorities retrieved (0 favourable, 1 unfavourable, 1 balanced issue(s)).",
+      "citations": [
+        "J35:p3",
+        "J34:p3",
+        "J42:p3",
+        "J44:p3"
+      ]
+    },
+    {
+      "text": "The disputed facts on which the outcome turns should be proved with evidence: SwiftHaul says it could not have contemplated that the bakery would be unable to trade, that the wedding contract was exceptional, and that in any event clause 9 excludes all of these losses.",
+      "citations": [
+        "F6"
+      ]
+    }
+  ],
+  "warnings": []
+}

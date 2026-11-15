@@ -1,0 +1,365 @@
+{
+  "round": 3,
+  "issues": [
+    {
+      "id": "I1",
+      "question": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted?",
+      "doctrine": "remoteness_contract",
+      "raised_by": "fact_extractor",
+      "client_position": "pro",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J34",
+          "passage_refs": [
+            "J34:p2",
+            "J34:p3"
+          ],
+          "score": 1.6072,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted? remoteness damages lost profits reasonable co",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J35",
+          "passage_refs": [
+            "J35:p3",
+            "J35:p1"
+          ],
+          "score": 1.152,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted? remoteness damages lost profits reasonable co",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J27",
+          "passage_refs": [
+            "J27:p3",
+            "J27:p2"
+          ],
+          "score": 0.5434,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted? remoteness damages lost profits reasonable co",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J03",
+          "passage_refs": [
+            "J03:p2",
+            "J03:p1"
+          ],
+          "score": 0.5415,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted? remoteness damages lost profits reasonable co",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J21",
+          "passage_refs": [
+            "J21:p2",
+            "J21:p1"
+          ],
+          "score": 0.5099,
+          "retrieved_by": "hybrid_rag",
+          "query": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted? remoteness damages lost profits reasonable co",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J35"
+      ],
+      "opposing": [
+        "J34",
+        "J35"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for SwiftHaul Couriers Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+        }
+      ],
+      "assessment": "Unfavourable: the weight of authority is against Kaur Artisan Bakery Ltd, chiefly Hadley v Baxendale; the best answer is to rely on Victoria Laundry (Windsor) Ltd v Newman Industries Ltd and distinguish the facts."
+    },
+    {
+      "id": "I2",
+      "question": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss?",
+      "doctrine": "exclusion_clause",
+      "raised_by": "fact_extractor",
+      "client_position": "contra",
+      "status": "resolved",
+      "retrieval_done": true,
+      "candidates": [
+        {
+          "judgment_id": "J44",
+          "passage_refs": [
+            "J44:p2",
+            "J44:p3"
+          ],
+          "score": 1.5621,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss? exclusion clause incorporation notice",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J40",
+          "passage_refs": [
+            "J40:p2",
+            "J40:p1"
+          ],
+          "score": 1.5287,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss? exclusion clause incorporation notice",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J42",
+          "passage_refs": [
+            "J42:p2",
+            "J42:p3"
+          ],
+          "score": 1.49,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss? exclusion clause incorporation notice",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J43",
+          "passage_refs": [
+            "J43:p2",
+            "J43:p3"
+          ],
+          "score": 1.3988,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss? exclusion clause incorporation notice",
+          "reason": ""
+        },
+        {
+          "judgment_id": "J41",
+          "passage_refs": [
+            "J41:p3",
+            "J41:p2"
+          ],
+          "score": 1.135,
+          "retrieved_by": "hybrid_rag",
+          "query": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss? exclusion clause incorporation notice",
+          "reason": ""
+        }
+      ],
+      "supporting": [
+        "J42",
+        "J43",
+        "J41"
+      ],
+      "opposing": [
+        "J44",
+        "J40",
+        "J41"
+      ],
+      "notes": [
+        {
+          "author": "argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 1,
+          "text": "round 1: 2 point(s) for SwiftHaul Couriers Ltd"
+        },
+        {
+          "author": "argument",
+          "round": 2,
+          "text": "round 2: 3 point(s) for Kaur Artisan Bakery Ltd"
+        },
+        {
+          "author": "counter_argument",
+          "round": 2,
+          "text": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+        }
+      ],
+      "assessment": "Finely balanced: Olley v Marlborough Court Ltd supports Kaur Artisan Bakery Ltd, but Photo Production Ltd v Securicor Transport Ltd gives the other side a real argument; the outcome will turn on the facts the court accepts."
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I1",
+      "detail": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted? [remoteness_contract] 6 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 2,
+      "author": "fact_extractor",
+      "action": "add_issue",
+      "issue_id": "I2",
+      "detail": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss? [exclusion_clause] 3 cue(s) in the fact sheet"
+    },
+    {
+      "seq": 3,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I1",
+      "detail": "J34, J35, J27, J03, J21"
+    },
+    {
+      "seq": 4,
+      "author": "precedent_retrieval",
+      "action": "attach_precedents",
+      "issue_id": "I2",
+      "detail": "J44, J40, J42, J43, J41"
+    },
+    {
+      "seq": 5,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I1",
+      "detail": "Are Kaur Artisan Bakery Ltd's claimed losses within what the parties reasonably contemplated when they contracted? (client needs: pro)"
+    },
+    {
+      "seq": 6,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I1",
+      "detail": "J35 framing review"
+    },
+    {
+      "seq": 7,
+      "author": "argument",
+      "action": "frame_issue",
+      "issue_id": "I2",
+      "detail": "Can SwiftHaul Couriers Ltd rely on the exclusion clause: was it incorporated into the contract and does it cover the loss? (client needs: contra)"
+    },
+    {
+      "seq": 8,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J42 framing review"
+    },
+    {
+      "seq": 9,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J43 framing review"
+    },
+    {
+      "seq": 10,
+      "author": "argument",
+      "action": "mark_supporting",
+      "issue_id": "I2",
+      "detail": "J41 framing review"
+    },
+    {
+      "seq": 11,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 12,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 2 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 13,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J34 doctrine tag matches position"
+    },
+    {
+      "seq": 14,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I1",
+      "detail": "J35 doctrine tag matches position"
+    },
+    {
+      "seq": 15,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J44 doctrine tag matches position"
+    },
+    {
+      "seq": 16,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J40 doctrine tag matches position"
+    },
+    {
+      "seq": 17,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 1: 2 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 18,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 1: 2 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 19,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I1",
+      "detail": "round 2: 1 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 20,
+      "author": "argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 3 point(s) for Kaur Artisan Bakery Ltd"
+    },
+    {
+      "seq": 21,
+      "author": "counter_argument",
+      "action": "mark_opposing",
+      "issue_id": "I2",
+      "detail": "J41 doctrine tag matches position"
+    },
+    {
+      "seq": 22,
+      "author": "counter_argument",
+      "action": "note",
+      "issue_id": "I2",
+      "detail": "round 2: 1 point(s) for SwiftHaul Couriers Ltd"
+    },
+    {
+      "seq": 23,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I1",
+      "detail": "Unfavourable: the weight of authority is against Kaur Artisan Bakery Ltd, chiefly Hadley v Baxendale; the best answer is to rely on Victoria Laundry (Windsor) L"
+    },
+    {
+      "seq": 24,
+      "author": "brief_compiler",
+      "action": "resolve",
+      "issue_id": "I2",
+      "detail": "Finely balanced: Olley v Marlborough Court Ltd supports Kaur Artisan Bakery Ltd, but Photo Production Ltd v Securicor Transport Ltd gives the other side a real "
+    }
+  ]
+}

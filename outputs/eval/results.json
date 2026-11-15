@@ -1,0 +1,378 @@
+{
+  "generated": "2026-11-15T17:38:34",
+  "mode": "offline",
+  "model": "gpt-4.1-mini",
+  "settings": {
+    "debate_rounds": 2,
+    "top_k": 5,
+    "doctrine_boost": 0.35
+  },
+  "fact_sheets": 8,
+  "macro": {
+    "retrieval_recall": 1.0,
+    "retrieval_recall_text_only": 1.0,
+    "brief_recall": 1.0,
+    "citation_existence_raw": 1.0,
+    "judgment_citation_existence_raw": 1.0,
+    "citation_existence_final": 1.0,
+    "claim_coverage": 1.0,
+    "gold_precision": 0.6911
+  },
+  "micro": {
+    "retrieval_recall": 1.0,
+    "brief_recall": 1.0,
+    "citations_raw": 413,
+    "citations_final": 413
+  },
+  "cases": [
+    {
+      "case_id": "FS01",
+      "gold": [
+        "J01",
+        "J10",
+        "J08"
+      ],
+      "retrieved": [
+        "J01",
+        "J19",
+        "J02",
+        "J08",
+        "J20",
+        "J22",
+        "J05",
+        "J12",
+        "J07",
+        "J10",
+        "J17",
+        "J09",
+        "J35",
+        "J28"
+      ],
+      "cited": [
+        "J01",
+        "J02",
+        "J07",
+        "J08",
+        "J10",
+        "J09",
+        "J19",
+        "J22",
+        "J05",
+        "J17"
+      ],
+      "retrieval_recall": 1.0,
+      "brief_recall": 1.0,
+      "gold_precision": 0.3,
+      "citation_existence_raw": 1.0,
+      "citation_existence_final": 1.0,
+      "judgment_citation_existence_raw": 1.0,
+      "claim_coverage": 1.0,
+      "citations_raw": 84,
+      "citations_final": 84,
+      "statements": 43,
+      "issues": 3,
+      "llm_calls": 0,
+      "seconds": 0.068,
+      "missed": [],
+      "retrieval_recall_text_only": 1.0,
+      "warnings": 0,
+      "llm_fallbacks": 0,
+      "content_filtered": false
+    },
+    {
+      "case_id": "FS02",
+      "gold": [
+        "J06",
+        "J07",
+        "J04"
+      ],
+      "retrieved": [
+        "J07",
+        "J06",
+        "J04",
+        "J40",
+        "J08",
+        "J05",
+        "J48",
+        "J22",
+        "J17",
+        "J12"
+      ],
+      "cited": [
+        "J07",
+        "J04",
+        "J05",
+        "J08",
+        "J06",
+        "J22"
+      ],
+      "retrieval_recall": 1.0,
+      "brief_recall": 1.0,
+      "gold_precision": 0.5,
+      "citation_existence_raw": 1.0,
+      "citation_existence_final": 1.0,
+      "judgment_citation_existence_raw": 1.0,
+      "claim_coverage": 1.0,
+      "citations_raw": 68,
+      "citations_final": 68,
+      "statements": 37,
+      "issues": 3,
+      "llm_calls": 0,
+      "seconds": 0.058,
+      "missed": [],
+      "retrieval_recall_text_only": 1.0,
+      "warnings": 0,
+      "llm_fallbacks": 0,
+      "content_filtered": false
+    },
+    {
+      "case_id": "FS03",
+      "gold": [
+        "J23",
+        "J24",
+        "J25"
+      ],
+      "retrieved": [
+        "J29",
+        "J30",
+        "J23",
+        "J33",
+        "J42",
+        "J24",
+        "J25",
+        "J50",
+        "J26"
+      ],
+      "cited": [
+        "J30",
+        "J29",
+        "J23",
+        "J24",
+        "J25",
+        "J50"
+      ],
+      "retrieval_recall": 1.0,
+      "brief_recall": 1.0,
+      "gold_precision": 0.5,
+      "citation_existence_raw": 1.0,
+      "citation_existence_final": 1.0,
+      "judgment_citation_existence_raw": 1.0,
+      "claim_coverage": 1.0,
+      "citations_raw": 59,
+      "citations_final": 59,
+      "statements": 30,
+      "issues": 2,
+      "llm_calls": 0,
+      "seconds": 0.046,
+      "missed": [],
+      "retrieval_recall_text_only": 1.0,
+      "warnings": 0,
+      "llm_fallbacks": 0,
+      "content_filtered": false
+    },
+    {
+      "case_id": "FS04",
+      "gold": [
+        "J37",
+        "J38",
+        "J36",
+        "J39"
+      ],
+      "retrieved": [
+        "J37",
+        "J39",
+        "J38",
+        "J36",
+        "J01"
+      ],
+      "cited": [
+        "J37",
+        "J39",
+        "J36",
+        "J38"
+      ],
+      "retrieval_recall": 1.0,
+      "brief_recall": 1.0,
+      "gold_precision": 1.0,
+      "citation_existence_raw": 1.0,
+      "citation_existence_final": 1.0,
+      "judgment_citation_existence_raw": 1.0,
+      "claim_coverage": 1.0,
+      "citations_raw": 35,
+      "citations_final": 35,
+      "statements": 21,
+      "issues": 1,
+      "llm_calls": 0,
+      "seconds": 0.029,
+      "missed": [],
+      "retrieval_recall_text_only": 1.0,
+      "warnings": 0,
+      "llm_fallbacks": 0,
+      "content_filtered": false
+    },
+    {
+      "case_id": "FS05",
+      "gold": [
+        "J34",
+        "J35",
+        "J44"
+      ],
+      "retrieved": [
+        "J34",
+        "J35",
+        "J27",
+        "J03",
+        "J21",
+        "J44",
+        "J40",
+        "J42",
+        "J43",
+        "J41"
+      ],
+      "cited": [
+        "J35",
+        "J34",
+        "J42",
+        "J44",
+        "J43",
+        "J41",
+        "J40"
+      ],
+      "retrieval_recall": 1.0,
+      "brief_recall": 1.0,
+      "gold_precision": 0.42857142857142855,
+      "citation_existence_raw": 1.0,
+      "citation_existence_final": 1.0,
+      "judgment_citation_existence_raw": 1.0,
+      "claim_coverage": 1.0,
+      "citations_raw": 60,
+      "citations_final": 60,
+      "statements": 33,
+      "issues": 2,
+      "llm_calls": 0,
+      "seconds": 0.053,
+      "missed": [],
+      "retrieval_recall_text_only": 1.0,
+      "warnings": 0,
+      "llm_fallbacks": 0,
+      "content_filtered": false
+    },
+    {
+      "case_id": "FS06",
+      "gold": [
+        "J42",
+        "J43",
+        "J41",
+        "J40"
+      ],
+      "retrieved": [
+        "J42",
+        "J44",
+        "J40",
+        "J41",
+        "J43"
+      ],
+      "cited": [
+        "J42",
+        "J44",
+        "J41",
+        "J43",
+        "J40"
+      ],
+      "retrieval_recall": 1.0,
+      "brief_recall": 1.0,
+      "gold_precision": 0.8,
+      "citation_existence_raw": 1.0,
+      "citation_existence_final": 1.0,
+      "judgment_citation_existence_raw": 1.0,
+      "claim_coverage": 1.0,
+      "citations_raw": 43,
+      "citations_final": 43,
+      "statements": 25,
+      "issues": 1,
+      "llm_calls": 0,
+      "seconds": 0.035,
+      "missed": [],
+      "retrieval_recall_text_only": 1.0,
+      "warnings": 0,
+      "llm_fallbacks": 0,
+      "content_filtered": false
+    },
+    {
+      "case_id": "FS07",
+      "gold": [
+        "J32",
+        "J31",
+        "J33"
+      ],
+      "retrieved": [
+        "J32",
+        "J31",
+        "J33",
+        "J47",
+        "J23"
+      ],
+      "cited": [
+        "J32",
+        "J31",
+        "J33"
+      ],
+      "retrieval_recall": 1.0,
+      "brief_recall": 1.0,
+      "gold_precision": 1.0,
+      "citation_existence_raw": 1.0,
+      "citation_existence_final": 1.0,
+      "judgment_citation_existence_raw": 1.0,
+      "claim_coverage": 1.0,
+      "citations_raw": 33,
+      "citations_final": 33,
+      "statements": 20,
+      "issues": 1,
+      "llm_calls": 0,
+      "seconds": 0.03,
+      "missed": [],
+      "retrieval_recall_text_only": 1.0,
+      "warnings": 0,
+      "llm_fallbacks": 0,
+      "content_filtered": false
+    },
+    {
+      "case_id": "FS08",
+      "gold": [
+        "J15",
+        "J16",
+        "J17"
+      ],
+      "retrieved": [
+        "J15",
+        "J16",
+        "J17",
+        "J49",
+        "J27"
+      ],
+      "cited": [
+        "J16",
+        "J15",
+        "J17"
+      ],
+      "retrieval_recall": 1.0,
+      "brief_recall": 1.0,
+      "gold_precision": 1.0,
+      "citation_existence_raw": 1.0,
+      "citation_existence_final": 1.0,
+      "judgment_citation_existence_raw": 1.0,
+      "claim_coverage": 1.0,
+      "citations_raw": 31,
+      "citations_final": 31,
+      "statements": 18,
+      "issues": 1,
+      "llm_calls": 0,
+      "seconds": 0.023,
+      "missed": [],
+      "retrieval_recall_text_only": 1.0,
+      "warnings": 0,
+      "llm_fallbacks": 0,
+      "content_filtered": false
+    }
+  ]
+}
