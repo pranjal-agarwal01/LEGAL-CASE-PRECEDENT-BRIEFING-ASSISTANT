@@ -11,6 +11,10 @@ against the corpus.
 > (fictional people and companies). The corpus holds short paraphrased teaching summaries of 50 leading, publicly
 > reported English tort and contract judgments, not official law reports.
 
+**Project documents:** [report (PDF)](docs/Legal_Case_Precedent_Briefing_Assistant_Report.pdf) ·
+[presentation (PPTX)](docs/Legal_Case_Precedent_Briefing_Assistant.pptx) ·
+[presentation (Google Slides)](https://docs.google.com/presentation/d/1ZYiLd4nWZ3Nj-b2I5RU336dvT1MRqbHR/edit?usp=sharing&ouid=109391127952070662017&rtpof=true&sd=true)
+
 ---
 
 ## Contents
