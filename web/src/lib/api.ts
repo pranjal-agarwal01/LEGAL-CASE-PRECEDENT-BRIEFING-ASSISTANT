@@ -80,8 +80,10 @@ export type RunSummary = {
   created_at: string;
   issues?: number;
   unsupported?: number;
+  reliability?: Reliability;
   deadlines?: Deadline[];
 };
+export type Reliability = "high" | "medium" | "low" | "unchecked";
 export type RunStatus = "queued" | "running" | "done" | "failed" | "blocked";
 
 export type MatterRow = {
@@ -140,7 +142,7 @@ export type Brief = {
   time_limits: Statement[];
   evidence: Statement[];
   questions_for_client: string[];
-  reliability: "high" | "medium" | "low" | "unchecked";
+  reliability: Reliability;
   reliability_reasons: string[];
   warnings: string[];
 };

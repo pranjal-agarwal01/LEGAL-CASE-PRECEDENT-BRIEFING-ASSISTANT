@@ -64,7 +64,7 @@ function UploadButton() {
   return (
     <Dialog open={open} onOpenChange={(o) => { setOpen(o); if (!o && preset) setParams({}, { replace: true }); }}>
       <DialogTrigger asChild>
-        <Button size="lg" className="h-10 bg-tape px-4 text-tape-ink hover:bg-tape/90"><Upload /> Upload to library</Button>
+        <Button size="lg" className="h-10 bg-seal px-4 text-seal-ink hover:bg-seal/90"><Upload /> Upload to library</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -122,13 +122,13 @@ function SearchResults({ q, jurisdiction }: { q: string; jurisdiction: string })
       <ul className="mt-3 grid gap-3">
         {(data ?? []).map((h) => (
           <li key={h.id} className="rounded-md border bg-card px-4 py-3">
-            <Link to={`/library/${h.id}`} className="font-serif text-[1.05rem] font-semibold text-ink hover:text-tape">
+            <Link to={`/library/${h.id}`} className="font-serif text-[1.05rem] font-semibold text-ink hover:text-seal">
               {h.name} {h.citation ? <span className="font-normal">{h.citation}</span> : null}
             </Link>
             <span className="ml-2 text-xs text-muted-foreground">{KIND_LABEL[h.kind]}</span>
             {h.passages.slice(0, 1).map((p) => (
               <p key={p.ref} className="mt-1.5 line-clamp-3 font-serif text-[15px] text-ink-soft">
-                <span className="font-sans text-xs font-semibold text-tape">{p.label} </span>
+                <span className="font-sans text-xs font-semibold text-seal">{p.label} </span>
                 {p.text}
               </p>
             ))}
@@ -188,7 +188,7 @@ export function LibraryPage() {
             ))}
           </SelectContent>
         </Select>
-        <Tabs value={filter} onValueChange={(v) => setFilter(v as Filter)} className="max-w-full overflow-x-auto">
+        <Tabs value={filter} onValueChange={(v) => setFilter(v as Filter)} className="max-w-full overflow-x-auto [scrollbar-width:none]">
           <TabsList variant="line">
             <TabsTrigger value="all">All</TabsTrigger>
             <TabsTrigger value="legislation">Legislation</TabsTrigger>
@@ -213,7 +213,7 @@ export function LibraryPage() {
           {items.map((i) => (
             <li key={i.id} className="grid gap-1 px-4 py-3 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4">
               <div className="min-w-0">
-                <Link to={`/library/${i.id}`} className="font-serif text-[1.02rem] font-semibold text-ink hover:text-tape">
+                <Link to={`/library/${i.id}`} className="font-serif text-[1.02rem] font-semibold text-ink hover:text-seal">
                   {i.name} {i.citation && i.kind !== "legislation" ? <span className="font-normal">{i.citation}</span> : null}
                 </Link>
                 <p className="text-[13px] text-muted-foreground">
@@ -224,9 +224,9 @@ export function LibraryPage() {
                 </p>
                 {i.status === "failed" ? <p className="text-[13px] text-unsupported">Could not index: {i.error}</p> : null}
               </div>
-              <span className={cn("text-sm tabular-nums", i.status === "processing" ? "text-tape" : "text-muted-foreground")}>
+              <span className={cn("text-sm tabular-nums", i.status === "processing" ? "text-seal" : "text-muted-foreground")}>
                 {i.status === "processing" ? (
-                  <span className="inline-flex items-center gap-2"><span className="pulse size-2 rounded-full bg-tape" /> Indexing</span>
+                  <span className="inline-flex items-center gap-2"><span className="pulse size-2 rounded-full bg-seal" /> Indexing</span>
                 ) : (
                   `${i.passages} ${i.kind === "legislation" ? "provisions" : "paragraphs"}`
                 )}
@@ -305,7 +305,7 @@ export function AuthorityPage() {
         <ol className="brief grid max-w-[50rem] gap-5">
           {passages.map((p) => (
             <li key={p.pid} id={p.pid} className="grid scroll-mt-6 gap-x-5 sm:grid-cols-[6.5rem_1fr]">
-              <span className="font-sans text-sm font-semibold text-tape sm:pt-1 sm:text-right">{p.label}</span>
+              <span className="font-sans text-sm font-semibold text-seal sm:pt-1 sm:text-right">{p.label}</span>
               <div className="whitespace-pre-line text-[16px]">{p.text}</div>
             </li>
           ))}

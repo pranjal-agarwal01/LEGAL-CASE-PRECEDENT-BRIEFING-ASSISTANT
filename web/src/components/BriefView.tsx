@@ -1,8 +1,9 @@
-import { Check, Copy, ExternalLink } from "lucide-react";
-import { createContext, memo, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { Copy, ExternalLink } from "lucide-react";
+import { createContext, memo, useContext, useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 
+import { RELIABILITY_STAMP, Stamp, tiltFor } from "@/components/Stamp";
 import { SupportMark } from "@/components/Status";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import {
@@ -95,7 +96,7 @@ const Line = memo(function Line({ st, lead, children }: { st: Statement; lead?: 
   const { ids } = useCite();
   return (
     <div id={ids.get(st)} className="grid scroll-mt-24 grid-cols-[1.6rem_1fr] gap-x-3 py-1.5">
-      <SupportMark support={st.support} className="mt-[0.3rem]" />
+      <SupportMark support={st.support} seed={st.text.slice(0, 48)} className="mt-[0.3rem]" />
       <div className={cn("min-w-0", st.support === "unsupported" && "text-ink-soft")}>
         {lead}
         {st.text}
@@ -119,8 +120,8 @@ function Quote({ entry }: { entry: PrecedentEntry }) {
     <blockquote className="quote mt-2">
       <p>“{entry.quote}”</p>
       <footer className="mt-1 flex flex-wrap items-center gap-1.5 font-sans text-[12.5px] text-ink-soft">
-        <Check className="size-3.5 text-verified" aria-hidden="true" />
-        Quoted verbatim from{" "}
+        <Stamp tone="verified" small tilt={tiltFor(entry.quote_ref, 3)}>Verbatim</Stamp>
+        <span className="ml-1">matched in</span>{" "}
         <button type="button" className="cite cite-inline" onClick={() => open(entry.quote_ref)}>
           {citeLabel(entry.quote_ref, auths)}
         </button>
@@ -158,7 +159,7 @@ function SourcePanel({ cite, onClose }: { cite: string | null; onClose: () => vo
             <div className="px-6 py-6">
               {passage ? (
                 <>
-                  <p className="text-sm font-semibold text-tape">{passage.label}</p>
+                  <p className="text-sm font-semibold text-seal">{passage.label}</p>
                   <div className="brief mt-2 whitespace-pre-line text-[16px]">{passage.text}</div>
                 </>
               ) : (
@@ -226,12 +227,17 @@ function Issue({ issue }: { issue: IssueAnalysis }) {
       <p className="py-1.5 pl-[2.35rem] text-ink-soft">None found in your library.</p>
     );
   return (
-    <Section id={issue.issue_id} title={<><span className="text-tape">{issue.issue_id}</span> {issue.question}</>}>
+    <Section id={issue.issue_id} title={<><span className="text-seal">{issue.issue_id}</span> {issue.question}</>}>
       {issue.coverage !== "good" ? (
-        <div className={cn("mb-4 rounded-md border px-4 py-3 font-sans text-sm",
-          issue.coverage === "none" ? "border-unsupported/40 bg-unsupported-wash text-unsupported" : "border-partial/40 bg-partial-wash text-partial")}>
-          <strong className="font-semibold">{COVERAGE_TEXT[issue.coverage]}</strong>{" "}
-          {issue.coverage_note} Research this issue independently, or upload the judgments you rely on to your library.
+        <div className={cn("mb-5 grid gap-3 rounded-sm px-4 py-3 font-sans text-sm sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center",
+          issue.coverage === "none" ? "bg-unsupported-wash text-unsupported" : "bg-partial-wash text-partial")}>
+          <Stamp tone={issue.coverage === "none" ? "unsupported" : "partial"} tilt={-4} className="justify-self-start text-[13px]">
+            {issue.coverage === "none" ? "No authority" : "Thin authority"}
+          </Stamp>
+          <p>
+            <strong className="font-semibold">{COVERAGE_TEXT[issue.coverage]}</strong>{" "}
+            <span className="text-ink">{issue.coverage_note} Research this issue independently, or upload the judgments you rely on to your library.</span>
+          </p>
         </div>
       ) : null}
       <div className="grid gap-5">
@@ -339,7 +345,7 @@ function Questions({ items }: { items: string[] }) {
   };
   return (
     <div>
-      <ol className="grid list-decimal gap-2 pl-6 marker:font-sans marker:text-sm marker:font-semibold marker:text-tape">
+      <ol className="grid list-decimal gap-2 pl-6 marker:font-sans marker:text-sm marker:font-semibold marker:text-seal">
         {items.map((q, i) => <li key={i} className="pl-1">{q}</li>)}
       </ol>
       <button type="button" onClick={copy}
@@ -350,26 +356,36 @@ function Questions({ items }: { items: string[] }) {
   );
 }
 
-const RELIABILITY = {
-  high: { title: "Solid research starting point", tone: "border-verified/40 bg-verified-wash text-verified" },
-  medium: { title: "Use with care", tone: "border-partial/40 bg-partial-wash text-partial" },
-  low: { title: "Not reliable as it stands", tone: "border-unsupported/40 bg-unsupported-wash text-unsupported" },
-  unchecked: { title: "Sources not checked", tone: "border-rule bg-vellum text-ink-soft" },
-} as const;
-
-/** One line a supervising lawyer reads first: how far this brief can be relied on, and why. */
-function Reliability({ brief, jurisdiction }: { brief: RunResult["brief"]; jurisdiction?: string }) {
-  const level = brief.reliability ?? "unchecked";
-  const r = RELIABILITY[level] ?? RELIABILITY.unchecked;
+/** What a supervising lawyer reads first: the clerk's stamp on how far this brief can be relied on, and why. */
+function Reliability({ result, jurisdiction, checkedAt }: { result: RunResult; jurisdiction?: string; checkedAt?: string }) {
+  const brief = result.brief;
+  const r = RELIABILITY_STAMP[brief.reliability ?? "unchecked"] ?? RELIABILITY_STAMP.unchecked;
+  const when = checkedAt ? new Date(checkedAt) : null;
   return (
-    <div className={cn("mb-5 rounded-md border px-4 py-3 font-sans", r.tone)} role="status">
-      <p className="text-[15px] font-bold">{r.title}{jurisdiction ? <span className="font-semibold text-ink-soft">{`. ${jurisdiction} law`}</span> : null}</p>
-      {brief.reliability_reasons?.length ? (
-        <ul className="mt-1 grid gap-0.5 text-[13px] text-ink">
-          {brief.reliability_reasons.map((x, i) => <li key={i}>{x}</li>)}
-        </ul>
-      ) : null}
-    </div>
+    <header className="grid gap-5 border-b border-dashed pb-6 font-sans sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-8">
+      <div className="min-w-0 sm:order-2 sm:pr-1 sm:pt-2">
+        <Stamp tone={r.tone} thud delay={250} tilt={-6} className="px-5 py-2.5 text-[1.3rem] sm:text-[1.65rem]">
+          <span>{r.long}</span>
+          {when ? (
+            <span className="text-[0.5em] font-bold">
+              Checked {when.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+            </span>
+          ) : null}
+        </Stamp>
+      </div>
+      <div className="min-w-0 sm:order-1">
+        <h2 className="sr-only">Reliability: {r.long}</h2>
+        <p className="text-sm font-semibold text-ink-soft">Source check{jurisdiction ? ` under ${jurisdiction} law` : ""}</p>
+        {brief.reliability_reasons?.length ? (
+          <ul className="mt-1.5 grid list-disc gap-0.5 pl-4 text-[14px] text-ink marker:text-ink-soft">
+            {brief.reliability_reasons.map((x, i) => <li key={i}>{x}</li>)}
+          </ul>
+        ) : (
+          <p className="mt-1.5 text-[14px] text-ink">No problems found in the sources cited.</p>
+        )}
+        <div className="mt-4"><CheckSummary result={result} /></div>
+      </div>
+    </header>
   );
 }
 
@@ -379,8 +395,8 @@ function CheckSummary({ result }: { result: RunResult }) {
     return <p className="font-sans text-sm text-muted-foreground">Sources were not checked for this brief because no language model was configured.</p>;
   }
   return (
-    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-sans text-sm">
-      <span className="text-ink-soft">{s.checked} statements checked against their sources:</span>
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-sans text-[13px]">
+      <span className="w-full text-ink-soft">{s.checked} statements checked against their sources</span>
       <span className="inline-flex items-center gap-2"><SupportMark support="supported" /> {s.supported} verified</span>
       <span className="inline-flex items-center gap-2"><SupportMark support="partial" /> {s.partial} partly supported</span>
       <span className="inline-flex items-center gap-2"><SupportMark support="unsupported" /> {s.unsupported} not supported</span>
@@ -440,7 +456,7 @@ function useCurrentSection(ids: string[]) {
   return current;
 }
 
-export function BriefView({ result, runId }: { result: RunResult; runId: number }) {
+export function BriefView({ result, runId, checkedAt }: { result: RunResult; runId: number; checkedAt?: string }) {
   const b = result.brief;
   const [active, setActive] = useState<string | null>(null);
   const facts = useMemo(() => new Map(result.fact_paragraphs.map((p) => [p.ref, p.text])), [result.fact_paragraphs]);
@@ -473,10 +489,10 @@ export function BriefView({ result, runId }: { result: RunResult; runId: number 
         <div className="mx-auto grid max-w-[66rem] gap-4 lg:grid-cols-[0.75rem_minmax(0,48rem)] lg:gap-5 xl:grid-cols-[0.75rem_minmax(0,48rem)_11rem] xl:gap-x-5">
           <div className="hidden lg:block"><VerificationRail items={ordered} /></div>
 
-          <article className="sheet brief min-w-0 text-ink">
-            <Reliability brief={b} jurisdiction={(result as RunResult & { jurisdiction_check?: { matter_jurisdiction?: string } }).jurisdiction_check?.matter_jurisdiction} />
-            <CheckSummary result={result} />
-            <p className="mt-3 font-sans text-xs text-muted-foreground">
+          <article className="sheet brief jolt min-w-0 text-ink" style={{ "--jolt-delay": "520ms" } as CSSProperties}>
+            <Reliability result={result} checkedAt={checkedAt}
+              jurisdiction={(result as RunResult & { jurisdiction_check?: { matter_jurisdiction?: string } }).jurisdiction_check?.matter_jurisdiction} />
+            <p className="mt-4 font-sans text-xs text-muted-foreground">
               Prepared for review by a qualified lawyer. Not legal advice. Select any citation to read the passage it
               relies on.
             </p>
@@ -558,7 +574,7 @@ export function DebateView({ result }: { result: RunResult }) {
         </p>
         <div className="mt-8 hidden grid-cols-2 gap-6 font-sans text-sm font-bold md:grid">
           <span className="border-b-2 border-ink pb-2 text-ink">Your client's advocate</span>
-          <span className="border-b-2 border-tape pb-2 text-tape">Opposing counsel</span>
+          <span className="border-b-2 border-seal pb-2 text-seal">Opposing counsel</span>
         </div>
         {rounds.map((r) => (
           <section key={r} className="mt-6">
@@ -567,7 +583,7 @@ export function DebateView({ result }: { result: RunResult }) {
               {(["argument", "counter"] as const).map((side) => (
                 <ul key={side} className="grid content-start gap-3" aria-label={side === "argument" ? "Your client's advocate" : "Opposing counsel"}>
                   {result.turns.filter((t) => t.round === r && t.speaker === side).flatMap((t) => t.points).map((p) => (
-                    <li key={p.point_id} className={cn("rounded-md border bg-card px-4 py-3", side === "argument" ? "border-l-4 border-l-ink" : "border-l-4 border-l-tape")}>
+                    <li key={p.point_id} className={cn("rounded-md border bg-card px-4 py-3", side === "argument" ? "border-l-4 border-l-ink" : "border-l-4 border-l-seal")}>
                       <p className="font-sans text-xs text-muted-foreground">
                         <span className="md:hidden">{side === "argument" ? "Client's advocate. " : "Opposing counsel. "}</span>
                         {p.point_id} on {p.issue_id}: {questions.get(p.issue_id) ?? ""}
@@ -598,7 +614,7 @@ export function FactsView({ result }: { result: RunResult }) {
         <ol className="mt-6 grid gap-3">
           {result.fact_paragraphs.map((p) => (
             <li key={p.ref} className="grid grid-cols-[2.5rem_1fr] gap-2">
-              <span className="font-sans text-sm font-semibold text-tape">¶{p.ref.slice(1)}</span>
+              <span className="font-sans text-sm font-semibold text-seal">¶{p.ref.slice(1)}</span>
               <span>
                 {p.kind === "objective" ? <span className="font-sans text-xs font-semibold text-ink-soft">Client's objective. </span> : null}
                 {p.text}

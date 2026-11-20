@@ -375,6 +375,7 @@ def matter_json(m: Matter, last: Run | None = None, author: str | None = None) -
         out["last_run"] = {"id": last.id, "status": last.status, "created_at": iso(last.created_at),
                            "issues": len((res.get("brief") or {}).get("issues", [])),
                            "unsupported": (res.get("support_report") or {}).get("unsupported", 0),
+                           "reliability": (res.get("brief") or {}).get("reliability"),
                            "deadlines": deadlines(res) if last.status == "done" else []}
     return out
 

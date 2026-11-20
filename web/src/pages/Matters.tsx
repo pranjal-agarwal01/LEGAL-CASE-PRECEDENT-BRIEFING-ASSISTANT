@@ -26,7 +26,7 @@ export function MattersPage() {
         lede="Each matter holds the facts you are instructed on and every brief prepared for it."
       >
         {data?.length ? (
-          <Button asChild size="lg" className="h-10 bg-tape px-4 text-tape-ink hover:bg-tape/90">
+          <Button asChild size="lg" className="h-10 bg-seal px-4 text-seal-ink hover:bg-seal/90">
             <Link to="/matters/new">
               <Plus /> New matter
             </Link>
@@ -65,7 +65,7 @@ export function MattersPage() {
               Add the facts as you would in instructions to counsel: who the parties are, what happened and when, and
               what your client wants. You can paste them or import a Word or PDF document.
             </p>
-            <Button asChild className="mt-6 h-10 bg-tape px-4 text-tape-ink hover:bg-tape/90">
+            <Button asChild className="mt-6 h-10 bg-seal px-4 text-seal-ink hover:bg-seal/90">
               <Link to="/matters/new">
                 <Plus /> New matter
               </Link>
@@ -91,7 +91,7 @@ export function MattersPage() {
                 {rows.map((m) => (
                   <tr key={m.id} className="border-b last:border-0 hover:bg-accent/60">
                     <td className="px-4 py-3">
-                      <Link to={`/matters/${m.id}`} className="font-serif text-[1.02rem] font-semibold text-ink hover:text-tape">
+                      <Link to={`/matters/${m.id}`} className="font-serif text-[1.02rem] font-semibold text-ink hover:text-seal">
                         {m.title}
                       </Link>
                       {m.reference ? <span className="ml-2 text-xs text-muted-foreground">{m.reference}</span> : null}
@@ -141,16 +141,16 @@ function ComingUp({ matters }: { matters: MatterRow[] }) {
             const soon = !late && days <= 14;
             return (
               <li key={i} className="grid grid-cols-[3.25rem_1fr] gap-3">
-                <div className={`rounded-md border px-1 py-1.5 text-center leading-none ${late ? "border-unsupported/40 bg-unsupported-wash text-unsupported" : soon ? "border-tape/40 bg-tape-wash text-tape" : "text-ink"}`}>
+                <div className={`rounded-md border px-1 py-1.5 text-center leading-none ${late ? "border-unsupported/40 bg-unsupported-wash text-unsupported" : soon ? "border-seal/40 bg-seal-wash text-seal" : "text-ink"}`}>
                   <span className="block text-xl font-bold tabular-nums">{d.when.getDate()}</span>
                   <span className="mt-1 block text-[11px] font-semibold">{d.when.toLocaleDateString("en-GB", { month: "short" })}</span>
                 </div>
                 <div className="min-w-0">
-                  <Link to={`/matters/${d.matter.id}?tab=brief#next-steps`} className="font-serif font-semibold text-ink hover:text-tape">
+                  <Link to={`/matters/${d.matter.id}?tab=brief#next-steps`} className="font-serif font-semibold text-ink hover:text-seal">
                     {d.matter.title}
                   </Link>
                   <p className="line-clamp-2 text-[13px] text-ink-soft">{d.text}</p>
-                  <p className={`text-[12px] font-semibold ${late ? "text-unsupported" : soon ? "text-tape" : "text-muted-foreground"}`}>
+                  <p className={`text-[12px] font-semibold ${late ? "text-unsupported" : soon ? "text-seal" : "text-muted-foreground"}`}>
                     {late ? `Passed ${-days} day${days === -1 ? "" : "s"} ago` : days === 0 ? "Today" : `In ${days} day${days === 1 ? "" : "s"}`}
                   </p>
                 </div>

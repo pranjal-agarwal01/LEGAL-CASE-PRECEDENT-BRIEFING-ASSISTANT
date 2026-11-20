@@ -6,6 +6,7 @@ import { toast } from "sonner";
 
 import { BriefView, DebateView, FactsView } from "@/components/BriefView";
 import { RunProgress } from "@/components/RunProgress";
+import { Stamp } from "@/components/Stamp";
 import { Button } from "@/components/ui/button";
 import {
   Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle,
@@ -69,7 +70,7 @@ export function MatterPage() {
 
   return (
     <>
-      <header className="border-b px-4 pb-5 pt-8 sm:px-8 lg:pt-12">
+      <header className="file-cover px-4 pb-6 pt-8 sm:px-8 lg:pt-12">
         <p className="text-sm text-muted-foreground">
           <Link to="/matters" className="hover:text-ink">Matters</Link>
           {m.reference ? <span>{` / ${m.reference}`}</span> : null}
@@ -83,7 +84,7 @@ export function MatterPage() {
             </p>
           </div>
           <div className="flex shrink-0 flex-wrap items-center gap-2">
-            <Button size="lg" className="h-10 bg-tape px-4 text-tape-ink hover:bg-tape/90" disabled={busy || start.isPending}
+            <Button size="lg" className="h-10 bg-seal px-4 text-seal-ink hover:bg-seal/90" disabled={busy || start.isPending}
               onClick={() => start.mutate(false)}>
               <Play /> {runs.length ? "Prepare a new brief" : "Prepare brief"}
             </Button>
@@ -176,7 +177,7 @@ export function MatterPage() {
               <TabsTrigger value="facts">Numbered facts</TabsTrigger>
             </TabsList>
           </div>
-          <TabsContent value="brief"><BriefView result={run.data.result as RunResult} runId={run.data.id} /></TabsContent>
+          <TabsContent value="brief"><BriefView result={run.data.result as RunResult} runId={run.data.id} checkedAt={run.data.created_at} /></TabsContent>
           <TabsContent value="debate"><DebateView result={run.data.result as RunResult} /></TabsContent>
           <TabsContent value="facts"><FactsView result={run.data.result as RunResult} /></TabsContent>
         </Tabs>
@@ -217,7 +218,7 @@ function Parties({ matter }: { matter: Matter }) {
               <span className={p!.ours ? "font-semibold" : undefined}>{p!.name}</span>
             </span>
             <span className="font-sans text-sm text-ink-soft">
-              {p!.role}{p!.ours ? <span className="ml-1.5 rounded-sm bg-tape-wash px-1.5 py-0.5 text-[11.5px] font-semibold text-tape">Our client</span> : null}
+              {p!.role}{p!.ours ? <span className="ml-1.5 rounded-sm bg-seal-wash px-1.5 py-0.5 text-[11.5px] font-semibold text-seal">Our client</span> : null}
             </span>
           </div>
         ))}
@@ -241,8 +242,14 @@ function BlockedPanel({ blocked, matterId, onOverride, busy }: { blocked: Blocke
   return (
     <section className="desk px-3 py-8 sm:px-6">
       <div className="sheet mx-auto max-w-[44rem]">
-        <p className="font-sans text-sm font-semibold text-unsupported">Research stopped before it started</p>
-        <h2 className="mt-2 font-serif text-2xl font-semibold text-ink">
+        <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-3">
+          <p className="font-sans text-sm font-semibold text-unsupported">Research stopped before it started</p>
+          <Stamp tone="unsupported" thud delay={200} tilt={7} className="text-[1.05rem]">
+            <span>Research stopped</span>
+            <span className="text-[0.62em] font-bold">{mismatch ? "Wrong jurisdiction" : "No authorities"}</span>
+          </Stamp>
+        </div>
+        <h2 className="mt-3 font-serif text-2xl font-semibold text-ink">
           {mismatch ? `These facts are governed by the law of ${blocked.detected}` : `Your library has no ${blocked.matter_jurisdiction} authorities`}
         </h2>
         <p className="mt-3 text-ink-soft">

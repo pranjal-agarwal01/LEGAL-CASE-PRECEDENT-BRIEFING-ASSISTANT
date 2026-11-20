@@ -97,7 +97,7 @@ function ChangePassword({ forced }: { forced: boolean }) {
       change.mutate(Object.fromEntries(new FormData(e.currentTarget)));
       e.currentTarget.reset();
     }}>
-      {forced ? <p className="rounded-md bg-tape-wash px-3 py-2 text-sm text-ink">Choose your own password to finish setting up your account.</p> : null}
+      {forced ? <p className="rounded-md bg-seal-wash px-3 py-2 text-sm text-ink">Choose your own password to finish setting up your account.</p> : null}
       <div className="grid gap-1.5"><Label htmlFor="cur">Current password</Label><Input id="cur" name="current_password" type="password" autoComplete="current-password" required /></div>
       <div className="grid gap-1.5"><Label htmlFor="new">New password</Label><Input id="new" name="new_password" type="password" autoComplete="new-password" required /></div>
       {error ? <p role="alert" className="text-sm text-unsupported">{error}</p> : null}

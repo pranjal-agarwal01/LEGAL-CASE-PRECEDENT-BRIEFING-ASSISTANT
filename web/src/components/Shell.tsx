@@ -20,9 +20,12 @@ import { useSession, useTheme } from "@/lib/session";
 export function Logo({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" className={cn("size-7", className)}>
-      <rect x="6" y="3" width="20" height="26" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
-      <path d="M10 10h12M10 14h12M10 18h8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M4 21 28 13v4.2L4 25.2z" fill="var(--tape)" />
+      <rect x="4" y="2.5" width="19" height="25" rx="1.5" fill="none" stroke="currentColor" strokeWidth="2" />
+      <path d="M8 9h11M8 13h11M8 17h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <g transform="rotate(-10 22 22)">
+        <rect x="14.5" y="15" width="14" height="13" rx="1.5" fill="var(--card)" stroke="var(--seal)" strokeWidth="2.2" />
+        <path d="m18 21.5 2.6 2.6 4.6-5" fill="none" stroke="var(--seal)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+      </g>
     </svg>
   );
 }
@@ -44,7 +47,7 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
           className={({ isActive }) =>
             cn(
               "flex items-center gap-3 rounded-md px-3 py-2 text-[0.95rem] text-ink-soft transition-colors hover:bg-accent hover:text-ink",
-              isActive && "tape-active bg-accent font-semibold text-ink",
+              isActive && "seal-active bg-accent font-semibold text-ink",
             )
           }
         >
