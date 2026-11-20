@@ -26,6 +26,26 @@ CITE_RE = re.compile(rf"^(?:({_AUTH})(?::({_PID}))?|F(\d+))$")
 _ONE = rf"(?:{_AUTH}(?::{_PID})?|F\d+)"
 # Citation ids written into the prose, in square brackets or parentheses: "[J06:p3]", "(L23:s213.1, F7)".
 INLINE_CITE_RE = re.compile(rf"[\[(]({_ONE}(?:\s*[,;]\s*{_ONE})*)[\])]")
+# Passage ids anywhere in the prose (an id with a colon is never ordinary English).
+BARE_ID_RE = re.compile(rf"(?<![\w:])({_AUTH}:{_PID})(?![\w.])")
+_FACT_WORD_RE = re.compile(r"(?:\bfacts?\s+)?(?<![\w])F\d+(?![\w])")
+
+
+def strip_ids(text: str) -> str:
+    """Remove citation ids from a statement's prose (they are shown as formatted citations instead)."""
+    t = INLINE_CITE_RE.sub("", text)
+    if BARE_ID_RE.search(t):
+        t = BARE_ID_RE.sub("", t)
+        t = _FACT_WORD_RE.sub("", t)  # "facts F1" left inside the same parenthesis
+    prev = None
+    while prev != t:  # tidy the punctuation the removals leave behind, until nothing changes
+        prev = t
+        t = re.sub(r"\(\s*[:;,\s]*\)", "", t)  # emptied parentheses
+        t = re.sub(r"\s*[:;,]\s*\)", ")", t)
+        t = re.sub(r"\(\s*[:;,]\s*", "(", t)
+        t = re.sub(r"\s{2,}", " ", t)
+        t = re.sub(r"\s+([.,;:)])", r"\1", t)
+    return t.strip()
 _CAP = r"[A-Z][\w'&.\-]*"
 _LINK = rf"(?:{_CAP}|of|and|&|the|de|la|for)"
 CASE_NAME_RE = re.compile(rf"\b({_CAP}(?:\s+{_LINK}){{0,7}}?)\s+v\.?\s+({_CAP}(?:\s+{_LINK}){{0,7}})")
@@ -187,6 +207,7 @@ def guard_brief(brief: Brief, validator: CitationValidator) -> tuple[Brief, list
         checks = validator.check_statement(st)
         bad_names = [c.cite for c in checks if c.kind == "case_name" and not c.valid]
         inline = [c.strip() for grp in INLINE_CITE_RE.findall(st.text) for c in re.split(r"[,;]", grp)]
+        inline += BARE_ID_RE.findall(st.text)  # ids written loose in the prose: "(CRA s 22(3): L01:s22.1, facts F1)"
         good = [normalise(c) for c in [*st.citations, *inline] if validator.check(c).valid]
         bad = [c for c in [*st.citations, *inline] if not validator.check(c).valid]
         if bad:
@@ -201,7 +222,7 @@ def guard_brief(brief: Brief, validator: CitationValidator) -> tuple[Brief, list
         if not good:
             warnings.append(f"Dropped uncited claim: {st.text[:80]}")
             return None
-        text = re.sub(r"\s+([.,;:])", r"\1", re.sub(r"\s{2,}", " ", INLINE_CITE_RE.sub("", st.text))).strip()
+        text = strip_ids(st.text)
         return st.model_copy(update={"text": text, "citations": list(dict.fromkeys(good))})
 
     def clean_list(items: list[CitedStatement]) -> list[CitedStatement]:
