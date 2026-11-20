@@ -47,7 +47,9 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
         query = s.issue_query(issue)
         hits = s.retriever.search(query, top_k=s.settings.top_k, doctrine=issue.doctrine,
                                   doctrine_boost=s.settings.doctrine_boost, prefer_area=s.fact_sheet.practice_area)
-        return [CandidatePrecedent(h.judgment_id, [p.ref for p in h.passages[:3]], round(h.score, 4),
+        # With few authorities (a firm's handful of statutes), look deeper inside each one.
+        depth = 3 if len(s.corpus) > 12 else 6
+        return [CandidatePrecedent(h.judgment_id, [p.ref for p in h.passages[:depth]], round(h.score, 4),
                                    "hybrid_rag", query=query[:160]) for h in hits]
 
     async def run(self) -> list[str]:

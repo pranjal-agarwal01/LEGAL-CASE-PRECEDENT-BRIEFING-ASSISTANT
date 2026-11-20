@@ -38,7 +38,8 @@ class CaseSession:
     retriever: HybridRetriever
     fact_sheet: FactSheet
     client: Any | None = None  # Agent Framework chat client, None in offline mode
-    strong_client: Any | None = None  # optional stronger model for compiling and checking the brief
+    strong_client: Any | None = None  # optional stronger model for compiling the brief
+    checker_client: Any | None = None  # optional model for the source check
     board: IssueBoard = field(default_factory=IssueBoard)
     facts: StructuredFacts | None = None
     turns: list[DebateTurn] = field(default_factory=list)
@@ -188,13 +189,15 @@ class BaseLegalAgent:
         return await run_structured(self.agent, prompt, schema, max_tokens=self.session.settings.max_tokens,
                                     session=self.conversation)
 
-    async def ask_as(self, name: str, instructions: str, prompt: str, schema: type[M]) -> M:
+    async def ask_as(self, name: str, instructions: str, prompt: str, schema: type[M], client: Any = None,
+                     max_tokens: int | None = None) -> M:
         """One structured call to a tool-less helper agent with its own instructions (e.g. the source checker)."""
-        assert self.client is not None
-        helper = Agent(self.client, instructions.replace("{jurisdiction}", self.session.fact_sheet.jurisdiction),
+        client = client or self.client
+        assert client is not None
+        helper = Agent(client, instructions.replace("{jurisdiction}", self.session.fact_sheet.jurisdiction),
                        name=name)
         self.session.llm_calls += 1
-        return await run_structured(helper, prompt, schema, max_tokens=self.session.settings.max_tokens)
+        return await run_structured(helper, prompt, schema, max_tokens=max_tokens or self.session.settings.max_tokens)
 
     async def with_fallback(self, label: str, llm_step: Callable[[], Awaitable[T]], offline_step: Callable[[], T]) -> T:
         if not self.uses_llm:

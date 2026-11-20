@@ -71,7 +71,8 @@ class BriefCompilerAgent(BaseLegalAgent):
         "each issue, list every authority either debater relied on or attacked, on the correct side, and give "
         "its 'quote': 8-40 words copied EXACTLY from the cited passage (no paraphrase, no ellipsis inside). Be "
         "concise: one to three sentences per statement.\n"
-        "Then write the practical next steps a supervising solicitor needs:\n"
+        "Then write the practical next steps a supervising solicitor needs. Today's date is given in the task: if "
+        "a period has already run out, say plainly that it has expired and what that means for the client.\n"
         "- remedies: what the client can claim or the court or tribunal can order, including statutory sanctions, "
         "each citing the passage id of the provision that CREATES that remedy (for example the section giving the "
         "right to complain or setting the award), not a section that only defines the right.\n"
@@ -209,7 +210,9 @@ class BriefCompilerAgent(BaseLegalAgent):
             debate += [f"{p.point_id} [{p.issue_id}]{' (replies to ' + p.responds_to + ')' if p.responds_to else ''}: "
                        f"{p.text} CITES {p.citations}" for p in t.points]
         material = self._material()
-        prompt = (f"{material}\n\nDEBATE TRANSCRIPT:\n" + "\n".join(debate)
+        from datetime import date
+
+        prompt = (f"Today's date: {date.today():%d %B %Y}.\n\n{material}\n\nDEBATE TRANSCRIPT:\n" + "\n".join(debate)
                   + f"\n\nWrite the brief for the {f.acting_for}. Include every issue on the shared list, with its "
                     "precedents labelled 'supporting' or 'opposing' relative to the client. Two to four summary "
                     "statements and one to three conclusion statements.")

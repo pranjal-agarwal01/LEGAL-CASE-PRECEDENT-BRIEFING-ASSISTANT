@@ -170,8 +170,11 @@ def make_session(fact_sheet: FactSheet, settings: Settings, client=None, corpus:
     strong = None
     if client is not None and settings.compiler_model and settings.compiler_model != settings.model:
         strong = build_chat_client(settings.with_overrides(model=settings.compiler_model))
+    checker = None
+    if client is not None and settings.checker_model and settings.checker_model != settings.model:
+        checker = build_chat_client(settings.with_overrides(model=settings.checker_model))
     return CaseSession(settings=settings, corpus=corpus, retriever=retriever, fact_sheet=fact_sheet, client=client,
-                       strong_client=strong)
+                       strong_client=strong, checker_client=checker)
 
 
 async def run_case(fact_sheet: FactSheet | str | Path, settings: Settings, client=None, *,

@@ -34,6 +34,9 @@ services:
         value: "2024-10-21"
       - key: EMBEDDING_MODEL
         value: text-embedding-3-small
+      # The source check uses a reasoning model: a stricter judge of support and relevance than the writer.
+      - key: CHECKER_MODEL
+        value: gpt-5-mini
       - key: ALLOW_SIGNUP
         value: "true"
       - key: MAX_CONCURRENT_RUNS

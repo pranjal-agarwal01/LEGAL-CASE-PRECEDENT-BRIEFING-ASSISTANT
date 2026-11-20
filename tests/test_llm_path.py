@@ -163,9 +163,10 @@ def test_llm_mode_end_to_end(settings, fs_dir):
     sup = compiled.support_report
     assert sup["checked"] >= 4 and sup["unsupported"] == 2 and sup["removed_precedents"] == 1
     issue = compiled.final.issues[0]
-    # J38 (unsupported) is removed; J37 stays on BOTH sides because only J38's proposition failed
+    # J38 (unsupported) is removed from the opposing side only; J37 was listed on both sides for the SAME
+    # passage, which says nothing, so it is kept once, on the side its proposition supports
     assert [e.judgment_id for e in issue.supporting_precedents] == ["J37"]
-    assert [e.judgment_id for e in issue.opposing_precedents] == ["J37"]
+    assert issue.opposing_precedents == [] and sup["duplicates"] == 1
     assert issue.supporting_precedents[0].proposition.support == "supported"
     assert any(w.startswith("Removed J38") for w in compiled.final.warnings)
     assert client.requests.count("SupportCheckLLM") == 1
@@ -182,7 +183,6 @@ def test_llm_mode_end_to_end(settings, fs_dir):
     q = compiled.support_report["quotes"]
     assert q == {"quotes": 2, "verified": 1, "removed": 1}
     assert issue.supporting_precedents[0].quote_verified and issue.supporting_precedents[0].quote_ref == "J37:p3"
-    assert issue.opposing_precedents[0].quote == "" and not issue.opposing_precedents[0].quote_verified
     # next steps are carried into the brief and checked like every other statement
     b = compiled.final
     assert b.remedies and b.evidence and b.questions_for_client and b.time_limits == []

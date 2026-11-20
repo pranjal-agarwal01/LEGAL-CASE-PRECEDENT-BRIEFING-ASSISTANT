@@ -35,6 +35,8 @@ class Settings:
     model: str = ""
     # Optional stronger model (same provider) for writing the brief and checking its sources.
     compiler_model: str = ""
+    # Optional model for the source check only (a stricter judge than the writer, e.g. a reasoning model).
+    checker_model: str = ""
     openai_api_key: str = ""
     azure_endpoint: str = ""
     azure_api_key: str = ""
@@ -96,6 +98,7 @@ class Settings:
             provider=provider,
             model=_env("LLM_MODEL"),
             compiler_model=_env("COMPILER_MODEL"),
+            checker_model=_env("CHECKER_MODEL"),
             openai_api_key=_env("OPENAI_API_KEY"),
             azure_endpoint=_env("AZURE_OPENAI_ENDPOINT"),
             azure_api_key=_env("AZURE_OPENAI_API_KEY"),

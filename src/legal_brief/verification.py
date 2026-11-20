@@ -44,8 +44,11 @@ INSTRUCTIONS = (
     "Statements that cite only facts (no passages): grade 'supported' if they only describe or weigh the facts "
     "and evidence; grade 'unsupported' if they state a LEGAL conclusion (a right, a duty, liability, a remedy, a "
     "limitation period, whether a claim is preserved or barred) with no legal authority, and say so in the note.\n"
-    "Relevance to the ISSUE shown with the statement, using your knowledge of the law of {jurisdiction}: "
-    "'on_point' if a specialist would cite it for this issue, 'analogous' if it is a reasonable analogy, "
+    "Relevance to the ISSUE shown with the statement, using your knowledge of the law of {jurisdiction}. Be "
+    "strict: a passage that merely shares words with the issue is not relevant. 'on_point' only if a specialist "
+    "practising in {jurisdiction} would cite this provision or judgment to answer THIS issue on these facts (for "
+    "example, not a provision about sale certificates, common land of co-sharers or written acknowledgments of "
+    "debt for a boundary dispute between neighbours); 'analogous' if it is a reasonable analogy, "
     "'off_point' if it comes from another country's law, a different area of law, does not govern this kind of "
     "claim (for example the Sale of Goods Act 1979 for an English consumer contract made after 1 October 2015, or "
     "a negligence case for a statutory employment right or a land boundary dispute), or is only tangential. Use "
@@ -56,7 +59,8 @@ INSTRUCTIONS = (
     "Statements of kind 'time_limit' are deadlines a lawyer will diary: grade them 'supported' only if a cited "
     "passage states that exact period for that exact right or claim (a period that applies to a different right, "
     "or a presumption period that is not a deadline, makes it 'unsupported'), and check that any date given is "
-    "counted correctly from the facts.\n"
+    "counted correctly from the facts. A time limit that has already expired by today's date, stated as if "
+    "it were still open, is 'partial' and the note must say it has expired.\n"
     "Keep each note under 25 words and say what is missing, why it is off point, or why the side is wrong."
 )
 
@@ -241,10 +245,14 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
         payload = [{"id": sid, "kind": kind_of(role), "issue": issue_of(role), "written_for": side_of(role),
                     "statement": st.text, "cited_passages": _passages_text(s, _authority_cites(st)),
                     "cited_facts": _facts_text(s, st)} for sid, st, role in batch]
-        prompt = (f"We act for {client}; the other side is {other}.\nGrade each statement.\n\n"
-                  + json.dumps(payload, ensure_ascii=False))
+        from datetime import date
+
+        prompt = (f"Today's date: {date.today():%d %B %Y}. We act for {client}; the other side is {other}.\n"
+                  "Grade each statement.\n\n" + json.dumps(payload, ensure_ascii=False))
         try:
-            res = await agent.ask_as("source_checker", INSTRUCTIONS, prompt, SupportCheckLLM)
+            res = await agent.ask_as("source_checker", INSTRUCTIONS, prompt, SupportCheckLLM,
+                                     client=s.checker_client,
+                                     max_tokens=32000 if s.checker_client is not None else None)
             verdicts.update({v.id: v for v in res.verdicts})
         except Exception as e:  # noqa: BLE001 - an unchecked statement is shown as unchecked, never as verified
             s.warnings.append(f"Source check could not run for {len(batch)} statement(s) ({type(e).__name__}); "
@@ -261,6 +269,9 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
         verdict = v.verdict
         if v.relevance == "off_point" and role.startswith("precedent:"):
             verdict = "unsupported"  # an authority from the wrong law or area must not be presented as support
+            stats["off_point"] += 1
+        elif v.relevance == "off_point" and _authority_cites(st) and verdict == "supported":
+            verdict = "partial"  # an argument leaning on an off-point provision is never shown as verified
             stats["off_point"] += 1
         wrong_side = ((role.startswith("for:") and v.helps == "other_side")
                       or (role.startswith("against:") and v.helps == "client"))
@@ -294,6 +305,15 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
             stats["moved_sides"] += n
             warnings.append(f"Moved {n} argument(s) in {issue.issue_id} to the side they actually help.")
     for issue in out.issues:
+        # The same passage listed for both sides says nothing: keep it on the side its proposition supports best.
+        rank = {"supported": 3, "partial": 2, "unchecked": 1, "facts_only": 1, "unsupported": 0}
+        for e in list(issue.opposing_precedents):
+            twin = next((x for x in issue.supporting_precedents if x.judgment_id == e.judgment_id
+                         and set(_authority_cites(x.proposition)) == set(_authority_cites(e.proposition))), None)
+            if twin is not None:
+                loser = e if rank.get(twin.proposition.support, 0) >= rank.get(e.proposition.support, 0) else twin
+                (issue.opposing_precedents if loser is e else issue.supporting_precedents).remove(loser)
+                stats["duplicates"] = stats.get("duplicates", 0) + 1
         for attr in ("supporting_precedents", "opposing_precedents"):
             kept = [e for e in getattr(issue, attr) if (issue.issue_id, e.judgment_id, e.stance) not in drop]
             stats["removed_precedents"] += len(getattr(issue, attr)) - len(kept)
@@ -347,6 +367,9 @@ def rate_reliability(brief: Brief, stats: dict) -> dict:
     if unsupported / checked > 0.15:
         level = "low"
         reasons.append(f"{unsupported} of {stats.get('checked', 0)} checked statements are not supported.")
+    elif unsupported / checked > 0.05:
+        level = "medium" if level == "high" else level
+        reasons.append(f"{unsupported} of {stats.get('checked', 0)} checked statements are not supported.")
     if stats.get("legal_without_law", 0) >= 2:
         level = "low"
         reasons.append(f"{stats['legal_without_law']} legal conclusions rest on facts alone.")
@@ -354,9 +377,12 @@ def rate_reliability(brief: Brief, stats: dict) -> dict:
         if weak:
             level = "medium"
             reasons.append(f"Limited authority for {', '.join(weak)}.")
-        if partial / checked > 0.4:
+        if partial / checked > 0.25:
             level = "medium"
-            reasons.append(f"{partial} statements are only partly supported by their sources.")
+            reasons.append(f"{partial} of {stats.get('checked', 0)} statements are only partly supported by their sources.")
+        if stats.get("off_point"):
+            level = "medium"
+            reasons.append(f"{stats['off_point']} citation(s) were judged off point for their issue.")
     if stats.get("moved_sides"):
         reasons.append(f"{stats['moved_sides']} argument(s) were moved to the side they actually help.")
     if level == "high":

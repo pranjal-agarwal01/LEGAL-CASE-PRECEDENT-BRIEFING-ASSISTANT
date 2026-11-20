@@ -246,6 +246,6 @@ class HybridRetriever:
             tagged = bool(doctrine and j and doctrine in j.doctrines)
             in_area = bool(prefer_area and j and prefer_area in j.area.split(","))
             score = text_score + (boost if tagged else 0.0) + (area_boost if in_area else 0.0)
-            results.append(JudgmentHit(jid, score, text_score, tagged, phits[:3]))
+            results.append(JudgmentHit(jid, score, text_score, tagged, phits[:8]))
         results.sort(key=lambda r: (-r.score, r.judgment_id))
         return results[:top_k]
