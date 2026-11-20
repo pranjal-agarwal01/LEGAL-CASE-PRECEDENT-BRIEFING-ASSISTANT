@@ -476,7 +476,14 @@ export function BriefView({ result, runId }: { result: RunResult; runId: number 
               <section id="next-steps" className="next-steps scroll-mt-20">
                 <h2 className="text-ink">Next steps</h2>
                 {b.time_limits?.length ? (
-                  <div className="mt-6"><h3>Time limits</h3><TimeLimits items={b.time_limits} /></div>
+                  <div className="mt-6">
+                    <h3>Time limits</h3>
+                    <TimeLimits items={b.time_limits} />
+                    <p className="mt-2 font-sans text-[12.5px] text-muted-foreground">
+                      Dates are worked out from the facts and the cited provision. Confirm each date and its counting
+                      rule, and any extension (for example ACAS early conciliation), before relying on it.
+                    </p>
+                  </div>
                 ) : null}
                 {b.remedies?.length ? (
                   <div className="mt-7"><h3>What your client can claim</h3>{b.remedies.map((s, i) => <Line key={i} st={s} />)}</div>

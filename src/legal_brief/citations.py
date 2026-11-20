@@ -31,16 +31,31 @@ BARE_ID_RE = re.compile(rf"(?<![\w:])({_AUTH}:{_PID})(?![\w.])")
 _FACT_WORD_RE = re.compile(r"(?:\bfacts?\s+)?(?<![\w])F\d+(?![\w])")
 
 
-def strip_ids(text: str) -> str:
-    """Remove citation ids from a statement's prose (they are shown as formatted citations instead)."""
+def _outside_parens(text: str, pos: int) -> bool:
+    """True when the id at `pos` is used as a word in a sentence ("calculated from F4 and ...") rather
+    than listed as a citation ("(s 22(3): L01:s22.1, F1)"): it follows a word, not '(' ':' ',' ';'."""
+    before = text[:pos].rstrip()
+    return bool(before) and before[-1].isalpha() and not re.search(r"\bfacts?$", before, re.I)
+
+
+def strip_ids(text: str, label=None) -> str:
+    """Remove citation ids from a statement's prose (they are shown as formatted citations instead).
+
+    An id used as a noun in running text ("calculated from F4 and L27:s111.1") is replaced by its
+    readable form when `label` is given, so the sentence still makes sense."""
     t = INLINE_CITE_RE.sub("", text)
     if BARE_ID_RE.search(t):
+        if label:
+            t = BARE_ID_RE.sub(lambda m: label(m.group(1)) if _outside_parens(m.string, m.start()) else m.group(0), t)
+            t = re.sub(r"(?<![\w(])F(\d+)(?![\w])", lambda m: f"fact ¶{m.group(1)}"
+                       if _outside_parens(m.string, m.start()) else m.group(0), t)
         t = BARE_ID_RE.sub("", t)
         t = _FACT_WORD_RE.sub("", t)  # "facts F1" left inside the same parenthesis
     prev = None
     while prev != t:  # tidy the punctuation the removals leave behind, until nothing changes
         prev = t
         t = re.sub(r"\(\s*[:;,\s]*\)", "", t)  # emptied parentheses
+        t = re.sub(r"([:;,])\s*[:;,]", r"\1", t)  # separators left next to each other
         t = re.sub(r"\s*[:;,]\s*\)", ")", t)
         t = re.sub(r"\(\s*[:;,]\s*", "(", t)
         t = re.sub(r"\s{2,}", " ", t)
@@ -222,7 +237,8 @@ def guard_brief(brief: Brief, validator: CitationValidator) -> tuple[Brief, list
         if not good:
             warnings.append(f"Dropped uncited claim: {st.text[:80]}")
             return None
-        text = strip_ids(st.text)
+        text = strip_ids(st.text, label=lambda c: re.sub(r"\s*\(part \d+ of \d+\)", "",
+                                                           render_citation(c, validator.corpus).replace("*", "")))
         return st.model_copy(update={"text": text, "citations": list(dict.fromkeys(good))})
 
     def clean_list(items: list[CitedStatement]) -> list[CitedStatement]:

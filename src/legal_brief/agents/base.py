@@ -38,6 +38,7 @@ class CaseSession:
     retriever: HybridRetriever
     fact_sheet: FactSheet
     client: Any | None = None  # Agent Framework chat client, None in offline mode
+    strong_client: Any | None = None  # optional stronger model for compiling and checking the brief
     board: IssueBoard = field(default_factory=IssueBoard)
     facts: StructuredFacts | None = None
     turns: list[DebateTurn] = field(default_factory=list)
@@ -158,17 +159,20 @@ class BaseLegalAgent:
     # Debaters keep ONE conversation for the whole run: round 2 remembers the research and the case
     # theory of round 1 instead of starting from a summary.
     persistent: bool = False
+    strong: bool = False  # use the session's stronger model when one is configured
 
     def __init__(self, session: CaseSession):
         self.session = session
         self.agent: Agent | None = None
+        self.client = (session.strong_client if self.strong and session.strong_client is not None
+                       else session.client)
         if session.client is not None:
             tools = []
             if self.tool_profile != "none":
                 tools = make_tools(self.name, corpus=session.corpus, retriever=session.retriever,
                                    board=session.board, top_k=session.settings.top_k,
                                    can_write=self.tool_profile == "write")
-            self.agent = Agent(session.client, self.instructions, name=self.name,
+            self.agent = Agent(self.client, self.instructions, name=self.name,
                                description=self.description, tools=tools or None)
         self.conversation = self.agent.create_session() if (self.agent is not None and self.persistent) else None
 
@@ -184,8 +188,8 @@ class BaseLegalAgent:
 
     async def ask_as(self, name: str, instructions: str, prompt: str, schema: type[M]) -> M:
         """One structured call to a tool-less helper agent with its own instructions (e.g. the source checker)."""
-        assert self.session.client is not None
-        helper = Agent(self.session.client, instructions, name=name)
+        assert self.client is not None
+        helper = Agent(self.client, instructions, name=name)
         self.session.llm_calls += 1
         return await run_structured(helper, prompt, schema, max_tokens=self.session.settings.max_tokens)
 

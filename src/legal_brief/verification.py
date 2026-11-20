@@ -96,6 +96,34 @@ def _norm(text: str) -> str:
     return re.sub(r"[^a-z0-9'\"-]+", " ", text).strip()
 
 
+_STOP = set("""a an and are as at be by for from has have in is it its of on or that the this to was were which
+with not no any may must shall such than their there these they under where who will""".split())
+
+
+def _words(text: str) -> set[str]:
+    return {w for w in _norm(text).split() if len(w) > 2 and w not in _STOP}
+
+
+def _best_sentence(pairs: list[tuple[str, str]], claim: str) -> tuple[str, str] | None:
+    """(ref, sentence): the sentence of the cited passages sharing most content words with the claim,
+    if it shares enough of them to be the obvious source."""
+    want = _words(claim)
+    best, best_score = None, 0.0
+    for ref, text in pairs:
+        for sent in re.split(r"(?<=[.;:])\s+|\n+", text):
+            sent = sent.strip(" -\t")
+            n = len(sent.split())
+            if n < 6 or n > 70:
+                continue
+            got = _words(sent)
+            score = len(want & got) / (len(got) ** 0.5 + 1)
+            if score > best_score:
+                best, best_score = (ref, sent), score
+    if not best or len(want & _words(best[1])) < 3:
+        return None
+    return best
+
+
 def check_quotes(session, brief: Brief) -> dict:
     """Mark each precedent's quote verified only if its words appear verbatim in the cited passage
     (ignoring case, punctuation and line breaks). Unverifiable quotes are removed, never shown as quotes."""
@@ -120,6 +148,13 @@ def check_quotes(session, brief: Brief) -> dict:
             if hit and len(needle.split()) >= 4:
                 e.quote_verified, e.quote_ref = True, hit
                 stats["verified"] += 1
+                continue
+            # Not verbatim: quote instead the sentence of the cited passage that best matches the claim.
+            # It is copied from the source, so it is verbatim by construction.
+            best = _best_sentence(pairs, f"{e.quote} {e.proposition.text}")
+            if best:
+                e.quote, e.quote_ref, e.quote_verified = best[1], best[0], True
+                stats["replaced"] = stats.get("replaced", 0) + 1
             else:
                 e.quote, e.quote_ref, e.quote_verified = "", "", False
                 stats["removed"] += 1

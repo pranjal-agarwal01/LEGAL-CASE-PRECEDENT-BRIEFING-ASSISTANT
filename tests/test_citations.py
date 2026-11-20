@@ -46,3 +46,35 @@ def test_guard_removes_hallucinated_citations(corpus, fs_dir):
     rep = audit_brief(final, v)
     assert rep.existence_rate == 1.0 and rep.coverage == 1.0
     assert len(warnings) == 3
+
+
+def test_quote_fallback_uses_a_real_sentence(corpus):
+    from legal_brief.verification import _best_sentence
+
+    pairs = [(p.ref, p.text) for p in corpus.get("J37").passages]
+    # a paraphrase of the passage: the real sentence is chosen, copied verbatim from the source
+    ref, sentence = _best_sentence(pairs, "a contract is frustrated when an event destroys the state of affairs "
+                                          "both parties treated as the basis of the contract")
+    assert ref.startswith("J37:") and sentence in corpus.passage(ref).text
+    # an unrelated claim finds no sentence, so no quote is shown
+    assert _best_sentence(pairs, "the employer failed to pay the national minimum wage") is None
+
+
+def test_ids_in_prose_become_readable(corpus):
+    import re
+    from pathlib import Path
+
+    from legal_brief.citations import render_citation, strip_ids
+    from legal_brief.config import PROJECT_ROOT
+    from legal_brief.corpus import Corpus
+
+    laws = Corpus.load_legislation(PROJECT_ROOT / "data" / "library" / "legislation.json")
+    lab = lambda c: re.sub(r"\s*\(part \d+ of \d+\)", "", render_citation(c, laws).replace("*", ""))  # noqa: E731
+    assert strip_ids("Right to reject within 30 days (CRA 2015 s 22(3): L01:s22.1, facts F1).", lab) == \
+        "Right to reject within 30 days (CRA 2015 s 22(3))."
+    assert strip_ids("The deadline is 1 June 2026 (calculate from F4 and L27:s111.1).", lab) == \
+        "The deadline is 1 June 2026 (calculate from fact ¶4 and Employment Rights Act 1996, s 111)."
+    assert strip_ids("Repay under the Housing Act 2004 (L23:s214.1, L23:s215.3). Notified (F2) [J06:p3].", lab) == \
+        "Repay under the Housing Act 2004. Notified."
+    assert strip_ids("Under clause F2 of the lease the tenant must repair.", lab) == \
+        "Under clause F2 of the lease the tenant must repair."

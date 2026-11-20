@@ -166,7 +166,11 @@ def make_session(fact_sheet: FactSheet, settings: Settings, client=None, corpus:
         retriever = HybridRetriever(corpus, doctrine_boost=settings.doctrine_boost, embedder=embedder)
     if client is None and settings.uses_llm:
         client = build_chat_client(settings)
-    return CaseSession(settings=settings, corpus=corpus, retriever=retriever, fact_sheet=fact_sheet, client=client)
+    strong = None
+    if client is not None and settings.compiler_model and settings.compiler_model != settings.model:
+        strong = build_chat_client(settings.with_overrides(model=settings.compiler_model))
+    return CaseSession(settings=settings, corpus=corpus, retriever=retriever, fact_sheet=fact_sheet, client=client,
+                       strong_client=strong)
 
 
 async def run_case(fact_sheet: FactSheet | str | Path, settings: Settings, client=None, *,

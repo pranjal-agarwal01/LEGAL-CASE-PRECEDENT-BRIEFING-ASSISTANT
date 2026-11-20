@@ -56,6 +56,7 @@ class CompiledBrief(BaseModel):
 
 class BriefCompilerAgent(BaseLegalAgent):
     name = "brief_compiler"
+    strong = True
     description = "Merges the argument and counter-argument into a short, fully cited brief."
     tool_profile = "read"
     instructions = (
@@ -77,7 +78,9 @@ class BriefCompilerAgent(BaseLegalAgent):
         "citing the provision by its passage id (never by a description). Take every period (30 days, three "
         "months, six years) from the WORDS of the cited passage, never from memory; if no passage provided states "
         "the period, say that the period must be checked instead of stating one. Where the facts give the start "
-        "date, work out the deadline and state it as 'D Month YYYY', citing the fact. "
+        "date, work out the deadline and state it as 'D Month YYYY', citing the fact. Count carefully: a period "
+        "'beginning with' a date includes that date, so three months beginning with 2 March ends on 1 June; a "
+        "period 'from' or 'after' a date starts the next day. "
         "If the material contains no provision on time limits, return an empty list rather than guessing.\n"
         "- evidence: the documents and evidence to obtain to prove the disputed facts, citing the fact paragraph "
         "each one goes to.\n"
