@@ -41,6 +41,21 @@ class LibraryManager:
     def search_mode(self) -> str:
         return "semantic + keyword" if self.embedder else "keyword"
 
+    def warm(self) -> None:
+        """Embed the shared library once at startup (vectors are cached in the database), so the
+        first brief after a deploy does not wait for it."""
+        if not self.embedder:
+            return
+        try:
+            base = self.base(True)
+            probe = HybridRetriever(Corpus([]), embedder=None)  # reuse its document text format
+            probe.corpus = base
+            texts = [probe._doc_text(p) for p in base.passages]
+            self.embedder.embed(texts)
+            log.info("embedding cache warm: %d passages", len(texts))
+        except Exception as e:  # noqa: BLE001 - search falls back to keywords
+            log.warning("could not warm the embedding cache: %s", e)
+
     def base(self, include_summaries: bool) -> Corpus:
         return load_library(self.settings, LibrarySpec(summaries=include_summaries, legislation=True))
 

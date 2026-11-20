@@ -55,7 +55,11 @@ async def lifespan(app: FastAPI):
     app.state.jobs = JobManager(settings, app.state.library, int(os.environ.get("MAX_CONCURRENT_RUNS", "2")))
     app.state.jobs.recover()
     app.state.jobs.bind_loop()
+    import asyncio
+
+    warm = asyncio.get_running_loop().run_in_executor(None, app.state.library.warm)
     yield
+    warm.cancel()
 
 
 app = FastAPI(title="Precedent", lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url="/api/openapi.json")
