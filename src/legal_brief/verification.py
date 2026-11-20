@@ -97,7 +97,7 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
             if not any(c.split(":")[0] == e.judgment_id for c in e.proposition.citations):
                 e.proposition.citations = [s.key_ref(e.judgment_id, s.board.get(issue.issue_id)),
                                            *e.proposition.citations]
-            statements.append(("", e.proposition, f"precedent:{issue.issue_id}:{e.judgment_id}"))
+            statements.append(("", e.proposition, f"precedent:{issue.issue_id}:{e.judgment_id}:{e.stance}"))
         for st in issue.supporting_argument + issue.opposing_argument + [issue.assessment]:
             statements.append(("", st, "statement"))
     to_check = []
@@ -127,7 +127,7 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
             log.warning("support check failed: %s", e)
 
     warnings: list[str] = []
-    drop: set[tuple[str, str]] = set()
+    drop: set[tuple[str, str, str]] = set()  # (issue, authority, stance): only the side that failed
     for sid, st, role in to_check:
         v = verdicts.get(sid)
         if not v:
@@ -136,23 +136,30 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
         stats["checked"] += 1
         stats[v.verdict] += 1
         if v.verdict == "unsupported" and role.startswith("precedent:"):
-            _, issue_id, jid = role.split(":")
-            drop.add((issue_id, jid))
+            _, issue_id, jid, stance = role.split(":")
+            drop.add((issue_id, jid, stance))
             warnings.append(f"Removed {jid} from {issue_id}: its cited passage does not support "
                             f"'{st.text[:90]}' ({v.note.strip()})")
     for issue in out.issues:
         for attr in ("supporting_precedents", "opposing_precedents"):
-            kept = [e for e in getattr(issue, attr) if (issue.issue_id, e.judgment_id) not in drop]
+            kept = [e for e in getattr(issue, attr) if (issue.issue_id, e.judgment_id, e.stance) not in drop]
             stats["removed_precedents"] += len(getattr(issue, attr)) - len(kept)
             setattr(issue, attr, kept)
         authorities = issue.supporting_precedents + issue.opposing_precedents
         backed = [e for e in authorities if e.proposition.support in ("supported", "partial")]
-        if not backed and issue.coverage != "none":
+        # Arguments and the assessment count too when the law they cite was verified.
+        argued = [st for st in issue.supporting_argument + issue.opposing_argument + [issue.assessment]
+                  if st.support == "supported" and _authority_cites(st)]
+        if not backed and not argued and issue.coverage != "none":
             issue.coverage = "none"
             issue.coverage_note = issue.coverage_note or (
                 "No authority in the library was verified as supporting either side of this issue. Research it "
                 "independently.")
-        elif backed and len(backed) < 2 and issue.coverage == "good":
+        elif not backed and argued and issue.coverage == "good":
+            issue.coverage = "weak"
+            issue.coverage_note = issue.coverage_note or (
+                "The arguments rest on verified provisions, but no authority was confirmed for the precedent lists.")
+        elif backed and len(backed) < 2 and not argued and issue.coverage == "good":
             issue.coverage = "weak"
             issue.coverage_note = issue.coverage_note or "Only one verified authority on this issue."
     out.warnings = list(dict.fromkeys([*out.warnings, *warnings]))

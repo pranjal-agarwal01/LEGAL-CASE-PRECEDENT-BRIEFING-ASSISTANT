@@ -92,7 +92,10 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
                                             "citations": ["J37:p3"]},
                                            {"judgment_id": "J38", "stance": "opposing",
                                             "proposition": "Not where only one party's purpose fails.",
-                                            "citations": ["J38:p3"]}],
+                                            "citations": ["J38:p3"]},
+                                           {"judgment_id": "J37", "stance": "opposing",
+                                            "proposition": "Frustration needs a shared purpose to fail.",
+                                            "citations": ["J37:p3"]}],
                             "supporting_argument": [{"text": "Both parties knew of the fireworks.", "citations": ["F2"]}],
                             "opposing_argument": [{"text": "The terrace was still usable.", "citations": ["F5", "J38:p2"]}],
                             "assessment": {"text": "Favourable but contested.", "citations": ["J37:p2", "J38:p3"]}}],
@@ -133,9 +136,11 @@ def test_llm_mode_end_to_end(settings, fs_dir):
 
     # the source checker graded the statements; the unsupported J38 proposition was removed
     sup = compiled.support_report
-    assert sup["checked"] >= 3 and sup["unsupported"] == 1 and sup["removed_precedents"] == 1
+    assert sup["checked"] >= 4 and sup["unsupported"] == 1 and sup["removed_precedents"] == 1
     issue = compiled.final.issues[0]
-    assert [e.judgment_id for e in issue.supporting_precedents] == ["J37"] and not issue.opposing_precedents
+    # J38 (unsupported) is removed; J37 stays on BOTH sides because only J38's proposition failed
+    assert [e.judgment_id for e in issue.supporting_precedents] == ["J37"]
+    assert [e.judgment_id for e in issue.opposing_precedents] == ["J37"]
     assert issue.supporting_precedents[0].proposition.support == "supported"
     assert any(w.startswith("Removed J38") for w in compiled.final.warnings)
     assert client.requests.count("SupportCheckLLM") == 1
