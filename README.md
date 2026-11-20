@@ -21,7 +21,10 @@ source does not say.
 |---|---|
 | **Matters** | Facts typed or imported from Word / PDF, numbered so the brief can cite each paragraph. |
 | **Briefs** | Issues, authorities for and against the client, both sides' arguments, an assessment and a conclusion, with live progress while the agents work. Export to Word or Markdown. |
-| **Source check** | Every statement that cites law is graded *verified*, *partly supported* or *not supported* against the cited passage. Unsupported authorities are removed; issues the library cannot answer are flagged instead of padded with unrelated cases. |
+| **Source check** | Every statement that cites law is graded *verified*, *partly supported* or *not supported* against the cited passage, and every authority is graded for relevance to its issue. Unsupported or off-point authorities are removed; issues the library cannot answer are flagged instead of padded with unrelated cases. Time limits count as verified only if the provision states that exact period for that exact right. |
+| **Verbatim quotes** | Each authority carries the exact words relied on, matched character by character against the source; when the model paraphrases, the best-matching sentence of the cited passage is quoted instead. |
+| **Next steps** | Remedies, time limits with worked-out dates, evidence to obtain (a tick-list) and questions for the client (copy for an email). Verified deadlines from every matter appear in a "Coming up" panel. |
+| **Debate with memory** | The two advocates each keep one conversation across rounds, so round 2 builds on their own research and case theory rather than a summary. |
 | **Library** | 31 statutes and regulations (1,159 citable provisions) across contract and consumer, tort and personal injury, landlord and tenant, and employment; judgments the firm uploads (paragraph numbers kept, metadata and doctrines indexed automatically); 50 optional leading-case teaching summaries. |
 | **Firm accounts** | Firm workspaces, administrator and member roles, temporary passwords for new colleagues, an activity log, daily brief limits. Firms never see each other's matters or uploads. |
 
