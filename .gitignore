@@ -4,3 +4,10 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .env
+
+# Web app
+var/
+web/node_modules/
+web/dist/
+*.tmp.npz
+web/tsconfig.tsbuildinfo

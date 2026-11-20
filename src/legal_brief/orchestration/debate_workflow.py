@@ -29,7 +29,7 @@ from legal_brief.agents import (ArgumentAgent, BriefCompilerAgent, CaseSession, 
                                 CounterArgumentAgent, FactExtractorAgent, PrecedentRetrievalAgent)
 from legal_brief.agents.debate_base import DebaterAgent
 from legal_brief.config import Settings
-from legal_brief.corpus import load_corpus
+from legal_brief.corpus import Corpus, load_library
 from legal_brief.factsheet import load_fact_sheet
 from legal_brief.llm import build_chat_client
 from legal_brief.models import FactSheet
@@ -151,19 +151,27 @@ class CaseResult:
         return self.compiled.final
 
 
-def make_session(fact_sheet: FactSheet, settings: Settings, client=None) -> CaseSession:
-    corpus = load_corpus(str(settings.corpus_path))
-    retriever = HybridRetriever(corpus, doctrine_boost=settings.doctrine_boost)
+def make_session(fact_sheet: FactSheet, settings: Settings, client=None, corpus: Corpus | None = None,
+                 retriever: HybridRetriever | None = None) -> CaseSession:
+    if retriever is not None:
+        corpus = retriever.corpus
+    corpus = corpus or load_library(settings)
+    retriever = retriever or HybridRetriever(corpus, doctrine_boost=settings.doctrine_boost)
     if client is None and settings.uses_llm:
         client = build_chat_client(settings)
     return CaseSession(settings=settings, corpus=corpus, retriever=retriever, fact_sheet=fact_sheet, client=client)
 
 
-async def run_case(fact_sheet: FactSheet | str | Path, settings: Settings, client=None) -> CaseResult:
-    """Run the full multi-agent debate for one fact sheet and return the compiled brief."""
+async def run_case(fact_sheet: FactSheet | str | Path, settings: Settings, client=None, *,
+                   retriever: HybridRetriever | None = None, on_event=None) -> CaseResult:
+    """Run the full multi-agent debate for one fact sheet and return the compiled brief.
+
+    `retriever` lets a caller (the web app) reuse a library index across runs; `on_event`
+    receives every trace entry as the agents work, for live progress."""
     if not isinstance(fact_sheet, FactSheet):
         fact_sheet = load_fact_sheet(fact_sheet)
-    session = make_session(fact_sheet, settings, client)
+    session = make_session(fact_sheet, settings, client, retriever=retriever)
+    session.on_event = on_event
     start = time.perf_counter()
     workflow = build_debate_workflow(session)
     result = await workflow.run(fact_sheet)

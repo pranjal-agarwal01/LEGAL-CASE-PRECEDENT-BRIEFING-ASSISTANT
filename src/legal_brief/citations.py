@@ -1,11 +1,14 @@
-"""Citation ids, validation against the corpus, rendering and the citation guard.
+"""Citation ids, validation against the library, rendering and the citation guard.
 
 Citation ids used throughout the system:
-    J01:p2  passage p2 of judgment J01        J01  the judgment as a whole
-    F3      paragraph 3 of the fact sheet
+    J01:p2   passage p2 of case summary J01          J01   the authority as a whole
+    L01:s62  section 62 of statute L01 (s11.2 = part 2 of a long section; s11 = the whole section)
+    U12:p45  paragraph 45 of uploaded judgment U12
+    F3       paragraph 3 of the fact sheet
 Free-text case names in a statement ("... as in Smith v Jones ...") are also
-checked: a name that matches no judgment in the corpus counts as a citation that
-does not exist.
+checked: a name that matches no judgment in the library counts as a citation that
+does not exist. Statute names ("... Housing Act 2004 ...") that are not in the
+library produce a warning.
 """
 
 from __future__ import annotations
@@ -17,19 +20,34 @@ from dataclasses import dataclass, field
 from legal_brief.corpus import Corpus
 from legal_brief.models import Brief, CitedStatement, FactSheet
 
-CITE_RE = re.compile(r"^(?:(J\d{2,3})(?::(p\d+))?|F(\d+))$")
-INLINE_CITE_RE = re.compile(r"\[((?:J\d{2,3}(?::p\d+)?|F\d+)(?:\s*[,;]\s*(?:J\d{2,3}(?::p\d+)?|F\d+))*)\]")
+_AUTH = r"[JLU]\d{1,6}"
+_PID = r"[a-z]{1,3}\d+[A-Za-z]*(?:\.\d+)?"
+CITE_RE = re.compile(rf"^(?:({_AUTH})(?::({_PID}))?|F(\d+))$")
+_ONE = rf"(?:{_AUTH}(?::{_PID})?|F\d+)"
+INLINE_CITE_RE = re.compile(rf"\[({_ONE}(?:\s*[,;]\s*{_ONE})*)\]")
 _CAP = r"[A-Z][\w'&.\-]*"
 _LINK = rf"(?:{_CAP}|of|and|&|the|de|la|for)"
 CASE_NAME_RE = re.compile(rf"\b({_CAP}(?:\s+{_LINK}){{0,7}}?)\s+v\.?\s+({_CAP}(?:\s+{_LINK}){{0,7}})")
+_LEADING = {"Under", "Section", "By", "In", "The", "See", "Per", "Applying", "As", "Following", "Unlike", "Also",
+            "Both", "Neither", "Schedule", "Part"}
+_WORD = r"(?:[A-Z][\w'’]*|\([A-Z][\w'’ ,]*\)|of|and|the|for)"
+ACT_NAME_RE = re.compile(rf"\b({_WORD}(?:\s+{_WORD}){{0,9}}\s+(?:Act|Regulations)\s+(?:19|20)\d\d)\b")
 
 
 def normalise(cite: str) -> str:
-    c = cite.strip().strip("[]()").replace(" ", "")
-    c = re.sub(r"(?i)^j", "J", c)
-    c = re.sub(r"(?i):P", ":p", c)
-    c = re.sub(r"(?i)^f(?=\d)", "F", c)
+    c = cite.strip().strip("[]()").replace(" ", "").replace("¶", "p")
+    c = re.sub(r"^([jlu])(?=\d)", lambda m: m.group(1).upper(), c)
+    c = re.sub(r":([A-Za-z]{1,3})(?=\d)", lambda m: ":" + m.group(1).lower(), c)
+    c = re.sub(r"^f(?=\d)", "F", c)
     return c
+
+
+def resolve_passage(corpus: Corpus, jid: str, pid: str):
+    """The passage for jid:pid, or the first part when pid names a whole section that was split."""
+    j = corpus.get(jid)
+    if not j:
+        return None
+    return j.passage(pid) or next((p for p in j.passages if p.pid.startswith(pid + ".")), None)
 
 
 @dataclass
@@ -61,7 +79,7 @@ class CitationValidator:
         j = self.corpus.get(jid)
         if not j:
             return CitationCheck(c, "unknown_judgment", "judgment")
-        if pid and not j.passage(pid):
+        if pid and not resolve_passage(self.corpus, jid, pid):
             return CitationCheck(c, "unknown_passage", "judgment")
         return CitationCheck(c, "valid", "judgment")
 
@@ -74,6 +92,20 @@ class CitationValidator:
             found = self.corpus.find_by_name(name)
             out.append(CitationCheck(name, "valid" if found else "unknown_case_name", "case_name"))
         return out
+
+    def unknown_acts(self, text: str) -> list[str]:
+        """Statute names in the text that are not in the library (reported, not removed)."""
+        unknown = []
+        for m in ACT_NAME_RE.finditer(text):
+            words = m.group(1).split()
+            suffixes = [" ".join(words[i:]) for i in range(len(words) - 2)]
+            if any(self.corpus.find_act(s) for s in suffixes):
+                continue
+            # Report the name without leading sentence words ("Under the ...", "and the ...").
+            while len(words) > 3 and (words[0][0].islower() or words[0] in _LEADING or words[1] == "the"):
+                words = words[1:]
+            unknown.append(" ".join(words))
+        return list(dict.fromkeys(unknown))
 
     def check_statement(self, st: CitedStatement) -> list[CitationCheck]:
         cites = list(st.citations) + [c for grp in INLINE_CITE_RE.findall(st.text) for c in re.split(r"[,;]", grp)]
@@ -158,6 +190,10 @@ def guard_brief(brief: Brief, validator: CitationValidator) -> tuple[Brief, list
         bad = [c for c in [*st.citations, *inline] if not validator.check(c).valid]
         if bad:
             warnings.append(f"Removed non-existent citation(s) {bad} from: {st.text[:80]}")
+        acts = validator.unknown_acts(st.text)
+        if acts:
+            warnings.append(f"Mentions legislation not in your library ({', '.join(acts)}); verify it independently: "
+                            f"{st.text[:80]}")
         if bad_names:
             warnings.append(f"Dropped claim naming case(s) not in the corpus {bad_names}: {st.text[:80]}")
             return None
@@ -165,7 +201,7 @@ def guard_brief(brief: Brief, validator: CitationValidator) -> tuple[Brief, list
             warnings.append(f"Dropped uncited claim: {st.text[:80]}")
             return None
         text = re.sub(r"\s+([.,;:])", r"\1", INLINE_CITE_RE.sub("", st.text)).strip()
-        return CitedStatement(text=text, citations=list(dict.fromkeys(good)))
+        return st.model_copy(update={"text": text, "citations": list(dict.fromkeys(good))})
 
     def clean_list(items: list[CitedStatement]) -> list[CitedStatement]:
         return [c for c in (clean(i) for i in items) if c is not None]
@@ -207,4 +243,9 @@ def render_citation(cite: str, corpus: Corpus) -> str:
     j = corpus.get(jid)
     if not j:
         return c
-    return f"*{j.name}* {j.citation}" + (f", ¶{pid[1:]}" if pid else "")
+    if not pid:
+        return j.cite()
+    p = resolve_passage(corpus, jid, pid)
+    if p and p.pid != pid:  # whole section cited: show "s 11", not "s 11 (part 1 of 3)"
+        return j.cite().rstrip() + (", " if j.is_legislation else ", ") + re.sub(r"\s*\(part \d+ of \d+\)", "", p.display)
+    return j.cite(pid)

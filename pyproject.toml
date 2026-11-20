@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "legal-brief"
-version = "1.0.0"
+version = "2.0.0"
 description = "Legal Case Precedent Briefing Assistant: a multi-agent debate system (Microsoft Agent Framework) that turns a case fact sheet into a cited brief."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -20,7 +20,18 @@ dependencies = [
 openai = ["agent-framework-openai==1.18.0"]
 # Anthropic Claude (preview connector: install with `pip install --pre`)
 anthropic = ["agent-framework-anthropic==1.0.0b261030"]
-dev = ["pytest>=8"]
+# The web application (FastAPI, database, document parsing)
+web = [
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.32.1",
+    "sqlalchemy==2.0.36",
+    "psycopg[binary]==3.2.3",
+    "pypdf==5.1.0",
+    "python-docx==1.1.2",
+    "python-multipart==0.0.20",
+    "email-validator==2.2.0",
+]
+dev = ["pytest>=8", "httpx==0.28.1"]
 
 [project.scripts]
 legal-brief = "legal_brief.cli:main"

@@ -49,10 +49,22 @@ class Settings:
     strict_llm: bool = False
     data_dir: Path = field(default=PROJECT_ROOT / "data")
     output_dir: Path = field(default=PROJECT_ROOT / "outputs")
+    # Library: the CLI and evaluation default to the teaching summaries only; the web app adds legislation.
+    include_summaries: bool = True
+    include_legislation: bool = False
+    # Embeddings (semantic search). Empty = keyword search plus model reranking.
+    embedding_model: str = ""
+    embedding_dims: int = 512
+    # Source-support check: verify that cited passages actually support each claim (LLM mode).
+    verify_support: bool = True
 
     @property
     def corpus_path(self) -> Path:
         return self.data_dir / "corpus" / "judgments.json"
+
+    @property
+    def legislation_path(self) -> Path:
+        return self.data_dir / "library" / "legislation.json"
 
     @property
     def fact_sheet_dir(self) -> Path:
@@ -97,4 +109,9 @@ class Settings:
             strict_llm=_env("STRICT_LLM", "false").lower() in {"1", "true", "yes"},
             data_dir=Path(_env("LEGAL_BRIEF_DATA", str(PROJECT_ROOT / "data"))),
             output_dir=Path(_env("LEGAL_BRIEF_OUTPUT", str(PROJECT_ROOT / "outputs"))),
+            include_summaries=_env("INCLUDE_SUMMARIES", "true").lower() in {"1", "true", "yes"},
+            include_legislation=_env("INCLUDE_LEGISLATION", "false").lower() in {"1", "true", "yes"},
+            embedding_model=_env("EMBEDDING_MODEL"),
+            embedding_dims=int(_env("EMBEDDING_DIMS", "512")),
+            verify_support=_env("VERIFY_SUPPORT", "true").lower() in {"1", "true", "yes"},
         )

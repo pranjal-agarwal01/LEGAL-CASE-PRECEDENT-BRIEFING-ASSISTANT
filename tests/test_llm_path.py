@@ -37,7 +37,19 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
             return ChatResponse(messages=[Message("assistant", [call])])
         self.tool_results += [str(r.result) for r in results]
         issue_ids = sorted(set(re.findall(r'"issue_id": "(I\d+)"', text))) or ["I1"]
+        if name == "SupportCheckLLM":
+            return ChatResponse(messages=[Message("assistant", [json.dumps(self._support(text))])])
         return ChatResponse(messages=[Message("assistant", [json.dumps(self._payload(name, issue_ids))])])
+
+    @staticmethod
+    def _support(text):
+        """Grade every statement 'supported', except the proposition attributed to J38, which the
+        scripted checker rejects so the test can see an unsupported authority removed."""
+        items = json.loads(text[text.index("["):])
+        return {"verdicts": [{"id": it["id"],
+                              "verdict": "unsupported" if "one party" in it["statement"] else "supported",
+                              "note": "passage is about something else" if "one party" in it["statement"] else ""}
+                             for it in items]}
 
     @staticmethod
     def _payload(name, issue_ids):
@@ -59,7 +71,8 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
             # many picks on purpose: the hybrid shortlist must still survive in full
             return {"selections": [{"issue_id": i, "judgment_ids": ["J37", "J99", "J38", "J01", "J02", "J03", "J04",
                                                                     "J05", "J06", "J07", "J08"],
-                                    "queries_used": ["coronation procession cancelled hire"], "reason": "analogous"}
+                                    "queries_used": ["coronation procession cancelled hire"], "reason": "analogous",
+                                    "coverage": "good", "coverage_note": ""}
                                    for i in issue_ids]}
         if name == "PrepareLLM":
             return {"framed_issues": [{"issue_id": "I1", "question": "Was Mr Rowe's hire frustrated?",
@@ -117,6 +130,15 @@ def test_llm_mode_end_to_end(settings, fs_dir):
     assert final["existence_rate"] == 1.0 and final["claim_coverage"] == 1.0
     assert any("Grimes" in w for w in compiled.final.warnings)
     assert set(final["cited_judgments"]) >= {"J37", "J38"}
+
+    # the source checker graded the statements; the unsupported J38 proposition was removed
+    sup = compiled.support_report
+    assert sup["checked"] >= 3 and sup["unsupported"] == 1 and sup["removed_precedents"] == 1
+    issue = compiled.final.issues[0]
+    assert [e.judgment_id for e in issue.supporting_precedents] == ["J37"] and not issue.opposing_precedents
+    assert issue.supporting_precedents[0].proposition.support == "supported"
+    assert any(w.startswith("Removed J38") for w in compiled.final.warnings)
+    assert client.requests.count("SupportCheckLLM") == 1
 
 
 def test_llm_failure_falls_back_to_offline(settings, fs_dir):

@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 
 Side = Literal["argument", "counter"]
 Stance = Literal["supporting", "opposing"]
+Support = Literal["supported", "partial", "unsupported", "unchecked", "facts_only"]
 
 
 class CitedStatement(BaseModel):
@@ -19,6 +20,9 @@ class CitedStatement(BaseModel):
 
     text: str
     citations: list[str] = Field(default_factory=list)
+    # Set by the source-support check: does the cited material actually say this?
+    support: Support = "unchecked"
+    support_note: str = ""
 
 
 # ---------------------------------------------------------------- fact sheet
@@ -125,6 +129,9 @@ class PrecedentEntry(BaseModel):
 class IssueAnalysis(BaseModel):
     issue_id: str
     question: str
+    # How well the library covers this issue: good | weak | none (set by retrieval)
+    coverage: str = "good"
+    coverage_note: str = ""
     supporting_precedents: list[PrecedentEntry] = Field(default_factory=list)
     opposing_precedents: list[PrecedentEntry] = Field(default_factory=list)
     supporting_argument: list[CitedStatement] = Field(default_factory=list)

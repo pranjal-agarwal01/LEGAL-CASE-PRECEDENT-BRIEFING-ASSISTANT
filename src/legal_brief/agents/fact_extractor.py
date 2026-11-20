@@ -9,7 +9,7 @@ from datetime import datetime
 from pydantic import BaseModel
 
 from legal_brief.agents.base import BaseLegalAgent
-from legal_brief.doctrines import DOCTRINES, detect_doctrines, opposite, score_doctrines
+from legal_brief.doctrines import AREA_LABELS, DOCTRINES, detect_doctrines, opposite, score_doctrines
 from legal_brief.models import CitedStatement, ClaimItem, DatedEvent, Party, StructuredFacts
 
 MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December"
@@ -123,7 +123,7 @@ class FactExtractorAgent(BaseLegalAgent):
         claimants = [p.name for p in parties if p.role.startswith("claimant")] or ["Claimant"]
         defendants = [p.name for p in parties if p.role.startswith("defendant")] or ["Defendant"]
         areas = sorted({DOCTRINES[k].area for k, _ in detected})
-        basis = " / ".join({"tort": "Tort (negligence)", "contract": "Contract"}[a] for a in areas) or "Unclassified"
+        basis = " / ".join(AREA_LABELS.get(a, a.title()) for a in areas) or "Unclassified"
 
         def related_facts(doctrine: str) -> list[str]:
             pats = DOCTRINES[doctrine].patterns

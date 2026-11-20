@@ -16,6 +16,8 @@ class _LLMSelection(BaseModel):
     judgment_ids: list[str]
     queries_used: list[str]
     reason: str
+    coverage: str  # good | weak | none: does the library actually hold authority on this issue?
+    coverage_note: str
 
 
 class RetrievalSelectionLLM(BaseModel):
@@ -31,7 +33,10 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
         "judgments in the corpus that a careful lawyer would cite FOR or AGAINST the client. A hybrid search shortlist "
         "is provided; call search_judgments with your own reformulated queries (legal terms of art, doctrine names, "
         "analogous fact patterns) to find anything it missed, and read_passage when unsure. "
-        "Return judgment_ids only from search results; never invent a case. Include authorities on both sides."
+        "Return judgment_ids only from search results; never invent a case. Include authorities on both sides, and "
+        "the statute that governs the issue when the library has one. Then judge coverage honestly: 'good' if the "
+        "passages you found squarely address the issue, 'weak' if they are only analogous, 'none' if nothing in the "
+        "library deals with this area of law (say what is missing in coverage_note). Never pad a weak shortlist."
     )
 
     def _hybrid(self, issue: Issue) -> list[CandidatePrecedent]:
@@ -39,7 +44,7 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
         query = s.issue_query(issue)
         hits = s.retriever.search(query, top_k=s.settings.top_k, doctrine=issue.doctrine,
                                   doctrine_boost=s.settings.doctrine_boost)
-        return [CandidatePrecedent(h.judgment_id, [p.ref for p in h.passages[:2]], round(h.score, 4),
+        return [CandidatePrecedent(h.judgment_id, [p.ref for p in h.passages[:3]], round(h.score, 4),
                                    "hybrid_rag", query=query[:160]) for h in hits]
 
     async def run(self) -> list[str]:
@@ -52,6 +57,9 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
                                             lambda: shortlists)
         for issue in pending:
             self.session.board.attach_candidates(issue.id, selected.get(issue.id, shortlists[issue.id]), self.name)
+            if not issue.candidates:
+                self.session.board.set_coverage(issue.id, "none", "No authority in the library matched this issue.",
+                                                 self.name)
             self.session.log(self.name, "attached", f"{issue.id}: {issue.candidate_ids()}")
         return [i.id for i in pending]
 
@@ -61,7 +69,10 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
         for issue in pending:
             payload.append({
                 "issue_id": issue.id, "question": issue.question, "doctrine": issue.doctrine,
-                "hybrid_shortlist": [{"judgment_id": c.judgment_id, "case": s.corpus.get(c.judgment_id).full_name}
+                "hybrid_shortlist": [{"judgment_id": c.judgment_id, "kind": s.corpus.get(c.judgment_id).kind,
+                                      "authority": s.corpus.get(c.judgment_id).full_name,
+                                      "best_passages": [{"ref": r, "text": s.corpus.passage(r).text[:400]}
+                                                        for r in c.passage_refs[:2] if s.corpus.passage(r)]}
                                      for c in shortlists[issue.id]],
             })
         prompt = (f"Case: {s.fact_sheet.title} (acting for the {s.fact_sheet.acting_for}).\n\nFacts:\n"
@@ -70,6 +81,7 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
                   + f"\n\nFor each issue select up to {s.settings.top_k + 2} judgments, most relevant first.")
         out = await self.ask(prompt, RetrievalSelectionLLM)
         result: dict[str, list[CandidatePrecedent]] = {}
+        issue_by_id = {i.id: i for i in pending}
         for sel in out.selections:
             if sel.issue_id not in shortlists:
                 continue
@@ -80,11 +92,14 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
                 if not j or any(c.judgment_id == j.id for c in chosen):
                     continue  # unknown ids are discarded: retrieval only returns real judgments
                 chosen.append(base.get(j.id) or CandidatePrecedent(
-                    j.id, [f"{j.id}:p2", f"{j.id}:p3"], 0.0, "agent_search",
+                    j.id, s.retriever.best_passages(j.id, s.issue_query(issue_by_id[sel.issue_id])),
+                    0.0, "agent_search",
                     query="; ".join(sel.queries_used)[:160], reason=sel.reason))
             # Cap only the agent's own picks, then add every hybrid hit it did not mention, so the
             # agent can reorder and extend the shortlist but never lower recall below the baseline.
             chosen = chosen[: s.settings.top_k]
+            s.board.set_coverage(sel.issue_id, (sel.coverage or "good").strip().lower(), sel.coverage_note.strip(),
+                                 self.name)
             chosen += [c for c in shortlists[sel.issue_id] if c.judgment_id not in {x.judgment_id for x in chosen}]
             result[sel.issue_id] = chosen
         return result

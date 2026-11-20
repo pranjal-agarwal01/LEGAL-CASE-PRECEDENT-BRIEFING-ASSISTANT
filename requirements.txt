@@ -8,5 +8,16 @@ rich>=13.7
 agent-framework-openai==1.18.0          # OpenAI / Azure OpenAI / Ollama (OpenAI-compatible)
 # agent-framework-anthropic==1.0.0b261030  # Claude; preview build, needs: pip install --pre
 
+# Web application
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+sqlalchemy==2.0.36
+psycopg[binary]==3.2.3
+pypdf==5.1.0
+python-docx==1.1.2
+python-multipart==0.0.20
+email-validator==2.2.0
+
 # Tests
 pytest>=8
+httpx==0.28.1

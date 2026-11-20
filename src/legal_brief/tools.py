@@ -21,7 +21,7 @@ def make_tools(agent_name: str, *, corpus: Corpus, retriever: HybridRetriever, b
                top_k: int = 5, can_write: bool = True) -> list[FunctionTool]:
 
     def search_judgments(
-        query: Annotated[str, "Natural-language search over the judgment corpus"],
+        query: Annotated[str, "Natural-language search over the authority library"],
         doctrine: Annotated[str, "Optional doctrine key to prioritise, e.g. 'frustration' or ''"] = "",
     ) -> str:
         hits = retriever.search(query, top_k=top_k, doctrine=doctrine or None)
@@ -29,8 +29,10 @@ def make_tools(agent_name: str, *, corpus: Corpus, retriever: HybridRetriever, b
         for h in hits:
             j = corpus.get(h.judgment_id)
             out.append({
-                "judgment_id": h.judgment_id, "case": j.full_name, "court": j.court, "score": round(h.score, 3),
-                "passages": [{"ref": p.ref, "text": corpus.passage(p.ref).text} for p in h.passages[:2]],
+                "judgment_id": h.judgment_id, "kind": j.kind, "authority": j.full_name,
+                "court": "" if j.is_legislation else j.court, "score": round(h.score, 3),
+                "passages": [{"ref": p.ref, "label": corpus.passage(p.ref).display, "text": corpus.passage(p.ref).text}
+                             for p in h.passages[:2]],
             })
         return json.dumps(out)
 
@@ -39,7 +41,8 @@ def make_tools(agent_name: str, *, corpus: Corpus, retriever: HybridRetriever, b
         if not p:
             return json.dumps({"error": f"{ref} does not exist in the corpus"})
         j = corpus.get(p.judgment_id)
-        return json.dumps({"ref": p.ref, "case": j.full_name, "section": p.section, "text": p.text})
+        return json.dumps({"ref": p.ref, "authority": j.full_name, "kind": j.kind, "label": p.display,
+                           "text": p.text})
 
     def list_issues() -> str:
         return board.compact_view(corpus)
@@ -66,13 +69,16 @@ def make_tools(agent_name: str, *, corpus: Corpus, retriever: HybridRetriever, b
         if not issue:
             return json.dumps({"error": f"no issue {issue_id}"})
         if judgment_id not in issue.candidate_ids():
-            board.attach_candidates(issue_id, [CandidatePrecedent(judgment_id, [f"{judgment_id}:p2"], 0.0, agent_name, reason=reason)], agent_name)
+            refs = retriever.best_passages(judgment_id, f"{issue.question} {reason}")
+            board.attach_candidates(issue_id, [CandidatePrecedent(judgment_id, refs, 0.0, agent_name, reason=reason)],
+                                    agent_name)
         board.mark_stance(issue_id, judgment_id, "supporting" if stance.startswith("support") else "opposing", agent_name, reason)
         return json.dumps({"ok": True})
 
     read_tools = [
         tool(search_judgments, name="search_judgments",
-             description="Search the judgment corpus (hybrid BM25 + dense). Returns judgment ids, case names and passage refs you may cite."),
+             description="Search the authority library (statutes, judgments and case summaries). Returns "
+                         "authority ids, names and passage refs you may cite."),
         tool(read_passage, name="read_passage", description="Read the full text of one passage by its ref, e.g. 'J06:p3'."),
         tool(list_issues, name="list_issues", description="Read the shared issue list, including candidate precedents and stances so far."),
     ]

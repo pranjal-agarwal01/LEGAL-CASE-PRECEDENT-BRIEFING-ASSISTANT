@@ -10,6 +10,7 @@ from legal_brief.citations import CitationReport, CitationValidator, audit_brief
 from legal_brief.corpus import first_sentence
 from legal_brief.memory import Issue
 from legal_brief.models import Brief, CitedStatement, IssueAnalysis, PrecedentEntry
+from legal_brief.verification import verify_brief
 
 
 # ----------------------------------------------------------------- LLM schema
@@ -45,6 +46,7 @@ class CompiledBrief(BaseModel):
     final: Brief
     raw_report: dict
     final_report: dict
+    support_report: dict = {}
 
 
 class BriefCompilerAgent(BaseLegalAgent):
@@ -56,7 +58,8 @@ class BriefCompilerAgent(BaseLegalAgent):
         "counsel, the shared issue list and the retrieved authorities. Write a short, balanced brief for a "
         "supervising lawyer: a summary, then for each issue the supporting and opposing precedents with the "
         "proposition each stands for, the best points on each side, and a reasoned assessment. Every statement must "
-        "cite at least one passage id (e.g. 'J06:p3') or fact ref (e.g. 'F2') from the material provided; issue ids "
+        "cite at least one passage id (e.g. 'J06:p3', 'L21:s11.1', 'U4:p37') or fact ref (e.g. 'F2') from the "
+        "material provided, and each cited passage must itself support the statement; issue ids "
         "such as 'I1' are labels, never citations. Never introduce an authority that is not in the material. For "
         "each issue, list every authority either debater relied on or attacked, on the correct side. Be concise: "
         "one to three sentences per statement."
@@ -70,20 +73,32 @@ class BriefCompilerAgent(BaseLegalAgent):
         validator = CitationValidator(s.corpus, s.fact_sheet)
         raw_report: CitationReport = audit_brief(raw, validator)
         final, removed = guard_brief(raw, validator)
+        s.log(self.name, "citation_guard", f"raw existence {raw_report.existence_rate:.2%}, {len(removed)} repair(s)")
+        for ia in final.issues:  # carry the library-coverage verdict from the issue list into the brief
+            bi = s.board.get(ia.issue_id)
+            if bi:
+                ia.coverage, ia.coverage_note = bi.coverage, bi.coverage_note
+        if self.uses_llm and s.settings.verify_support:
+            s.log("source_checker", "start", "checking that cited passages support each statement")
+        final, _, support = await verify_brief(self, final)
+        if support["mode"] != "off":
+            s.log("source_checker", "done", f"{support['checked']} statements: {support['supported']} supported, "
+                                            f"{support['partial']} partial, {support['unsupported']} unsupported; "
+                                            f"{support['removed_precedents']} authorities removed")
         final.warnings = list(dict.fromkeys([*final.warnings, *s.warnings]))
         final_report = audit_brief(final, validator)
         for ia in final.issues:
             s.board.resolve(ia.issue_id, ia.assessment.text, self.name)
-        s.log(self.name, "citation_guard", f"raw existence {raw_report.existence_rate:.2%}, "
-                                           f"{len(removed)} repair(s); final coverage {final_report.coverage:.2%}")
-        return CompiledBrief(raw=raw, final=final, raw_report=raw_report.as_dict(), final_report=final_report.as_dict())
+        s.log(self.name, "done", f"final claim coverage {final_report.coverage:.2%}")
+        return CompiledBrief(raw=raw, final=final, raw_report=raw_report.as_dict(),
+                             final_report=final_report.as_dict(), support_report=support)
 
     # ----------------------------------------------------------------- helpers
     def _entry(self, jid: str, stance: str) -> PrecedentEntry | None:
         j = self.session.corpus.get(jid)
         if not j:
             return None
-        principle = j.section("principle") or j.passages[-1]
+        principle = self.session.corpus.passage(self.session.key_ref(jid)) or j.key_passage()
         return PrecedentEntry(judgment_id=j.id, case_name=j.name, citation=j.citation, stance=stance,  # type: ignore[arg-type]
                               proposition=CitedStatement(text=first_sentence(principle.text), citations=[principle.ref]))
 
@@ -200,8 +215,5 @@ class BriefCompilerAgent(BaseLegalAgent):
         s = self.session
         lines = ["FACTS:"] + [f"[{p.ref}] {p.text}" for p in s.fact_sheet.paragraphs]
         lines += ["", "SHARED ISSUE LIST:", s.board.compact_view(s.corpus), "", "AUTHORITIES (citable passages):"]
-        for jid in s.board.all_candidate_ids():
-            j = s.corpus.get(jid)
-            lines.append(f"{j.id} {j.full_name} ({j.court})")
-            lines += [f"  [{p.ref}] {p.text}" for p in j.passages]
+        lines += s.authorities_block()
         return "\n".join(lines)

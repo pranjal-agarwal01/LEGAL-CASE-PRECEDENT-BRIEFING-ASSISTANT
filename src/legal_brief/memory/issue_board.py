@@ -47,6 +47,8 @@ class Issue:
     opposing: list[str] = field(default_factory=list)
     notes: list[Note] = field(default_factory=list)
     assessment: str = ""
+    coverage: str = "good"  # good | weak | none: does the library hold authority on this issue?
+    coverage_note: str = ""
 
     def candidate_ids(self) -> list[str]:
         return [c.judgment_id for c in self.candidates]
@@ -124,6 +126,13 @@ class IssueBoard:
         if issue.status == "open":
             issue.status = "researched"
         self._log(author, "attach_precedents", issue_id, ", ".join(c.judgment_id for c in candidates) or "none found")
+
+    def set_coverage(self, issue_id: str, coverage: str, note: str, author: str) -> None:
+        issue = self.get(issue_id)
+        if not issue or coverage not in ("good", "weak", "none"):
+            return
+        issue.coverage, issue.coverage_note = coverage, note
+        self._log(author, "coverage", issue_id, f"{coverage}: {note}"[:200])
 
     def mark_stance(self, issue_id: str, judgment_id: str, stance: str, author: str, reason: str = "") -> None:
         issue = self.get(issue_id)

@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import json
 import logging
+import re
 import time
 from dataclasses import dataclass, field
 from typing import Any, Awaitable, Callable, TypeVar
@@ -43,15 +45,22 @@ class CaseSession:
     warnings: list[str] = field(default_factory=list)
     llm_calls: int = 0
     started: float = field(default_factory=time.perf_counter)
+    on_event: Callable[[dict], None] | None = None  # live progress hook (web app)
 
     @property
     def mode(self) -> str:
         return "llm:" + self.settings.provider if self.client is not None else "offline"
 
     def log(self, agent: str, action: str, detail: str = "") -> None:
-        self.trace.append({"t": round(time.perf_counter() - self.started, 3), "agent": agent,
-                           "action": action, "detail": detail, "round": self.board.round})
+        entry = {"t": round(time.perf_counter() - self.started, 3), "agent": agent,
+                 "action": action, "detail": detail, "round": self.board.round}
+        self.trace.append(entry)
         log.info("[%s] %s %s", agent, action, detail)
+        if self.on_event:
+            try:
+                self.on_event(entry)
+            except Exception:  # noqa: BLE001 - progress reporting must never break a run
+                log.exception("progress hook failed")
 
     def turns_by(self, speaker: str) -> list[DebateTurn]:
         return [t for t in self.turns if t.speaker == speaker]
@@ -83,6 +92,44 @@ class CaseSession:
             return ""
         words = p.text.split()
         return " ".join(words[:max_words]).rstrip(".,;") + ("..." if len(words) > max_words else ".")
+
+    # -------- authorities --------------------------------------------------------
+    def key_ref(self, jid: str, issue=None) -> str:
+        """The passage to cite for an authority: the best retrieved passage, else its key passage."""
+        issues = [issue] if issue is not None else self.board.issues
+        for i in issues:
+            c = i.candidate(jid)
+            if c and c.passage_refs:
+                return c.passage_refs[0]
+        j = self.corpus.get(jid)
+        return j.key_passage().ref if j else jid
+
+    def citable_passages(self, jid: str, limit: int = 4) -> list:
+        """Passages of one authority shown to the model: all of a short case summary, otherwise
+        the passages retrieval found for the issues (long judgments and statutes)."""
+        j = self.corpus.get(jid)
+        if not j:
+            return []
+        if j.kind == "summary" or len(j.passages) <= 3:
+            return list(j.passages)
+        refs = list(dict.fromkeys(r for i in self.board.issues if i.candidate(jid)
+                                  for r in i.candidate(jid).passage_refs))[:limit]
+        found = [self.corpus.passage(r) for r in refs]
+        return [p for p in found if p] or [j.key_passage()]
+
+    def authorities_block(self, with_tags: bool = False) -> list[str]:
+        lines = []
+        for jid in self.board.all_candidate_ids():
+            j = self.corpus.get(jid)
+            if not j:
+                continue
+            kind = {"legislation": "STATUTE", "judgment": "JUDGMENT", "summary": "CASE SUMMARY"}.get(j.kind, j.kind)
+            head = f"{j.id} [{kind}] {j.full_name}" + (f" ({j.court})" if not j.is_legislation else "")
+            if with_tags:
+                head += f" tags={json.dumps(j.doctrines)}"
+            lines.append(head)
+            lines += [f"  [{p.ref}] ({p.display}) {p.text}" for p in self.citable_passages(jid)]
+        return lines
 
     def issue_query(self, issue) -> str:
         d = DOCTRINES.get(issue.doctrine or "")
@@ -121,6 +168,13 @@ class BaseLegalAgent:
         self.session.llm_calls += 1
         return await run_structured(self.agent, prompt, schema, max_tokens=self.session.settings.max_tokens)
 
+    async def ask_as(self, name: str, instructions: str, prompt: str, schema: type[M]) -> M:
+        """One structured call to a tool-less helper agent with its own instructions (e.g. the source checker)."""
+        assert self.session.client is not None
+        helper = Agent(self.session.client, instructions, name=name)
+        self.session.llm_calls += 1
+        return await run_structured(helper, prompt, schema, max_tokens=self.session.settings.max_tokens)
+
     async def with_fallback(self, label: str, llm_step: Callable[[], Awaitable[T]], offline_step: Callable[[], T]) -> T:
         if not self.uses_llm:
             return offline_step()
@@ -133,3 +187,10 @@ class BaseLegalAgent:
             self.session.warnings.append(msg)
             self.session.log(self.name, "llm_fallback", msg)
             return offline_step()
+
+
+AUTHORITY_REF = re.compile(r"^[JLU]\d")
+
+
+def is_authority_ref(cite: str) -> bool:
+    return bool(AUTHORITY_REF.match(cite.strip()))

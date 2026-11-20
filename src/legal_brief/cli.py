@@ -19,7 +19,7 @@ from rich.markdown import Markdown
 from rich.table import Table
 
 from legal_brief.config import PROVIDERS, Settings
-from legal_brief.corpus import load_corpus
+from legal_brief.corpus import load_library
 from legal_brief.llm import LLMUnavailable
 
 console = Console()
@@ -94,7 +94,7 @@ def cmd_search(args) -> int:
     from legal_brief.retrieval import HybridRetriever
 
     settings = _settings(args)
-    corpus = load_corpus(str(settings.corpus_path))
+    corpus = load_library(settings)
     hits = HybridRetriever(corpus, doctrine_boost=settings.doctrine_boost).search(args.query, top_k=args.k,
                                                                                    doctrine=args.doctrine)
     table = Table(title=f"Top {args.k} judgments for: {args.query}")
@@ -110,7 +110,7 @@ def cmd_search(args) -> int:
 
 def cmd_corpus(args) -> int:
     settings = _settings(args)
-    corpus = load_corpus(str(settings.corpus_path))
+    corpus = load_library(settings)
     table = Table(title=f"Judgment corpus ({len(corpus)} judgments, {len(corpus.passages)} passages)")
     for col in ("Id", "Case", "Court", "Doctrines"):
         table.add_column(col)

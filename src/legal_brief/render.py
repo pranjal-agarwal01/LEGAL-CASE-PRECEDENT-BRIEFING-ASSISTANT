@@ -10,9 +10,8 @@ from legal_brief.citations import render_citation
 from legal_brief.corpus import Corpus
 from legal_brief.models import Brief, CitedStatement
 
-DISCLAIMER = ("Academic demonstration only. This is not legal advice. It was produced by a multi-agent prototype "
-              "from a synthetic fact sheet and a small teaching corpus of paraphrased judgment summaries; verify any "
-              "authority against the official law report.")
+DISCLAIMER = ("Prepared by an AI research assistant for review by a qualified lawyer. It is not legal advice. "
+              "Check every authority against the official source before relying on it.")
 
 
 def _cites(st: CitedStatement, corpus: Corpus) -> str:
@@ -56,7 +55,7 @@ def render_brief(brief: Brief, corpus: Corpus, *, mode: str = "offline", report:
     cited: dict[str, set[str]] = {}
     for st in brief.statements():
         for c in st.citations:
-            if c.startswith("J"):
+            if c[:1] in "JLU" and c[1:2].isdigit():
                 jid, _, pid = c.partition(":")
                 cited.setdefault(jid, set()).add(pid)
     out += ["## Authorities cited", ""]

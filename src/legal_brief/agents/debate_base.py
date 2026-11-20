@@ -6,7 +6,7 @@ import json
 
 from pydantic import BaseModel
 
-from legal_brief.agents.base import BaseLegalAgent
+from legal_brief.agents.base import BaseLegalAgent, is_authority_ref
 from legal_brief.corpus import Judgment, first_sentence
 from legal_brief.doctrines import DOCTRINES, opposite
 from legal_brief.memory import Issue
@@ -50,8 +50,11 @@ class DebateTurnLLM(BaseModel):
 
 
 CITATION_RULES = (
-    "Citation rules (strict): every point must carry citations. Cite judgments ONLY by the passage ids shown to "
-    "you, in the form 'J06:p3', and facts by 'F2'. A point that applies law to facts cites both. Issue ids such as "
+    "Citation rules (strict): every point must carry citations. Cite authorities ONLY by the passage ids shown "
+    "to you, in the form 'J06:p3', 'L21:s11.1' or 'U4:p37', and facts by 'F2'. Statutes (marked STATUTE) state the "
+    "law that applies; judgments and case summaries show how courts applied it. Each cited passage must itself say "
+    "what you attribute to it: do not cite a passage for a proposition it does not contain. If the material holds "
+    "no authority on a point, say so plainly instead of stretching an unrelated one. A point that applies law to facts cites both. Issue ids such as "
     "'I1' are labels, not citations: never put them in a citations list. Never cite or name "
     "a case that is not in the material provided, and never invent passage ids. Keep each point to 1-3 sentences."
 )
@@ -118,8 +121,7 @@ class DebaterAgent(BaseLegalAgent):
         return None
 
     def _principle_ref(self, j: Judgment) -> str:
-        p = j.section("principle") or j.passages[-1]
-        return p.ref
+        return self.session.key_ref(j.id)
 
     def _used_facts(self, issue: Issue) -> set[str]:
         """Fact refs this side already relied on for the issue, so each point adds a new fact."""
@@ -166,25 +168,26 @@ class DebaterAgent(BaseLegalAgent):
             if len(out) >= limit:
                 break
             # Only distinguish authorities the opponent relies on, never our own.
-            js = [s.corpus.get(c.split(":")[0]) for c in op.citations if c.startswith("J")]
+            js = [s.corpus.get(c.split(":")[0]) for c in op.citations if is_authority_ref(c)]
             js = [j for j in js if j and not self.favours_me(issue, j) and j.id not in answered]
             if not js:
                 continue
             j = js[0]
             answered.add(j.id)
-            fact = s.best_fact(issue.question + " " + j.passages[0].text, prefer_defendant=self.side == "counter",
-                               doctrine=issue.doctrine, exclude=used_facts) or s.best_fact(j.passages[0].text)
+            facts_p = j.section("facts") or s.corpus.passage(s.key_ref(j.id, issue)) or j.passages[0]
+            fact = s.best_fact(issue.question + " " + facts_p.text, prefer_defendant=self.side == "counter",
+                               doctrine=issue.doctrine, exclude=used_facts) or s.best_fact(facts_p.text)
             if fact:
                 used_facts.add(fact)
-            text = (f"{j.name} is distinguishable on its facts: {first_sentence(j.passages[0].text)} "
+            text = (f"{j.name} is distinguishable on its facts: {first_sentence(facts_p.text)} "
                     f"By contrast, in this case: {s.fact_text(fact) if fact else 'the facts differ materially.'}")
             out.append(ArgumentPoint(issue_id=issue.id, text=text, responds_to=op.point_id,
-                                     citations=[f"{j.id}:{j.passages[0].pid}"] + ([fact] if fact else [])))
+                                     citations=[facts_p.ref] + ([fact] if fact else [])))
         return out
 
     def _turn_offline(self, round_no: int) -> DebateTurn:
         used = {jid for t in self.session.turns_by(self.side) for p in t.points
-                for jid in (c.split(":")[0] for c in p.citations if c.startswith("J"))}
+                for jid in (c.split(":")[0] for c in p.citations if is_authority_ref(c))}
         points: list[ArgumentPoint] = []
         for issue in self.session.board.issues:
             if round_no == 1:
@@ -201,10 +204,7 @@ class DebaterAgent(BaseLegalAgent):
         lines = [f"Case: {s.fact_sheet.title}. Acting for the {s.fact_sheet.acting_for}.", "", "FACTS:"]
         lines += [f"[{p.ref}] {p.text}" for p in s.fact_sheet.paragraphs]
         lines += ["", "SHARED ISSUE LIST:", s.board.compact_view(s.corpus), "", "RETRIEVED AUTHORITIES (citable):"]
-        for jid in s.board.all_candidate_ids():
-            j = s.corpus.get(jid)
-            lines.append(f"{j.id} {j.full_name} ({j.court}) tags={json.dumps(j.doctrines)}")
-            lines += [f"  [{p.ref}] {p.text}" for p in j.passages]
+        lines += s.authorities_block(with_tags=True)
         return "\n".join(lines)
 
     async def _prepare_llm(self) -> None:

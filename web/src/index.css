@@ -1,0 +1,242 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/literata";
+@import "@fontsource-variable/literata/wght-italic.css";
+@import "@fontsource-variable/atkinson-hyperlegible-next";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Precedent: blue-black ink on neutral paper; the barrister's pink tape is the one accent.
+  Verification colours (verified / partial / unsupported) are kept apart from the brand accent.
+*/
+@theme inline {
+  --font-sans: "Atkinson Hyperlegible Next Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-serif: "Literata Variable", Georgia, "Times New Roman", serif;
+
+  --color-paper: var(--paper);
+  --color-vellum: var(--vellum);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-tape: var(--tape);
+  --color-tape-ink: var(--tape-ink);
+  --color-tape-wash: var(--tape-wash);
+  --color-verified: var(--verified);
+  --color-verified-wash: var(--verified-wash);
+  --color-partial: var(--partial);
+  --color-partial-wash: var(--partial-wash);
+  --color-unsupported: var(--unsupported);
+  --color-unsupported-wash: var(--unsupported-wash);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f6f6f2;
+  --vellum: #ecede7;
+  --ink: #18233a;
+  --ink-soft: #4d5669;
+  --rule: #d3d5ce;
+  --tape: #b8456a;
+  --tape-ink: #ffffff;
+  --tape-wash: #f6e3ea;
+  --verified: #2e6a4f;
+  --verified-wash: #e2efe7;
+  --partial: #8a6210;
+  --partial-wash: #f5ecd6;
+  --unsupported: #a3262a;
+  --unsupported-wash: #f7e1e0;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: #fbfbf8;
+  --card-foreground: var(--ink);
+  --popover: #fbfbf8;
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: #f6f6f2;
+  --secondary: var(--vellum);
+  --secondary-foreground: var(--ink);
+  --muted: var(--vellum);
+  --muted-foreground: #5b6476;
+  --accent: #e3e5dd;
+  --accent-foreground: var(--ink);
+  --destructive: var(--unsupported);
+  --border: var(--rule);
+  --input: #c4c7bf;
+  --ring: #6b7a99;
+  --radius: 0.375rem;
+}
+
+.dark {
+  color-scheme: dark;
+  --paper: #121826;
+  --vellum: #1a2133;
+  --ink: #e6e7e1;
+  --ink-soft: #aeb4c2;
+  --rule: #2c3549;
+  --tape: #e48aa8;
+  --tape-ink: #2a0d18;
+  --tape-wash: #3a1f2b;
+  --verified: #7cc4a0;
+  --verified-wash: #173328;
+  --partial: #e2b860;
+  --partial-wash: #3a2f15;
+  --unsupported: #f0898a;
+  --unsupported-wash: #3d1c1e;
+
+  --card: #161d2c;
+  --popover: #1a2133;
+  --primary: #e6e7e1;
+  --primary-foreground: #121826;
+  --muted-foreground: #9aa1b0;
+  --accent: #232c41;
+  --input: #364057;
+  --ring: #8da0c8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    overflow-x: clip;
+  }
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--tape-wash);
+  }
+}
+
+/* The brief: a reading column in Literata with a verification margin to its left. */
+.brief {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.68;
+  font-feature-settings: "onum" 1, "kern" 1;
+}
+@media (max-width: 640px) {
+  .brief { font-size: 16px; line-height: 1.62; }
+}
+.brief h2 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.brief h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
+}
+
+.cite {
+  font-family: var(--font-sans);
+  font-size: 0.78em;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--ink-soft);
+  border-bottom: 1px dotted currentColor;
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+.cite:hover,
+.cite[aria-pressed="true"] {
+  color: var(--tape);
+}
+
+/* Margin marks for source verification. */
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.mark-supported { background: var(--verified-wash); color: var(--verified); }
+.mark-partial { background: var(--partial-wash); color: var(--partial); }
+.mark-unsupported { background: var(--unsupported-wash); color: var(--unsupported); }
+.mark-facts_only, .mark-unchecked { background: transparent; color: var(--muted-foreground); border: 1px solid var(--rule); }
+
+/* The tape: a short vertical strip marking the active item. */
+.tape-active {
+  box-shadow: inset 3px 0 0 var(--tape);
+}
+
+@keyframes run-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse { animation: run-pulse 1.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.cite-inline {
+  font-size: 1em;
+  font-weight: 600;
+}

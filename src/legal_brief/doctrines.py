@@ -14,11 +14,15 @@ import re
 from dataclasses import dataclass, field
 
 
+AREA_LABELS = {"tort": "Tort (negligence)", "contract": "Contract", "property": "Landlord and tenant",
+               "employment": "Employment"}
+
+
 @dataclass(frozen=True)
 class Doctrine:
     key: str
     label: str
-    area: str  # "tort" or "contract"
+    area: str  # one of AREA_LABELS
     question: str  # may use {claimant} and {defendant}
     patterns: tuple[str, ...]
     query_terms: str
@@ -172,6 +176,175 @@ DOCTRINES: dict[str, Doctrine] = {
             "Was the innocent party entitled to terminate the contract for breach?",
             (r"terminat\w*", r"unseaworth\w*", r"innominate", r"right to end"),
             "termination innominate term deprived of substantially the whole benefit",
+        ),
+        # ------------------------------------------------- contract & consumer (statutory)
+        Doctrine(
+            "consumer_goods_rights", "Consumer rights in goods (CRA 2015 Part 1)", "contract",
+            "Were the goods supplied to {claimant} of satisfactory quality, fit for purpose and as described, and which statutory remedies follow?",
+            (r"\bconsumer\b", r"faulty", r"defective (goods|product|item)", r"refund", r"repair or replace\w*", r"satisfactory quality", r"fit for (its )?purpose", r"short-term right to reject"),
+            "consumer rights satisfactory quality fit for particular purpose goods as described right to reject repair replacement price reduction",
+        ),
+        Doctrine(
+            "consumer_services_rights", "Consumer rights in services", "contract",
+            "Was the service provided to {claimant} with reasonable care and skill, and is {claimant} entitled to repeat performance or a price reduction?",
+            (r"reasonable care and skill", r"(poor|shoddy|substandard) (work|workmanship|service)", r"\btrader\b", r"builder\w*", r"installer\w*"),
+            "service performed with reasonable care and skill repeat performance price reduction trader consumer",
+        ),
+        Doctrine(
+            "unfair_terms", "Unfair terms and statutory controls", "contract",
+            "Is the term relied on by {defendant} unfair or otherwise not binding under the Consumer Rights Act 2015 or the Unfair Contract Terms Act 1977?",
+            (r"unfair (term|contract term)", r"not (responsible|liable) for any", r"tenancy agreement says", r"small print", r"reasonableness", r"standard terms"),
+            "unfair term not binding on the consumer significant imbalance good faith transparency reasonableness test exclusion liability negligence",
+        ),
+        Doctrine(
+            "misrepresentation", "Misrepresentation", "contract",
+            "Was {claimant} induced to enter the contract by a false statement of fact, and is rescission or damages available?",
+            (r"misrepresent\w*", r"false(ly)? (statement|told|said|assur)", r"induced", r"assured (her|him|them)", r"turned out to be untrue"),
+            "misrepresentation false statement of fact inducement rescission damages reasonable grounds to believe",
+        ),
+        Doctrine(
+            "implied_terms_business", "Statutory implied terms (business contracts)", "contract",
+            "Did the goods or services supplied to {claimant} breach the terms implied by statute?",
+            (r"sale of goods", r"merchantable|satisfactory quality", r"supply of goods", r"b2b|business customer"),
+            "implied term satisfactory quality fitness for purpose description sale of goods supply of services reasonable care and skill",
+        ),
+        Doctrine(
+            "third_party_rights", "Third party rights under a contract", "contract",
+            "Can {claimant} enforce the contract term although not a party to the contract?",
+            (r"third party", r"not a party to the contract", r"for the benefit of"),
+            "third party enforce term contract purports to confer benefit rights of third parties",
+        ),
+        Doctrine(
+            "consumer_cancellation", "Distance and off-premises cancellation rights", "contract",
+            "Did {claimant} have a statutory right to cancel the contract, and was it validly exercised?",
+            (r"cooling[- ]off", r"cancel\w* within 14 days", r"bought online", r"distance contract", r"doorstep|off-premises"),
+            "cancellation period 14 days distance contract off-premises information requirements refund",
+        ),
+        Doctrine(
+            "late_payment", "Late payment of commercial debts", "contract",
+            "Is {claimant} entitled to statutory interest and compensation on a late-paid commercial debt?",
+            (r"late payment", r"unpaid invoice\w*", r"overdue invoice\w*", r"statutory interest"),
+            "late payment commercial debt statutory interest fixed sum compensation",
+        ),
+        # ------------------------------------------------- tort & personal injury
+        Doctrine(
+            "contributory_negligence", "Contributory negligence", "tort",
+            "Should {claimant}'s damages be reduced for contributory negligence?",
+            (r"seat ?belt", r"helmet", r"contributor\w* negligen\w*", r"own fault", r"partly to blame", r"\bdrunk\b"),
+            "contributory negligence apportionment reduction of damages claimant's share in responsibility",
+            claimant_wants="contra", defence=True,
+        ),
+        Doctrine(
+            "limitation", "Limitation of actions", "tort",
+            "Is {claimant}'s claim time-barred, and does any extension of the limitation period apply?",
+            (r"time[- ]barred", r"limitation period", r"(three|six) years (ago|after)", r"date of knowledge", r"out of time"),
+            "limitation period time bar six years contract three years personal injury date of knowledge discretion to disapply",
+            claimant_wants="contra", defence=True,
+        ),
+        Doctrine(
+            "product_liability", "Defective products (strict liability)", "tort",
+            "Is {defendant} strictly liable for damage caused by a defective product?",
+            (r"defective product", r"product liability", r"(exploded|caught fire|overheated)", r"producer|importer", r"manufacturing defect"),
+            "product liability defect safety persons generally are entitled to expect producer importer development risks defence",
+        ),
+        Doctrine(
+            "fatal_accidents", "Fatal accidents and bereavement claims", "tort",
+            "Can the dependants of the deceased recover for loss of dependency and bereavement?",
+            (r"died|death of|killed", r"dependan\w*", r"bereavement", r"widow\w*"),
+            "fatal accident dependants loss of dependency bereavement damages",
+        ),
+        Doctrine(
+            "defective_premises", "Defective dwellings", "tort",
+            "Is {defendant} liable for work on a dwelling that left it unfit for habitation?",
+            (r"defective premises", r"unfit for (human )?habitation", r"new[- ]build", r"cladding"),
+            "dwelling fit for habitation work done in a workmanlike or professional manner proper materials landlord duty of care",
+        ),
+        Doctrine(
+            "whiplash_tariff", "Whiplash injury tariff", "tort",
+            "Is {claimant}'s damages award for a whiplash injury limited by the statutory tariff?",
+            (r"whiplash", r"soft tissue injur\w*", r"road traffic accident|rta\b"),
+            "whiplash injury tariff road traffic accident soft tissue duration medical report",
+            claimant_wants="contra", defence=True,
+        ),
+        # ------------------------------------------------- landlord & tenant
+        Doctrine(
+            "repairing_obligations", "Landlord's repairing and fitness obligations", "property",
+            "Did {defendant} breach the landlord's statutory obligation to keep the dwelling in repair and fit for human habitation?",
+            (r"landlord", r"\btenant\w*", r"\bleak\w*", r"\bdamp\b|mould|mold", r"ceiling", r"disrepair", r"repair\w*"),
+            "landlord covenant to repair structure and exterior installations notice of disrepair fitness for human habitation tenancy",
+        ),
+        Doctrine(
+            "tenancy_deposit", "Tenancy deposit protection", "property",
+            "Did {defendant} protect {claimant}'s deposit and give the prescribed information, and what sanction follows if not?",
+            (r"\bdeposit\b", r"deposit (protection|scheme)", r"prescribed information", r"assured shorthold"),
+            "tenancy deposit protection scheme prescribed information 30 days sanction one to three times the deposit",
+        ),
+        Doctrine(
+            "possession_eviction", "Possession, eviction and harassment", "property",
+            "Is {defendant} entitled to possession, and was the eviction lawful?",
+            (r"evict\w*", r"possession", r"notice to quit", r"section (8|21)", r"changed the locks", r"harass\w*", r"rent arrears"),
+            "possession grounds assured tenancy notice court order unlawful eviction harassment rent arrears",
+        ),
+        Doctrine(
+            "tenant_fees", "Prohibited tenant fees", "property",
+            "Was the payment {defendant} required from {claimant} a prohibited payment under the Tenant Fees Act 2019?",
+            (r"tenant fee\w*", r"admin(istration)? fee", r"referencing fee", r"holding deposit"),
+            "prohibited payment permitted payment holding deposit tenant fees letting agent",
+        ),
+        Doctrine(
+            "business_tenancy", "Business tenancy security of tenure", "property",
+            "Does the business tenancy have security of tenure, and can the landlord oppose a new lease?",
+            (r"business tenancy", r"commercial lease", r"(shop|office|unit) lease", r"new lease", r"contracted out"),
+            "business tenancy security of tenure section 25 notice grounds of opposition new tenancy contracted out",
+        ),
+        # ------------------------------------------------- employment
+        Doctrine(
+            "unfair_dismissal", "Unfair dismissal", "employment",
+            "Was {claimant} unfairly dismissed: was there a potentially fair reason and a fair procedure?",
+            (r"dismiss\w*", r"sacked|fired", r"disciplinary", r"gross misconduct", r"constructive", r"employment tribunal"),
+            "unfair dismissal potentially fair reason conduct capability band of reasonable responses procedure qualifying period",
+        ),
+        Doctrine(
+            "redundancy", "Redundancy", "employment",
+            "Was {claimant}'s dismissal genuinely by reason of redundancy, with fair selection and consultation?",
+            (r"redundan\w*", r"selection (criteria|pool)", r"restructur\w*", r"role (was )?(removed|deleted)"),
+            "redundancy requirements for employees to carry out work of a particular kind ceased or diminished selection consultation redundancy payment",
+        ),
+        Doctrine(
+            "wages_deductions", "Unlawful deductions and minimum wage", "employment",
+            "Did {defendant} make an unauthorised deduction from {claimant}'s wages or pay below the minimum wage?",
+            (r"deduct\w*", r"unpaid wages", r"minimum wage", r"holiday pay", r"payslip\w*"),
+            "unauthorised deduction from wages written consent national minimum wage arrears",
+        ),
+        Doctrine(
+            "discrimination", "Discrimination and harassment at work", "employment",
+            "Did {defendant} discriminate against or harass {claimant} because of a protected characteristic?",
+            (r"discriminat\w*", r"pregnan\w*", r"disabilit\w*|disabled", r"\brace\b|racial", r"\bsex\b|gender", r"religio\w*", r"harass\w*", r"reasonable adjustments?"),
+            "direct discrimination indirect discrimination protected characteristic less favourable treatment harassment reasonable adjustments burden of proof",
+        ),
+        Doctrine(
+            "whistleblowing", "Whistleblowing (protected disclosures)", "employment",
+            "Did {claimant} make a protected disclosure, and was the detriment or dismissal because of it?",
+            (r"whistleblow\w*", r"protected disclosure", r"reported .{0,40}(safety|fraud|breach)", r"raised concerns"),
+            "protected disclosure qualifying disclosure public interest detriment automatically unfair dismissal",
+        ),
+        Doctrine(
+            "working_time", "Working time and holidays", "employment",
+            "Did {defendant} breach {claimant}'s rights to rest breaks, maximum hours or paid annual leave?",
+            (r"working time", r"48[- ]hour", r"rest break\w*", r"annual leave", r"night work\w*"),
+            "working time maximum weekly working time rest breaks annual leave holiday pay",
+        ),
+        Doctrine(
+            "employment_status", "Employment status", "employment",
+            "Was {claimant} an employee or worker rather than self-employed?",
+            (r"self[- ]employed", r"\bgig\b", r"zero[- ]hours?", r"contractor", r"worker status"),
+            "employee worker contract of service personal performance mutuality of obligation control",
+        ),
+        Doctrine(
+            "collective_consultation", "Collective redundancy consultation", "employment",
+            "Did {defendant} fail to consult collectively about proposed redundancies, entitling the employees to a protective award?",
+            (r"20 or more", r"collective consultation", r"protective award", r"mass redundanc\w*"),
+            "collective redundancy consultation 20 or more employees appropriate representatives protective award",
         ),
     ]
 }

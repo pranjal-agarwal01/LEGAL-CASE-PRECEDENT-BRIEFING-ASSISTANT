@@ -1,15 +1,13 @@
-# Legal Case Precedent Briefing Assistant
+# Precedent: Legal Case Precedent Briefing Assistant
 
-A multi-agent system that turns a case fact sheet into a short brief citing relevant precedents.
-Five specialised agents, built on **Microsoft Agent Framework** (Python, `agent-framework-core` 1.24), run a
-**debate architecture with a compiler**: an Argument Agent and a Counter-Argument Agent argue each issue from
-precedents retrieved by **RAG over a judgment corpus**, every agent reads and writes a **shared issue list**, and
-a Brief Compiler merges both sides into a brief in which **every claim carries a citation** that is checked
-against the corpus.
+A research assistant for law firms in England and Wales. A lawyer describes the facts of a matter; five agents
+built on **Microsoft Agent Framework** read the facts, research legislation and the firm's own judgments, argue
+both sides over two rounds, and compile a brief in which **every statement cites a statute section or judgment
+paragraph**. A final source check reads each cited passage against the claim it supports and flags anything the
+source does not say.
 
-> **Academic demonstration only. Nothing this system produces is legal advice.** The fact sheets are synthetic
-> (fictional people and companies). The corpus holds short paraphrased teaching summaries of 50 leading, publicly
-> reported English tort and contract judgments, not official law reports.
+> Precedent prepares research for review by a qualified lawyer. It does not give legal advice, and every
+> authority should be checked against the official source before it is relied on.
 
 **Project documents:** [report (PDF)](docs/Legal_Case_Precedent_Briefing_Assistant_Report.pdf) ·
 [presentation (PPTX)](docs/Legal_Case_Precedent_Briefing_Assistant.pptx) ·
@@ -17,9 +15,77 @@ against the corpus.
 
 ---
 
+## The product
+
+| | |
+|---|---|
+| **Matters** | Facts typed or imported from Word / PDF, numbered so the brief can cite each paragraph. |
+| **Briefs** | Issues, authorities for and against the client, both sides' arguments, an assessment and a conclusion, with live progress while the agents work. Export to Word or Markdown. |
+| **Source check** | Every statement that cites law is graded *verified*, *partly supported* or *not supported* against the cited passage. Unsupported authorities are removed; issues the library cannot answer are flagged instead of padded with unrelated cases. |
+| **Library** | 31 statutes and regulations (1,159 citable provisions) across contract and consumer, tort and personal injury, landlord and tenant, and employment; judgments the firm uploads (paragraph numbers kept, metadata and doctrines indexed automatically); 50 optional leading-case teaching summaries. |
+| **Firm accounts** | Firm workspaces, administrator and member roles, temporary passwords for new colleagues, an activity log, daily brief limits. Firms never see each other's matters or uploads. |
+
+### Where the law comes from
+
+| Source | Licence | How it is used |
+|---|---|---|
+| Legislation (`data/library/legislation.json`) | [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | Revised text from legislation.gov.uk, imported through the government's Lex API by `scripts/import_legislation.py`. Provisions extending to England only. Re-run the script to refresh; the import date is shown in the app. |
+| Judgments | The firm's own licence | Uploaded by each firm (for example from its law reports subscription). Stored only in that firm's workspace. |
+| Case summaries (`data/corpus/judgments.json`) | Written for this project | Paraphrased teaching summaries, labelled as summaries everywhere they are cited. Firms can switch them off. |
+
+Find Case Law (The National Archives) is **not** used: indexing its judgments for an AI product needs a
+computational-analysis licence from The National Archives. If you obtain one, an importer can add those judgments
+to the shared library.
+
+---
+
+## Run the web app locally
+
+```bash
+pip install -e ".[openai,web]"
+```
+
+```bash
+cd web && npm install && npm run build && cd ..
+```
+
+```bash
+uvicorn legal_brief.web.app:app --reload
+```
+
+Open http://localhost:8000 and create a firm account. Configure the model in `.env` (see `.env.example`); without
+one, briefs fall back to the basic offline method and sources are not checked. For UI development run
+`npm run dev` in `web/` (it proxies `/api` to port 8000).
+
+## Deploy to Render
+
+1. Push this repository to GitHub.
+2. In Render: **New → Blueprint**, pick the repository. `render.yaml` creates a Python web service (it builds
+   the UI with Node during the build; no Docker) and a Postgres database, and generates `SECRET_KEY`.
+3. Enter `FOUNDRY_ENDPOINT` and `FOUNDRY_API_KEY` when prompted. `EMBEDDING_MODEL` defaults to
+   `text-embedding-3-small`; it must match an embedding deployment in the same Foundry resource.
+4. After the first deploy, create your firm account, then set `ALLOW_SIGNUP=false` if you want to add colleagues
+   only from inside the app.
+
+The blueprint uses Render's free plans: the service sleeps after 15 minutes without traffic, and the free
+database is deleted after 30 days. Move both to paid plans before real client work.
+
+### Semantic search
+
+Retrieval runs BM25 plus LSA out of the box. For semantic search, add a `text-embedding-3-small` deployment to
+your Foundry resource and set `EMBEDDING_MODEL` to its name. Vectors are cached in the database, so each passage
+is embedded once.
+
+---
+
+# Technical documentation
+
+The sections below describe the multi-agent system itself. The command-line interface and the evaluation still
+work offline on the original eight synthetic fact sheets and 50-summary corpus.
+
 ## Contents
 
-0. [Compliance with the general instructions](#compliance-with-the-general-instructions)
+0. [Compliance with the general instructions (original academic brief)](#compliance-with-the-general-instructions-original-academic-brief)
 1. [What it produces](#what-it-produces)
 2. [Architecture](#architecture)
 3. [The five agents](#the-five-agents)
@@ -35,7 +101,7 @@ against the corpus.
 
 ---
 
-## Compliance with the general instructions
+## Compliance with the general instructions (original academic brief)
 
 | Instruction | How this project meets it |
 |---|---|
@@ -371,8 +437,17 @@ src/legal_brief/
   llm.py                        chat-client factory and structured-output helper
   evaluation/                   metrics and evaluation runner
   render.py, cli.py, config.py, models.py, factsheet.py, corpus.py
-tests/                          19 tests, including a scripted-LLM end-to-end test
+tests/                          24 tests: pipeline, scripted-LLM path with source check, web API
 outputs/                        generated briefs and the evaluation report
+data/library/legislation.json   31 statutes / regulations, 1,159 provisions (OGL v3.0)
+scripts/import_legislation.py   refreshes the legislation snapshot
+src/legal_brief/
+  verification.py               source check: does each cited passage support its claim?
+  ingest.py                     PDF / Word / text extraction, judgment paragraphs, metadata
+  embeddings.py                 optional embedding search (Foundry / Azure OpenAI / OpenAI)
+  web/                          FastAPI app: accounts, matters, runs, library, exports
+web/                            React + Vite + Tailwind UI (built into web/dist)
+render.yaml                     Render blueprint (native Python runtime)
 ```
 
 ---
