@@ -67,8 +67,8 @@ one, briefs fall back to the basic offline method and sources are not checked. F
    the UI with Node during the build; no Docker) and a Postgres database, and generates `SECRET_KEY`.
 3. Enter `FOUNDRY_ENDPOINT` and `FOUNDRY_API_KEY` when prompted. `EMBEDDING_MODEL` defaults to
    `text-embedding-3-small`; it must match an embedding deployment in the same Foundry resource.
-4. After the first deploy, create your firm account, then set `ALLOW_SIGNUP=false` if you want to add colleagues
-   only from inside the app.
+4. `render.yaml` ships with sign-up closed (`ALLOW_SIGNUP=false`). On a new deployment, set it to `true` in the
+   service's environment, create your firm account, then set it back to `false`. Add colleagues from the Team page.
 
 The blueprint uses Render's free plans: the service sleeps after 15 minutes without traffic, and the free
 database is deleted after 30 days. Move both to paid plans before real client work.

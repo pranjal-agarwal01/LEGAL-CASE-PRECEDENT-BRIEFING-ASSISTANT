@@ -38,7 +38,7 @@ services:
       - key: CHECKER_MODEL
         value: gpt-5-mini
       - key: ALLOW_SIGNUP
-        value: "true"
+        value: "false"
       - key: MAX_CONCURRENT_RUNS
         value: "1"
       - key: RUNS_PER_FIRM_PER_DAY
