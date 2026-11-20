@@ -25,7 +25,8 @@ class Firm(Base):
     __tablename__ = "firms"
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(200))
-    include_summaries: Mapped[bool] = mapped_column(Boolean, default=True)
+    # Off for new firms: paraphrased teaching summaries are not primary authority.
+    include_summaries: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
     users: Mapped[list["User"]] = relationship(back_populates="firm")
 
@@ -57,6 +58,7 @@ class Matter(Base):
     client_role: Mapped[str] = mapped_column(String(20), default="claimant")  # claimant | defendant
     opponent: Mapped[str] = mapped_column(String(300), default="")
     practice_area: Mapped[str] = mapped_column(String(40), default="")
+    jurisdiction: Mapped[str] = mapped_column(String(80), default="England and Wales")
     facts: Mapped[str] = mapped_column(Text, default="")
     objective: Mapped[str] = mapped_column(Text, default="")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
@@ -94,6 +96,7 @@ class Authority(Base):
     court: Mapped[str] = mapped_column(String(120), default="")
     date: Mapped[str] = mapped_column(String(20), default="")
     area: Mapped[str] = mapped_column(String(40), default="other")
+    jurisdiction: Mapped[str] = mapped_column(String(80), default="England and Wales")
     url: Mapped[str] = mapped_column(String(500), default="")
     summary: Mapped[str] = mapped_column(Text, default="")
     doctrines: Mapped[dict] = mapped_column(JSON, default=dict)
@@ -162,8 +165,26 @@ def init_db(url: str | None = None):
         def _fk_on(dbapi_conn, _):  # SQLite ignores foreign keys unless asked
             dbapi_conn.execute("PRAGMA foreign_keys=ON")
     Base.metadata.create_all(_engine)
+    _add_missing_columns(_engine)
     SessionLocal = sessionmaker(_engine, expire_on_commit=False)
     return _engine
+
+
+_NEW_COLUMNS = {  # columns added after the first release: (table, column, SQL type and default)
+    ("matters", "jurisdiction", "VARCHAR(80) NOT NULL DEFAULT 'England and Wales'"),
+    ("authorities", "jurisdiction", "VARCHAR(80) NOT NULL DEFAULT 'England and Wales'"),
+}
+
+
+def _add_missing_columns(engine) -> None:
+    """Additive schema upgrades for existing databases (create_all never alters existing tables)."""
+    from sqlalchemy import inspect, text
+
+    insp = inspect(engine)
+    with engine.begin() as conn:
+        for table, column, ddl in _NEW_COLUMNS:
+            if table in insp.get_table_names() and column not in {c["name"] for c in insp.get_columns(table)}:
+                conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {column} {ddl}"))
 
 
 def get_session() -> Session:

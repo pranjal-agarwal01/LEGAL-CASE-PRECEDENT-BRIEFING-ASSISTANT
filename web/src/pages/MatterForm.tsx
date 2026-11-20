@@ -12,9 +12,10 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { api, AREA_LABEL, upload, type Matter } from "@/lib/api";
+import { useSession } from "@/lib/session";
 
-type Draft = Pick<Matter, "title" | "reference" | "client_name" | "client_role" | "opponent" | "practice_area" | "facts" | "objective">;
-const EMPTY: Draft = { title: "", reference: "", client_name: "", client_role: "claimant", opponent: "", practice_area: "", facts: "", objective: "" };
+type Draft = Pick<Matter, "title" | "reference" | "client_name" | "client_role" | "opponent" | "practice_area" | "jurisdiction" | "facts" | "objective">;
+const EMPTY: Draft = { title: "", reference: "", client_name: "", client_role: "claimant", opponent: "", practice_area: "", jurisdiction: "England and Wales", facts: "", objective: "" };
 
 export function MatterFormPage() {
   const { id } = useParams();
@@ -28,6 +29,7 @@ function MatterForm({ initial, id }: { initial: Draft; id?: string }) {
   const [draft, setDraft] = useState<Draft>({
     title: initial.title, reference: initial.reference, client_name: initial.client_name,
     client_role: initial.client_role, opponent: initial.opponent, practice_area: initial.practice_area,
+    jurisdiction: initial.jurisdiction || "England and Wales",
     facts: initial.facts, objective: initial.objective,
   });
   const [error, setError] = useState("");
@@ -35,6 +37,9 @@ function MatterForm({ initial, id }: { initial: Draft; id?: string }) {
   const fileRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const qc = useQueryClient();
+  const { meta } = useSession();
+  const jurisdictions = meta?.jurisdictions ?? ["England and Wales"];
+  const otherJurisdiction = !jurisdictions.includes(draft.jurisdiction);
   const set = <K extends keyof Draft>(k: K, v: Draft[K]) => setDraft((d) => ({ ...d, [k]: v }));
   const words = draft.facts.trim() ? draft.facts.trim().split(/\s+/).length : 0;
 
@@ -146,6 +151,25 @@ function MatterForm({ initial, id }: { initial: Draft; id?: string }) {
             <Label htmlFor="opponent">Other side</Label>
             <Input id="opponent" value={draft.opponent} onChange={(e) => set("opponent", e.target.value)}
               placeholder="e.g. Mr Doyle" className="h-10 bg-card" />
+          </div>
+          <div className="grid gap-1.5">
+            <Label htmlFor="jurisdiction">Governing law</Label>
+            <Select value={otherJurisdiction ? "__other" : draft.jurisdiction}
+              onValueChange={(v) => set("jurisdiction", v === "__other" ? "" : v)}>
+              <SelectTrigger id="jurisdiction" className="h-10 w-full bg-card"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                {jurisdictions.map((j) => <SelectItem key={j} value={j}>{j}</SelectItem>)}
+                <SelectItem value="__other">Another jurisdiction</SelectItem>
+              </SelectContent>
+            </Select>
+            {otherJurisdiction ? (
+              <Input aria-label="Jurisdiction" value={draft.jurisdiction} onChange={(e) => set("jurisdiction", e.target.value)}
+                placeholder="e.g. New York, United States" className="h-10 bg-card" />
+            ) : null}
+            <p className="text-xs text-muted-foreground">
+              Precedent researches only this jurisdiction's legislation and judgments, and stops if the facts point
+              elsewhere.
+            </p>
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="area">Practice area</Label>

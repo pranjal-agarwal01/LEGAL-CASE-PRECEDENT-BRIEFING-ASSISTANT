@@ -72,7 +72,7 @@ class FactExtractorAgent(BaseLegalAgent):
     description = "Structures the parties, dates and claims in a case fact sheet."
     tool_profile = "none"
     instructions = (
-        "You are the Fact Extractor in a legal briefing team (England and Wales). Read a case fact sheet whose "
+        "You are the Fact Extractor in a legal briefing team ({jurisdiction}). Read a case fact sheet whose "
         "paragraphs are labelled [F1], [F2], ... and structure it.\n"
         "- parties: every person or company, with role claimant, defendant or third party.\n"
         "- chronology: every dated event in date order; date exactly as written; fact_ref is the [F#] it comes from.\n"
@@ -86,7 +86,9 @@ class FactExtractorAgent(BaseLegalAgent):
         "consumer or tenancy claims as negligence 'duty of care' questions; raise negligence only where the facts "
         "disclose a free-standing tort claim. Give each issue one doctrine key from this list: "
         f"{', '.join(DOCTRINES)}.\n"
-        "Never invent facts. Use only F refs that exist. Do not cite case law here."
+        "Frame issues under the law of {jurisdiction} only, using its own concepts and remedies (for example, "
+        "in an Indian land dispute: title, possession, boundary demarcation and revenue records, not English "
+        "negligence). Never invent facts. Use only F refs that exist. Do not cite case law here."
     )
 
     async def run(self) -> StructuredFacts:

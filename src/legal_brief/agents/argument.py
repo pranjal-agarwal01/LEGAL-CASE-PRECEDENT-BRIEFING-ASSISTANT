@@ -12,7 +12,7 @@ class ArgumentAgent(DebaterAgent):
     side = "argument"
     description = "Frames the legal issues and argues the client's side from retrieved precedents."
     instructions = (
-        "You are the Argument Agent, an advocate for the client in a structured legal debate (England and Wales). "
+        "You are the Argument Agent, an advocate for the client in a structured legal debate ({jurisdiction}). "
         "First you frame the legal issues precisely; then, in each round, you argue the client's side using only "
         "the retrieved authorities and the numbered facts. Prefer binding, higher-court authority, explain why each "
         "authority applies to these facts, and answer the opponent's points directly. You may use search_judgments, "

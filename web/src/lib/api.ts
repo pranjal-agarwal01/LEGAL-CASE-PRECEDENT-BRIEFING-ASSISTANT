@@ -69,6 +69,7 @@ export type Meta = {
   search_mode: string;
   runs_per_day: number;
   practice_areas: { key: string; label: string }[];
+  jurisdictions: string[];
   library: { statutes: number; statute_passages: number; summaries: number; legislation_imported?: string };
 };
 
@@ -81,7 +82,7 @@ export type RunSummary = {
   unsupported?: number;
   deadlines?: Deadline[];
 };
-export type RunStatus = "queued" | "running" | "done" | "failed";
+export type RunStatus = "queued" | "running" | "done" | "failed" | "blocked";
 
 export type MatterRow = {
   id: number;
@@ -91,6 +92,7 @@ export type MatterRow = {
   client_role: "claimant" | "defendant";
   opponent: string;
   practice_area: string;
+  jurisdiction: string;
   created_at: string;
   updated_at: string;
   created_by: string | null;
@@ -138,6 +140,8 @@ export type Brief = {
   time_limits: Statement[];
   evidence: Statement[];
   questions_for_client: string[];
+  reliability: "high" | "medium" | "low" | "unchecked";
+  reliability_reasons: string[];
   warnings: string[];
 };
 export type AuthorityRef = {
@@ -177,6 +181,16 @@ export type RunResult = {
   authorities: Record<string, AuthorityRef>;
   search_mode: string;
 };
+export type Blocked = {
+  kind: "mismatch" | "no_library";
+  message: string;
+  matter_jurisdiction: string;
+  detected: string | null;
+  confidence: string;
+  reason: string;
+  cues: string[];
+  library_count: number;
+};
 export type Run = {
   id: number;
   matter_id: number;
@@ -185,7 +199,7 @@ export type Run = {
   model: string;
   rounds: number;
   events: TraceEvent[];
-  result: RunResult | null;
+  result: (RunResult & { blocked?: undefined }) | { blocked: Blocked } | null;
   seconds: number;
   llm_calls: number;
   created_at: string;
@@ -194,6 +208,7 @@ export type Run = {
 export type LibraryItem = {
   id: string;
   kind: "legislation" | "judgment" | "summary";
+  jurisdiction: string;
   name: string;
   citation: string;
   court: string;
@@ -211,6 +226,7 @@ export type LibraryItem = {
 export type AuthorityDetail = {
   id: string;
   kind: LibraryItem["kind"];
+  jurisdiction: string;
   name: string;
   citation: string;
   court: string;

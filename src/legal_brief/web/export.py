@@ -12,6 +12,8 @@ SUPPORT_LABEL = {"supported": "Verified against source", "partial": "Partly supp
                  "unsupported": "NOT supported by the cited source", "facts_only": "Facts", "unchecked": "Not checked"}
 
 
+RELIABILITY = {"high": "solid research starting point", "medium": "use with care",
+               "low": "not reliable as it stands", "unchecked": "sources not checked"}
 NEXT_STEPS = (("Remedies", "remedies"), ("Time limits", "time_limits"), ("Evidence to obtain", "evidence"))
 
 
@@ -49,8 +51,11 @@ def to_markdown(matter: dict, result: dict) -> str:
         cites = "; ".join(cite_text(c, auths) for c in st.get("citations", []))
         return f"- {st['text']}{' — ' + cites if cites else ''}{flag}"
 
-    out = [f"# {matter['title']}", "", f"Acting for {matter['client_name']} ({matter['client_role']}) · "
-           f"prepared {datetime.now():%d %B %Y}", "", f"> {DISCLAIMER}", "", "## Summary", ""]
+    out = [f"# {matter['title']}", "", f"Acting for {matter['client_name']} ({matter['client_role']}). "
+           f"{matter.get('jurisdiction') or 'England and Wales'} law. Prepared {datetime.now():%d %B %Y}.", "",
+           f"> {DISCLAIMER}", ""]
+    out += [f"**Reliability: {RELIABILITY.get(b.get('reliability', 'unchecked'), 'Not checked')}.** "
+            + " ".join(b.get("reliability_reasons", [])), "", "## Summary", ""]
     out += [line(s) for s in b.get("summary", [])] + ["", "## Key facts", ""] + [line(s) for s in b.get("facts", [])]
     for i in b.get("issues", []):
         out += ["", f"## {i['issue_id']}. {i['question']}", ""]
@@ -93,11 +98,18 @@ def to_docx(matter: dict, result: dict) -> bytes:
     meta = doc.add_paragraph()
     meta.add_run(f"Acting for {matter['client_name']} ({matter['client_role']})").bold = True
     if matter.get("opponent"):
-        meta.add_run(f" · against {matter['opponent']}")
-    meta.add_run(f" · prepared {datetime.now():%d %B %Y}")
+        meta.add_run(f", against {matter['opponent']}")
+    meta.add_run(f". {matter.get('jurisdiction') or 'England and Wales'} law. Prepared {datetime.now():%d %B %Y}.")
     d = doc.add_paragraph()
     r = d.add_run(DISCLAIMER)
     r.italic, r.font.size, r.font.color.rgb = True, Pt(9), RGBColor(0x55, 0x55, 0x55)
+    rel = doc.add_paragraph()
+    level = b.get("reliability", "unchecked")
+    head = rel.add_run(f"Reliability: {RELIABILITY.get(level, 'Not checked')}. ")
+    head.bold = True
+    head.font.color.rgb = {"high": RGBColor(0x2E, 0x6A, 0x4F), "medium": RGBColor(0x8A, 0x62, 0x10),
+                           "low": RGBColor(0xA3, 0x26, 0x2A)}.get(level, RGBColor(0x55, 0x55, 0x55))
+    rel.add_run(" ".join(b.get("reliability_reasons", [])))
 
     def bullet(stmt: dict, prefix: str = ""):
         p = doc.add_paragraph(style="List Bullet")

@@ -29,7 +29,7 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
     description = "Retrieves relevant judgments for each open issue (hybrid RAG)."
     tool_profile = "read"
     instructions = (
-        "You are the Precedent Retrieval specialist in a legal briefing team. For each issue you are given, find the "
+        "You are the Precedent Retrieval specialist in a legal briefing team ({jurisdiction}). For each issue you are given, find the "
         "judgments in the corpus that a careful lawyer would cite FOR or AGAINST the client. A hybrid search shortlist "
         "is provided; call search_judgments with your own reformulated queries (legal terms of art, doctrine names, "
         "analogous fact patterns) to find anything it missed, and read_passage when unsure. "

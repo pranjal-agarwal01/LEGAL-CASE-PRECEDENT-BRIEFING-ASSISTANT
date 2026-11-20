@@ -11,7 +11,8 @@ from sqlalchemy import select, update
 
 from legal_brief.citations import normalise, resolve_passage
 from legal_brief.config import Settings
-from legal_brief.ingest import judgment_metadata, paragraphs_from_text, split_judgment
+from legal_brief.ingest import as_sections, judgment_metadata, paragraphs_from_text, split_judgment
+from legal_brief.jurisdiction import JurisdictionBlocked
 from legal_brief.llm import LLMUnavailable, build_chat_client
 from legal_brief.models import FactParagraph, FactSheet
 from legal_brief.orchestration import run_case
@@ -23,6 +24,7 @@ log = logging.getLogger(__name__)
 STAGES = {  # agent name -> step shown in the UI
     "fact_extractor": "facts", "precedent_retrieval": "research", "argument": "debate",
     "counter_argument": "debate", "brief_compiler": "compile", "source_checker": "verify", "workflow": "compile",
+    "jurisdiction_check": "facts",
 }
 
 
@@ -34,7 +36,7 @@ def matter_fact_sheet(m: Matter) -> FactSheet:
         paras.append(FactParagraph(ref=f"F{len(paras) + 1}", kind="objective", text=" ".join(m.objective.split())))
     parties = [f"{role.title()}: {m.client_name}"] + ([f"{other.title()}: {m.opponent}"] if m.opponent else [])
     return FactSheet(case_id=f"M{m.id}", title=m.title, acting_for=f"{role.title()} ({m.client_name})",
-                     source_path="", practice_area=m.practice_area or "",
+                     source_path="", practice_area=m.practice_area or "", jurisdiction=m.jurisdiction or "England and Wales",
                      raw_text=m.facts + "\n\n" + m.objective, parties_block=parties, paragraphs=paras)
 
 
@@ -84,6 +86,7 @@ def result_payload(result) -> dict:
         "board": board, "turns": [t.model_dump() for t in s.turns], "trace": s.trace,
         "warnings": c.final.warnings, "mode": s.mode, "llm_calls": s.llm_calls, "seconds": round(result.seconds, 1),
         "authorities": _authority_payload(s, refs), "search_mode": s.retriever.dense_mode,
+        "jurisdiction_check": s.jurisdiction_check,
     }
 
 
@@ -141,7 +144,7 @@ class JobManager:
                 run.status = "running"
                 db.commit()
                 fs, include_summaries, rounds = matter_fact_sheet(matter), firm.include_summaries, run.rounds
-                firm_id = firm.id
+                firm_id, override = firm.id, bool((run.result or {}).get("jurisdiction_override"))
 
             def on_event(e: dict) -> None:
                 e = dict(e)
@@ -151,14 +154,22 @@ class JobManager:
             try:
                 events.append({"t": 0, "agent": "library", "action": "start", "detail": "Loading your library",
                                "stage": "facts"})
-                retriever = await asyncio.to_thread(self.library.retriever, firm_id, include_summaries)
+                retriever = await asyncio.to_thread(self.library.retriever, firm_id, include_summaries, fs.jurisdiction)
                 settings = self.settings.with_overrides(debate_rounds=rounds)
-                result = await run_case(fs, settings, retriever=retriever, on_event=on_event)
+                result = await run_case(fs, settings, retriever=retriever, on_event=on_event,
+                                        jurisdiction_override=override)
                 payload = result_payload(result)
                 with get_session() as db:
                     run = db.get(Run, run_id)
                     run.status, run.result = "done", payload
                     run.events, run.llm_calls = events, result.session.llm_calls
+                    run.seconds, run.finished_at = round(time.perf_counter() - started, 1), datetime.now(timezone.utc)
+                    db.commit()
+            except JurisdictionBlocked as e:  # the right outcome, not a crash: explain and stop
+                with get_session() as db:
+                    run = db.get(Run, run_id)
+                    run.status, run.error, run.events = "blocked", str(e), events
+                    run.result = {"blocked": e.as_dict()}
                     run.seconds, run.finished_at = round(time.perf_counter() - started, 1), datetime.now(timezone.utc)
                     db.commit()
             except Exception as e:  # noqa: BLE001 - every failure is reported on the run
@@ -173,10 +184,11 @@ class JobManager:
                 self.live.pop(run_id, None)
 
     # -------------------------------------------------------------- uploads
-    def start_upload(self, authority_id: int, text: str) -> None:
-        self._spawn(self._ingest(authority_id, text))
+    def start_upload(self, authority_id: int, text: str, jurisdiction: str = "", kind: str = "") -> None:
+        self._spawn(self._ingest(authority_id, text, jurisdiction, kind))
 
-    async def _ingest(self, authority_id: int, text: str) -> None:
+    async def _ingest(self, authority_id: int, text: str, jurisdiction: str = "", kind: str = "") -> None:
+        """Index an upload. The uploader's choice of jurisdiction and document type wins over detection."""
         try:
             paras = split_judgment(text)
             if len(paras) < 2:
@@ -195,6 +207,10 @@ class JobManager:
                 a = db.get(Authority, authority_id)
                 a.name, a.citation, a.court, a.date = meta.name, meta.citation, meta.court, meta.date
                 a.area, a.summary, a.doctrines = meta.area, meta.summary, meta.doctrines
+                a.kind = kind if kind in ("judgment", "legislation") else meta.document_type
+                a.jurisdiction = jurisdiction or meta.jurisdiction
+                if a.kind == "legislation":  # numbered sections, cited as "s 5" rather than "¶5"
+                    paras = as_sections(paras)
                 a.passages = [AuthorityPassage(seq=i, pid=p.pid, label=p.label, text=p.text)
                               for i, p in enumerate(paras)]
                 a.n_passages, a.status = len(paras), "ready"

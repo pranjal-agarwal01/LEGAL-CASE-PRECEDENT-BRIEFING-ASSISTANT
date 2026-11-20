@@ -25,8 +25,9 @@ def authority_to_judgment(a: Authority) -> Judgment:
     year = int(a.date[:4]) if a.date[:4].isdigit() else 0
     passages = tuple(Passage(upload_id(a.id), p.pid, "paragraph", p.text, label=p.label) for p in a.passages)
     return Judgment(upload_id(a.id), a.name or a.filename, a.citation, a.court or "", year, a.area,
-                    dict(a.doctrines or {}), passages, kind="judgment", url=a.url, date=a.date, summary=a.summary,
-                    source_note="Uploaded by your firm.")
+                    dict(a.doctrines or {}), passages, kind=a.kind if a.kind in ("judgment", "legislation") else "judgment",
+                    url=a.url, date=a.date, summary=a.summary, source_note="Uploaded by your firm.",
+                    jurisdiction=a.jurisdiction or "England and Wales")
 
 
 class LibraryManager:
@@ -74,18 +75,21 @@ class LibraryManager:
     def corpus(self, firm_id: int, include_summaries: bool) -> Corpus:
         return Corpus.merge(self.base(include_summaries), self.uploads(firm_id))
 
-    def retriever(self, firm_id: int, include_summaries: bool) -> HybridRetriever:
-        key = (firm_id, include_summaries, self._version(firm_id))
+    def retriever(self, firm_id: int, include_summaries: bool, jurisdiction: str = "England and Wales") -> HybridRetriever:
+        from legal_brief.jurisdiction import normalise
+
+        jurisdiction = normalise(jurisdiction)
+        key = (firm_id, include_summaries, jurisdiction, self._version(firm_id))
         with self._lock:
             if key in self._cache:
                 self._cache.move_to_end(key)
                 return self._cache[key]
-        corpus = self.corpus(firm_id, include_summaries)
+        corpus = self.corpus(firm_id, include_summaries).for_jurisdiction(jurisdiction)
         r = HybridRetriever(corpus, doctrine_boost=self.settings.doctrine_boost, embedder=self.embedder)
         log.info("built library index for firm %s: %d authorities, %d passages (%s)",
                  firm_id, len(corpus), len(corpus.passages), r.dense_mode)
         with self._lock:
-            for k in [k for k in self._cache if k[0] == firm_id]:
+            for k in [k for k in self._cache if k[0] == firm_id and k[3] != key[3]]:
                 del self._cache[k]  # older versions of this firm's library
             self._cache[key] = r
             while len(self._cache) > self.max_cached:

@@ -1,15 +1,21 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { ExternalLink, Search, Trash2, Upload } from "lucide-react";
+import { ExternalLink, FileUp, Search, Trash2, Upload } from "lucide-react";
 import { useDeferredValue, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 
 import { PageHeader } from "@/components/Shell";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  api, AREA_LABEL, formatDate, KIND_LABEL, upload, type AuthorityDetail, type LibraryItem, type SearchHit,
+  api, AREA_LABEL, formatDate, KIND_LABEL, type AuthorityDetail, type LibraryItem, type SearchHit,
 } from "@/lib/api";
 import { useSession } from "@/lib/session";
 import { cn } from "@/lib/utils";
@@ -20,40 +26,92 @@ type Filter = "all" | "legislation" | "judgment" | "summary";
 function UploadButton() {
   const ref = useRef<HTMLInputElement>(null);
   const qc = useQueryClient();
+  const { meta } = useSession();
+  const [params, setParams] = useSearchParams();
+  const preset = params.get("upload");
+  const [open, setOpen] = useState(Boolean(preset));
+  const [jurisdiction, setJurisdiction] = useState(preset || "England and Wales");
+  const [kind, setKind] = useState<"judgment" | "legislation">("judgment");
+  const [files, setFiles] = useState<File[]>([]);
   const [busy, setBusy] = useState(false);
-  async function send(files: FileList) {
+  const jurisdictions = meta?.jurisdictions ?? ["England and Wales"];
+
+  async function send() {
     setBusy(true);
     let ok = 0;
-    for (const f of Array.from(files)) {
+    for (const f of files) {
       try {
-        await upload("/library/upload", f);
+        const form = new FormData();
+        form.append("file", f);
+        form.append("jurisdiction", jurisdiction);
+        form.append("kind", kind);
+        await api("/library/upload", { method: "POST", body: form });
         ok += 1;
       } catch (e) {
         toast.error(`${f.name}: ${(e as Error).message}`);
       }
     }
     setBusy(false);
-    if (ref.current) ref.current.value = "";
     if (ok) {
-      toast.success(`${ok} judgment${ok === 1 ? "" : "s"} uploaded`, { description: "Indexing takes up to a minute per judgment." });
+      toast.success(`${ok} document${ok === 1 ? "" : "s"} uploaded`, { description: "Indexing takes up to a minute each." });
       qc.invalidateQueries({ queryKey: ["library"] });
+      setOpen(false);
+      setFiles([]);
+      if (preset) setParams({}, { replace: true });
     }
   }
+
   return (
-    <>
-      <input ref={ref} type="file" multiple accept=".pdf,.docx,.txt,.html,.htm,.md" className="sr-only"
-        onChange={(e) => e.target.files?.length && send(e.target.files)} />
-      <Button size="lg" className="h-10 bg-tape px-4 text-tape-ink hover:bg-tape/90" disabled={busy} onClick={() => ref.current?.click()}>
-        <Upload /> {busy ? "Uploading…" : "Upload judgments"}
-      </Button>
-    </>
+    <Dialog open={open} onOpenChange={(o) => { setOpen(o); if (!o && preset) setParams({}, { replace: true }); }}>
+      <DialogTrigger asChild>
+        <Button size="lg" className="h-10 bg-tape px-4 text-tape-ink hover:bg-tape/90"><Upload /> Upload to library</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Upload legislation or judgments</DialogTitle>
+          <DialogDescription>
+            Briefs research only documents from the matter's own jurisdiction, so say which law these are. Use copies
+            your firm is licensed to use.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4">
+          <div className="grid gap-1.5">
+            <Label htmlFor="up-j">Jurisdiction</Label>
+            <Select value={jurisdiction} onValueChange={setJurisdiction}>
+              <SelectTrigger id="up-j" className="h-10 w-full bg-card"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                {[...new Set([...jurisdictions, jurisdiction])].map((j) => <SelectItem key={j} value={j}>{j}</SelectItem>)}
+              </SelectContent>
+            </Select>
+          </div>
+          <fieldset className="grid gap-2">
+            <legend className="mb-1 text-sm font-medium">These documents are</legend>
+            <RadioGroup value={kind} onValueChange={(v) => setKind(v as "judgment" | "legislation")} className="flex gap-5">
+              <div className="flex items-center gap-2"><RadioGroupItem value="judgment" id="k-j" /><Label htmlFor="k-j" className="font-normal">Judgments</Label></div>
+              <div className="flex items-center gap-2"><RadioGroupItem value="legislation" id="k-l" /><Label htmlFor="k-l" className="font-normal">Legislation</Label></div>
+            </RadioGroup>
+          </fieldset>
+          <div className="grid gap-1.5">
+            <input ref={ref} type="file" multiple accept=".pdf,.docx,.txt,.html,.htm,.md" className="sr-only" id="up-files"
+              onChange={(e) => setFiles(Array.from(e.target.files ?? []))} />
+            <Button type="button" variant="outline" onClick={() => ref.current?.click()}>
+              <FileUp /> {files.length ? `${files.length} file${files.length === 1 ? "" : "s"} chosen` : "Choose PDF or Word files"}
+            </Button>
+            {files.length ? <p className="truncate text-xs text-muted-foreground">{files.map((f) => f.name).join(", ")}</p> : null}
+          </div>
+        </div>
+        <DialogFooter>
+          <Button disabled={!files.length || busy} onClick={send}>{busy ? "Uploading…" : "Upload"}</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }
 
-function SearchResults({ q }: { q: string }) {
+function SearchResults({ q, jurisdiction }: { q: string; jurisdiction: string }) {
   const { data, isFetching } = useQuery({
-    queryKey: ["search", q],
-    queryFn: () => api<SearchHit[]>(`/library/search?q=${encodeURIComponent(q)}`),
+    queryKey: ["search", q, jurisdiction],
+    queryFn: () => api<SearchHit[]>(`/library/search?q=${encodeURIComponent(q)}&jurisdiction=${encodeURIComponent(jurisdiction)}`),
     enabled: q.length >= 3,
     staleTime: 60_000,
   });
@@ -85,6 +143,7 @@ function SearchResults({ q }: { q: string }) {
 export function LibraryPage() {
   const { meta } = useSession();
   const [filter, setFilter] = useState<Filter>("all");
+  const [juris, setJuris] = useState("England and Wales");
   const [q, setQ] = useState("");
   const query = useDeferredValue(q.trim());
   const { data, isLoading } = useQuery({
@@ -92,7 +151,9 @@ export function LibraryPage() {
     queryFn: () => api<LibraryResponse>("/library"),
     refetchInterval: (qq) => (qq.state.data?.items.some((i) => i.status === "processing") ? 3000 : false),
   });
-  const items = (data?.items ?? []).filter((i) => filter === "all" || i.kind === filter);
+  const held = [...new Set((data?.items ?? []).map((i) => i.jurisdiction || "England and Wales"))].sort();
+  const items = (data?.items ?? []).filter((i) => (filter === "all" || i.kind === filter)
+    && (i.jurisdiction || "England and Wales") === juris);
   const uploads = (data?.items ?? []).filter((i) => i.id.startsWith("U")).length;
 
   return (
@@ -116,9 +177,18 @@ export function LibraryPage() {
           <Input value={q} onChange={(e) => setQ(e.target.value)} className="h-11 bg-card pl-9 text-[15px]"
             placeholder="Search the law, e.g. landlord's duty to repair after notice" aria-label="Search the library" />
         </div>
-        <SearchResults q={query} />
+        <SearchResults q={query} jurisdiction={juris} />
 
-        <Tabs value={filter} onValueChange={(v) => setFilter(v as Filter)} className="mt-8 max-w-full overflow-x-auto">
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <Select value={juris} onValueChange={setJuris}>
+          <SelectTrigger className="h-9 w-56 bg-card" aria-label="Jurisdiction"><SelectValue /></SelectTrigger>
+          <SelectContent>
+            {[...new Set(["England and Wales", ...held])].map((j) => (
+              <SelectItem key={j} value={j}>{j} ({(data?.items ?? []).filter((i) => (i.jurisdiction || "England and Wales") === j).length})</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Tabs value={filter} onValueChange={(v) => setFilter(v as Filter)} className="max-w-full overflow-x-auto">
           <TabsList variant="line">
             <TabsTrigger value="all">All</TabsTrigger>
             <TabsTrigger value="legislation">Legislation</TabsTrigger>
@@ -126,6 +196,7 @@ export function LibraryPage() {
             <TabsTrigger value="summary">Case summaries</TabsTrigger>
           </TabsList>
         </Tabs>
+        </div>
 
         {filter === "judgment" && uploads === 0 ? (
           <div className="max-w-xl py-8">
@@ -217,6 +288,9 @@ export function AuthorityPage() {
             </Button>
           ) : null}
         </div>
+        {data.id.startsWith("U") ? <UploadSettings item={data} /> : (
+          <p className="mt-3 text-sm text-muted-foreground">{data.jurisdiction} law.</p>
+        )}
         {data.kind === "summary" ? (
           <p className="mt-4 max-w-[70ch] rounded-md bg-partial-wash px-3 py-2 text-sm text-partial">
             A paraphrased teaching summary, not the judgment itself. Check the official law report before citing it.
@@ -238,5 +312,42 @@ export function AuthorityPage() {
         </ol>
       </div>
     </>
+  );
+}
+
+/** An upload's jurisdiction and type decide which matters may cite it, so the firm can correct them. */
+function UploadSettings({ item }: { item: AuthorityDetail }) {
+  const qc = useQueryClient();
+  const { meta } = useSession();
+  const save = useMutation({
+    mutationFn: (body: Record<string, string>) => api(`/library/${item.id}`, { method: "PATCH", json: body }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["authority", item.id] });
+      qc.invalidateQueries({ queryKey: ["library"] });
+      toast.success("Saved");
+    },
+    onError: (e) => toast.error((e as Error).message),
+  });
+  const options = [...new Set([...(meta?.jurisdictions ?? []), item.jurisdiction])];
+  return (
+    <div className="mt-4 flex flex-wrap items-end gap-4">
+      <div className="grid gap-1">
+        <Label htmlFor="u-j" className="text-xs text-muted-foreground">Jurisdiction</Label>
+        <Select value={item.jurisdiction} onValueChange={(v) => save.mutate({ jurisdiction: v })}>
+          <SelectTrigger id="u-j" className="h-9 w-56 bg-card"><SelectValue /></SelectTrigger>
+          <SelectContent>{options.map((j) => <SelectItem key={j} value={j}>{j}</SelectItem>)}</SelectContent>
+        </Select>
+      </div>
+      <div className="grid gap-1">
+        <Label htmlFor="u-k" className="text-xs text-muted-foreground">Type</Label>
+        <Select value={item.kind} onValueChange={(v) => save.mutate({ kind: v })}>
+          <SelectTrigger id="u-k" className="h-9 w-40 bg-card"><SelectValue /></SelectTrigger>
+          <SelectContent>
+            <SelectItem value="judgment">Judgment</SelectItem>
+            <SelectItem value="legislation">Legislation</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
   );
 }

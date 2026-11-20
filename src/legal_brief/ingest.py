@@ -197,6 +197,8 @@ class _LLMTag(BaseModel):
 
 
 class JudgmentMetaLLM(BaseModel):
+    document_type: str  # judgment | legislation
+    jurisdiction: str  # e.g. "England and Wales", "India", "Scotland"
     case_name: str
     neutral_citation: str
     court: str
@@ -207,6 +209,8 @@ class JudgmentMetaLLM(BaseModel):
 
 
 class JudgmentMeta(BaseModel):
+    document_type: str = "judgment"
+    jurisdiction: str = "England and Wales"
     name: str
     citation: str = ""
     court: str = ""
@@ -237,12 +241,28 @@ def regex_metadata(text: str, filename: str = "") -> JudgmentMeta:
 
     scores = score_doctrines(text[:40000])
     tags = {k: "mixed" for k, s in sorted(scores.items(), key=lambda kv: -kv[1])[:4] if s >= 2}
-    return JudgmentMeta(name=name[:200], citation=citation, court=court, date=date, doctrines=tags)
+    from legal_brief.jurisdiction import detect_offline
+
+    juris = "England and Wales" if citation else (detect_offline(head)[0] or "England and Wales")
+    if re.search(r"\(\d{4}\)\s*\d+\s*SCC|\bAIR\s+\d{4}|Supreme Court of India|High Court of \w+ at", head):
+        juris = "India"
+    is_act = bool(re.search(r"(?im)^\s*(the\s+)?[A-Z][\w ,()'’-]{3,90}\b(Act|Regulations|Rules|Code|Ordinance)"
+                            r",?\s+(\d{4})\b", head)) and not re.search(r"\bv\.?\s", head[:600])
+    if is_act:
+        title_m = re.search(r"(?im)^\s*((?:the\s+)?[A-Z][\w ,()'’-]{3,90}\b(?:Act|Regulations|Rules|Code|Ordinance),?"
+                            r"\s+\d{4})", head)
+        name = title_m.group(1).strip() if title_m else name
+    return JudgmentMeta(document_type="legislation" if is_act else "judgment", jurisdiction=juris,
+                        name=name[:200], citation=citation, court=court, date=date, doctrines=tags)
 
 
 META_INSTRUCTIONS = (
-    "You index judgments of the courts of England and Wales for a legal research library. From the opening and "
-    "closing text of a judgment, return: the short case name as lawyers cite it (e.g. 'Smith v Jones Ltd'); the "
+    "You index documents for a law firm's legal research library. Say whether the document is a 'judgment' or "
+    "'legislation' (an Act, regulations, a code or an ordinance), and the jurisdiction whose law it is (for "
+    "example 'England and Wales', 'Scotland', 'India', 'Ireland', 'New York, United States'). For legislation, "
+    "put its short title (e.g. 'Specific Relief Act, 1963') in case_name and leave neutral_citation empty. For a "
+    "judgment, from its opening and closing text return: the short case name as lawyers cite it (e.g. 'Smith v "
+    "Jones Ltd'); the "
     "neutral citation exactly as printed (e.g. '[2023] EWCA Civ 1023') or '' if none; the court; the judgment date "
     "as yyyy-mm-dd or ''; the area of law (contract, tort, property, employment or other); a neutral 2-3 sentence "
     "summary of what was decided and why; and the doctrines it decides, using ONLY keys from this list, each with "
@@ -268,12 +288,30 @@ async def judgment_metadata(text: str, filename: str, client=None) -> JudgmentMe
         return base
     tags = {t.doctrine: (t.stance if t.stance in ("pro", "contra", "mixed") else "mixed")
             for t in out.doctrines if t.doctrine in DOCTRINES}
+    from legal_brief.jurisdiction import normalise
+
     return JudgmentMeta(
+        document_type="legislation" if out.document_type.lower().startswith("legis") else "judgment",
+        jurisdiction=normalise(out.jurisdiction or base.jurisdiction),
         name=(out.case_name or base.name)[:200], citation=out.neutral_citation or base.citation,
         court=out.court or base.court, date=out.judgment_date if re.fullmatch(r"\d{4}-\d\d-\d\d", out.judgment_date or "") else base.date,
         area=out.area if out.area in ("contract", "tort", "property", "employment") else "other",
         summary=out.summary.strip()[:1200], doctrines=tags or base.doctrines,
     )
+
+
+def as_sections(paras: list[Para]) -> list[Para]:
+    """Relabel numbered paragraphs of legislation as sections: p5 -> s5, '¶5' -> 's 5'."""
+    out = []
+    for p in paras:
+        m = re.match(r"p(\d+)(\.\d+)?$", p.pid)
+        if m:
+            out.append(Para(f"s{m.group(1)}{m.group(2) or ''}", p.label.replace("¶", "s "), p.text))
+        elif p.pid == "p0":
+            out.append(Para("s0", "preamble", p.text))
+        else:
+            out.append(p)
+    return out
 
 
 # --------------------------------------------------------------------------- matter facts

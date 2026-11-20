@@ -42,6 +42,7 @@ class FactSheet(BaseModel):
     acting_for: str
     source_path: str = ""
     practice_area: str = ""  # contract | tort | property | employment | "" (unknown)
+    jurisdiction: str = "England and Wales"  # whose law governs the matter; research is limited to it
     raw_text: str
     parties_block: list[str] = Field(default_factory=list)
     paragraphs: list[FactParagraph] = Field(default_factory=list)
@@ -50,7 +51,7 @@ class FactSheet(BaseModel):
         return next((p for p in self.paragraphs if p.ref == ref), None)
 
     def numbered_text(self) -> str:
-        lines = [f"# {self.title}", f"Acting for: {self.acting_for}"]
+        lines = [f"# {self.title}", f"Acting for: {self.acting_for}", f"Jurisdiction: {self.jurisdiction}"]
         if self.practice_area:
             lines.append(f"Practice area: {AREA_NAMES.get(self.practice_area, self.practice_area)}")
         lines += ["", "Parties:"]
@@ -164,6 +165,9 @@ class Brief(BaseModel):
     time_limits: list[CitedStatement] = Field(default_factory=list)
     evidence: list[CitedStatement] = Field(default_factory=list)
     questions_for_client: list[str] = Field(default_factory=list)
+    # How far the brief can be relied on as a research starting point (set by the source check).
+    reliability: str = "unchecked"  # high | medium | low | unchecked
+    reliability_reasons: list[str] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
 
     def statements(self) -> list[CitedStatement]:

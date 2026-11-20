@@ -33,6 +33,7 @@ from legal_brief.corpus import Corpus, load_library
 from legal_brief.factsheet import load_fact_sheet
 from legal_brief.llm import build_chat_client
 from legal_brief.models import FactSheet
+from legal_brief.jurisdiction import check_jurisdiction
 from legal_brief.retrieval import HybridRetriever
 
 
@@ -155,7 +156,7 @@ def make_session(fact_sheet: FactSheet, settings: Settings, client=None, corpus:
                  retriever: HybridRetriever | None = None) -> CaseSession:
     if retriever is not None:
         corpus = retriever.corpus
-    corpus = corpus or load_library(settings)
+    corpus = (corpus or load_library(settings)).for_jurisdiction(fact_sheet.jurisdiction)
     if retriever is None:
         embedder = None
         if settings.embedding_model and settings.uses_llm:  # same semantic search as the web app
@@ -174,7 +175,8 @@ def make_session(fact_sheet: FactSheet, settings: Settings, client=None, corpus:
 
 
 async def run_case(fact_sheet: FactSheet | str | Path, settings: Settings, client=None, *,
-                   retriever: HybridRetriever | None = None, on_event=None) -> CaseResult:
+                   retriever: HybridRetriever | None = None, on_event=None,
+                   jurisdiction_override: bool = False) -> CaseResult:
     """Run the full multi-agent debate for one fact sheet and return the compiled brief.
 
     `retriever` lets a caller (the web app) reuse a library index across runs; `on_event`
@@ -183,6 +185,13 @@ async def run_case(fact_sheet: FactSheet | str | Path, settings: Settings, clien
         fact_sheet = load_fact_sheet(fact_sheet)
     session = make_session(fact_sheet, settings, client, retriever=retriever)
     session.on_event = on_event
+    # Never research one legal system with another's law: stop before any research if the facts are
+    # governed elsewhere or the library holds nothing for the matter's jurisdiction.
+    session.log("jurisdiction_check", "start", f"matter jurisdiction: {fact_sheet.jurisdiction}")
+    chk = await check_jurisdiction(fact_sheet, session.corpus, session.client, override=jurisdiction_override)
+    session.jurisdiction_check = chk.as_dict()
+    session.log("jurisdiction_check", "done",
+                f"governing law {chk.detected or 'not stated'} ({chk.confidence}); {chk.library_count} authorities")
     start = time.perf_counter()
     workflow = build_debate_workflow(session)
     result = await workflow.run(fact_sheet)

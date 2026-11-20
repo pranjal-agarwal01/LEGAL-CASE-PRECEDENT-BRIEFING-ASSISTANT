@@ -350,6 +350,29 @@ function Questions({ items }: { items: string[] }) {
   );
 }
 
+const RELIABILITY = {
+  high: { title: "Solid research starting point", tone: "border-verified/40 bg-verified-wash text-verified" },
+  medium: { title: "Use with care", tone: "border-partial/40 bg-partial-wash text-partial" },
+  low: { title: "Not reliable as it stands", tone: "border-unsupported/40 bg-unsupported-wash text-unsupported" },
+  unchecked: { title: "Sources not checked", tone: "border-rule bg-vellum text-ink-soft" },
+} as const;
+
+/** One line a supervising lawyer reads first: how far this brief can be relied on, and why. */
+function Reliability({ brief, jurisdiction }: { brief: RunResult["brief"]; jurisdiction?: string }) {
+  const level = brief.reliability ?? "unchecked";
+  const r = RELIABILITY[level] ?? RELIABILITY.unchecked;
+  return (
+    <div className={cn("mb-5 rounded-md border px-4 py-3 font-sans", r.tone)} role="status">
+      <p className="text-[15px] font-bold">{r.title}{jurisdiction ? <span className="font-semibold text-ink-soft">{`. ${jurisdiction} law`}</span> : null}</p>
+      {brief.reliability_reasons?.length ? (
+        <ul className="mt-1 grid gap-0.5 text-[13px] text-ink">
+          {brief.reliability_reasons.map((x, i) => <li key={i}>{x}</li>)}
+        </ul>
+      ) : null}
+    </div>
+  );
+}
+
 function CheckSummary({ result }: { result: RunResult }) {
   const s = result.support_report;
   if (!s || s.mode === "off") {
@@ -451,6 +474,7 @@ export function BriefView({ result, runId }: { result: RunResult; runId: number 
           <div className="hidden lg:block"><VerificationRail items={ordered} /></div>
 
           <article className="sheet brief min-w-0 text-ink">
+            <Reliability brief={b} jurisdiction={(result as RunResult & { jurisdiction_check?: { matter_jurisdiction?: string } }).jurisdiction_check?.matter_jurisdiction} />
             <CheckSummary result={result} />
             <p className="mt-3 font-sans text-xs text-muted-foreground">
               Prepared for review by a qualified lawyer. Not legal advice. Select any citation to read the passage it

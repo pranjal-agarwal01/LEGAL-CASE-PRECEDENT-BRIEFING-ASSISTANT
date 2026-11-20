@@ -69,6 +69,7 @@ class Judgment:
     date: str = ""
     summary: str = ""
     source_note: str = ""
+    jurisdiction: str = "England and Wales"
 
     @property
     def full_name(self) -> str:
@@ -179,6 +180,21 @@ class Corpus:
 
     def __len__(self) -> int:
         return len(self.judgments)
+
+    def for_jurisdiction(self, jurisdiction: str) -> "Corpus":
+        """Only the authorities of one legal system: research never mixes jurisdictions."""
+        from legal_brief.jurisdiction import same
+
+        return Corpus([j for j in self.judgments if same(j.jurisdiction, jurisdiction)], self.meta)
+
+    def jurisdictions(self) -> dict[str, int]:
+        from legal_brief.jurisdiction import normalise
+
+        out: dict[str, int] = {}
+        for j in self.judgments:
+            k = normalise(j.jurisdiction)
+            out[k] = out.get(k, 0) + 1
+        return out
 
     def find_act(self, name: str) -> Judgment | None:
         return self._acts.get(_act_key(name))

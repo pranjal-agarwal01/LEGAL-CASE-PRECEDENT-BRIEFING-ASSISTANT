@@ -297,6 +297,35 @@ DOCTRINES: dict[str, Doctrine] = {
             (r"business tenancy", r"commercial lease", r"(shop|office|unit) lease", r"new lease", r"contracted out"),
             "business tenancy security of tenure section 25 notice grounds of opposition new tenancy contracted out",
         ),
+        # ------------------------------------------------- land: title, boundaries, possession (any jurisdiction)
+        Doctrine(
+            "title_possession", "Title and recovery of possession", "property",
+            "Does {claimant} hold title to the disputed land, and is {claimant} entitled to recover possession of it from {defendant}?",
+            (r"sale deed|title deed|conveyance|registered (title|deed)", r"recover(y of)? possession", r"\bmutation\b",
+             r"\btitle\b", r"\bin possession\b|\bpossession of the (land|strip|property)\b"),
+            "title ownership recovery of possession immovable property declaration of title suit for possession",
+        ),
+        Doctrine(
+            "boundary_encroachment", "Boundary dispute and encroachment", "property",
+            "Has {defendant} encroached on {claimant}'s land beyond the true boundary, and how is the boundary proved?",
+            (r"encroach\w*", r"\bboundar(y|ies)\b", r"demarcation", r"\bsurvey\w*", r"\b(wall|fence|shed) (on|over|across)\b",
+             r"\b(strip|marlas?|kanals?)\b"),
+            "boundary demarcation encroachment survey removal of structure mandatory injunction",
+        ),
+        Doctrine(
+            "adverse_possession", "Adverse possession and limitation", "property",
+            "Has {defendant} acquired title to the disputed land by adverse possession, or is {claimant}'s claim to it time-barred?",
+            (r"adverse possession", r"continuous(ly)? (and open )?possession", r"\bhostile\b", r"twelve years|12 years",
+             r"time[- ]barred"),
+            "adverse possession limitation twelve years possession open hostile continuous dispossession",
+            claimant_wants="contra", defence=True,
+        ),
+        Doctrine(
+            "injunction_relief", "Injunctions", "property",
+            "Is {claimant} entitled to an injunction restraining {defendant}, or requiring removal of what was built?",
+            (r"\binjunction\b", r"\brestrain\w*\b", r"remove (the )?(wall|shed|structure)", r"stop (him|her|them) from"),
+            "perpetual injunction mandatory injunction restrain interference removal of construction",
+        ),
         # ------------------------------------------------- employment
         Doctrine(
             "unfair_dismissal", "Unfair dismissal", "employment",

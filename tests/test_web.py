@@ -117,3 +117,54 @@ def test_team_member_temp_password(client):
     me = client.post("/api/auth/login", json={"email": "cara@other-llp.example.com", "password": temp}).json()
     assert me["must_change_password"] and me["role"] == "member"
     assert client.post("/api/team", json={"name": "X", "email": "x@other-llp.example.com"}).status_code == 403
+
+
+INDIA_FACTS = """1. In 2018 Hardeep Singh bought 2 kanals of agricultural land at Village Baddowal, Ludhiana, Punjab under a registered sale deed, and mutation was sanctioned in his name.
+2. Gurpreet Singh owns the adjoining 1 kanal, bought in 2016 from the same vendor.
+3. In April 2025 Gurpreet Singh built a wall and a shed on a 5 marla strip. The tehsildar's demarcation report of August 2025 shows encroachment by him."""
+
+SRA = "THE SPECIFIC RELIEF ACT, 1963\n\n" + "\n".join(
+    f"{n}. Section {n} of the Act. A person entitled to the possession of specific immovable property may recover "
+    f"it in the manner provided by the Code of Civil Procedure, and the court may grant a perpetual injunction to "
+    f"prevent the breach of an obligation; provision {n} concerns possession, declaration and injunctions."
+    for n in range(1, 12))
+
+
+def _wait(client, run_id, timeout=60):
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        r = client.get(f"/api/runs/{run_id}").json()
+        if r["status"] not in ("queued", "running"):
+            return r
+        time.sleep(0.3)
+    raise AssertionError("run did not finish")
+
+
+def test_foreign_matter_is_blocked_then_researched_with_its_own_law(client):
+    m = client.post("/api/matters", json={"title": "Hardeep Singh v Gurpreet Singh", "client_name": "Hardeep Singh",
+                                          "opponent": "Gurpreet Singh", "practice_area": "property",
+                                          "facts": INDIA_FACTS, "objective": "Recover the 5 marlas."}).json()
+    assert m["jurisdiction"] == "England and Wales"
+    r = _wait(client, client.post(f"/api/matters/{m['id']}/runs", json={"rounds": 1}).json()["id"])
+    assert r["status"] == "blocked" and r["result"]["blocked"]["detected"] == "India"
+
+    # set the matter to India: still blocked until the firm has Indian authorities
+    client.patch(f"/api/matters/{m['id']}", json={"jurisdiction": "india"})
+    r = _wait(client, client.post(f"/api/matters/{m['id']}/runs", json={"rounds": 1}).json()["id"])
+    assert r["status"] == "blocked" and r["result"]["blocked"]["kind"] == "no_library"
+
+    up = client.post("/api/library/upload", files={"file": ("sra.txt", SRA.encode(), "text/plain")},
+                     data={"jurisdiction": "India", "kind": "legislation"}).json()
+    deadline = time.time() + 30
+    while time.time() < deadline:
+        item = client.get(f"/api/library/{up['id']}").json()
+        if item["status"] != "processing":
+            break
+        time.sleep(0.2)
+    assert item["kind"] == "legislation" and item["jurisdiction"] == "India"
+    assert item["passages"][1]["pid"] == "s1" and item["passages"][1]["label"] == "s 1"
+
+    r = _wait(client, client.post(f"/api/matters/{m['id']}/runs", json={"rounds": 1}).json()["id"])
+    assert r["status"] == "done", r.get("error")
+    cited = set(r["result"]["authorities"])
+    assert cited and cited <= {up["id"]}, cited  # only the Indian Act; no English statute or case summary

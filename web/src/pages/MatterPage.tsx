@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { api, AREA_LABEL, formatDate, type Matter, type Run } from "@/lib/api";
+import { api, AREA_LABEL, formatDate, type Blocked, type Matter, type Run, type RunResult } from "@/lib/api";
 import { useSession } from "@/lib/session";
 
 export function MatterPage() {
@@ -38,14 +38,15 @@ export function MatterPage() {
   });
   const status = run.data?.status;
   useEffect(() => {
-    if (status === "done" || status === "failed") {
+    if (status === "done" || status === "failed" || status === "blocked") {
       qc.invalidateQueries({ queryKey: ["matter", id] });
       qc.invalidateQueries({ queryKey: ["matters"] });
     }
   }, [status, id, qc]);
 
   const start = useMutation({
-    mutationFn: () => api<{ id: number }>(`/matters/${id}/runs`, { method: "POST", json: { rounds: 2 } }),
+    mutationFn: (override: boolean = false) =>
+      api<{ id: number }>(`/matters/${id}/runs`, { method: "POST", json: { rounds: 2, override_jurisdiction: override } }),
     onSuccess: async (r) => {
       await qc.invalidateQueries({ queryKey: ["matter", id] });
       setParams({ run: String(r.id) });
@@ -77,11 +78,13 @@ export function MatterPage() {
           <div className="min-w-0">
             <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-[2.15rem]">{m.title}</h1>
             <Parties matter={m} />
-            {m.practice_area ? <p className="mt-3 text-sm text-muted-foreground">{AREA_LABEL[m.practice_area] ?? ""}</p> : null}
+            <p className="mt-3 text-sm text-muted-foreground">
+              {m.jurisdiction || "England and Wales"} law{m.practice_area ? `. ${AREA_LABEL[m.practice_area] ?? ""}` : ""}
+            </p>
           </div>
           <div className="flex shrink-0 flex-wrap items-center gap-2">
             <Button size="lg" className="h-10 bg-tape px-4 text-tape-ink hover:bg-tape/90" disabled={busy || start.isPending}
-              onClick={() => start.mutate()}>
+              onClick={() => start.mutate(false)}>
               <Play /> {runs.length ? "Prepare a new brief" : "Prepare brief"}
             </Button>
             <DropdownMenu>
@@ -127,7 +130,7 @@ export function MatterPage() {
               <SelectContent>
                 {runs.map((r) => (
                   <SelectItem key={r.id} value={String(r.id)}>
-                    Brief of {formatDate(r.created_at, true)}{r.status === "failed" ? " (failed)" : ""}
+                    Brief of {formatDate(r.created_at, true)}{r.status === "failed" ? " (failed)" : r.status === "blocked" ? " (stopped)" : ""}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -158,7 +161,12 @@ export function MatterPage() {
         </div>
       ) : null}
 
-      {run.data?.status === "done" && run.data.result ? (
+      {run.data?.status === "blocked" && run.data.result && "blocked" in run.data.result && run.data.result.blocked ? (
+        <BlockedPanel blocked={run.data.result.blocked} matterId={m.id}
+          onOverride={() => start.mutate(true)} busy={start.isPending} />
+      ) : null}
+
+      {run.data?.status === "done" && run.data.result && !("blocked" in run.data.result && run.data.result.blocked) ? (
         <Tabs value={params.get("tab") ?? "brief"} className="gap-0"
           onValueChange={(t) => setParams((p) => { const n = new URLSearchParams(p); n.set("tab", t); return n; }, { replace: true })}>
           <div className="border-b px-4 sm:px-8">
@@ -168,9 +176,9 @@ export function MatterPage() {
               <TabsTrigger value="facts">Numbered facts</TabsTrigger>
             </TabsList>
           </div>
-          <TabsContent value="brief"><BriefView result={run.data.result} runId={run.data.id} /></TabsContent>
-          <TabsContent value="debate"><DebateView result={run.data.result} /></TabsContent>
-          <TabsContent value="facts"><FactsView result={run.data.result} /></TabsContent>
+          <TabsContent value="brief"><BriefView result={run.data.result as RunResult} runId={run.data.id} /></TabsContent>
+          <TabsContent value="debate"><DebateView result={run.data.result as RunResult} /></TabsContent>
+          <TabsContent value="facts"><FactsView result={run.data.result as RunResult} /></TabsContent>
         </Tabs>
       ) : null}
 
@@ -215,5 +223,61 @@ function Parties({ matter }: { matter: Matter }) {
         ))}
       </div>
     </div>
+  );
+}
+
+/** Shown instead of a brief when the jurisdiction check stops a run: what was found, and what to do. */
+function BlockedPanel({ blocked, matterId, onOverride, busy }: { blocked: Blocked; matterId: number; onOverride: () => void; busy: boolean }) {
+  const qc = useQueryClient();
+  const navigate = useNavigate();
+  const switchLaw = useMutation({
+    mutationFn: () => api(`/matters/${matterId}`, { method: "PATCH", json: { jurisdiction: blocked.detected } }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["matter", String(matterId)] });
+      toast.success(`Governing law set to ${blocked.detected}`, { description: "Prepare the brief again once your library holds its authorities." });
+    },
+  });
+  const mismatch = blocked.kind === "mismatch";
+  return (
+    <section className="desk px-3 py-8 sm:px-6">
+      <div className="sheet mx-auto max-w-[44rem]">
+        <p className="font-sans text-sm font-semibold text-unsupported">Research stopped before it started</p>
+        <h2 className="mt-2 font-serif text-2xl font-semibold text-ink">
+          {mismatch ? `These facts are governed by the law of ${blocked.detected}` : `Your library has no ${blocked.matter_jurisdiction} authorities`}
+        </h2>
+        <p className="mt-3 text-ink-soft">
+          {mismatch
+            ? `The matter is set to ${blocked.matter_jurisdiction}. Precedent will not answer a question about one legal system with another's law, so no brief was prepared.`
+            : `Precedent researches only the legislation and judgments in your library for the matter's jurisdiction, and found none for ${blocked.matter_jurisdiction}.`}
+        </p>
+        {mismatch && blocked.reason ? (
+          <p className="mt-4 rounded-md bg-vellum px-4 py-3 font-sans text-sm text-ink"><strong className="font-semibold">Why: </strong>{blocked.reason}</p>
+        ) : null}
+        <div className="mt-6 grid gap-3 font-sans">
+          {mismatch ? (
+            <button type="button" disabled={switchLaw.isPending} onClick={() => switchLaw.mutate()}
+              className="rounded-md bg-ink px-4 py-2.5 text-left text-sm font-semibold text-paper hover:bg-ink/90">
+              Set the governing law to {blocked.detected}
+              <span className="block text-[12.5px] font-normal opacity-80">Then upload {blocked.detected} legislation and judgments to your library.</span>
+            </button>
+          ) : (
+            <button type="button" onClick={() => navigate(`/library?upload=${encodeURIComponent(blocked.matter_jurisdiction)}`)}
+              className="rounded-md bg-ink px-4 py-2.5 text-left text-sm font-semibold text-paper hover:bg-ink/90">
+              Upload {blocked.matter_jurisdiction} legislation and judgments
+              <span className="block text-[12.5px] font-normal opacity-80">Statutes, rules and the judgments you rely on, as PDF or Word.</span>
+            </button>
+          )}
+          {mismatch ? (
+            <button type="button" disabled={busy} onClick={onOverride}
+              className="rounded-md border bg-card px-4 py-2.5 text-left text-sm font-semibold text-ink hover:bg-accent">
+              Research under {blocked.matter_jurisdiction} law anyway
+              <span className="block text-[12.5px] font-normal text-muted-foreground">
+                Only if {blocked.matter_jurisdiction} law really governs, for example under a choice-of-law clause. This is recorded in your firm's activity log.
+              </span>
+            </button>
+          ) : null}
+        </div>
+      </div>
+    </section>
   );
 }

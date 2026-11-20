@@ -48,6 +48,7 @@ class CaseSession:
     started: float = field(default_factory=time.perf_counter)
     on_event: Callable[[dict], None] | None = None  # live progress hook (web app)
     extra_refs: dict[str, list[str]] = field(default_factory=dict)  # citable passages outside the issue list
+    jurisdiction_check: dict = field(default_factory=dict)
 
     @property
     def mode(self) -> str:
@@ -172,7 +173,8 @@ class BaseLegalAgent:
                 tools = make_tools(self.name, corpus=session.corpus, retriever=session.retriever,
                                    board=session.board, top_k=session.settings.top_k,
                                    can_write=self.tool_profile == "write")
-            self.agent = Agent(self.client, self.instructions, name=self.name,
+            instructions = self.instructions.replace("{jurisdiction}", session.fact_sheet.jurisdiction)
+            self.agent = Agent(self.client, instructions, name=self.name,
                                description=self.description, tools=tools or None)
         self.conversation = self.agent.create_session() if (self.agent is not None and self.persistent) else None
 
@@ -189,7 +191,8 @@ class BaseLegalAgent:
     async def ask_as(self, name: str, instructions: str, prompt: str, schema: type[M]) -> M:
         """One structured call to a tool-less helper agent with its own instructions (e.g. the source checker)."""
         assert self.client is not None
-        helper = Agent(self.client, instructions, name=name)
+        helper = Agent(self.client, instructions.replace("{jurisdiction}", self.session.fact_sheet.jurisdiction),
+                       name=name)
         self.session.llm_calls += 1
         return await run_structured(helper, prompt, schema, max_tokens=self.session.settings.max_tokens)
 

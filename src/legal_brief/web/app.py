@@ -14,7 +14,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, File, HTTPException, Request, Response, UploadFile
+from fastapi import Depends, FastAPI, File, Form, HTTPException, Request, Response, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, EmailStr, Field, field_validator
@@ -25,6 +25,7 @@ from legal_brief.config import PROJECT_ROOT, Settings
 from legal_brief.corpus import KIND_LABELS
 from legal_brief.doctrines import AREA_LABELS, DOCTRINES
 from legal_brief.ingest import UnsupportedFile, extract_text
+from legal_brief.jurisdiction import normalise as normalise_jurisdiction
 from legal_brief.web import export
 from legal_brief.web.db import (AuditEvent, Authority, Firm, Matter, Run, User, audit, get_session, init_db)
 from legal_brief.web.jobs import JobManager, runs_today
@@ -160,6 +161,9 @@ def meta(request: Request):
         "signup": ALLOW_SIGNUP, "model": s.model if s.uses_llm else None, "provider": s.provider,
         "llm_ready": s.uses_llm, "search_mode": lib.search_mode, "runs_per_day": RUNS_PER_DAY,
         "practice_areas": [{"key": k, "label": v} for k, v in AREA_LABELS.items()],
+        "jurisdictions": ["England and Wales", "Scotland", "Northern Ireland", "Ireland", "India", "Pakistan",
+                          "Singapore", "Hong Kong", "Australia", "Canada", "United States", "UAE", "Nigeria",
+                          "Kenya", "South Africa"],
         "doctrines": [{"key": d.key, "label": d.label, "area": d.area} for d in DOCTRINES.values()],
         "library": {"statutes": len(acts), "statute_passages": sum(len(a.passages) for a in acts),
                     "summaries": len([j for j in base.judgments if j.kind == "summary"]),
@@ -317,6 +321,7 @@ class MatterIn(BaseModel):
     client_role: str = "claimant"
     opponent: str = Field(default="", max_length=300)
     practice_area: str = Field(default="", max_length=40)
+    jurisdiction: str = Field(default="England and Wales", max_length=80)
     facts: str = Field(default="", max_length=60000)
     objective: str = Field(default="", max_length=6000)
 
@@ -327,11 +332,17 @@ class MatterIn(BaseModel):
             raise ValueError("client_role must be claimant or defendant")
         return v
 
+    @field_validator("jurisdiction")
+    @classmethod
+    def _jurisdiction(cls, v):
+        return normalise_jurisdiction(v) if v else v
+
 
 class MatterPatch(MatterIn):
     title: str | None = Field(default=None, max_length=300)  # type: ignore[assignment]
     client_name: str | None = Field(default=None, max_length=200)  # type: ignore[assignment]
     client_role: str | None = None  # type: ignore[assignment]
+    jurisdiction: str | None = Field(default=None, max_length=80)  # type: ignore[assignment]
 
 
 _DATE_RE = re.compile(r"\b(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|"
@@ -357,7 +368,7 @@ def deadlines(result: dict | None) -> list[dict]:
 
 def matter_json(m: Matter, last: Run | None = None, author: str | None = None) -> dict:
     out = {k: getattr(m, k) for k in ("id", "reference", "title", "client_name", "client_role", "opponent",
-                                      "practice_area", "facts", "objective")}
+                                      "practice_area", "jurisdiction", "facts", "objective")}
     out.update(created_at=iso(m.created_at), updated_at=iso(m.updated_at), created_by=author)
     if last is not None:
         res = last.result or {}
@@ -450,6 +461,9 @@ async def extract(file: UploadFile = File(...), user: User = Depends(current_use
 # ------------------------------------------------------------------------------------------------- runs
 class RunIn(BaseModel):
     rounds: int = Field(default=2, ge=1, le=3)
+    # Research under the matter's jurisdiction even though the facts point elsewhere (e.g. a choice-of-law
+    # clause). Only offered after a run was blocked, and recorded in the audit log.
+    override_jurisdiction: bool = False
 
 
 @app.post("/api/matters/{matter_id}/runs")
@@ -462,10 +476,12 @@ def start_run(matter_id: int, body: RunIn, request: Request, user: User = Depend
         raise HTTPException(429, f"Your firm has reached today's limit of {RUNS_PER_DAY} briefs.")
     s: Settings = request.app.state.settings
     run = Run(firm_id=user.firm_id, matter_id=m.id, created_by=user.id, rounds=body.rounds,
-              model=f"{s.provider}:{s.model}" if s.uses_llm else "offline")
+              model=f"{s.provider}:{s.model}" if s.uses_llm else "offline",
+              result={"jurisdiction_override": True} if body.override_jurisdiction else None)
     db.add(run)
     db.flush()
-    audit(db, user.firm_id, user.id, "run.started", f"matter {m.id} run {run.id}")
+    audit(db, user.firm_id, user.id, "run.started",
+          f"matter {m.id} run {run.id}" + (" (jurisdiction check overridden)" if body.override_jurisdiction else ""))
     db.commit()
     request.app.state.jobs.start_run(run.id)
     return {"id": run.id, "status": run.status}
@@ -484,7 +500,7 @@ def _run_for_export(db, run_id, user):
     if r.status != "done" or not r.result:
         raise HTTPException(409, "This brief is not finished.")
     m = db.get(Matter, r.matter_id)
-    return {k: getattr(m, k) for k in ("title", "client_name", "client_role", "opponent")}, r.result
+    return {k: getattr(m, k) for k in ("title", "client_name", "client_role", "opponent", "jurisdiction")}, r.result
 
 
 def _filename(title: str, ext: str) -> str:
@@ -515,10 +531,11 @@ def library(request: Request, user: User = Depends(current_user), db: Session = 
     base = lib.base(True)
     items = [{"id": j.id, "kind": j.kind, "name": j.name, "citation": j.citation, "court": j.court,
               "year": j.year, "areas": j.area.split(","), "passages": len(j.passages), "url": j.url,
-              "date": j.date, "doctrines": list(j.doctrines)} for j in base.judgments]
+              "date": j.date, "doctrines": list(j.doctrines), "jurisdiction": j.jurisdiction} for j in base.judgments]
     uploads = db.execute(select(Authority, User.name).outerjoin(User, User.id == Authority.uploaded_by)
                          .where(Authority.firm_id == user.firm_id).order_by(Authority.id.desc())).all()
-    items = [{"id": upload_id(a.id), "kind": "judgment", "name": a.name or a.filename, "citation": a.citation,
+    items = [{"id": upload_id(a.id), "kind": a.kind, "jurisdiction": a.jurisdiction, "name": a.name or a.filename,
+              "citation": a.citation,
               "court": a.court, "year": int(a.date[:4]) if a.date[:4].isdigit() else None, "areas": [a.area],
               "passages": a.n_passages, "status": a.status, "error": a.error, "date": a.date,
               "doctrines": list(a.doctrines or {}), "uploaded_by": name, "filename": a.filename,
@@ -527,12 +544,12 @@ def library(request: Request, user: User = Depends(current_user), db: Session = 
 
 
 @app.get("/api/library/search")
-def library_search(q: str, request: Request, kind: str = "", user: User = Depends(current_user),
-                   db: Session = Depends(db_session)):
+def library_search(q: str, request: Request, kind: str = "", jurisdiction: str = "England and Wales",
+                   user: User = Depends(current_user), db: Session = Depends(db_session)):
     if len(q.strip()) < 3:
         return []
     firm = db.get(Firm, user.firm_id)
-    r = request.app.state.library.retriever(user.firm_id, firm.include_summaries)
+    r = request.app.state.library.retriever(user.firm_id, firm.include_summaries, jurisdiction)
     hits = r.search(q[:500], top_k=12, kinds=(kind,) if kind else None)
     out = []
     for h in hits:
@@ -549,37 +566,72 @@ def library_item(authority_id: str, request: Request, user: User = Depends(curre
     lib: LibraryManager = request.app.state.library
     if authority_id.startswith("U"):
         a = _owned(db, Authority, int(authority_id[1:]) if authority_id[1:].isdigit() else -1, user)
-        return {"id": authority_id, "kind": "judgment", "name": a.name, "citation": a.citation, "court": a.court,
+        return {"id": authority_id, "kind": a.kind, "jurisdiction": a.jurisdiction, "name": a.name,
+                "citation": a.citation, "court": a.court,
                 "date": a.date, "summary": a.summary, "doctrines": a.doctrines, "status": a.status,
                 "note": "Uploaded by your firm.", "url": a.url,
                 "passages": [{"pid": p.pid, "label": p.label, "text": p.text} for p in a.passages]}
     j = lib.base(True).get(authority_id)
     if not j:
         raise HTTPException(404, "Not found.")
-    return {"id": j.id, "kind": j.kind, "name": j.name, "citation": j.citation, "court": j.court, "date": j.date,
+    return {"id": j.id, "kind": j.kind, "jurisdiction": j.jurisdiction, "name": j.name, "citation": j.citation,
+            "court": j.court, "date": j.date,
             "summary": j.summary, "doctrines": j.doctrines, "note": j.source_note, "url": j.url,
             "passages": [{"pid": p.pid, "label": p.display, "title": p.title, "text": p.text} for p in j.passages]}
 
 
 @app.post("/api/library/upload")
-async def upload_judgment(request: Request, file: UploadFile = File(...), user: User = Depends(current_user)):
+async def upload_judgment(request: Request, file: UploadFile = File(...), jurisdiction: str = Form(""),
+                          kind: str = Form(""), user: User = Depends(current_user)):
     data = await _read_upload(file)
     try:
         text = extract_text(file.filename or "upload", data)
     except UnsupportedFile as e:
         raise HTTPException(415, str(e)) from e
     if len(text.split()) < 150:
-        raise HTTPException(422, "That document is too short to be a judgment.")
+        raise HTTPException(422, "That document is too short to index.")
+    jurisdiction = normalise_jurisdiction(jurisdiction) if jurisdiction.strip() else ""
+    kind = kind if kind in ("judgment", "legislation") else ""
     with get_session() as db:
         a = Authority(firm_id=user.firm_id, uploaded_by=user.id, filename=(file.filename or "upload")[:300],
-                      status="processing")
+                      status="processing", jurisdiction=jurisdiction or "England and Wales", kind=kind or "judgment")
         db.add(a)
         db.flush()
         audit(db, user.firm_id, user.id, "library.uploaded", f"{a.id} {a.filename}")
         db.commit()
         aid = a.id
-    request.app.state.jobs.start_upload(aid, text)
+    request.app.state.jobs.start_upload(aid, text, jurisdiction, kind)
     return {"id": upload_id(aid), "status": "processing"}
+
+
+class AuthorityPatch(BaseModel):
+    jurisdiction: str | None = Field(default=None, max_length=80)
+    kind: str | None = None
+    name: str | None = Field(default=None, max_length=300)
+
+
+@app.patch("/api/library/{authority_id}")
+def update_upload(authority_id: str, body: AuthorityPatch, user: User = Depends(current_user),
+                  db: Session = Depends(db_session)):
+    """Correct an upload's jurisdiction, type or title (detection is a suggestion; the firm decides)."""
+    if not authority_id.startswith("U") or not authority_id[1:].isdigit():
+        raise HTTPException(400, "Only documents your firm uploaded can be changed.")
+    a = _owned(db, Authority, int(authority_id[1:]), user)
+    if body.jurisdiction:
+        a.jurisdiction = normalise_jurisdiction(body.jurisdiction)
+    if body.kind in ("judgment", "legislation") and body.kind != a.kind:
+        a.kind = body.kind
+        from legal_brief.ingest import Para, as_sections
+
+        if a.kind == "legislation":
+            relabeled = as_sections([Para(p.pid, p.label, p.text) for p in a.passages])
+            for p, r in zip(a.passages, relabeled):
+                p.pid, p.label = r.pid, r.label
+    if body.name:
+        a.name = body.name.strip()
+    audit(db, user.firm_id, user.id, "library.updated", f"{authority_id} {body.model_dump_json(exclude_none=True)}")
+    db.commit()
+    return {"ok": True}
 
 
 @app.delete("/api/library/{authority_id}")

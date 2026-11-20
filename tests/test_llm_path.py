@@ -52,8 +52,12 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
         scripted checker rejects so the test can see an unsupported authority removed."""
         items = json.loads(text[text.index("["):])
         return {"verdicts": [{"id": it["id"],
-                              "verdict": "unsupported" if "one party" in it["statement"] else "supported",
+                              "verdict": "unsupported" if ("one party" in it["statement"]
+                                                           or "preserved" in it["statement"]) else "supported",
                               "relevance": "on_point",
+                              "helps": "other_side" if "undermines the hirer" in it["statement"]
+                              else "client" if "for the client" in it.get("written_for", "")
+                              else "other_side" if "other side" in it.get("written_for", "") else "neutral",
                               "note": "passage is about something else" if "one party" in it["statement"] else ""}
                              for it in items]}
 
@@ -91,6 +95,7 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
         if name == "BriefLLM":
             return {
                 "summary": [{"text": "The contract was probably frustrated.", "citations": ["J37:p3", "F4"]},
+                            {"text": "The client's claim is preserved by his emails.", "citations": ["F6"]},
                             {"text": "Grimes v Watersports Ltd is directly on point.", "citations": ["J88:p1"]}],
                 "issues": [{"issue_id": "I1", "question": "Was the hire frustrated?",
                             "precedents": [{"judgment_id": "J37", "stance": "supporting",
@@ -105,7 +110,9 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
                                             "proposition": "Frustration needs a shared purpose to fail.",
                                             "citations": ["J37:p3"],
                                             "quote": "frustration is confined to cases of total impossibility"}],
-                            "supporting_argument": [{"text": "Both parties knew of the fireworks.", "citations": ["F2"]}],
+                            "supporting_argument": [{"text": "Both parties knew of the fireworks.", "citations": ["F2"]},
+                                                    {"text": "The usable terrace undermines the hirer's frustration case.",
+                                                     "citations": ["F5"]}],
                             "opposing_argument": [{"text": "The terrace was still usable.", "citations": ["F5", "J38:p2"]}],
                             "assessment": {"text": "Favourable but contested.", "citations": ["J37:p2", "J38:p3"]}}],
                 "conclusion": [{"text": "Recover the deposit.", "citations": ["F7"]}],
@@ -154,7 +161,7 @@ def test_llm_mode_end_to_end(settings, fs_dir):
 
     # the source checker graded the statements; the unsupported J38 proposition was removed
     sup = compiled.support_report
-    assert sup["checked"] >= 4 and sup["unsupported"] == 1 and sup["removed_precedents"] == 1
+    assert sup["checked"] >= 4 and sup["unsupported"] == 2 and sup["removed_precedents"] == 1
     issue = compiled.final.issues[0]
     # J38 (unsupported) is removed; J37 stays on BOTH sides because only J38's proposition failed
     assert [e.judgment_id for e in issue.supporting_precedents] == ["J37"]
@@ -162,6 +169,14 @@ def test_llm_mode_end_to_end(settings, fs_dir):
     assert issue.supporting_precedents[0].proposition.support == "supported"
     assert any(w.startswith("Removed J38") for w in compiled.final.warnings)
     assert client.requests.count("SupportCheckLLM") == 1
+    # an argument written for the client that actually helps the other side is moved across
+    assert any("undermines the hirer" in st.text for st in issue.opposing_argument)
+    assert not any("undermines the hirer" in st.text for st in issue.supporting_argument)
+    assert sup["moved_sides"] == 1
+    # a legal conclusion resting on facts alone is marked unsupported; a factual one stays 'facts_only'
+    preserved = next(st for st in compiled.final.summary if "preserved" in st.text)
+    assert preserved.support == "unsupported" and sup["legal_without_law"] == 1
+    assert compiled.final.reliability in ("low", "medium", "high")
 
     # quotes are checked by exact text match: the real one is kept, the invented one is removed
     q = compiled.support_report["quotes"]
