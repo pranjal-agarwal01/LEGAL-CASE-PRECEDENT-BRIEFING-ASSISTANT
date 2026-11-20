@@ -11,7 +11,7 @@ from sqlalchemy import select, update
 
 from legal_brief.citations import normalise, resolve_passage
 from legal_brief.config import Settings
-from legal_brief.ingest import as_sections, judgment_metadata, paragraphs_from_text, split_judgment
+from legal_brief.ingest import judgment_metadata, paragraphs_from_text, split_judgment, split_legislation
 from legal_brief.jurisdiction import JurisdictionBlocked
 from legal_brief.llm import LLMUnavailable, build_chat_client
 from legal_brief.models import FactParagraph, FactSheet
@@ -209,8 +209,8 @@ class JobManager:
                 a.area, a.summary, a.doctrines = meta.area, meta.summary, meta.doctrines
                 a.kind = kind if kind in ("judgment", "legislation") else meta.document_type
                 a.jurisdiction = jurisdiction or meta.jurisdiction
-                if a.kind == "legislation":  # numbered sections, cited as "s 5" rather than "¶5"
-                    paras = as_sections(paras)
+                if a.kind == "legislation":  # sections and schedule articles, cited as "s 5" / "Sch, art 65"
+                    paras = split_legislation(text)
                 a.passages = [AuthorityPassage(seq=i, pid=p.pid, label=p.label, text=p.text)
                               for i, p in enumerate(paras)]
                 a.n_passages, a.status = len(paras), "ready"

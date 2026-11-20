@@ -300,6 +300,76 @@ async def judgment_metadata(text: str, filename: str, client=None) -> JudgmentMe
     )
 
 
+# --------------------------------------------------------------------------- legislation
+_ENACTING = re.compile(r"\b(BE it enacted|It is hereby enacted|WHEREAS it is expedient)\b", re.I)
+_SECTION = re.compile(r"(?m)^\s*\[?(\d{1,4})([A-Z]{0,3})\.\s*(?=\S)")
+_FOOTNOTE = re.compile(
+    r"(?m)^\s*\d+\.\s*(?:Subs\.|Ins\.|Omitted|Rep\.|Added|The words|The figures|Certain words|For the words|Vide|"
+    r"Renumbered|Now see|Came into force|w\.e\.f\.|"
+    r"Extended to|This Act has been|The Act has been).*$")
+_SCHEDULE = re.compile(r"(?m)^\s*THE\s+(?:FIRST\s+|SECOND\s+|THIRD\s+|FOURTH\s+)?SCHEDULE\b\.?")
+
+
+def _repair_glyphs(text: str) -> str:
+    """PDFs often lose dashes and quotes as U+FFFD; restore the usual reading."""
+    text = re.sub(r"(?<=[.\w)])�(?=[(\w\s])", "—", text)  # "title.�(1)" -> "title.—(1)"
+    return text.replace("�", "”")
+
+
+def _numbered_run(text: str) -> list[tuple[int, int, str]]:
+    """(start, end, number) of numbered headings that run 1, 2, 3 ... allowing inserted sections (5A) and
+    small gaps where sections were omitted."""
+    out: list[tuple[int, int, str]] = []
+    last = 0
+    for m in _SECTION.finditer(text):
+        n, suffix = int(m.group(1)), m.group(2)
+        if (not out and n == 1) or (out and ((n == last and suffix) or last < n <= last + 3)):
+            out.append((m.start(), m.end(), f"{n}{suffix}"))
+            last = n
+    return out
+
+
+def split_legislation(text: str) -> list[Para]:
+    """Sections (s 5, s 5A) and schedule entries (Sch, art 65) of an Act, skipping the table of contents
+    that official prints place before the enacting formula, and the amendment footnotes on each page."""
+    text = _repair_glyphs(text)
+    found = list(_ENACTING.finditer(text))
+    body_start = found[-1].start() if found else 0
+    body = _FOOTNOTE.sub("", text[body_start:])
+    sched = _SCHEDULE.search(body, pos=max(0, len(body) // 3))  # schedules follow the sections
+    sections_text, schedule_text = (body[:sched.start()], body[sched.start():]) if sched else (body, "")
+    paras: list[Para] = []
+    run = _numbered_run(sections_text)
+    if len(run) < 3:  # not a recognisable Act: fall back to paragraphs
+        return split_judgment(text)
+    preamble = _squash(sections_text[: run[0][0]])
+    if preamble:
+        paras.append(Para("s0", "preamble", preamble[:3000]))
+    for k, (start, end, num) in enumerate(run):
+        stop = run[k + 1][0] if k + 1 < len(run) else len(sections_text)
+        body_text = _squash(sections_text[end:stop])
+        pieces = _split_words(body_text, MAX_PARA_WORDS)
+        for i, piece in enumerate(pieces, 1):
+            pid = f"s{num}" + (f".{i}" if len(pieces) > 1 else "")
+            paras.append(Para(pid, f"s {num}" + (f" (part {i})" if len(pieces) > 1 else ""), piece))
+    if schedule_text:
+        arts = _numbered_run(schedule_text)
+        if len(arts) >= 3:
+            head = _squash(schedule_text[: arts[0][0]])
+            if head:
+                paras.append(Para("sch0", "Schedule", head[:2000]))
+            for k, (start, end, num) in enumerate(arts):
+                stop = arts[k + 1][0] if k + 1 < len(arts) else len(schedule_text)
+                pieces = _split_words(_squash(schedule_text[end:stop]), MAX_PARA_WORDS)
+                for i, piece in enumerate(pieces, 1):
+                    pid = f"art{num}" + (f".{i}" if len(pieces) > 1 else "")
+                    paras.append(Para(pid, f"Sch, art {num}" + (f" (part {i})" if len(pieces) > 1 else ""), piece))
+        else:
+            for i, piece in enumerate(_split_words(_squash(schedule_text), CHUNK_WORDS), 1):
+                paras.append(Para(f"sch{i}", f"Schedule (part {i})", piece))
+    return paras
+
+
 def as_sections(paras: list[Para]) -> list[Para]:
     """Relabel numbered paragraphs of legislation as sections: p5 -> s5, '¶5' -> 's 5'."""
     out = []

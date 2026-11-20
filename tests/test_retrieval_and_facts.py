@@ -72,3 +72,25 @@ def test_issue_board_deduplicates_and_logs():
     b.mark_stance(i1.id, "J38", "opposing", "counter_argument")
     assert i1.supporting == ["J37"] and i1.opposing == ["J38"]
     assert [e.action for e in b.events] == ["add_issue", "duplicate_issue_ignored", "mark_supporting", "mark_opposing"]
+
+
+def test_split_legislation_skips_contents_and_footnotes():
+    from legal_brief.ingest import split_legislation
+
+    act = "\n".join([
+        "THE EXAMPLE ACT, 1963", "ARRANGEMENT OF SECTIONS", "1. Short title.", "2. Recovery of land.",
+        "3. Injunctions.", "THE SCHEDULE.", "THE EXAMPLE ACT, 1963", "ACT NO. 9 OF 1963",
+        "BE it enacted by Parliament as follows:�",
+        "1. Short title.�(1) This Act may be called the Example Act, 1963.",
+        "2. Recovery of land.�A person entitled to the possession of land may recover it.",
+        "1. Subs. by Act 18 of 1977, s. 2, for certain words.",
+        "2A. Inserted section.�A new rule inserted later.",
+        "3. Injunctions.�A perpetual injunction may be granted to prevent the breach of an obligation.",
+        "THE SCHEDULE", "Description of suit Period", "1. For a debt. Three years.", "2. For land. Twelve years.",
+        "3. For possession of immovable property based on title. Twelve years. When possession becomes adverse.",
+    ])
+    paras = {p.pid: p for p in split_legislation(act)}
+    assert {"s1", "s2", "s2A", "s3", "art1", "art2", "art3"} <= set(paras)
+    assert paras["s2"].text.startswith("Recovery of land.—A person entitled")  # body text, not the contents line
+    assert "Subs. by" not in paras["s2"].text  # page footnote dropped
+    assert paras["art3"].label == "Sch, art 3" and "based on title" in paras["art3"].text
