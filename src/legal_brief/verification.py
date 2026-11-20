@@ -46,7 +46,11 @@ INSTRUCTIONS = (
     "analogy, 'off_point' if it comes from a different area of law, does not govern this kind of claim (for "
     "example the Sale of Goods Act 1979 for a consumer contract made after 1 October 2015, or a negligence case "
     "for a statutory employment right), or is only tangential. Keep each note under 25 words and say what is "
-    "missing or why it is off point."
+    "missing or why it is off point. "
+    "Statements of kind 'time_limit' are deadlines a lawyer will diary: grade them 'supported' only if a cited "
+    "passage states that exact period for that exact right or claim (a period that applies to a different right, "
+    "or a presumption period that is not a deadline, makes it 'unsupported'), and check that any date given is "
+    "counted correctly from the facts."
 )
 
 
@@ -167,8 +171,10 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
     s = agent.session
     out = brief.model_copy(deep=True)
     statements: list[tuple[str, CitedStatement, str]] = []  # (id, statement, role)
-    for st in out.summary + out.facts + out.conclusion + out.remedies + out.time_limits + out.evidence:
+    for st in out.summary + out.facts + out.conclusion + out.remedies + out.evidence:
         statements.append(("", st, "statement"))
+    for st in out.time_limits:
+        statements.append(("", st, "time_limit"))
     for issue in out.issues:
         for e in issue.supporting_precedents + issue.opposing_precedents:
             # A precedent's proposition must be checked against that authority's own text.
@@ -195,7 +201,8 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
     issue_text = {i.issue_id: i.question for i in out.issues}
     for start in range(0, len(to_check), BATCH):
         batch = to_check[start:start + BATCH]
-        payload = [{"id": sid, "issue": issue_text.get(role.split(":")[1], "") if role.startswith(("precedent", "arg")) else "",
+        payload = [{"id": sid, "kind": "time_limit" if role == "time_limit" else "statement",
+                    "issue": issue_text.get(role.split(":")[1], "") if role.startswith(("precedent", "arg")) else "",
                     "statement": st.text, "cited_passages": _passages_text(s, _authority_cites(st)),
                     "cited_facts": _facts_text(s, st)} for sid, st, role in batch]
         prompt = ("Grade each statement against its cited passages.\n\n" + json.dumps(payload, ensure_ascii=False))

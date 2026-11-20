@@ -342,6 +342,8 @@ def deadlines(result: dict | None) -> list[dict]:
     """Dated time limits from a brief's next steps (dates the brief states, e.g. '... by 2 June 2026')."""
     out = []
     for st in ((result or {}).get("brief") or {}).get("time_limits", []):
+        if st.get("support") != "supported":  # only deadlines verified against their provision are diarised
+            continue
         dates = []
         for d, mon, y in _DATE_RE.findall(st.get("text", "")):
             try:
