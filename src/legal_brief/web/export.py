@@ -12,6 +12,9 @@ SUPPORT_LABEL = {"supported": "Verified against source", "partial": "Partly supp
                  "unsupported": "NOT supported by the cited source", "facts_only": "Facts", "unchecked": "Not checked"}
 
 
+NEXT_STEPS = (("Remedies", "remedies"), ("Time limits", "time_limits"), ("Evidence to obtain", "evidence"))
+
+
 def cite_text(cite: str, auths: dict) -> str:
     if re.fullmatch(r"F\d+", cite):
         return f"Facts ¶{cite[1:]}"
@@ -34,6 +37,8 @@ def _statements(brief: dict):
             yield e["proposition"]
         yield from i.get("supporting_argument", []) + i.get("opposing_argument", []) + [i["assessment"]]
     yield from brief.get("conclusion", [])
+    for _, key in NEXT_STEPS:
+        yield from brief.get(key, [])
 
 
 def to_markdown(matter: dict, result: dict) -> str:
@@ -54,13 +59,22 @@ def to_markdown(matter: dict, result: dict) -> str:
         for label, key in (("Supporting authorities", "supporting_precedents"),
                            ("Opposing authorities", "opposing_precedents")):
             out += [f"**{label}**", ""]
-            out += [line({**e["proposition"], "text": f"{e['case_name']} {e['citation']}: {e['proposition']['text']}"})
-                    for e in i.get(key, [])] or ["- None."]
+            for e in i.get(key, []):
+                out.append(line({**e["proposition"], "text": f"{e['case_name']} {e['citation']}: {e['proposition']['text']}"}))
+                if e.get("quote") and e.get("quote_verified"):
+                    out.append(f"  > “{e['quote']}” ({cite_text(e['quote_ref'], auths)})")
+            if not i.get(key):
+                out.append("- None.")
             out.append("")
         out += ["**For the client**", ""] + ([line(s) for s in i.get("supporting_argument", [])] or ["- None."])
         out += ["", "**For the other side**", ""] + ([line(s) for s in i.get("opposing_argument", [])] or ["- None."])
         out += ["", "**Assessment**", "", line(i["assessment"])]
     out += ["", "## Conclusion", ""] + [line(s) for s in b.get("conclusion", [])]
+    for title, key in NEXT_STEPS:
+        if b.get(key):
+            out += ["", f"## {title}", ""] + [line(s) for s in b[key]]
+    if b.get("questions_for_client"):
+        out += ["", "## Questions for the client", ""] + [f"- {q}" for q in b["questions_for_client"]]
     return "\n".join(out) + "\n"
 
 
@@ -121,6 +135,13 @@ def to_docx(matter: dict, result: dict) -> bytes:
                 doc.add_paragraph("None found in the library.")
             for e in entries:
                 bullet(e["proposition"], prefix=f"{e['case_name']} {e['citation']}".strip() + ": ")
+                if e.get("quote") and e.get("quote_verified"):
+                    q = doc.add_paragraph()
+                    q.paragraph_format.left_indent = Pt(28)
+                    qr = q.add_run(f"“{e['quote']}”")
+                    qr.italic = True
+                    src = q.add_run(f"  {cite_text(e['quote_ref'], auths)}, quoted verbatim")
+                    src.font.size, src.font.color.rgb = Pt(8.5), RGBColor(0x55, 0x55, 0x55)
         doc.add_heading("Argument for the client", level=2)
         for s in i.get("supporting_argument", []) or [{"text": "None.", "citations": []}]:
             bullet(s)
@@ -132,6 +153,15 @@ def to_docx(matter: dict, result: dict) -> bytes:
     doc.add_heading("Conclusion", level=1)
     for s in b.get("conclusion", []):
         bullet(s)
+    for title, key in NEXT_STEPS:
+        if b.get(key):
+            doc.add_heading(title, level=1)
+            for s in b[key]:
+                bullet(s)
+    if b.get("questions_for_client"):
+        doc.add_heading("Questions for the client", level=1)
+        for q in b["questions_for_client"]:
+            doc.add_paragraph(q, style="List Number")
 
     doc.add_heading("Authorities cited", level=1)
     used = sorted({c.split(":")[0] for s in _statements(b) for c in s.get("citations", []) if c[:1] in "JLU"})

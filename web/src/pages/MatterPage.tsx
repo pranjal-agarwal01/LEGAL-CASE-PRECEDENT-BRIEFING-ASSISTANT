@@ -76,11 +76,8 @@ export function MatterPage() {
         <div className="mt-2 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="min-w-0">
             <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-[2.15rem]">{m.title}</h1>
-            <p className="mt-1.5 text-ink-soft">
-              Acting for {m.client_name} as {m.client_role}
-              {m.opponent ? `, against ${m.opponent}` : ""}
-              {m.practice_area ? `. ${AREA_LABEL[m.practice_area] ?? ""}` : ""}
-            </p>
+            <Parties matter={m} />
+            {m.practice_area ? <p className="mt-3 text-sm text-muted-foreground">{AREA_LABEL[m.practice_area] ?? ""}</p> : null}
           </div>
           <div className="flex shrink-0 flex-wrap items-center gap-2">
             <Button size="lg" className="h-10 bg-tape px-4 text-tape-ink hover:bg-tape/90" disabled={busy || start.isPending}
@@ -171,7 +168,7 @@ export function MatterPage() {
               <TabsTrigger value="facts">Numbered facts</TabsTrigger>
             </TabsList>
           </div>
-          <TabsContent value="brief"><BriefView result={run.data.result} /></TabsContent>
+          <TabsContent value="brief"><BriefView result={run.data.result} runId={run.data.id} /></TabsContent>
           <TabsContent value="debate"><DebateView result={run.data.result} /></TabsContent>
           <TabsContent value="facts"><FactsView result={run.data.result} /></TabsContent>
         </Tabs>
@@ -193,5 +190,30 @@ export function MatterPage() {
         </DialogContent>
       </Dialog>
     </>
+  );
+}
+
+/** The parties set out as in a court heading: name, dotted leader, role; "and" between them. */
+function Parties({ matter }: { matter: Matter }) {
+  const client = { name: matter.client_name, role: matter.client_role === "defendant" ? "Defendant" : "Claimant", ours: true };
+  const other = matter.opponent ? { name: matter.opponent, role: client.role === "Claimant" ? "Defendant" : "Claimant", ours: false } : null;
+  const rows = client.role === "Claimant" ? [client, other] : [other, client];
+  return (
+    <div className="mt-4 font-serif text-[1.05rem] text-ink">
+      <p className="mb-1 text-sm italic text-muted-foreground">Between</p>
+      <div className="backsheet-parties gap-y-0.5">
+        {rows.filter(Boolean).map((p, i) => (
+          <div key={p!.role} className="contents">
+            {i === 1 ? <p className="col-span-2 py-0.5 text-sm italic text-muted-foreground">and</p> : null}
+            <span className="backsheet-leader">
+              <span className={p!.ours ? "font-semibold" : undefined}>{p!.name}</span>
+            </span>
+            <span className="font-sans text-sm text-ink-soft">
+              {p!.role}{p!.ours ? <span className="ml-1.5 rounded-sm bg-tape-wash px-1.5 py-0.5 text-[11.5px] font-semibold text-tape">Our client</span> : null}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

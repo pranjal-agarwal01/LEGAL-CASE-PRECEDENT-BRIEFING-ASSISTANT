@@ -227,8 +227,10 @@ class HybridRetriever:
         return [j.key_passage().ref] if j else []
 
     def search(self, query: str, top_k: int = 5, doctrine: str | None = None,
-               doctrine_boost: float | None = None, kinds: tuple[str, ...] | None = None) -> list[JudgmentHit]:
-        """Rank authorities: best passage score, plus the doctrine boost when tagged."""
+               doctrine_boost: float | None = None, kinds: tuple[str, ...] | None = None,
+               prefer_area: str | None = None, area_boost: float = 0.2) -> list[JudgmentHit]:
+        """Rank authorities: best passage score, plus the doctrine boost when tagged and an area boost
+        for authorities from the matter's practice area."""
         boost = self.doctrine_boost if doctrine_boost is None else doctrine_boost
         hits = self.search_passages(query, top_k=len(self.docs))
         grouped: dict[str, list[PassageHit]] = defaultdict(list)
@@ -242,6 +244,8 @@ class HybridRetriever:
             phits.sort(key=lambda h: -h.score)
             text_score = phits[0].score + 0.15 * sum(h.score for h in phits[1:3])
             tagged = bool(doctrine and j and doctrine in j.doctrines)
-            results.append(JudgmentHit(jid, text_score + (boost if tagged else 0.0), text_score, tagged, phits[:3]))
+            in_area = bool(prefer_area and j and prefer_area in j.area.split(","))
+            score = text_score + (boost if tagged else 0.0) + (area_boost if in_area else 0.0)
+            results.append(JudgmentHit(jid, score, text_score, tagged, phits[:3]))
         results.sort(key=lambda r: (-r.score, r.judgment_id))
         return results[:top_k]

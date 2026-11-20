@@ -24,7 +24,8 @@ _AUTH = r"[JLU]\d{1,6}"
 _PID = r"[a-z]{1,3}\d+[A-Za-z]*(?:\.\d+)?"
 CITE_RE = re.compile(rf"^(?:({_AUTH})(?::({_PID}))?|F(\d+))$")
 _ONE = rf"(?:{_AUTH}(?::{_PID})?|F\d+)"
-INLINE_CITE_RE = re.compile(rf"\[({_ONE}(?:\s*[,;]\s*{_ONE})*)\]")
+# Citation ids written into the prose, in square brackets or parentheses: "[J06:p3]", "(L23:s213.1, F7)".
+INLINE_CITE_RE = re.compile(rf"[\[(]({_ONE}(?:\s*[,;]\s*{_ONE})*)[\])]")
 _CAP = r"[A-Z][\w'&.\-]*"
 _LINK = rf"(?:{_CAP}|of|and|&|the|de|la|for)"
 CASE_NAME_RE = re.compile(rf"\b({_CAP}(?:\s+{_LINK}){{0,7}}?)\s+v\.?\s+({_CAP}(?:\s+{_LINK}){{0,7}})")
@@ -200,7 +201,7 @@ def guard_brief(brief: Brief, validator: CitationValidator) -> tuple[Brief, list
         if not good:
             warnings.append(f"Dropped uncited claim: {st.text[:80]}")
             return None
-        text = re.sub(r"\s+([.,;:])", r"\1", INLINE_CITE_RE.sub("", st.text)).strip()
+        text = re.sub(r"\s+([.,;:])", r"\1", re.sub(r"\s{2,}", " ", INLINE_CITE_RE.sub("", st.text))).strip()
         return st.model_copy(update={"text": text, "citations": list(dict.fromkeys(good))})
 
     def clean_list(items: list[CitedStatement]) -> list[CitedStatement]:
@@ -208,6 +209,8 @@ def guard_brief(brief: Brief, validator: CitationValidator) -> tuple[Brief, list
 
     out = brief.model_copy(deep=True)
     out.summary, out.facts, out.conclusion = clean_list(out.summary), clean_list(out.facts), clean_list(out.conclusion)
+    out.remedies, out.time_limits, out.evidence = (clean_list(out.remedies), clean_list(out.time_limits),
+                                                   clean_list(out.evidence))
     for issue in out.issues:
         for attr in ("supporting_precedents", "opposing_precedents"):
             kept = []

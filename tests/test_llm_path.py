@@ -21,6 +21,7 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
         super().__init__(**kw)
         self.requests: list[str] = []
         self.tool_results: list[str] = []
+        self.turn_calls: list[tuple[int, str]] = []  # (messages in the request, newest user message)
 
     def _inner_get_response(self, *, messages, stream, options, **kwargs):
         return self._respond(messages, options)
@@ -30,7 +31,11 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
         name = getattr(fmt, "__name__", "text")
         self.requests.append(name)
         text = "\n".join(c.text or "" for m in messages for c in m.contents if c.type == "text")
-        results = [c for m in messages for c in m.contents if c.type == "function_result"]
+        if name == "DebateTurnLLM":
+            users = [m for m in messages if str(getattr(m.role, "value", m.role)) == "user"]
+            newest = "\n".join(c.text or "" for c in users[-1].contents if c.type == "text") if users else ""
+            self.turn_calls.append((len(messages), newest))
+        results =[c for m in messages for c in m.contents if c.type == "function_result"]
         tools = {getattr(t, "name", "") for t in (options.get("tools") or [])}
         if name == "DebateTurnLLM" and "list_issues" in tools and not results:
             call = Content("function_call", call_id="call-1", name="list_issues", arguments={})
@@ -48,6 +53,7 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
         items = json.loads(text[text.index("["):])
         return {"verdicts": [{"id": it["id"],
                               "verdict": "unsupported" if "one party" in it["statement"] else "supported",
+                              "relevance": "on_point",
                               "note": "passage is about something else" if "one party" in it["statement"] else ""}
                              for it in items]}
 
@@ -89,17 +95,24 @@ class ScriptedChatClient(FunctionInvocationLayer, BaseChatClient):
                 "issues": [{"issue_id": "I1", "question": "Was the hire frustrated?",
                             "precedents": [{"judgment_id": "J37", "stance": "supporting",
                                             "proposition": "Cancellation of the shared purpose frustrates.",
-                                            "citations": ["J37:p3"]},
+                                            "citations": ["J37:p3"],
+                                            "quote": "a supervening event destroys a state of affairs which both "
+                                                     "parties regarded as the basis of the contract"},
                                            {"judgment_id": "J38", "stance": "opposing",
                                             "proposition": "Not where only one party's purpose fails.",
-                                            "citations": ["J38:p3"]},
+                                            "citations": ["J38:p3"], "quote": ""},
                                            {"judgment_id": "J37", "stance": "opposing",
                                             "proposition": "Frustration needs a shared purpose to fail.",
-                                            "citations": ["J37:p3"]}],
+                                            "citations": ["J37:p3"],
+                                            "quote": "frustration is confined to cases of total impossibility"}],
                             "supporting_argument": [{"text": "Both parties knew of the fireworks.", "citations": ["F2"]}],
                             "opposing_argument": [{"text": "The terrace was still usable.", "citations": ["F5", "J38:p2"]}],
                             "assessment": {"text": "Favourable but contested.", "citations": ["J37:p2", "J38:p3"]}}],
                 "conclusion": [{"text": "Recover the deposit.", "citations": ["F7"]}],
+                "remedies": [{"text": "If frustrated, money paid is recoverable.", "citations": ["J37:p3"]}],
+                "time_limits": [],
+                "evidence": [{"text": "Obtain the cancellation notice for the fireworks.", "citations": ["F4"]}],
+                "questions_for_client": ["Was the fireworks display mentioned in the booking emails?"],
             }
         return {}
 
@@ -114,6 +127,11 @@ def test_llm_mode_end_to_end(settings, fs_dir):
     assert client.requests.count("BriefLLM") == 1
     assert client.requests.count("DebateTurnLLM") >= 4  # 2 rounds x 2 debaters (plus tool round-trips)
     assert any("frustration" in r for r in client.tool_results), "list_issues tool output should reach the model"
+    # Each debater keeps one conversation: its round-2 request carries the earlier messages, and the
+    # new message does not resend the facts, only the opponent's new points and the issue list.
+    later = [(n, msg) for n, msg in client.turn_calls if "ROUND 2" in msg]
+    assert later and all(n > 4 for n, _ in later), client.turn_calls
+    assert all("FACTS:" not in msg and "OPPONENT'S NEW POINTS" in msg for _, msg in later)
 
     # fact refs that do not exist are dropped by the extractor
     assert [e.fact_ref for e in s.facts.chronology] == ["F1", "F4"]
@@ -144,6 +162,16 @@ def test_llm_mode_end_to_end(settings, fs_dir):
     assert issue.supporting_precedents[0].proposition.support == "supported"
     assert any(w.startswith("Removed J38") for w in compiled.final.warnings)
     assert client.requests.count("SupportCheckLLM") == 1
+
+    # quotes are checked by exact text match: the real one is kept, the invented one is removed
+    q = compiled.support_report["quotes"]
+    assert q == {"quotes": 2, "verified": 1, "removed": 1}
+    assert issue.supporting_precedents[0].quote_verified and issue.supporting_precedents[0].quote_ref == "J37:p3"
+    assert issue.opposing_precedents[0].quote == "" and not issue.opposing_precedents[0].quote_verified
+    # next steps are carried into the brief and checked like every other statement
+    b = compiled.final
+    assert b.remedies and b.evidence and b.questions_for_client and b.time_limits == []
+    assert b.remedies[0].support == "supported" and b.evidence[0].support == "facts_only"
 
 
 def test_llm_failure_falls_back_to_offline(settings, fs_dir):

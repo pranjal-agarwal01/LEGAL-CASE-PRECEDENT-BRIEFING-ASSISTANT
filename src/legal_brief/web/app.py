@@ -334,6 +334,25 @@ class MatterPatch(MatterIn):
     client_role: str | None = None  # type: ignore[assignment]
 
 
+_DATE_RE = re.compile(r"\b(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|"
+                      r"November|December) (\d{4})\b")
+
+
+def deadlines(result: dict | None) -> list[dict]:
+    """Dated time limits from a brief's next steps (dates the brief states, e.g. '... by 2 June 2026')."""
+    out = []
+    for st in ((result or {}).get("brief") or {}).get("time_limits", []):
+        dates = []
+        for d, mon, y in _DATE_RE.findall(st.get("text", "")):
+            try:
+                dates.append(datetime.strptime(f"{d} {mon} {y}", "%d %B %Y").date())
+            except ValueError:
+                continue
+        if dates:  # the deadline is the latest date in the statement; earlier ones are start dates
+            out.append({"date": max(dates).isoformat(), "text": st["text"], "support": st.get("support", "unchecked")})
+    return sorted(out, key=lambda x: x["date"])
+
+
 def matter_json(m: Matter, last: Run | None = None, author: str | None = None) -> dict:
     out = {k: getattr(m, k) for k in ("id", "reference", "title", "client_name", "client_role", "opponent",
                                       "practice_area", "facts", "objective")}
@@ -342,7 +361,8 @@ def matter_json(m: Matter, last: Run | None = None, author: str | None = None) -
         res = last.result or {}
         out["last_run"] = {"id": last.id, "status": last.status, "created_at": iso(last.created_at),
                            "issues": len((res.get("brief") or {}).get("issues", [])),
-                           "unsupported": (res.get("support_report") or {}).get("unsupported", 0)}
+                           "unsupported": (res.get("support_report") or {}).get("unsupported", 0),
+                           "deadlines": deadlines(res) if last.status == "done" else []}
     return out
 
 

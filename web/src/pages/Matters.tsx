@@ -74,7 +74,9 @@ export function MattersPage() {
         ) : null}
 
         {rows.length > 0 ? (
-          <div className="overflow-x-auto rounded-md border bg-card">
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_19rem]">
+          <ComingUp matters={data ?? []} />
+          <div className="overflow-x-auto rounded-md border bg-card xl:order-first">
             <table className="w-full text-left text-sm">
               <thead className="border-b bg-vellum/60 text-[13px] text-muted-foreground">
                 <tr>
@@ -108,8 +110,55 @@ export function MattersPage() {
               </tbody>
             </table>
           </div>
+          </div>
         ) : null}
       </div>
     </>
+  );
+}
+
+/** Time limits from each matter's latest brief, soonest first, so deadlines are the first thing a lawyer sees. */
+function ComingUp({ matters }: { matters: MatterRow[] }) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const items = matters
+    .flatMap((m) => (m.last_run?.deadlines ?? []).map((d) => ({ ...d, matter: m, when: new Date(`${d.date}T00:00:00`) })))
+    .sort((a, b) => a.when.getTime() - b.when.getTime());
+  const upcoming = items.filter((d) => d.when >= today);
+  const passed = items.filter((d) => d.when < today).slice(-2);
+  return (
+    <aside aria-labelledby="coming-up" className="rounded-md border bg-card p-4">
+      <h2 id="coming-up" className="font-serif text-lg font-semibold text-ink">Coming up</h2>
+      {items.length === 0 ? (
+        <p className="mt-2 text-sm text-muted-foreground">
+          Time limits from your briefs appear here, soonest first, once a brief states a date.
+        </p>
+      ) : (
+        <ol className="mt-3 grid gap-3">
+          {[...passed, ...upcoming.slice(0, 6)].map((d, i) => {
+            const days = Math.round((d.when.getTime() - today.getTime()) / 86_400_000);
+            const late = days < 0;
+            const soon = !late && days <= 14;
+            return (
+              <li key={i} className="grid grid-cols-[3.25rem_1fr] gap-3">
+                <div className={`rounded-md border px-1 py-1.5 text-center leading-none ${late ? "border-unsupported/40 bg-unsupported-wash text-unsupported" : soon ? "border-tape/40 bg-tape-wash text-tape" : "text-ink"}`}>
+                  <span className="block text-xl font-bold tabular-nums">{d.when.getDate()}</span>
+                  <span className="mt-1 block text-[11px] font-semibold">{d.when.toLocaleDateString("en-GB", { month: "short" })}</span>
+                </div>
+                <div className="min-w-0">
+                  <Link to={`/matters/${d.matter.id}?tab=brief#next-steps`} className="font-serif font-semibold text-ink hover:text-tape">
+                    {d.matter.title}
+                  </Link>
+                  <p className="line-clamp-2 text-[13px] text-ink-soft">{d.text}</p>
+                  <p className={`text-[12px] font-semibold ${late ? "text-unsupported" : soon ? "text-tape" : "text-muted-foreground"}`}>
+                    {late ? `Passed ${-days} day${days === -1 ? "" : "s"} ago` : days === 0 ? "Today" : `In ${days} day${days === 1 ? "" : "s"}`}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      )}
+    </aside>
   );
 }

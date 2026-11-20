@@ -72,7 +72,15 @@ export type Meta = {
   library: { statutes: number; statute_passages: number; summaries: number; legislation_imported?: string };
 };
 
-export type RunSummary = { id: number; status: RunStatus; created_at: string; issues?: number; unsupported?: number };
+export type Deadline = { date: string; text: string; support: Support };
+export type RunSummary = {
+  id: number;
+  status: RunStatus;
+  created_at: string;
+  issues?: number;
+  unsupported?: number;
+  deadlines?: Deadline[];
+};
 export type RunStatus = "queued" | "running" | "done" | "failed";
 
 export type MatterRow = {
@@ -103,6 +111,9 @@ export type PrecedentEntry = {
   citation: string;
   stance: "supporting" | "opposing";
   proposition: Statement;
+  quote: string;
+  quote_ref: string;
+  quote_verified: boolean;
 };
 export type IssueAnalysis = {
   issue_id: string;
@@ -123,6 +134,10 @@ export type Brief = {
   facts: Statement[];
   issues: IssueAnalysis[];
   conclusion: Statement[];
+  remedies: Statement[];
+  time_limits: Statement[];
+  evidence: Statement[];
+  questions_for_client: string[];
   warnings: string[];
 };
 export type AuthorityRef = {
@@ -143,7 +158,15 @@ export type RunResult = {
   brief: Brief;
   raw_report: Record<string, unknown>;
   final_report: { total_citations: number; valid_citations: number; claim_coverage: number };
-  support_report: { checked: number; supported: number; partial: number; unsupported: number; removed_precedents: number; mode: string };
+  support_report: {
+    checked: number;
+    supported: number;
+    partial: number;
+    unsupported: number;
+    removed_precedents: number;
+    mode: string;
+    quotes?: { quotes: number; verified: number; removed: number };
+  };
   fact_paragraphs: { ref: string; kind: string; text: string }[];
   turns: { speaker: "argument" | "counter"; round: number; points: DebatePoint[] }[];
   board: { issues: { id: string; question: string; raised_by: string; doctrine: string | null }[] };

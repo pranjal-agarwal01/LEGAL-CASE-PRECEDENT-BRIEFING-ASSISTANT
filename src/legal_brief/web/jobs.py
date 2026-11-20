@@ -34,7 +34,8 @@ def matter_fact_sheet(m: Matter) -> FactSheet:
         paras.append(FactParagraph(ref=f"F{len(paras) + 1}", kind="objective", text=" ".join(m.objective.split())))
     parties = [f"{role.title()}: {m.client_name}"] + ([f"{other.title()}: {m.opponent}"] if m.opponent else [])
     return FactSheet(case_id=f"M{m.id}", title=m.title, acting_for=f"{role.title()} ({m.client_name})",
-                     source_path="", raw_text=m.facts + "\n\n" + m.objective, parties_block=parties, paragraphs=paras)
+                     source_path="", practice_area=m.practice_area or "",
+                     raw_text=m.facts + "\n\n" + m.objective, parties_block=parties, paragraphs=paras)
 
 
 def _authority_payload(session, refs: set[str]) -> dict:

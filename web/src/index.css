@@ -240,3 +240,144 @@
   font-size: 1em;
   font-weight: 600;
 }
+
+/* ---------------------------------------------------------------- the bundle
+   The brief is a sheet of paper on a desk. Issues are divider tabs on its right edge,
+   and the verification rail runs down its left margin. */
+.desk {
+  background:
+    radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--ink) 7%, transparent) 1px, transparent 0) 0 0 / 18px 18px,
+    var(--vellum);
+}
+.sheet {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 2rem 1.25rem 2.5rem;
+  box-shadow: 0 1px 0 var(--rule), 0 18px 40px -28px color-mix(in oklab, var(--ink) 45%, transparent);
+}
+@media (min-width: 640px) {
+  .sheet { padding: 2.75rem 3rem 3.5rem; }
+}
+/* the pink tape across the sheet's top-left corner */
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 1.1rem;
+  left: -0.35rem;
+  width: 4.5rem;
+  height: 0.55rem;
+  background: var(--tape);
+  transform: rotate(-24deg);
+  transform-origin: left center;
+  border-radius: 1px;
+  opacity: 0.9;
+}
+
+.divider-tabs {
+  position: sticky;
+  top: 1.5rem;
+  display: grid;
+  gap: 0.4rem;
+  margin-left: -1.25rem; /* tuck under the sheet's edge */
+}
+.divider-tab {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.5rem 0.75rem 0.55rem 1.4rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 0;
+  border-radius: 0 6px 6px 0;
+  color: var(--ink-soft);
+  box-shadow: inset 4px 0 0 var(--rule);
+  transition: transform 140ms ease-out, color 140ms ease-out, box-shadow 140ms ease-out;
+}
+.divider-tab:hover { transform: translateX(3px); color: var(--ink); }
+.divider-tab[aria-current="location"] {
+  color: var(--ink);
+  box-shadow: inset 4px 0 0 var(--tape);
+  transform: translateX(5px);
+}
+.divider-tab-weak { box-shadow: inset 4px 0 0 var(--partial); }
+.divider-tab-none { box-shadow: inset 4px 0 0 var(--unsupported); }
+.divider-tab-weak[aria-current="location"], .divider-tab-none[aria-current="location"] { color: var(--ink); }
+
+.verification-rail {
+  position: sticky;
+  top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: calc(100dvh - 3rem);
+  max-height: 46rem;
+}
+.rail-seg {
+  flex: 1 1 0;
+  min-height: 3px;
+  border-radius: 2px;
+  background: var(--rule);
+  transition: transform 120ms ease-out;
+}
+.rail-seg:hover, .rail-seg:focus-visible { transform: scaleX(1.8); }
+.rail-supported { background: var(--verified); }
+.rail-partial { background: var(--partial); }
+.rail-unsupported { background: var(--unsupported); }
+.rail-facts_only, .rail-unchecked { background: color-mix(in oklab, var(--ink) 18%, transparent); }
+
+.quote {
+  border-left: 2px solid var(--tape);
+  padding: 0.35rem 0 0.35rem 0.9rem;
+  font-size: 0.94em;
+  color: var(--ink);
+}
+.quote p { font-style: italic; }
+
+.next-steps {
+  margin-top: 2.5rem;
+  margin-inline: -1.25rem;
+  padding: 2rem 1.25rem 0.5rem;
+  border-top: 3px double var(--rule);
+}
+@media (min-width: 640px) {
+  .next-steps { margin-inline: -3rem; padding-inline: 3rem; }
+}
+
+.timeline { display: grid; gap: 0.25rem; }
+.timeline li { position: relative; padding-block: 0.35rem; }
+.timeline-date {
+  border-right: 2px solid var(--rule);
+  padding-right: 0.75rem;
+  text-align: right;
+  color: var(--ink);
+}
+
+.evidence-check {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--verified);
+  cursor: pointer;
+}
+
+/* matter backsheet: parties set out as in a court heading */
+.backsheet-parties {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 0.75rem;
+  align-items: baseline;
+  max-width: 34rem;
+}
+.backsheet-leader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.backsheet-leader::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1.5px dotted var(--rule);
+  transform: translateY(-0.3em);
+  min-width: 1.5rem;
+}

@@ -63,6 +63,13 @@ CITATION_RULES = (
 class DebaterAgent(BaseLegalAgent):
     side: str = "argument"  # or "counter"
     tool_profile = "read"
+    persistent = True
+
+    def __init__(self, session):
+        super().__init__(session)
+        self._briefed = False  # has this debater's conversation received the case file yet?
+        self._shown: set[str] = set()  # authority ids already sent into the conversation
+        self._seen_points: set[str] = set()  # opponent point ids already sent
 
     # ------------------------------------------------------------ perspective
     @property
@@ -199,12 +206,25 @@ class DebaterAgent(BaseLegalAgent):
 
     # ------------------------------------------------------------------- LLM
     def material(self) -> str:
-        """Facts, issue list and the full text of every retrieved passage (the only citable law)."""
+        """The case file for this debater's conversation. The first call sends the facts, the issue
+        list and every retrieved passage; later calls (same conversation) send only the current issue
+        list and authorities retrieved since, because the agent already holds the rest."""
         s = self.session
+        ids = s.board.all_candidate_ids()
+        new_ids = [j for j in ids if j not in self._shown]
+        if self._briefed and self.conversation is not None:
+            lines = ["UPDATED SHARED ISSUE LIST:", s.board.compact_view(s.corpus)]
+            if new_ids:
+                lines += ["", "NEWLY RETRIEVED AUTHORITIES (citable, in addition to those you already have):"]
+                lines += s.authorities_block(with_tags=True, only=new_ids)
+            self._shown.update(new_ids)
+            return "\n".join(lines)
         lines = [f"Case: {s.fact_sheet.title}. Acting for the {s.fact_sheet.acting_for}.", "", "FACTS:"]
         lines += [f"[{p.ref}] {p.text}" for p in s.fact_sheet.paragraphs]
         lines += ["", "SHARED ISSUE LIST:", s.board.compact_view(s.corpus), "", "RETRIEVED AUTHORITIES (citable):"]
         lines += s.authorities_block(with_tags=True)
+        self._briefed = True
+        self._shown.update(ids)
         return "\n".join(lines)
 
     async def _prepare_llm(self) -> None:
@@ -212,14 +232,18 @@ class DebaterAgent(BaseLegalAgent):
 
     async def _turn_llm(self, round_no: int) -> DebateTurn:
         s = self.session
-        opp = self.opponent_last_turn()
+        other = "counter" if self.side == "argument" else "argument"
+        unseen = [p for t in s.turns_by(other) for p in t.points if p.point_id not in self._seen_points]
         mine = self.session.turns_by(self.side)
         prompt = [self.material(), "",
                   f"ROUND {round_no} of {s.settings.debate_rounds}. You argue for {self.my_label()}."]
-        if opp:
-            prompt += ["OPPONENT'S LATEST POINTS:"] + [f"- {p.point_id} [{p.issue_id}] {p.text} {p.citations}" for p in opp.points]
-        if mine:
+        if unseen:
+            prompt += ["OPPONENT'S NEW POINTS:"] + [f"- {p.point_id} [{p.issue_id}] {p.text} {p.citations}" for p in unseen]
+            self._seen_points.update(p.point_id for p in unseen)
+        if mine and self.conversation is None:  # without a conversation, restate what this side said before
             prompt += ["YOUR EARLIER POINTS:"] + [f"- {p.point_id} [{p.issue_id}] {p.text}" for t in mine for p in t.points]
+        elif mine:
+            prompt += ["Stay consistent with the case you put in earlier rounds; build on it rather than repeating it."]
         prompt += ["", "Round 1: open your case on every issue with your best authorities. Later rounds: rebut each "
                        "opponent point (set responds_to to its id) by distinguishing their authorities on the facts, "
                        "and reinforce your position. In 'stances', list every authority you used: use='rely' if it "

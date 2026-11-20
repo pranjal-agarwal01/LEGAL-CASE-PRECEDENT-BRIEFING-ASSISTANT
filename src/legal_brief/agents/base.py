@@ -46,6 +46,7 @@ class CaseSession:
     llm_calls: int = 0
     started: float = field(default_factory=time.perf_counter)
     on_event: Callable[[dict], None] | None = None  # live progress hook (web app)
+    extra_refs: dict[str, list[str]] = field(default_factory=dict)  # citable passages outside the issue list
 
     @property
     def mode(self) -> str:
@@ -104,22 +105,30 @@ class CaseSession:
         j = self.corpus.get(jid)
         return j.key_passage().ref if j else jid
 
-    def citable_passages(self, jid: str, limit: int = 4) -> list:
+    def citable_passages(self, jid: str, limit: int = 8) -> list:
         """Passages of one authority shown to the model: all of a short case summary, otherwise
-        the passages retrieval found for the issues (long judgments and statutes)."""
+        the passages retrieval found (long judgments and statutes). For a statute, a section split
+        into parts is shown whole, so a subsection is never read without the rest of its section."""
         j = self.corpus.get(jid)
         if not j:
             return []
         if j.kind == "summary" or len(j.passages) <= 3:
             return list(j.passages)
-        refs = list(dict.fromkeys(r for i in self.board.issues if i.candidate(jid)
-                                  for r in i.candidate(jid).passage_refs))[:limit]
-        found = [self.corpus.passage(r) for r in refs]
-        return [p for p in found if p] or [j.key_passage()]
+        refs = list(dict.fromkeys([*(r for i in self.board.issues if i.candidate(jid)
+                                     for r in i.candidate(jid).passage_refs), *self.extra_refs.get(jid, [])]))
+        found = [p for p in (self.corpus.passage(r) for r in refs) if p]
+        if j.is_legislation:
+            whole = []
+            for p in found:
+                base = p.pid.split(".")[0]
+                parts = [q for q in j.passages if q.pid == base or q.pid.startswith(base + ".")]
+                whole += parts if len(parts) <= 4 else [p]
+            found = list(dict.fromkeys(whole))
+        return found[:limit] or [j.key_passage()]
 
-    def authorities_block(self, with_tags: bool = False) -> list[str]:
+    def authorities_block(self, with_tags: bool = False, only: list[str] | None = None) -> list[str]:
         lines = []
-        for jid in self.board.all_candidate_ids():
+        for jid in (only if only is not None else self.board.all_candidate_ids()):
             j = self.corpus.get(jid)
             if not j:
                 continue
@@ -146,6 +155,9 @@ class BaseLegalAgent:
     description: str = ""
     instructions: str = ""
     tool_profile: str = "none"  # none | read | write
+    # Debaters keep ONE conversation for the whole run: round 2 remembers the research and the case
+    # theory of round 1 instead of starting from a summary.
+    persistent: bool = False
 
     def __init__(self, session: CaseSession):
         self.session = session
@@ -158,6 +170,7 @@ class BaseLegalAgent:
                                    can_write=self.tool_profile == "write")
             self.agent = Agent(session.client, self.instructions, name=self.name,
                                description=self.description, tools=tools or None)
+        self.conversation = self.agent.create_session() if (self.agent is not None and self.persistent) else None
 
     @property
     def uses_llm(self) -> bool:
@@ -166,7 +179,8 @@ class BaseLegalAgent:
     async def ask(self, prompt: str, schema: type[M]) -> M:
         assert self.agent is not None
         self.session.llm_calls += 1
-        return await run_structured(self.agent, prompt, schema, max_tokens=self.session.settings.max_tokens)
+        return await run_structured(self.agent, prompt, schema, max_tokens=self.session.settings.max_tokens,
+                                    session=self.conversation)
 
     async def ask_as(self, name: str, instructions: str, prompt: str, schema: type[M]) -> M:
         """One structured call to a tool-less helper agent with its own instructions (e.g. the source checker)."""

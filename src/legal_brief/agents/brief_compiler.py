@@ -24,6 +24,7 @@ class _LLMPrecedent(BaseModel):
     stance: str  # supporting | opposing (relative to the client)
     proposition: str
     citations: list[str]
+    quote: str  # the exact words of the cited passage the proposition rests on, copied verbatim
 
 
 class _LLMIssueSection(BaseModel):
@@ -39,6 +40,10 @@ class BriefLLM(BaseModel):
     summary: list[_LLMStatement]
     issues: list[_LLMIssueSection]
     conclusion: list[_LLMStatement]
+    remedies: list[_LLMStatement]
+    time_limits: list[_LLMStatement]
+    evidence: list[_LLMStatement]
+    questions_for_client: list[str]
 
 
 class CompiledBrief(BaseModel):
@@ -61,8 +66,22 @@ class BriefCompilerAgent(BaseLegalAgent):
         "cite at least one passage id (e.g. 'J06:p3', 'L21:s11.1', 'U4:p37') or fact ref (e.g. 'F2') from the "
         "material provided, and each cited passage must itself support the statement; issue ids "
         "such as 'I1' are labels, never citations. Never introduce an authority that is not in the material. For "
-        "each issue, list every authority either debater relied on or attacked, on the correct side. Be concise: "
-        "one to three sentences per statement."
+        "each issue, list every authority either debater relied on or attacked, on the correct side, and give "
+        "its 'quote': 8-40 words copied EXACTLY from the cited passage (no paraphrase, no ellipsis inside). Be "
+        "concise: one to three sentences per statement.\n"
+        "Then write the practical next steps a supervising solicitor needs:\n"
+        "- remedies: what the client can claim or the court or tribunal can order, including statutory sanctions, "
+        "each citing the passage id of the provision that CREATES that remedy (for example the section giving the "
+        "right to complain or setting the award), not a section that only defines the right.\n"
+        "- time_limits: every deadline that matters (limitation, tribunal time limits, statutory notice periods), "
+        "citing the provision by its passage id (never by a description). Take every period (30 days, three "
+        "months, six years) from the WORDS of the cited passage, never from memory; if no passage provided states "
+        "the period, say that the period must be checked instead of stating one. Where the facts give the start "
+        "date, work out the deadline and state it as 'D Month YYYY', citing the fact. "
+        "If the material contains no provision on time limits, return an empty list rather than guessing.\n"
+        "- evidence: the documents and evidence to obtain to prove the disputed facts, citing the fact paragraph "
+        "each one goes to.\n"
+        "- questions_for_client: 3-6 short questions about facts that are missing and would change the analysis."
     )
 
     async def run(self) -> CompiledBrief:
@@ -199,7 +218,8 @@ class BriefCompilerAgent(BaseLegalAgent):
                 entry = PrecedentEntry(
                     judgment_id=p.judgment_id, case_name=j.name if j else p.judgment_id,
                     citation=j.citation if j else "", stance="supporting" if p.stance.startswith("support") else "opposing",
-                    proposition=CitedStatement(text=p.proposition, citations=p.citations))
+                    proposition=CitedStatement(text=p.proposition, citations=p.citations),
+                    quote=(p.quote or "").strip().strip('"\u201c\u201d'))
                 (sup if entry.stance == "supporting" else opp).append(entry)
             sections.append(IssueAnalysis(
                 issue_id=sec.issue_id, question=sec.question, supporting_precedents=sup, opposing_precedents=opp,
@@ -209,11 +229,41 @@ class BriefCompilerAgent(BaseLegalAgent):
         return Brief(case_id=f.case_id, title=f.title, acting_for=f.acting_for,
                      summary=[CitedStatement(**x.model_dump()) for x in out.summary],
                      facts=[CitedStatement(text=k.text, citations=k.citations) for k in f.key_facts],
-                     issues=sections, conclusion=[CitedStatement(**x.model_dump()) for x in out.conclusion])
+                     issues=sections, conclusion=[CitedStatement(**x.model_dump()) for x in out.conclusion],
+                     remedies=[CitedStatement(**x.model_dump()) for x in out.remedies],
+                     time_limits=[CitedStatement(**x.model_dump()) for x in out.time_limits],
+                     evidence=[CitedStatement(**x.model_dump()) for x in out.evidence],
+                     questions_for_client=[q.strip() for q in out.questions_for_client if q.strip()][:8])
 
     def _material(self) -> str:
         s = self.session
         lines = ["FACTS:"] + [f"[{p.ref}] {p.text}" for p in s.fact_sheet.paragraphs]
         lines += ["", "SHARED ISSUE LIST:", s.board.compact_view(s.corpus), "", "AUTHORITIES (citable passages):"]
         lines += s.authorities_block()
+        extra = self._procedural_authorities()
+        if extra:
+            lines += ["", "REMEDIES AND TIME LIMITS (citable, mainly for the next-steps section):"]
+            lines += s.authorities_block(only=extra)
         return "\n".join(lines)
+
+    def _procedural_authorities(self) -> list[str]:
+        """The provisions the next steps depend on: what each claim gets you (remedies, awards, orders)
+        and when it must be brought (limitation, tribunal time limits). Retrieval for the issues looks for
+        the law that decides liability, so these are searched for separately, per issue, in the matter's
+        practice area. Returns authority ids not already on the issue list."""
+        s = self.session
+        area = s.fact_sheet.practice_area or None
+        have = set(s.board.all_candidate_ids())
+        new: list[str] = []
+        for issue in s.board.issues:
+            for intent in ("remedy: complaint to a tribunal or court, award, compensation, order, refund, damages",
+                           "time limit: claim must be presented or brought within a period, limitation, months, years"):
+                hits = s.retriever.search(f"{intent}. {issue.question}", top_k=2, kinds=("legislation",),
+                                          prefer_area=area)
+                for h in hits:
+                    refs = s.extra_refs.setdefault(h.judgment_id, [])
+                    refs += [p.ref for p in h.passages[:2] if p.ref not in refs]
+                    if h.judgment_id not in have and h.judgment_id not in new:
+                        new.append(h.judgment_id)
+        s.log(self.name, "next_steps_research", f"{sum(len(v) for v in s.extra_refs.values())} remedy / time-limit passages")
+        return new

@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from typing import Literal
 
 from pydantic import BaseModel
@@ -39,14 +40,20 @@ INSTRUCTIONS = (
     "- unsupported: the passages do not say this, are about a different area of law, or are cited for a holding "
     "they do not contain.\n"
     "Applying a stated rule to the client's facts is fine and counts as supported when the rule itself is in the "
-    "passage. Judge only against the passage text given, not your own knowledge. Keep each note under 25 words "
-    "and say what is missing when the verdict is not 'supported'."
+    "passage. Judge support only against the passage text given.\n"
+    "Separately grade relevance to the ISSUE shown with the statement, using your knowledge of the law of England "
+    "and Wales: 'on_point' if a specialist would cite it for this issue, 'analogous' if it is a reasonable "
+    "analogy, 'off_point' if it comes from a different area of law, does not govern this kind of claim (for "
+    "example the Sale of Goods Act 1979 for a consumer contract made after 1 October 2015, or a negligence case "
+    "for a statutory employment right), or is only tangential. Keep each note under 25 words and say what is "
+    "missing or why it is off point."
 )
 
 
 class _Verdict(BaseModel):
     id: str
     verdict: Literal["supported", "partial", "unsupported"]
+    relevance: Literal["on_point", "analogous", "off_point"]
     note: str
 
 
@@ -83,13 +90,49 @@ def _facts_text(session, st: CitedStatement) -> list[str]:
             if c.startswith("F") and session.fact_sheet.paragraph(c)]
 
 
+def _norm(text: str) -> str:
+    text = text.lower().replace("\u2019", "'").replace("\u2018", "'").replace("\u201c", '"').replace("\u201d", '"')
+    text = text.replace("\u2014", "-").replace("\u2013", "-")
+    return re.sub(r"[^a-z0-9'\"-]+", " ", text).strip()
+
+
+def check_quotes(session, brief: Brief) -> dict:
+    """Mark each precedent's quote verified only if its words appear verbatim in the cited passage
+    (ignoring case, punctuation and line breaks). Unverifiable quotes are removed, never shown as quotes."""
+    stats = {"quotes": 0, "verified": 0, "removed": 0}
+    for issue in brief.issues:
+        for e in issue.supporting_precedents + issue.opposing_precedents:
+            if not e.quote.strip():
+                continue
+            stats["quotes"] += 1
+            j = session.corpus.get(e.judgment_id)
+            refs = [e.quote_ref] if e.quote_ref else []
+            refs += [c for c in e.proposition.citations if c.split(":")[0] == e.judgment_id]
+            pairs = []  # (ref, passage text) to search
+            for r in dict.fromkeys(normalise(x) for x in refs):
+                jid, _, pid = r.partition(":")
+                if j and pid:
+                    pairs += [(f"{jid}:{p.pid}", p.text) for p in j.passages if p.pid == pid or p.pid.startswith(pid + ".")]
+            if not pairs and j:
+                pairs = [(p.ref, p.text) for p in j.passages]
+            needle = _norm(e.quote)
+            hit = next((r for r, t in pairs if needle and needle in _norm(t)), None)
+            if hit and len(needle.split()) >= 4:
+                e.quote_verified, e.quote_ref = True, hit
+                stats["verified"] += 1
+            else:
+                e.quote, e.quote_ref, e.quote_verified = "", "", False
+                stats["removed"] += 1
+    return stats
+
+
 async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
     """Grade every statement that cites authority; returns (brief, warnings, stats). `agent` is the
     BriefCompilerAgent (for its session and LLM access)."""
     s = agent.session
     out = brief.model_copy(deep=True)
     statements: list[tuple[str, CitedStatement, str]] = []  # (id, statement, role)
-    for st in out.summary + out.facts + out.conclusion:
+    for st in out.summary + out.facts + out.conclusion + out.remedies + out.time_limits + out.evidence:
         statements.append(("", st, "statement"))
     for issue in out.issues:
         for e in issue.supporting_precedents + issue.opposing_precedents:
@@ -99,7 +142,7 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
                                            *e.proposition.citations]
             statements.append(("", e.proposition, f"precedent:{issue.issue_id}:{e.judgment_id}:{e.stance}"))
         for st in issue.supporting_argument + issue.opposing_argument + [issue.assessment]:
-            statements.append(("", st, "statement"))
+            statements.append(("", st, f"arg:{issue.issue_id}"))
     to_check = []
     for n, (_, st, role) in enumerate(statements, 1):
         if not _authority_cites(st):
@@ -109,14 +152,17 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
 
     stats = {"checked": 0, "supported": 0, "partial": 0, "unsupported": 0, "removed_precedents": 0,
              "mode": "llm" if agent.uses_llm and s.settings.verify_support else "off"}
+    stats["quotes"] = check_quotes(s, out)
     if not to_check or stats["mode"] == "off":
         return out, [], stats
 
     verdicts: dict[str, _Verdict] = {}
+    issue_text = {i.issue_id: i.question for i in out.issues}
     for start in range(0, len(to_check), BATCH):
         batch = to_check[start:start + BATCH]
-        payload = [{"id": sid, "statement": st.text, "cited_passages": _passages_text(s, _authority_cites(st)),
-                    "cited_facts": _facts_text(s, st)} for sid, st, _ in batch]
+        payload = [{"id": sid, "issue": issue_text.get(role.split(":")[1], "") if role.startswith(("precedent", "arg")) else "",
+                    "statement": st.text, "cited_passages": _passages_text(s, _authority_cites(st)),
+                    "cited_facts": _facts_text(s, st)} for sid, st, role in batch]
         prompt = ("Grade each statement against its cited passages.\n\n" + json.dumps(payload, ensure_ascii=False))
         try:
             res = await agent.ask_as("source_checker", INSTRUCTIONS, prompt, SupportCheckLLM)
@@ -132,14 +178,19 @@ async def verify_brief(agent, brief: Brief) -> tuple[Brief, list[str], dict]:
         v = verdicts.get(sid)
         if not v:
             continue
-        st.support, st.support_note = v.verdict, v.note.strip()
+        verdict = v.verdict
+        if v.relevance == "off_point" and role.startswith("precedent:"):
+            verdict = "unsupported"  # an authority from the wrong area of law must not be presented as support
+            stats["off_point"] = stats.get("off_point", 0) + 1
+        st.support, st.support_note = verdict, v.note.strip()
         stats["checked"] += 1
-        stats[v.verdict] += 1
-        if v.verdict == "unsupported" and role.startswith("precedent:"):
+        stats[verdict] += 1
+        if verdict == "unsupported" and role.startswith("precedent:"):
             _, issue_id, jid, stance = role.split(":")
             drop.add((issue_id, jid, stance))
-            warnings.append(f"Removed {jid} from {issue_id}: its cited passage does not support "
-                            f"'{st.text[:90]}' ({v.note.strip()})")
+            why = "it is off point for this issue" if v.relevance == "off_point" and v.verdict != "unsupported" \
+                else "its cited passage does not support"
+            warnings.append(f"Removed {jid} from {issue_id}: {why} '{st.text[:90]}' ({v.note.strip()})")
     for issue in out.issues:
         for attr in ("supporting_precedents", "opposing_precedents"):
             kept = [e for e in getattr(issue, attr) if (issue.issue_id, e.judgment_id, e.stance) not in drop]

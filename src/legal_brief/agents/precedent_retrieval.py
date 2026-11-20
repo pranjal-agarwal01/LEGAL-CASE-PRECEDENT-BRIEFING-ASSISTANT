@@ -33,6 +33,9 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
         "judgments in the corpus that a careful lawyer would cite FOR or AGAINST the client. A hybrid search shortlist "
         "is provided; call search_judgments with your own reformulated queries (legal terms of art, doctrine names, "
         "analogous fact patterns) to find anything it missed, and read_passage when unsure. "
+        "Prefer authorities from the matter's practice area, and leave out any from a different area of law that a "
+        "specialist would not cite for this issue (for example a negligence case for a statutory employment claim, "
+        "or the Sale of Goods Act 1979 for a consumer contract, which the Consumer Rights Act 2015 now governs). "
         "Return judgment_ids only from search results; never invent a case. Include authorities on both sides, and "
         "the statute that governs the issue when the library has one. Then judge coverage honestly: 'good' if the "
         "passages you found squarely address the issue, 'weak' if they are only analogous, 'none' if nothing in the "
@@ -43,7 +46,7 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
         s = self.session
         query = s.issue_query(issue)
         hits = s.retriever.search(query, top_k=s.settings.top_k, doctrine=issue.doctrine,
-                                  doctrine_boost=s.settings.doctrine_boost)
+                                  doctrine_boost=s.settings.doctrine_boost, prefer_area=s.fact_sheet.practice_area)
         return [CandidatePrecedent(h.judgment_id, [p.ref for p in h.passages[:3]], round(h.score, 4),
                                    "hybrid_rag", query=query[:160]) for h in hits]
 
@@ -75,7 +78,8 @@ class PrecedentRetrievalAgent(BaseLegalAgent):
                                                         for r in c.passage_refs[:2] if s.corpus.passage(r)]}
                                      for c in shortlists[issue.id]],
             })
-        prompt = (f"Case: {s.fact_sheet.title} (acting for the {s.fact_sheet.acting_for}).\n\nFacts:\n"
+        prompt = (f"Case: {s.fact_sheet.title} (acting for the {s.fact_sheet.acting_for}; practice area: "
+                  f"{s.fact_sheet.practice_area or 'not stated'}).\n\nFacts:\n"
                   + "\n".join(f"[{p.ref}] {p.text}" for p in s.fact_sheet.paragraphs)
                   + "\n\nIssues needing authorities:\n" + json.dumps(payload, indent=1)
                   + f"\n\nFor each issue select up to {s.settings.top_k + 2} judgments, most relevant first.")

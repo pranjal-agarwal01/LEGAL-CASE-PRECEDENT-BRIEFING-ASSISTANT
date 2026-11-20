@@ -6,6 +6,9 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+AREA_NAMES = {"contract": "contract and consumer law", "tort": "tort and personal injury",
+              "property": "landlord and tenant", "employment": "employment law"}
+
 Side = Literal["argument", "counter"]
 Stance = Literal["supporting", "opposing"]
 Support = Literal["supported", "partial", "unsupported", "unchecked", "facts_only"]
@@ -38,6 +41,7 @@ class FactSheet(BaseModel):
     title: str
     acting_for: str
     source_path: str = ""
+    practice_area: str = ""  # contract | tort | property | employment | "" (unknown)
     raw_text: str
     parties_block: list[str] = Field(default_factory=list)
     paragraphs: list[FactParagraph] = Field(default_factory=list)
@@ -46,7 +50,10 @@ class FactSheet(BaseModel):
         return next((p for p in self.paragraphs if p.ref == ref), None)
 
     def numbered_text(self) -> str:
-        lines = [f"# {self.title}", f"Acting for: {self.acting_for}", "", "Parties:"]
+        lines = [f"# {self.title}", f"Acting for: {self.acting_for}"]
+        if self.practice_area:
+            lines.append(f"Practice area: {AREA_NAMES.get(self.practice_area, self.practice_area)}")
+        lines += ["", "Parties:"]
         lines += [f"- {p}" for p in self.parties_block]
         lines.append("")
         lines += [f"[{p.ref}] ({p.kind}) {p.text}" for p in self.paragraphs]
@@ -124,6 +131,11 @@ class PrecedentEntry(BaseModel):
     citation: str
     stance: Stance
     proposition: CitedStatement
+    # The exact words relied on, and whether they were found verbatim in the cited passage
+    # (a deterministic text match, not a model judgement).
+    quote: str = ""
+    quote_ref: str = ""
+    quote_verified: bool = False
 
 
 class IssueAnalysis(BaseModel):
@@ -147,6 +159,11 @@ class Brief(BaseModel):
     facts: list[CitedStatement] = Field(default_factory=list)
     issues: list[IssueAnalysis] = Field(default_factory=list)
     conclusion: list[CitedStatement] = Field(default_factory=list)
+    # Next steps for the lawyer: every item cites law or facts and is source-checked like the rest.
+    remedies: list[CitedStatement] = Field(default_factory=list)
+    time_limits: list[CitedStatement] = Field(default_factory=list)
+    evidence: list[CitedStatement] = Field(default_factory=list)
+    questions_for_client: list[str] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
 
     def statements(self) -> list[CitedStatement]:
@@ -156,4 +173,4 @@ class Brief(BaseModel):
             out += [p.proposition for p in issue.supporting_precedents]
             out += [p.proposition for p in issue.opposing_precedents]
             out += issue.supporting_argument + issue.opposing_argument + [issue.assessment]
-        return out + self.conclusion
+        return out + self.conclusion + self.remedies + self.time_limits + self.evidence

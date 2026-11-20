@@ -31,6 +31,11 @@ def parse_fact_sheet(text: str, source_path: str = "") -> FactSheet:
         case_id, title = (Path(source_path).stem.split("_")[0].upper() or "CASE"), heading
     acting_m = re.search(r"^acting for:\s*(.+)$", text, re.I | re.M)
     acting_for = acting_m.group(1).strip() if acting_m else "Claimant"
+    area_m = re.search(r"^practice area:\s*(.+)$", text, re.I | re.M)
+    area_text = area_m.group(1).lower() if area_m else ""
+    practice_area = next((k for k, words in (("employment", "employ"), ("property", "landlord|tenan|property|housing"),
+                                             ("contract", "contract|consumer"), ("tort", "tort|injur|negligen"))
+                          if re.search(words, area_text)), "")
 
     secs = _sections(text)
     parties = [re.sub(r"^[-*]\s*", "", ln).strip() for key, lines in secs.items() if key.startswith("part")
@@ -64,6 +69,7 @@ def parse_fact_sheet(text: str, source_path: str = "") -> FactSheet:
         paragraphs = [FactParagraph(ref=f"F{i}", text=" ".join(b.split())) for i, b in enumerate(blocks, 1)]
 
     return FactSheet(case_id=case_id, title=title, acting_for=acting_for, source_path=source_path,
+                     practice_area=practice_area,
                      raw_text=text, parties_block=parties, paragraphs=paragraphs)
 
 

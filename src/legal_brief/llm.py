@@ -139,16 +139,21 @@ def extract_json(text: str) -> Any:
     raise ValueError("unterminated JSON object in reply")
 
 
-async def run_structured(agent: Any, prompt: str, schema: type[T], max_tokens: int = 8000) -> T:
-    """Run an Agent Framework agent and return a validated `schema` instance."""
+async def run_structured(agent: Any, prompt: str, schema: type[T], max_tokens: int = 8000,
+                         session: Any = None) -> T:
+    """Run an Agent Framework agent and return a validated `schema` instance.
+
+    Pass `session` (from `agent.create_session()`) to continue one conversation across calls, so the
+    agent remembers what it read, argued and was told earlier in the run."""
     options = {"response_format": schema, "max_tokens": max_tokens}
+    extra = {"session": session} if session is not None else {}
     try:
-        response = await agent.run(prompt, options=options)
+        response = await agent.run(prompt, options=options, **extra)
     except (TypeError, ValueError) as e:  # provider rejected response_format: retry as plain text
         log.info("structured output not accepted (%s); retrying with JSON-in-text", e)
         response = await agent.run(
             prompt + "\n\nReply with a single JSON object that matches this JSON schema:\n"
-            + json.dumps(schema.model_json_schema()), options={"max_tokens": max_tokens})
+            + json.dumps(schema.model_json_schema()), options={"max_tokens": max_tokens}, **extra)
     try:  # `value` parses lazily and raises if the reply is not exactly one JSON object
         value = getattr(response, "value", None)
     except (ValueError, ValidationError):

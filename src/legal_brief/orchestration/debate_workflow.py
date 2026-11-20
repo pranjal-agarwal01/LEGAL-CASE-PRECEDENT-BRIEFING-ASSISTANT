@@ -156,7 +156,14 @@ def make_session(fact_sheet: FactSheet, settings: Settings, client=None, corpus:
     if retriever is not None:
         corpus = retriever.corpus
     corpus = corpus or load_library(settings)
-    retriever = retriever or HybridRetriever(corpus, doctrine_boost=settings.doctrine_boost)
+    if retriever is None:
+        embedder = None
+        if settings.embedding_model and settings.uses_llm:  # same semantic search as the web app
+            from legal_brief.config import PROJECT_ROOT
+            from legal_brief.embeddings import FileCache, build_embedder
+
+            embedder = build_embedder(settings, FileCache(PROJECT_ROOT / "var" / "embeddings.npz"))
+        retriever = HybridRetriever(corpus, doctrine_boost=settings.doctrine_boost, embedder=embedder)
     if client is None and settings.uses_llm:
         client = build_chat_client(settings)
     return CaseSession(settings=settings, corpus=corpus, retriever=retriever, fact_sheet=fact_sheet, client=client)

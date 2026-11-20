@@ -78,8 +78,14 @@ class FactExtractorAgent(BaseLegalAgent):
         "- chronology: every dated event in date order; date exactly as written; fact_ref is the [F#] it comes from.\n"
         "- claims: what the client claims, against whom, and the legal basis (e.g. negligence, breach of contract).\n"
         "- key_facts: 5-9 short factual statements, each citing the [F#] refs that support it, e.g. citations ['F2'].\n"
-        "- candidate_issues: the legal issues the facts raise, phrased as yes/no questions, each with one doctrine "
-        f"key from this list: {', '.join(DOCTRINES)}.\n"
+        "- candidate_issues: the legal issues a SPECIALIST solicitor in this practice area would identify, phrased "
+        "as yes/no questions that name the cause of action or defence and, where it is statutory, the provision "
+        "(e.g. 'Was Mr X automatically unfairly dismissed for making a protected disclosure (ERA 1996 s 103A)?', "
+        "'Can Ms Y reject the goods and claim a full refund under the short-term right to reject (CRA 2015 s 22)?'). "
+        "Cover every claim in the client's objective and the main defence. Do NOT frame statutory employment, "
+        "consumer or tenancy claims as negligence 'duty of care' questions; raise negligence only where the facts "
+        "disclose a free-standing tort claim. Give each issue one doctrine key from this list: "
+        f"{', '.join(DOCTRINES)}.\n"
         "Never invent facts. Use only F refs that exist. Do not cite case law here."
     )
 
