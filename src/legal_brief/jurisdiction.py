@@ -95,8 +95,9 @@ INSTRUCTIONS = (
     "answer with the jurisdiction whose courts and law would decide it: where the land is, where the parties and "
     "events are, the currency and land measures used, the courts and officials named, and any choice-of-law "
     "clause (which wins for a contract). Use names such as 'England and Wales', 'Scotland', 'India', 'Ireland', "
-    "'New York, United States'. Confidence is 'high' only when the facts make it plain. Keep the reason short and "
-    "name the facts that decide it."
+    "'New York, United States'. Never infer the jurisdiction from the parties' names, ethnicity, religion or "
+    "nationality: people of every background live and litigate everywhere. Confidence is 'high' only when the "
+    "facts make it plain. Keep the reason short and name the facts that decide it."
 )
 
 

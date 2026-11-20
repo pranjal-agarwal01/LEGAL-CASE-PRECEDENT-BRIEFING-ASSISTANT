@@ -258,12 +258,12 @@ function BlockedPanel({ blocked, matterId, onOverride, busy }: { blocked: Blocke
             <button type="button" disabled={switchLaw.isPending} onClick={() => switchLaw.mutate()}
               className="rounded-md bg-ink px-4 py-2.5 text-left text-sm font-semibold text-paper hover:bg-ink/90">
               Set the governing law to {blocked.detected}
-              <span className="block text-[12.5px] font-normal opacity-80">Then upload {blocked.detected} legislation and judgments to your library.</span>
+              <span className="block text-[12.5px] font-normal opacity-80">Then upload legislation and judgments for {blocked.detected} to your library.</span>
             </button>
           ) : (
             <button type="button" onClick={() => navigate(`/library?upload=${encodeURIComponent(blocked.matter_jurisdiction)}`)}
               className="rounded-md bg-ink px-4 py-2.5 text-left text-sm font-semibold text-paper hover:bg-ink/90">
-              Upload {blocked.matter_jurisdiction} legislation and judgments
+              Upload legislation and judgments for {blocked.matter_jurisdiction}
               <span className="block text-[12.5px] font-normal opacity-80">Statutes, rules and the judgments you rely on, as PDF or Word.</span>
             </button>
           )}

@@ -65,3 +65,10 @@ def test_indian_matter_researches_only_indian_authorities(settings):
     result = asyncio.run(run_case(fs, settings, retriever=HybridRetriever(lib.for_jurisdiction("India"))))
     cited = {c.split(":")[0] for st in result.brief.statements() for c in st.citations if not c.startswith("F")}
     assert cited <= {"U1"}, cited  # no English statute or case summary leaks into an Indian brief
+
+
+def test_names_never_decide_the_jurisdiction():
+    # the same parties in a Leeds boundary dispute: no foreign cues, so English law applies
+    leeds = ("Hardeep Singh owns a house on Cranbrook Avenue, Leeds, registered at HM Land Registry. His neighbour "
+             "Gurpreet Singh built a garden wall 40 centimetres over the boundary on the title plan.")
+    assert detect_offline(leeds)[0] is None
