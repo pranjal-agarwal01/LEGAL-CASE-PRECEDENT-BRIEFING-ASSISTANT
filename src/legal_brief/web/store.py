@@ -186,10 +186,13 @@ class LibraryStore:
 
     # ------------------------------------------------------------------ seed files
     def load_seed(self, source: str | Path, batch: int = 50) -> int:
-        """Load a library file (path or URL) into the shared library. Re-running replaces by id."""
-        src = str(source)
-        log.info("loading library from %s", src)
-        raw = urllib.request.urlopen(src, timeout=600) if re.match(r"https?://", src) else open(src, "rb")  # noqa: S310
+        """Load a library file into the shared library. Re-running replaces by id.
+
+        `source` is a path or URL, or several separated by spaces or commas: the parts of one file split
+        into pieces (`split -b`), read back in order as one stream."""
+        parts = [s for s in re.split(r"[\s,]+", str(source)) if s]
+        log.info("loading library from %s", parts[0] + (f" (+{len(parts) - 1} parts)" if len(parts) > 1 else ""))
+        raw = _ChainedReader(parts)
         n, pending = 0, []
         with raw:
             header, items = read_seed(raw)
@@ -357,6 +360,48 @@ class LibraryStore:
                 s = float(np.frombuffer(emb, dtype=np.float16).astype(np.float32) @ qv) if (emb and qv is not None) else 0.0
                 out[pid_] = (aid, pid, kw.get(pid_, 0.0), s)
         return out
+
+
+class _ChainedReader:
+    """A read-only binary stream over several files or URLs, one after another."""
+
+    def __init__(self, sources: list[str]):
+        self.sources = list(sources)
+        self.cur = None
+
+    def _open(self, src: str):
+        if re.match(r"https?://", src):
+            return urllib.request.urlopen(src, timeout=600)  # noqa: S310 - the operator's own library URL
+        return open(src, "rb")
+
+    def read(self, size: int = -1) -> bytes:
+        out = b""
+        while size < 0 or len(out) < size:
+            if self.cur is None:
+                if not self.sources:
+                    break
+                self.cur = self._open(self.sources.pop(0))
+            chunk = self.cur.read(-1 if size < 0 else size - len(out))
+            if not chunk:
+                self.cur.close()
+                self.cur = None
+                continue
+            out += chunk
+        return out
+
+    def readable(self) -> bool:
+        return True
+
+    def close(self) -> None:
+        if self.cur is not None:
+            self.cur.close()
+            self.cur = None
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        self.close()
 
 
 def _vec_literal(v: np.ndarray) -> str:

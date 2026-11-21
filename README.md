@@ -61,7 +61,9 @@ memory).
 ### Deploy
 
 1. Build the library file (below) and publish it: GitHub → Releases → *Draft a new release* → attach
-   `var/india/precedent-india-library.jsonl.gz`. Copy the asset's download URL.
+   `var/india/precedent-india-library.jsonl.gz`, or its parts (`split -b 9500000 -d -a 1 <file> <file>.part`)
+   when the upload tool limits file size. `LIBRARY_SEED_URL` is the asset's download URL, or the parts' URLs in
+   order, separated by spaces.
 2. Render → **New → Blueprint** → this repository, branch `precedent-india`. Enter `FOUNDRY_ENDPOINT`,
    `FOUNDRY_API_KEY` and `LIBRARY_SEED_URL` when prompted.
 3. GitHub → Settings → Secrets and variables → Actions:
