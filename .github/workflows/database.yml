@@ -39,7 +39,10 @@ jobs:
       RENDER_DB_NAME: ${{ vars.RENDER_DB_NAME || 'precedent-india-db' }}
       APP_URL: ${{ vars.APP_URL }}
     steps:
+      # GitHub runs scheduled workflows from the default branch (main); the India code lives on precedent-india.
       - uses: actions/checkout@v4
+        with:
+          ref: precedent-india
 
       - uses: actions/setup-python@v5
         with:
