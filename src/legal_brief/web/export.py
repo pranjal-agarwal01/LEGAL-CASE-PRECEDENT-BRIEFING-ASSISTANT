@@ -52,7 +52,7 @@ def to_markdown(matter: dict, result: dict) -> str:
         return f"- {st['text']}{' — ' + cites if cites else ''}{flag}"
 
     out = [f"# {matter['title']}", "", f"Acting for {matter['client_name']} ({matter['client_role']}). "
-           f"{matter.get('jurisdiction') or 'England and Wales'} law. Prepared {datetime.now():%d %B %Y}.", "",
+           f"{matter.get('jurisdiction') or 'India'} law. Prepared {datetime.now():%d %B %Y}.", "",
            f"> {DISCLAIMER}", ""]
     out += [f"**Reliability: {RELIABILITY.get(b.get('reliability', 'unchecked'), 'Not checked')}.** "
             + " ".join(b.get("reliability_reasons", [])), "", "## Summary", ""]
@@ -99,7 +99,7 @@ def to_docx(matter: dict, result: dict) -> bytes:
     meta.add_run(f"Acting for {matter['client_name']} ({matter['client_role']})").bold = True
     if matter.get("opponent"):
         meta.add_run(f", against {matter['opponent']}")
-    meta.add_run(f". {matter.get('jurisdiction') or 'England and Wales'} law. Prepared {datetime.now():%d %B %Y}.")
+    meta.add_run(f". {matter.get('jurisdiction') or 'India'} law. Prepared {datetime.now():%d %B %Y}.")
     d = doc.add_paragraph()
     r = d.add_run(DISCLAIMER)
     r.italic, r.font.size, r.font.color.rgb = True, Pt(9), RGBColor(0x55, 0x55, 0x55)

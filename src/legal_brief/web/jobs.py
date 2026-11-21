@@ -36,7 +36,7 @@ def matter_fact_sheet(m: Matter) -> FactSheet:
         paras.append(FactParagraph(ref=f"F{len(paras) + 1}", kind="objective", text=" ".join(m.objective.split())))
     parties = [f"{role.title()}: {m.client_name}"] + ([f"{other.title()}: {m.opponent}"] if m.opponent else [])
     return FactSheet(case_id=f"M{m.id}", title=m.title, acting_for=f"{role.title()} ({m.client_name})",
-                     source_path="", practice_area=m.practice_area or "", jurisdiction=m.jurisdiction or "England and Wales",
+                     source_path="", practice_area=m.practice_area or "", jurisdiction=m.jurisdiction or "India",
                      raw_text=m.facts + "\n\n" + m.objective, parties_block=parties, paragraphs=paras)
 
 
@@ -215,9 +215,8 @@ class JobManager:
                               for i, p in enumerate(paras)]
                 a.n_passages, a.status = len(paras), "ready"
                 db.commit()
-                firm_id, include = a.firm_id, db.get(Firm, a.firm_id).include_summaries
-            # Index now (embeddings included) so the next brief does not wait for it.
-            await asyncio.to_thread(self.library.retriever, firm_id, include)
+            # Add it to the searchable library now (embeddings included).
+            await asyncio.to_thread(self.library.index_upload, authority_id)
         except Exception as e:  # noqa: BLE001
             log.exception("upload %s failed", authority_id)
             with get_session() as db:

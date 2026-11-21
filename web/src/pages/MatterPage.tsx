@@ -80,7 +80,7 @@ export function MatterPage() {
             <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-[2.15rem]">{m.title}</h1>
             <Parties matter={m} />
             <p className="mt-3 text-sm text-muted-foreground">
-              {m.jurisdiction || "England and Wales"} law{m.practice_area ? `. ${AREA_LABEL[m.practice_area] ?? ""}` : ""}
+              {m.jurisdiction || "India"} law{m.practice_area ? `. ${AREA_LABEL[m.practice_area] ?? ""}` : ""}
             </p>
           </div>
           <div className="flex shrink-0 flex-wrap items-center gap-2">

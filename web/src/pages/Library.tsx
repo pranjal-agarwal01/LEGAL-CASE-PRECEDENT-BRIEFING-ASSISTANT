@@ -20,8 +20,9 @@ import {
 import { useSession } from "@/lib/session";
 import { cn } from "@/lib/utils";
 
-type LibraryResponse = { items: LibraryItem[]; meta: { imported?: string; licence?: string } };
-type Filter = "all" | "legislation" | "judgment" | "summary";
+type LibraryResponse = { items: LibraryItem[]; meta: { source?: string; built?: string } };
+type Filter = "all" | "legislation" | "judgment" | "uploads";
+const PAGE = 150;
 
 function UploadButton() {
   const ref = useRef<HTMLInputElement>(null);
@@ -30,11 +31,11 @@ function UploadButton() {
   const [params, setParams] = useSearchParams();
   const preset = params.get("upload");
   const [open, setOpen] = useState(Boolean(preset));
-  const [jurisdiction, setJurisdiction] = useState(preset || "England and Wales");
+  const [jurisdiction, setJurisdiction] = useState(preset || "India");
   const [kind, setKind] = useState<"judgment" | "legislation">("judgment");
   const [files, setFiles] = useState<File[]>([]);
   const [busy, setBusy] = useState(false);
-  const jurisdictions = meta?.jurisdictions ?? ["England and Wales"];
+  const jurisdictions = meta?.jurisdictions ?? ["India"];
 
   async function send() {
     setBusy(true);
@@ -143,7 +144,8 @@ function SearchResults({ q, jurisdiction }: { q: string; jurisdiction: string })
 export function LibraryPage() {
   const { meta } = useSession();
   const [filter, setFilter] = useState<Filter>("all");
-  const [juris, setJuris] = useState("England and Wales");
+  const [juris, setJuris] = useState("India");
+  const [limit, setLimit] = useState(PAGE);
   const [q, setQ] = useState("");
   const query = useDeferredValue(q.trim());
   const { data, isLoading } = useQuery({
@@ -151,9 +153,9 @@ export function LibraryPage() {
     queryFn: () => api<LibraryResponse>("/library"),
     refetchInterval: (qq) => (qq.state.data?.items.some((i) => i.status === "processing") ? 3000 : false),
   });
-  const held = [...new Set((data?.items ?? []).map((i) => i.jurisdiction || "England and Wales"))].sort();
-  const items = (data?.items ?? []).filter((i) => (filter === "all" || i.kind === filter)
-    && (i.jurisdiction || "England and Wales") === juris);
+  const held = [...new Set((data?.items ?? []).map((i) => i.jurisdiction || "India"))].sort();
+  const items = (data?.items ?? []).filter((i) => (filter === "all" || (filter === "uploads" ? i.id.startsWith("U") : i.kind === filter))
+    && (i.jurisdiction || "India") === juris);
   const uploads = (data?.items ?? []).filter((i) => i.id.startsWith("U")).length;
 
   return (
@@ -162,9 +164,10 @@ export function LibraryPage() {
         title="Library"
         lede={
           <>
-            {meta?.library.statutes ?? "…"} statutes and regulations for England and Wales, {uploads} judgment
-            {uploads === 1 ? "" : "s"} uploaded by your firm, and {meta?.library.summaries ?? "…"} leading-case
-            summaries. Briefs cite only what is here.
+            {meta?.library.judgments ?? "…"} Supreme Court of India judgments on property and land,{" "}
+            {meta?.library.statutes ?? "…"} Acts, and {uploads} document{uploads === 1 ? "" : "s"} you uploaded.
+            Briefs cite only what is here.
+            {meta?.library.loading ? " The library is still loading into a new database; search grows as it fills." : ""}
           </>
         }
       >
@@ -175,7 +178,7 @@ export function LibraryPage() {
         <div className="relative max-w-xl">
           <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input value={q} onChange={(e) => setQ(e.target.value)} className="h-11 bg-card pl-9 text-[15px]"
-            placeholder="Search the law, e.g. landlord's duty to repair after notice" aria-label="Search the library" />
+            placeholder="Search the law, e.g. adverse possession by a co-owner" aria-label="Search the library" />
         </div>
         <SearchResults q={query} jurisdiction={juris} />
 
@@ -183,34 +186,33 @@ export function LibraryPage() {
         <Select value={juris} onValueChange={setJuris}>
           <SelectTrigger className="h-9 w-56 bg-card" aria-label="Jurisdiction"><SelectValue /></SelectTrigger>
           <SelectContent>
-            {[...new Set(["England and Wales", ...held])].map((j) => (
-              <SelectItem key={j} value={j}>{j} ({(data?.items ?? []).filter((i) => (i.jurisdiction || "England and Wales") === j).length})</SelectItem>
+            {[...new Set(["India", ...held])].map((j) => (
+              <SelectItem key={j} value={j}>{j} ({(data?.items ?? []).filter((i) => (i.jurisdiction || "India") === j).length})</SelectItem>
             ))}
           </SelectContent>
         </Select>
-        <Tabs value={filter} onValueChange={(v) => setFilter(v as Filter)} className="max-w-full overflow-x-auto [scrollbar-width:none]">
+        <Tabs value={filter} onValueChange={(v) => { setFilter(v as Filter); setLimit(PAGE); }} className="max-w-full overflow-x-auto [scrollbar-width:none]">
           <TabsList variant="line">
             <TabsTrigger value="all">All</TabsTrigger>
             <TabsTrigger value="legislation">Legislation</TabsTrigger>
-            <TabsTrigger value="judgment">Your judgments</TabsTrigger>
-            <TabsTrigger value="summary">Case summaries</TabsTrigger>
+            <TabsTrigger value="judgment">Judgments</TabsTrigger>
+            <TabsTrigger value="uploads">Your uploads</TabsTrigger>
           </TabsList>
         </Tabs>
         </div>
 
-        {filter === "judgment" && uploads === 0 ? (
+        {filter === "uploads" && uploads === 0 ? (
           <div className="max-w-xl py-8">
             <p className="text-ink-soft">
-              Upload the judgments your firm relies on, as PDF or Word files. Precedent keeps the court's paragraph
-              numbers, so a brief can cite paragraph 37 exactly. Use copies you are licensed to use, such as downloads
-              from your law reports subscription.
+              Upload High Court judgments, state Acts or rent laws you rely on, as PDF or Word files. Precedent keeps
+              the court's paragraph numbers, so a brief can cite paragraph 37 exactly.
             </p>
           </div>
         ) : null}
 
         {isLoading ? <p className="mt-6 text-muted-foreground">Loading…</p> : null}
         <ul className="mt-4 divide-y rounded-md border bg-card">
-          {items.map((i) => (
+          {items.slice(0, limit).map((i) => (
             <li key={i.id} className="grid gap-1 px-4 py-3 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4">
               <div className="min-w-0">
                 <Link to={`/library/${i.id}`} className="font-serif text-[1.02rem] font-semibold text-ink hover:text-seal">
@@ -234,10 +236,15 @@ export function LibraryPage() {
             </li>
           ))}
         </ul>
-        {data?.meta?.imported ? (
+        {items.length > limit ? (
+          <Button variant="outline" className="mt-4" onClick={() => setLimit((n) => n + PAGE * 4)}>
+            Show more ({items.length - limit} not shown)
+          </Button>
+        ) : null}
+        {data?.meta?.source ? (
           <p className="mt-6 max-w-[70ch] text-xs text-muted-foreground">
-            Legislation is the revised text from legislation.gov.uk as of {formatDate(data.meta.imported)}.{" "}
-            {data.meta.licence}
+            {data.meta.source}. Library built {data.meta.built ? formatDate(data.meta.built) : ""}. Check every
+            authority against the official report before relying on it.
           </p>
         ) : null}
       </div>

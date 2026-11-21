@@ -71,7 +71,7 @@ def parse_fact_sheet(text: str, source_path: str = "") -> FactSheet:
 
     return FactSheet(case_id=case_id, title=title, acting_for=acting_for, source_path=source_path,
                      practice_area=practice_area,
-                     jurisdiction=juris_m.group(1).strip() if juris_m else "England and Wales",
+                     jurisdiction=juris_m.group(1).strip() if juris_m else "India",
                      raw_text=text, parties_block=parties, paragraphs=paragraphs)
 
 

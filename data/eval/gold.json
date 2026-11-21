@@ -1,24 +1,23 @@
 {
-  "_meta": {
-    "description": "Known relevant precedents for each evaluation fact sheet. Used to compute precedent recall. Judgment ids refer to data/corpus/judgments.json.",
-    "labelling": "Each list holds the authorities a reviewer would expect any competent brief on the fact sheet to discuss, on either side of the argument."
-  },
-  "fact_sheets": {
-    "FS01": {"file": "FS01_nair_v_brightwater.md", "relevant": ["J01", "J10", "J08"],
-             "why": {"J01": "manufacturer's duty to the ultimate consumer without a contract", "J10": "thin skull rule for the pre-existing ulcer", "J08": "but-for causation defence raised by Brightwater"}},
-    "FS02": {"file": "FS02_okafor_v_st_aldhelms.md", "relevant": ["J06", "J07", "J04"],
-             "why": {"J06": "duty to warn of material risks and alternatives", "J07": "causation where the patient would have deferred surgery", "J04": "the Trust's responsible-body-of-opinion defence"}},
-    "FS03": {"file": "FS03_hughes_v_peakfit.md", "relevant": ["J23", "J24", "J25"],
-             "why": {"J23": "advertisement as a unilateral offer with deposit showing intention", "J24": "advertisement as an invitation to treat", "J25": "display or advertisement as invitation to treat"}},
-    "FS04": {"file": "FS04_rowe_v_skyline.md", "relevant": ["J37", "J38", "J36", "J39"],
-             "why": {"J37": "cancelled procession destroyed the shared foundation of a hire", "J38": "cancelled review did not frustrate a hire for the hirer's own venture", "J36": "frustration doctrine origin", "J39": "radical difference test; hardship not enough"}},
-    "FS05": {"file": "FS05_kaur_bakery_v_swifthaul.md", "relevant": ["J34", "J35", "J44"],
-             "why": {"J34": "remoteness where special circumstances were not communicated to a carrier", "J35": "ordinary versus exceptional lost profits", "J44": "effect of a clearly worded exclusion clause in a commercial contract"}},
-    "FS06": {"file": "FS06_adeyemi_v_harbourside.md", "relevant": ["J42", "J43", "J41", "J40"],
-             "why": {"J42": "hotel bedroom notice seen after contract made at reception", "J43": "terms introduced after contract formation", "J41": "reasonable notice test for unsigned terms", "J40": "signature rule; the registration card had no terms"}},
-    "FS07": {"file": "FS07_brennan_v_castlegate.md", "relevant": ["J32", "J31", "J33"],
-             "why": {"J32": "practical benefit as consideration for a promise of extra pay", "J31": "existing duty is no consideration", "J33": "promissory estoppel as an alternative route"}},
-    "FS08": {"file": "FS08_clarke_v_dunmore.md", "relevant": ["J15", "J16", "J17"],
-             "why": {"J15": "control mechanisms for secondary victims, live broadcast", "J16": "immediate aftermath at the hospital", "J17": "primary and secondary victim distinction"}}
-  }
+ "_meta": {
+  "description": "Known relevant Supreme Court of India judgments for each evaluation fact sheet. Used to compute precedent recall. Ids refer to data/library/india-sample.jsonl.gz (J + two-digit year + INSC number).",
+  "labelling": "Each list holds the judgments a reviewer would expect a competent brief on the fact sheet to discuss. The fact sheets are fictional."
+ },
+ "fact_sheets": {
+  "FS01": {"file": "FS01_reddy_v_srinivasulu.md", "relevant": ["J240778", "J240533"],
+           "why": {"J240778": "continuous readiness and willingness under s 16(c) of the Specific Relief Act",
+                   "J240533": "specific performance refused where the purchaser did not perform within time"}},
+  "FS02": {"file": "FS02_singh_v_mahto.md", "relevant": ["J240875", "J250956", "J190120"],
+           "why": {"J240875": "adverse possession pleaded by an occupant; requirements of hostile possession",
+                   "J250956": "adverse possession must be pleaded and proved, not raised late",
+                   "J190120": "mutation entries do not create or extinguish title"}},
+  "FS03": {"file": "FS03_sharma_v_traders.md", "relevant": ["J230429", "J190159"],
+           "why": {"J230429": "Delhi Rent Control Act s 14(1)(e): bona fide requirement and leave to defend",
+                   "J190159": "bona fide requirement of the landlord's family member for a business"}},
+  "FS04": {"file": "FS04_kaur_v_dhillon.md", "relevant": ["J240770", "J240377"],
+           "why": {"J240770": "sale deed during a suit hit by lis pendens; purchaser not bona fide",
+                   "J240377": "s 52 lis pendens and s 41 bona fide purchaser protection in Punjab"}},
+  "FS05": {"file": "FS05_deshpande_v_deshpande.md", "relevant": ["J200487"],
+           "why": {"J200487": "daughters are coparceners by birth under amended s 6, whether or not the father was alive in 2005"}}
+ }
 }

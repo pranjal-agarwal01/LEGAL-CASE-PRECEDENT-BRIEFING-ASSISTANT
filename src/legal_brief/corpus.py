@@ -20,6 +20,7 @@ from functools import lru_cache
 from pathlib import Path
 
 COURT_WEIGHT = {
+    "Supreme Court of India": 1.0,
     "UK Supreme Court": 1.0,
     "House of Lords": 0.95,
     "Privy Council": 0.8,
@@ -69,7 +70,7 @@ class Judgment:
     date: str = ""
     summary: str = ""
     source_note: str = ""
-    jurisdiction: str = "England and Wales"
+    jurisdiction: str = "India"
 
     @property
     def full_name(self) -> str:
@@ -251,29 +252,23 @@ def _name_key(name: str) -> tuple[set[str], set[str], set[str]] | None:
 
 @lru_cache(maxsize=4)
 def load_corpus(path: str) -> Corpus:
-    return Corpus.load(Path(path))
+    """A library file (.jsonl.gz) as an in-memory Corpus."""
+    from legal_brief.library_file import load_file
 
-
-@lru_cache(maxsize=4)
-def load_legislation(path: str) -> Corpus:
-    p = Path(path)
-    return Corpus.load_legislation(p) if p.exists() else Corpus([])
+    return load_file(path)
 
 
 @dataclass(frozen=True)
 class LibrarySpec:
-    """Which parts of the shared library to include (uploads are added per firm)."""
+    """Which parts of the library to include (uploads are added per firm). Kept for older callers."""
 
-    summaries: bool = True
+    summaries: bool = False
     legislation: bool = True
     extra: tuple = field(default_factory=tuple)
 
 
 def load_library(settings, spec: LibrarySpec | None = None) -> Corpus:
-    spec = spec or LibrarySpec(summaries=settings.include_summaries, legislation=settings.include_legislation)
-    parts = []
-    if spec.legislation:
-        parts.append(load_legislation(str(settings.legislation_path)))
-    if spec.summaries:
-        parts.append(load_corpus(str(settings.corpus_path)))
-    return Corpus.merge(*parts, *spec.extra)
+    """The command line's library: the library file (data/library/india-sample.jsonl.gz by default)."""
+    p = Path(settings.library_path)
+    base = load_corpus(str(p)) if p.exists() else Corpus([])
+    return Corpus.merge(base, *(spec.extra if spec else ()))

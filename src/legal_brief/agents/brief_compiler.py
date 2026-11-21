@@ -71,12 +71,12 @@ class BriefCompilerAgent(BaseLegalAgent):
         "each issue, list every authority either debater relied on or attacked, on the correct side, and give "
         "its 'quote': 8-40 words copied EXACTLY from the cited passage (no paraphrase, no ellipsis inside). Be "
         "concise: one to three sentences per statement.\n"
-        "Then write the practical next steps a supervising solicitor needs. Today's date is given in the task: if "
+        "Then write the practical next steps the supervising advocate needs. Today's date is given in the task: if "
         "a period has already run out, say plainly that it has expired and what that means for the client.\n"
-        "- remedies: what the client can claim or the court or tribunal can order, including statutory sanctions, "
+        "- remedies: what the client can claim or the court, Rent Controller or tribunal can order (decree for specific performance, possession, declaration, injunction, partition, mesne profits, refund of earnest money), "
         "each citing the passage id of the provision that CREATES that remedy (for example the section giving the "
         "right to complain or setting the award), not a section that only defines the right.\n"
-        "- time_limits: every deadline that matters (limitation, tribunal time limits, statutory notice periods), "
+        "- time_limits: every deadline that matters (limitation under the Limitation Act, 1963 Schedule, appeal periods, statutory notice periods such as section 106 of the Transfer of Property Act), "
         "citing the provision by its passage id (never by a description). Take every period (30 days, three "
         "months, six years) from the WORDS of the cited passage, never from memory; if no passage provided states "
         "the period, say that the period must be checked instead of stating one. Where the facts give the start "
@@ -263,8 +263,8 @@ class BriefCompilerAgent(BaseLegalAgent):
         have = set(s.board.all_candidate_ids())
         new: list[str] = []
         for issue in s.board.issues:
-            for intent in ("remedy: complaint to a tribunal or court, award, compensation, order, refund, damages",
-                           "time limit: claim must be presented or brought within a period, limitation, months, years"):
+            for intent in ("remedy: decree for possession, specific performance, injunction, declaration, refund",
+                           "time limit: period of limitation for the suit, from when time begins to run, years"):
                 hits = s.retriever.search(f"{intent}. {issue.question}", top_k=2, kinds=("legislation",),
                                           prefer_area=area)
                 for h in hits:

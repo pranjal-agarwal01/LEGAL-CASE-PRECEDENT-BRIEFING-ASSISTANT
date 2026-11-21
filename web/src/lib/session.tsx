@@ -53,9 +53,9 @@ function apply(theme: Theme) {
 export function useTheme(): [Theme, (t: Theme) => void] {
   const [theme, setTheme] = useState<Theme>(() => {
     try {
-      return (localStorage.getItem("theme") as Theme) || "system";
+      return (localStorage.getItem("theme") as Theme) || "light";
     } catch {
-      return "system";
+      return "light";
     }
   });
   useEffect(() => {

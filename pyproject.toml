@@ -31,6 +31,8 @@ web = [
     "python-multipart==0.0.20",
     "email-validator==2.2.0",
 ]
+# Building the Indian library (scripts/india): reads the dataset's parquet metadata
+library = ["pyarrow>=15"]
 dev = ["pytest>=8", "httpx==0.28.1"]
 
 [project.scripts]

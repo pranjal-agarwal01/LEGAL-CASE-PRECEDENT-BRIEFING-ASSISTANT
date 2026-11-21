@@ -6,8 +6,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-AREA_NAMES = {"contract": "contract and consumer law", "tort": "tort and personal injury",
-              "property": "landlord and tenant", "employment": "employment law"}
+AREA_NAMES = {"property": "property and land law"}
 
 Side = Literal["argument", "counter"]
 Stance = Literal["supporting", "opposing"]
@@ -42,7 +41,7 @@ class FactSheet(BaseModel):
     acting_for: str
     source_path: str = ""
     practice_area: str = ""  # contract | tort | property | employment | "" (unknown)
-    jurisdiction: str = "England and Wales"  # whose law governs the matter; research is limited to it
+    jurisdiction: str = "India"  # whose law governs the matter; research is limited to it
     raw_text: str
     parties_block: list[str] = Field(default_factory=list)
     paragraphs: list[FactParagraph] = Field(default_factory=list)

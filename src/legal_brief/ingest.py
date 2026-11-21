@@ -186,6 +186,8 @@ def _split_words(text: str, max_words: int) -> list[str]:
 # --------------------------------------------------------------------------- metadata
 NEUTRAL = re.compile(r"\[(\d{4})\]\s+((?:UKSC|UKPC|UKHL|EWCA\s+(?:Civ|Crim)|EWHC|UKEAT|EAT|UKUT|UKFTT|EWFC|EWCOP)"
                      r"(?:\s+\d+(?:\s*\([A-Za-z ]+\))?|\s+\(\w+\)\s+\d+)?)")
+INSC = re.compile(r"\b((?:19|20)\d\d)\s*INSC\s*(\d{1,5})\b")
+SCR = re.compile(r"\[(\d{4})\]\s*\d+\s*S\.?\s?C\.?\s?R\.?\s*\d+")
 COURTS = [("UKSC", "UK Supreme Court"), ("UKHL", "House of Lords"), ("UKPC", "Privy Council"),
           ("EWCA", "Court of Appeal"), ("EWHC", "High Court"), ("EAT", "Employment Appeal Tribunal"),
           ("UKUT", "Upper Tribunal"), ("UKFTT", "First-tier Tribunal")]
@@ -210,7 +212,7 @@ class JudgmentMetaLLM(BaseModel):
 
 class JudgmentMeta(BaseModel):
     document_type: str = "judgment"
-    jurisdiction: str = "England and Wales"
+    jurisdiction: str = "India"
     name: str
     citation: str = ""
     court: str = ""
@@ -243,8 +245,17 @@ def regex_metadata(text: str, filename: str = "") -> JudgmentMeta:
     tags = {k: "mixed" for k, s in sorted(scores.items(), key=lambda kv: -kv[1])[:4] if s >= 2}
     from legal_brief.jurisdiction import detect_offline
 
-    juris = "England and Wales" if citation else (detect_offline(head)[0] or "England and Wales")
-    if re.search(r"\(\d{4}\)\s*\d+\s*SCC|\bAIR\s+\d{4}|Supreme Court of India|High Court of \w+ at", head):
+    juris = "England and Wales" if citation else (detect_offline(head)[0] or "India")
+    insc = INSC.search(head)
+    if insc and not citation:  # Supreme Court of India: neutral citation, with the SCR report when printed
+        scr = SCR.search(head)
+        citation = f"{insc.group(1)} INSC {insc.group(2)}" + (f"; {scr.group(0)}" if scr else "")
+        court, juris = "Supreme Court of India", "India"
+    hc = re.search(r"(?im)high court (?:of judicature )?(?:of|at|for) (?:the state of )?([a-z][a-z &]+?)"
+                   r"(?:\s+at\s+[a-z .]+)?\s*$", head)
+    if hc and not court:
+        court = "High Court of " + " ".join(w if w == "&" else w.capitalize() for w in hc.group(1).split())
+    if re.search(r"(?i)\(\d{4}\)\s*\d+\s*SCC|\bAIR\s+\d{4}|Supreme Court of India|High Court of \w+ at", head):
         juris = "India"
     is_act = bool(re.search(r"(?im)^\s*(the\s+)?[A-Z][\w ,()'’-]{3,90}\b(Act|Regulations|Rules|Code|Ordinance)"
                             r",?\s+(\d{4})\b", head)) and not re.search(r"\bv\.?\s", head[:600])

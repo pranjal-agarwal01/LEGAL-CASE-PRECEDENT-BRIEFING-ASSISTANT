@@ -6,6 +6,17 @@
       "runtimeExecutable": ".venv/Scripts/python.exe",
       "runtimeArgs": ["-m", "uvicorn", "legal_brief.web.app:app", "--host", "127.0.0.1", "--port", "8000"],
       "port": 8000
+    },
+    {
+      "name": "precedent-india",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "legal_brief.web.app:app", "--host", "127.0.0.1", "--port", "8001"],
+      "port": 8001,
+      "env": {
+        "DATABASE_URL": "sqlite:///var/india/app-india.db",
+        "LIBRARY_SEED_URL": "var/india/precedent-india-library.jsonl.gz",
+        "PYTHONIOENCODING": "utf-8"
+      }
     }
   ]
 }

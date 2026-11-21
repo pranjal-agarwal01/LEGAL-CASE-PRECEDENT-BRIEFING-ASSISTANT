@@ -1,0 +1,15 @@
+{
+ "_about": "Outcome of each sample judgment on the doctrines it decides, read from its holding. pro = the doctrine was found satisfied (e.g. readiness proved, adverse possession established, eviction ordered); contra = it was not. Used for data/library/india-sample.jsonl.gz.",
+ "J250825": {"plaint_rejection": "contra", "res_judicata": "mixed"},
+ "J251309": {"eviction": "pro", "lease_termination": "pro"},
+ "J250956": {"adverse_possession": "contra"},
+ "J240770": {"lis_pendens": "pro", "bona_fide_purchaser": "contra", "specific_performance": "pro"},
+ "J240533": {"specific_performance": "contra", "readiness_willingness": "contra"},
+ "J240875": {"adverse_possession": "contra", "title_declaration": "pro"},
+ "J240778": {"readiness_willingness": "contra", "specific_performance": "contra"},
+ "J240377": {"lis_pendens": "pro", "bona_fide_purchaser": "contra", "specific_performance": "pro"},
+ "J230429": {"eviction": "pro"},
+ "J200487": {"succession": "pro", "partition": "pro"},
+ "J190120": {"revenue_entries": "contra"},
+ "J190159": {"eviction": "pro"}
+}

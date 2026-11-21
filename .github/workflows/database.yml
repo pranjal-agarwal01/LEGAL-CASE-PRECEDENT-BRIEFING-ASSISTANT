@@ -1,0 +1,90 @@
+# Nightly: back up your accounts, matters and briefs (encrypted), and replace Render's free database before
+# it expires (free databases last 30 days). The law library is not backed up: the app reloads it from
+# LIBRARY_SEED_URL into the new database on its own.
+#
+# Repository settings -> Secrets and variables -> Actions:
+#   secrets:   RENDER_API_KEY, BACKUP_PASSPHRASE (any long passphrase; you need it to open a backup)
+#   variables: RENDER_SERVICE_ID (srv-...), APP_URL (https://<your-app>.onrender.com),
+#              RENDER_DB_NAME (optional, default precedent-india-db)
+#
+# First setup: run this workflow by hand with "force rotation" ticked; it creates the database.
+# To open a backup:  openssl enc -d -aes-256-cbc -pbkdf2 -in backup.json.gz.enc -out backup.json.gz
+
+name: Database backup and rotation
+
+on:
+  schedule:
+    - cron: "30 21 * * *"  # 03:00 in India
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Replace the database now, even if it is not about to expire"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: database
+  cancel-in-progress: false
+
+jobs:
+  database:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      RENDER_SERVICE_ID: ${{ vars.RENDER_SERVICE_ID }}
+      RENDER_DB_NAME: ${{ vars.RENDER_DB_NAME || 'precedent-india-db' }}
+      APP_URL: ${{ vars.APP_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install database client
+        run: pip install "sqlalchemy>=2.0,<3" "psycopg[binary]>=3.2,<4"
+
+      - name: Check the database
+        id: check
+        run: |
+          python scripts/ops/render_db.py status
+          python scripts/ops/render_db.py due
+
+      - name: Back up accounts, matters and briefs
+        id: backup
+        run: |
+          if python scripts/ops/render_db.py status | grep -q "^no database"; then
+            echo "taken=false" >> "$GITHUB_OUTPUT"
+          else
+            python scripts/ops/render_db.py backup --out backup.json
+            echo "taken=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Encrypt the backup
+        if: steps.backup.outputs.taken == 'true'
+        env:
+          BACKUP_PASSPHRASE: ${{ secrets.BACKUP_PASSPHRASE }}
+        run: |
+          test -n "$BACKUP_PASSPHRASE" || { echo "Set the BACKUP_PASSPHRASE secret"; exit 1; }
+          gzip -kf backup.json
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in backup.json.gz -out backup.json.gz.enc -pass env:BACKUP_PASSPHRASE
+          rm backup.json.gz
+
+      - uses: actions/upload-artifact@v4
+        if: steps.backup.outputs.taken == 'true'
+        with:
+          name: precedent-backup-${{ github.run_id }}
+          path: backup.json.gz.enc
+          retention-days: 30
+
+      - name: Replace the database before it expires
+        if: steps.check.outputs.due == 'true' || inputs.force
+        run: python scripts/ops/render_db.py rotate --backup backup.json ${{ inputs.force && '--force' || '' }}
+
+      - name: Remove the unencrypted backup
+        if: always()
+        run: rm -f backup.json

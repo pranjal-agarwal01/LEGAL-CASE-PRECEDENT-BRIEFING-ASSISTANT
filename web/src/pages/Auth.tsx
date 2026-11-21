@@ -26,16 +26,16 @@ function Specimen() {
       <div className="brief grid grid-cols-[1.75rem_1fr] gap-x-3 text-[15.5px]">
         <span className="mark mark-supported mt-1" aria-label="Verified against source">✓</span>
         <p>
-          In a short residential lease the landlord must keep the structure and exterior of the dwelling in repair,
-          and a term excluding that duty is void.{" "}
-          <span className="cite">Landlord and Tenant Act 1985, ss 11–12</span>
+          Specific performance cannot be granted to a plaintiff who fails to prove that they have always been
+          ready and willing to perform their part of the agreement.{" "}
+          <span className="cite">Specific Relief Act, 1963, s 16(c)</span>
         </p>
         <span className="mark mark-unsupported mt-4" aria-label="Not supported by the cited source">!</span>
         <p className="mt-3 text-ink-soft">
-          A false statement about a professional is inherently defamatory.{" "}
-          <span className="cite">Caparo v Dickman, ¶3</span>
+          A suit for specific performance may be filed within twelve years of the agreement.{" "}
+          <span className="cite">Limitation Act, 1963, Sch, art 54</span>
           <span className="mt-1 block font-sans text-[13px] text-unsupported">
-            Not supported: the cited passage concerns a duty of care in negligence.
+            Not supported: the cited article allows three years.
           </span>
         </p>
       </div>

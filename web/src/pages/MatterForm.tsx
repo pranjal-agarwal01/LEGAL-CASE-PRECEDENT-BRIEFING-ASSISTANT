@@ -15,7 +15,7 @@ import { api, AREA_LABEL, upload, type Matter } from "@/lib/api";
 import { useSession } from "@/lib/session";
 
 type Draft = Pick<Matter, "title" | "reference" | "client_name" | "client_role" | "opponent" | "practice_area" | "jurisdiction" | "facts" | "objective">;
-const EMPTY: Draft = { title: "", reference: "", client_name: "", client_role: "claimant", opponent: "", practice_area: "", jurisdiction: "England and Wales", facts: "", objective: "" };
+const EMPTY: Draft = { title: "", reference: "", client_name: "", client_role: "claimant", opponent: "", practice_area: "", jurisdiction: "India", facts: "", objective: "" };
 
 export function MatterFormPage() {
   const { id } = useParams();
@@ -29,7 +29,7 @@ function MatterForm({ initial, id }: { initial: Draft; id?: string }) {
   const [draft, setDraft] = useState<Draft>({
     title: initial.title, reference: initial.reference, client_name: initial.client_name,
     client_role: initial.client_role, opponent: initial.opponent, practice_area: initial.practice_area,
-    jurisdiction: initial.jurisdiction || "England and Wales",
+    jurisdiction: initial.jurisdiction || "India",
     facts: initial.facts, objective: initial.objective,
   });
   const [error, setError] = useState("");
@@ -38,7 +38,7 @@ function MatterForm({ initial, id }: { initial: Draft; id?: string }) {
   const navigate = useNavigate();
   const qc = useQueryClient();
   const { meta } = useSession();
-  const jurisdictions = meta?.jurisdictions ?? ["England and Wales"];
+  const jurisdictions = meta?.jurisdictions ?? ["India"];
   const otherJurisdiction = !jurisdictions.includes(draft.jurisdiction);
   const set = <K extends keyof Draft>(k: K, v: Draft[K]) => setDraft((d) => ({ ...d, [k]: v }));
   const words = draft.facts.trim() ? draft.facts.trim().split(/\s+/).length : 0;

@@ -1,7 +1,7 @@
 """A small taxonomy of legal doctrines (issue types) used across the agents.
 
 Each doctrine knows how to phrase its issue question, which words in a fact sheet
-suggest it, which search terms help retrieval, and which answer the claimant
+suggest it, which search terms help retrieval, and which answer the plaintiff
 normally wants ('pro' = the doctrine applies / liability or enforceability is
 established, 'contra' = it does not). Judgments in the corpus are tagged with the
 same keys, which lets the debaters split retrieved precedents into supporting and
@@ -14,8 +14,7 @@ import re
 from dataclasses import dataclass, field
 
 
-AREA_LABELS = {"tort": "Tort (negligence)", "contract": "Contract", "property": "Landlord and tenant",
-               "employment": "Employment"}
+AREA_LABELS = {"property": "Property and land"}
 
 
 @dataclass(frozen=True)
@@ -38,342 +37,183 @@ DOCTRINES: dict[str, Doctrine] = {
     d.key: d
     for d in [
         Doctrine(
-            "duty_of_care", "Duty of care in negligence", "tort",
-            "Did {defendant} owe {claimant} a duty of care in negligence?",
-            (r"negligen\w*", r"duty of care", r"manufactur\w*", r"consumer", r"no contract", r"bottl\w*", r"sealed", r"police"),
-            "duty of care negligence neighbour principle manufacturer ultimate consumer foreseeable proximity",
+            "specific_performance", "Specific performance of an agreement to sell", "property",
+            "Is {claimant} entitled to specific performance of the agreement to sell the property?",
+            (r"agreement (to|for) sell|agreement to sale|agreement for sale", r"specific performance", r"earnest money",
+             r"\badvance\b", r"sale consideration", r"balance (amount|consideration)", r"execute (the )?sale deed"),
+            "specific performance agreement to sell Specific Relief Act section 10 section 16 discretion execution of sale deed",
+            subsumes=("title_declaration",),
         ),
         Doctrine(
-            "standard_of_care", "Breach: standard of care", "tort",
-            "Did {defendant} fall below the standard of reasonable care?",
-            (r"breach\w*", r"reasonable care", r"precaution\w*", r"careless\w*", r"learner", r"standard of care", r"goggles"),
-            "breach standard of care reasonable person precautions risk probability",
+            "readiness_willingness", "Readiness and willingness to perform", "property",
+            "Was {claimant} continuously ready and willing to perform the agreement, as section 16(c) of the "
+            "Specific Relief Act requires?",
+            (r"ready and willing", r"readiness", r"balance (amount|consideration)", r"(did not|failed to) pay",
+             r"deposit(ed)? (the )?balance", r"time (is|was) (of the )?essence"),
+            "readiness and willingness section 16(c) Specific Relief Act continuous plaintiff conduct balance consideration",
             defence=True,
         ),
         Doctrine(
-            "medical_standard", "Professional (Bolam) standard", "tort",
-            "Did the clinician's conduct fall below the standard of a responsible body of medical opinion?",
-            (r"surgeon\w*", r"clinician\w*", r"responsible (body|\w+ surgeons|doctors)", r"surgery", r"operation"),
-            "responsible body of medical opinion professional practice doctor surgeon Bolam logical analysis",
+            "title_declaration", "Title and declaration of ownership", "property",
+            "Has {claimant} proved title to the suit property so as to be entitled to a declaration of ownership "
+            "and possession?",
+            (r"\btitle\b", r"\bowner(ship)?\b", r"declaration", r"sale deed", r"registered (sale )?deed",
+             r"suit (land|property)"),
+            "declaration of title ownership suit for possession burden of proof sale deed section 34 Specific Relief Act",
+        ),
+        Doctrine(
+            "revenue_entries", "Revenue entries and mutation", "property",
+            "Do the revenue record entries (mutation, jamabandi, khasra) prove or confer title to the land?",
+            (r"mutation", r"jamabandi", r"khasra|khatauni|khewat", r"revenue (record|entr)", r"patwari|tehsildar",
+             r"girdawari|record of rights|fard"),
+            "mutation entries revenue records do not confer title fiscal purpose presumption record of rights",
+            claimant_wants="contra", defence=True,
+        ),
+        Doctrine(
+            "adverse_possession", "Adverse possession", "property",
+            "Has {defendant} acquired title by adverse possession that is open, hostile and continuous for the "
+            "statutory period?",
+            (r"adverse possession", r"hostile", r"(open|peaceful|uninterrupted|continuous) possession",
+             r"in possession (since|for)", r"\b(12|twelve|30|thirty) years\b", r"possession of the (land|property)"),
+            "adverse possession hostile animus open continuous twelve years Article 65 Limitation Act ouster",
+            claimant_wants="contra", defence=True,
+        ),
+        Doctrine(
+            "possession_injunction", "Possession and permanent injunction", "property",
+            "Is {claimant} in settled possession and entitled to an injunction restraining {defendant} from "
+            "interfering?",
+            (r"injunction", r"dispossess\w*", r"settled possession", r"interfer\w*", r"forcibl\w*", r"trespass\w*",
+             r"encroach\w*"),
+            "permanent injunction settled possession dispossession interference section 38 Specific Relief Act trespass",
+        ),
+        Doctrine(
+            "partition", "Partition and shares of co-owners", "property",
+            "Is {claimant} entitled to partition and separate possession of a share in the property?",
+            (r"partition", r"\bshare\b", r"co-?owner\w*", r"joint (family )?property", r"ancestral", r"\bhuf\b",
+             r"family settlement"),
+            "partition separate possession share co-owner joint family property family settlement preliminary decree",
+            subsumes=("title_declaration",),
+        ),
+        Doctrine(
+            "succession", "Succession and inheritance", "property",
+            "Does {claimant} take a share in the property by succession, as a coparcener or legal heir?",
+            (r"succession", r"coparcen\w*", r"legal heirs?", r"intestate", r"daughter", r"\bwill\b|testament\w*",
+             r"inherit\w*"),
+            "Hindu Succession Act section 6 coparcener daughter legal heirs intestate succession will probate",
+            subsumes=("title_declaration",),
+        ),
+        Doctrine(
+            "deed_cancellation", "Validity and cancellation of a deed", "property",
+            "Is the sale or gift deed void or voidable, and should it be cancelled?",
+            (r"cancel\w* (of )?(the )?(sale|gift|release) deed", r"forg(ed|ery)", r"fraud\w*", r"undue influence",
+             r"without (any )?consideration", r"\bvoid\b", r"sham"),
+            "cancellation of instrument section 31 Specific Relief Act void voidable fraud forgery undue influence",
+        ),
+        Doctrine(
+            "limitation", "Limitation", "property",
+            "Is the suit within the period of limitation under the Limitation Act, 1963?",
+            (r"limitation", r"time[- ]barred|barred by (time|limitation)", r"\bdelay\b", r"condon\w*",
+             r"article (54|58|59|64|65|113)", r"\byears? (after|later)\b"),
+            "Limitation Act 1963 Article 54 Article 58 Article 59 Article 65 starting point knowledge time barred",
+            claimant_wants="contra", defence=True,
+        ),
+        Doctrine(
+            "part_performance", "Part performance (section 53A TPA)", "property",
+            "Can {defendant} protect possession taken under the agreement as part performance under section 53A of "
+            "the Transfer of Property Act?",
+            (r"part performance", r"53-?a", r"possession (was )?(handed|delivered|given) .{0,40}agreement",
+             r"in possession under (the|an) agreement"),
+            "part performance section 53A Transfer of Property Act possession in furtherance of contract willing to perform",
+            claimant_wants="contra", defence=True,
+        ),
+        Doctrine(
+            "lis_pendens", "Transfer during a pending suit (lis pendens)", "property",
+            "Is the transfer made while the suit was pending bound by the result of the suit under section 52 of the "
+            "Transfer of Property Act?",
+            (r"lis pendens", r"pendente lite", r"during the pendency|pendency of the suit",
+             r"(while|when) the suit was pending|pending suit", r"subsequent (purchaser|transferee)",
+             r"(sale deed|transfer|sold).{0,100}(pending|pendency)|(pending|pendency).{0,100}(sale deed|transfer|sold)"),
+            "lis pendens section 52 Transfer of Property Act transferee pendente lite bound by decree",
+            subsumes=("title_declaration",),
+        ),
+        Doctrine(
+            "bona_fide_purchaser", "Bona fide purchaser without notice", "property",
+            "Is the later purchaser protected as a transferee for value in good faith without notice of the earlier "
+            "agreement?",
+            (r"bona fide purchaser", r"without notice", r"good faith", r"ostensible owner", r"subsequent purchaser",
+             r"paid (full )?value"),
+            "bona fide purchaser for value without notice section 19(b) Specific Relief Act section 41 Transfer of Property Act ostensible owner",
+            claimant_wants="contra", defence=True,
+        ),
+        Doctrine(
+            "registration", "Registration and admissibility of documents", "property",
+            "Is the unregistered or unstamped document admissible, and can it transfer any interest in the "
+            "property?",
+            (r"unregistered", r"registration", r"stamp duty|unstamped|insufficiently stamped",
+             r"compulsorily registrable", r"notari[sz]ed", r"power of attorney"),
+            "Registration Act 1908 section 17 section 49 unregistered document collateral purpose stamp duty GPA sale",
+            claimant_wants="contra", defence=True,
+        ),
+        Doctrine(
+            "benami", "Benami transactions", "property",
+            "Is the property held benami, and is a claim to it barred by the Benami Transactions (Prohibition) Act?",
+            (r"benami", r"in the name of (his|her) (wife|son|daughter|husband)", r"paid the (sale )?consideration",
+             r"real owner", r"name-?lender"),
+            "benami transaction source of consideration intention real owner Benami Transactions Prohibition Act",
             defence=True,
         ),
         Doctrine(
-            "informed_consent", "Duty to warn / informed consent", "tort",
-            "Did {defendant} breach the duty to warn {claimant} of material risks and reasonable alternatives before consent was given?",
-            (r"warn\w*", r"consent\w*", r"\brisks?\b", r"alternative\w*", r"disclos\w*", r"material risk"),
-            "duty to warn material risk informed consent reasonable alternative treatment patient autonomy",
+            "eviction", "Eviction of a tenant", "property",
+            "Is {claimant} entitled to evict the tenant on a ground recognised by the applicable rent law?",
+            (r"\btenan(t|cy|ts)\b", r"evict\w*", r"\brent\b", r"landlord", r"bona fide (requirement|need)",
+             r"sub-?let\w*", r"arrears"),
+            "eviction tenant rent control bona fide requirement arrears of rent subletting landlord tenant relationship",
+            subsumes=("title_declaration",),
         ),
         Doctrine(
-            "causation", "Factual causation", "tort",
-            "Can {claimant} prove that the breach caused the harm, on the but-for test or a modified approach?",
-            (r"caus(ed|es|ing|ation)", r"would (not )?have", r"anyway", r"but for", r"tamper\w*"),
-            "causation but for test would have happened anyway balance of probabilities caused the harm",
-            defence=True,
+            "lease_termination", "Lease, notice to quit and holding over", "property",
+            "Was the lease validly determined, for example by notice under section 106 of the Transfer of Property "
+            "Act, and is the occupant holding over?",
+            (r"notice to quit", r"section 106", r"\blease\b", r"lessee|lessor", r"holding over", r"month[- ]to[- ]month"),
+            "lease determination notice to quit section 106 section 111 Transfer of Property Act holding over mesne profits",
+            subsumes=("title_declaration",),
         ),
         Doctrine(
-            "remoteness_tort", "Remoteness and the thin skull rule", "tort",
-            "Is {defendant} liable for the full extent of the harm, including harm made worse by {claimant}'s pre-existing condition?",
-            (r"pre-existing", r"\bcondition\b", r"vulnerab\w*", r"more serious", r"susceptib\w*", r"thin skull|eggshell", r"unforeseeable"),
-            "remoteness foreseeable kind of damage thin skull eggshell pre-existing condition take victim as found extent",
+            "mortgage_redemption", "Mortgage and redemption", "property",
+            "Is {claimant} entitled to redeem the mortgage, or has the right of redemption been lost?",
+            (r"mortgag\w*", r"redeem|redemption", r"usufructuary", r"clog on (the )?(equity|redemption)",
+             r"sale with (a )?condition"),
+            "mortgage redemption section 60 Transfer of Property Act usufructuary mortgage clog on redemption conditional sale",
         ),
         Doctrine(
-            "psychiatric_harm", "Psychiatric injury (primary and secondary victims)", "tort",
-            "Can {claimant} recover for psychiatric injury, and as a primary or a secondary victim?",
-            (r"psychiatric", r"post-traumatic|ptsd", r"\bshock\w*", r"nervous", r"aftermath", r"live (traffic-camera )?(stream|broadcast|television)", r"relatives?", r"mother", r"brother"),
-            "psychiatric injury nervous shock secondary victim immediate aftermath close tie of love and affection own unaided senses primary victim",
-            subsumes=("duty_of_care",),
+            "pre_emption", "Pre-emption", "property",
+            "Does {claimant} have a right of pre-emption over the sale of the land?",
+            (r"pre-?emption", r"co-?sharer", r"contiguous", r"haq shufa", r"right of first refusal"),
+            "pre-emption co-sharer superior right Punjab Pre-emption Act sale of agricultural land",
         ),
         Doctrine(
-            "strict_liability", "Strict liability for escapes", "tort",
-            "Is {defendant} strictly liable for the escape of a dangerous thing from its land?",
-            (r"escap\w*", r"reservoir", r"flood\w*", r"non-natural", r"neighbouring land"),
-            "escape dangerous thing land non-natural use strict liability neighbour",
+            "easement", "Easements and rights of way", "property",
+            "Does {claimant} have an easement, such as a right of way or of light and air, over {defendant}'s land?",
+            (r"easement\w*", r"right of way", r"\bpassage\b|pathway", r"light and air", r"prescription",
+             r"necessity"),
+            "easement right of way prescription twenty years Indian Easements Act necessity dominant servient",
         ),
         Doctrine(
-            "occupiers_liability", "Occupiers' liability", "tort",
-            "Is {defendant} liable as occupier for an injury arising from the premises or an obvious risk?",
-            (r"occupier\w*", r"premises", r"visitor\w*", r"trespass\w*", r"\blake\b", r"country park"),
-            "occupier premises obvious risk visitor activity",
-        ),
-        Doctrine(
-            "pure_economic_loss", "Pure economic loss", "tort",
-            "Can {claimant} recover financial loss that is not consequential on physical damage?",
-            (r"economic loss", r"financial loss", r"investor\w*", r"\bshares\b", r"audit\w*"),
-            "pure economic loss financial loss consequential on physical damage",
-        ),
-        Doctrine(
-            "negligent_misstatement", "Negligent misstatement", "tort",
-            "Did {defendant} assume responsibility for a statement on which {claimant} reasonably relied?",
-            (r"\badvice\b", r"credit reference", r"misstatement", r"relied on (the|its|his|her) (advice|statement|reference)", r"auditor\w*"),
-            "negligent misstatement assumption of responsibility reliance special relationship advice",
-            subsumes=("duty_of_care",),
-        ),
-        Doctrine(
-            "offer_acceptance", "Offer, acceptance and invitation to treat", "contract",
-            "Was {defendant}'s communication a binding offer, rather than an invitation to treat, which {claimant} accepted?",
-            (r"advert\w*", r"\boffer(ed|s)?\b", r"accept(ed|ance)", r"invitation to treat", r"reward", r"promotion\w*", r"unilateral", r"counter-offer"),
-            "offer unilateral contract advertisement invitation to treat acceptance by performance reward",
-        ),
-        Doctrine(
-            "communication_of_acceptance", "Communication of acceptance", "contract",
-            "Was acceptance effectively communicated, and was notice of acceptance required?",
-            (r"posted", r"letter of acceptance", r"telex", r"notice of acceptance", r"notif\w*", r"told it when"),
-            "communication of acceptance postal rule notification of acceptance instantaneous",
-        ),
-        Doctrine(
-            "intention_legal_relations", "Intention to create legal relations", "contract",
-            "Did {defendant} intend to create legal relations, or was the promise a mere puff?",
-            (r"legally bound", r"legal relations", r"\bpuff\b", r"sincerity", r"mean it", r"marketing", r"spouse\w*", r"domestic"),
-            "intention to create legal relations mere puff sincerity deposit domestic agreement",
-            defence=True,
-        ),
-        Doctrine(
-            "consideration_variation", "Consideration for a promise of extra payment", "contract",
-            "Is {defendant}'s promise of additional payment supported by consideration?",
-            (r"extra (payment|£|\d|money)", r"additional payment", r"already obliged", r"existing (contract|duty|obligation)", r"practical benefit", r"promised .{0,40}pay"),
-            "consideration promise additional payment existing contractual duty practical benefit economic duress",
-        ),
-        Doctrine(
-            "promissory_estoppel", "Promissory estoppel", "contract",
-            "Is {defendant} estopped from going back on its promise because {claimant} relied on it?",
-            (r"relied on (the|its|his|her) promise", r"waive\w*", r"reduc\w* (the )?rent", r"accept less", r"estop\w*", r"go(ing)? back on"),
-            "promissory estoppel promise intended to be acted on relied on reduce rent",
-        ),
-        Doctrine(
-            "remoteness_contract", "Remoteness of damage in contract", "contract",
-            "Are {claimant}'s claimed losses within what the parties reasonably contemplated when they contracted?",
-            (r"profit\w*", r"\bdelay\w*", r"late deliver\w*|delivered .{0,30}late", r"lucrative", r"exceptional", r"contemplat\w*", r"courier\w*|carrier\w*"),
-            "remoteness damages lost profits reasonable contemplation special circumstances carrier delay Hadley",
-            defence=True,
-        ),
-        Doctrine(
-            "frustration", "Frustration", "contract",
-            "Was the contract frustrated by a supervening event that destroyed its common foundation?",
-            (r"frustrat\w*", r"cancel\w*", r"impossib\w*", r"destroy\w*", r"supervening", r"\bhir(e|ed|ing)\b", r"deposit"),
-            "frustration supervening event foundation of the contract cancelled hire radically different impossibility",
-        ),
-        Doctrine(
-            "exclusion_clause", "Exclusion and limitation clauses", "contract",
-            "Can {defendant} rely on the exclusion clause: was it incorporated into the contract and does it cover the loss?",
-            (r"exclu\w*", r"\bclause\b", r"\bnotice\b", r"terms and conditions", r"(accepts|accept) no liability", r"signed", r"\bticket\b"),
-            "exclusion clause incorporation notice before contract signature construction limitation of liability",
+            "plaint_rejection", "Rejection of the plaint", "property",
+            "Should the plaint be rejected under Order VII Rule 11 CPC because it discloses no cause of action or "
+            "the suit is barred by law?",
+            (r"order (vii|7) rule 11", r"reject(ion of)? the plaint", r"no cause of action", r"barred by (any )?law",
+             r"clever drafting"),
+            "Order VII Rule 11 rejection of plaint cause of action barred by law averments in the plaint",
             claimant_wants="contra", defence=True,
         ),
         Doctrine(
-            "penalty_clause", "Penalties and liquidated damages", "contract",
-            "Is the agreed sum payable on breach an unenforceable penalty?",
-            (r"penalty clause", r"unenforceable penalty", r"is a penalty", r"holding fee"),
-            "penalty liquidated damages genuine pre-estimate legitimate interest out of all proportion",
-        ),
-        Doctrine(
-            "anticipatory_breach", "Anticipatory breach", "contract",
-            "Did {defendant} repudiate the contract before performance was due?",
-            (r"repudiat\w*", r"no longer required", r"before the date for performance"),
-            "anticipatory breach repudiation before performance",
-        ),
-        Doctrine(
-            "termination", "Termination for breach", "contract",
-            "Was the innocent party entitled to terminate the contract for breach?",
-            (r"terminat\w*", r"unseaworth\w*", r"innominate", r"right to end"),
-            "termination innominate term deprived of substantially the whole benefit",
-        ),
-        # ------------------------------------------------- contract & consumer (statutory)
-        Doctrine(
-            "consumer_goods_rights", "Consumer rights in goods (CRA 2015 Part 1)", "contract",
-            "Were the goods supplied to {claimant} of satisfactory quality, fit for purpose and as described, and which statutory remedies follow?",
-            (r"\bconsumer\b", r"faulty", r"defective (goods|product|item)", r"refund", r"repair or replace\w*", r"satisfactory quality", r"fit for (its )?purpose", r"short-term right to reject"),
-            "consumer rights satisfactory quality fit for particular purpose goods as described right to reject repair replacement price reduction",
-        ),
-        Doctrine(
-            "consumer_services_rights", "Consumer rights in services", "contract",
-            "Was the service provided to {claimant} with reasonable care and skill, and is {claimant} entitled to repeat performance or a price reduction?",
-            (r"reasonable care and skill", r"(poor|shoddy|substandard) (work|workmanship|service)", r"\btrader\b", r"builder\w*", r"installer\w*"),
-            "service performed with reasonable care and skill repeat performance price reduction trader consumer",
-        ),
-        Doctrine(
-            "unfair_terms", "Unfair terms and statutory controls", "contract",
-            "Is the term relied on by {defendant} unfair or otherwise not binding under the Consumer Rights Act 2015 or the Unfair Contract Terms Act 1977?",
-            (r"unfair (term|contract term)", r"not (responsible|liable) for any", r"tenancy agreement says", r"small print", r"reasonableness", r"standard terms"),
-            "unfair term not binding on the consumer significant imbalance good faith transparency reasonableness test exclusion liability negligence",
-        ),
-        Doctrine(
-            "misrepresentation", "Misrepresentation", "contract",
-            "Was {claimant} induced to enter the contract by a false statement of fact, and is rescission or damages available?",
-            (r"misrepresent\w*", r"false(ly)? (statement|told|said|assur)", r"induced", r"assured (her|him|them)", r"turned out to be untrue"),
-            "misrepresentation false statement of fact inducement rescission damages reasonable grounds to believe",
-        ),
-        Doctrine(
-            "implied_terms_business", "Statutory implied terms (business contracts)", "contract",
-            "Did the goods or services supplied to {claimant} breach the terms implied by statute?",
-            (r"sale of goods", r"merchantable|satisfactory quality", r"supply of goods", r"b2b|business customer"),
-            "implied term satisfactory quality fitness for purpose description sale of goods supply of services reasonable care and skill",
-        ),
-        Doctrine(
-            "third_party_rights", "Third party rights under a contract", "contract",
-            "Can {claimant} enforce the contract term although not a party to the contract?",
-            (r"third party", r"not a party to the contract", r"for the benefit of"),
-            "third party enforce term contract purports to confer benefit rights of third parties",
-        ),
-        Doctrine(
-            "consumer_cancellation", "Distance and off-premises cancellation rights", "contract",
-            "Did {claimant} have a statutory right to cancel the contract, and was it validly exercised?",
-            (r"cooling[- ]off", r"cancel\w* within 14 days", r"bought online", r"distance contract", r"doorstep|off-premises"),
-            "cancellation period 14 days distance contract off-premises information requirements refund",
-        ),
-        Doctrine(
-            "late_payment", "Late payment of commercial debts", "contract",
-            "Is {claimant} entitled to statutory interest and compensation on a late-paid commercial debt?",
-            (r"late payment", r"unpaid invoice\w*", r"overdue invoice\w*", r"statutory interest"),
-            "late payment commercial debt statutory interest fixed sum compensation",
-        ),
-        # ------------------------------------------------- tort & personal injury
-        Doctrine(
-            "contributory_negligence", "Contributory negligence", "tort",
-            "Should {claimant}'s damages be reduced for contributory negligence?",
-            (r"seat ?belt", r"helmet", r"contributor\w* negligen\w*", r"own fault", r"partly to blame", r"\bdrunk\b"),
-            "contributory negligence apportionment reduction of damages claimant's share in responsibility",
+            "res_judicata", "Res judicata and earlier suits", "property",
+            "Is the suit barred by res judicata or by Order II Rule 2 CPC because of an earlier suit?",
+            (r"res judicata", r"(earlier|previous|former) suit", r"order (ii|2) rule 2", r"same cause of action",
+             r"constructive res judicata"),
+            "res judicata section 11 CPC Order II Rule 2 earlier suit same cause of action finality",
             claimant_wants="contra", defence=True,
-        ),
-        Doctrine(
-            "limitation", "Limitation of actions", "tort",
-            "Is {claimant}'s claim time-barred, and does any extension of the limitation period apply?",
-            (r"time[- ]barred", r"limitation period", r"(three|six) years (ago|after)", r"date of knowledge", r"out of time"),
-            "limitation period time bar six years contract three years personal injury date of knowledge discretion to disapply",
-            claimant_wants="contra", defence=True,
-        ),
-        Doctrine(
-            "product_liability", "Defective products (strict liability)", "tort",
-            "Is {defendant} strictly liable for damage caused by a defective product?",
-            (r"defective product", r"product liability", r"(exploded|caught fire|overheated)", r"producer|importer", r"manufacturing defect"),
-            "product liability defect safety persons generally are entitled to expect producer importer development risks defence",
-        ),
-        Doctrine(
-            "fatal_accidents", "Fatal accidents and bereavement claims", "tort",
-            "Can the dependants of the deceased recover for loss of dependency and bereavement?",
-            (r"died|death of|killed", r"dependan\w*", r"bereavement", r"widow\w*"),
-            "fatal accident dependants loss of dependency bereavement damages",
-        ),
-        Doctrine(
-            "defective_premises", "Defective dwellings", "tort",
-            "Is {defendant} liable for work on a dwelling that left it unfit for habitation?",
-            (r"defective premises", r"unfit for (human )?habitation", r"new[- ]build", r"cladding"),
-            "dwelling fit for habitation work done in a workmanlike or professional manner proper materials landlord duty of care",
-        ),
-        Doctrine(
-            "whiplash_tariff", "Whiplash injury tariff", "tort",
-            "Is {claimant}'s damages award for a whiplash injury limited by the statutory tariff?",
-            (r"whiplash", r"soft tissue injur\w*", r"road traffic accident|rta\b"),
-            "whiplash injury tariff road traffic accident soft tissue duration medical report",
-            claimant_wants="contra", defence=True,
-        ),
-        # ------------------------------------------------- landlord & tenant
-        Doctrine(
-            "repairing_obligations", "Landlord's repairing and fitness obligations", "property",
-            "Did {defendant} breach the landlord's statutory obligation to keep the dwelling in repair and fit for human habitation?",
-            (r"landlord", r"\btenant\w*", r"\bleak\w*", r"\bdamp\b|mould|mold", r"ceiling", r"disrepair", r"repair\w*"),
-            "landlord covenant to repair structure and exterior installations notice of disrepair fitness for human habitation tenancy",
-        ),
-        Doctrine(
-            "tenancy_deposit", "Tenancy deposit protection", "property",
-            "Did {defendant} protect {claimant}'s deposit and give the prescribed information, and what sanction follows if not?",
-            (r"\bdeposit\b", r"deposit (protection|scheme)", r"prescribed information", r"assured shorthold"),
-            "tenancy deposit protection scheme prescribed information 30 days sanction one to three times the deposit",
-        ),
-        Doctrine(
-            "possession_eviction", "Possession, eviction and harassment", "property",
-            "Is {defendant} entitled to possession, and was the eviction lawful?",
-            (r"evict\w*", r"possession", r"notice to quit", r"section (8|21)", r"changed the locks", r"harass\w*", r"rent arrears"),
-            "possession grounds assured tenancy notice court order unlawful eviction harassment rent arrears",
-        ),
-        Doctrine(
-            "tenant_fees", "Prohibited tenant fees", "property",
-            "Was the payment {defendant} required from {claimant} a prohibited payment under the Tenant Fees Act 2019?",
-            (r"tenant fee\w*", r"admin(istration)? fee", r"referencing fee", r"holding deposit"),
-            "prohibited payment permitted payment holding deposit tenant fees letting agent",
-        ),
-        Doctrine(
-            "business_tenancy", "Business tenancy security of tenure", "property",
-            "Does the business tenancy have security of tenure, and can the landlord oppose a new lease?",
-            (r"business tenancy", r"commercial lease", r"(shop|office|unit) lease", r"new lease", r"contracted out"),
-            "business tenancy security of tenure section 25 notice grounds of opposition new tenancy contracted out",
-        ),
-        # ------------------------------------------------- land: title, boundaries, possession (any jurisdiction)
-        Doctrine(
-            "title_possession", "Title and recovery of possession", "property",
-            "Does {claimant} hold title to the disputed land, and is {claimant} entitled to recover possession of it from {defendant}?",
-            (r"sale deed|title deed|conveyance|registered (title|deed)", r"recover(y of)? possession", r"\bmutation\b",
-             r"\btitle\b", r"\bin possession\b|\bpossession of the (land|strip|property)\b"),
-            "title ownership recovery of possession immovable property declaration of title suit for possession",
-        ),
-        Doctrine(
-            "boundary_encroachment", "Boundary dispute and encroachment", "property",
-            "Has {defendant} encroached on {claimant}'s land beyond the true boundary, and how is the boundary proved?",
-            (r"encroach\w*", r"\bboundar(y|ies)\b", r"demarcation", r"\bsurvey\w*", r"\b(wall|fence|shed) (on|over|across)\b",
-             r"\b(strip|marlas?|kanals?)\b"),
-            "boundary demarcation encroachment survey removal of structure mandatory injunction",
-        ),
-        Doctrine(
-            "adverse_possession", "Adverse possession and limitation", "property",
-            "Has {defendant} acquired title to the disputed land by adverse possession, or is {claimant}'s claim to it time-barred?",
-            (r"adverse possession", r"continuous(ly)? (and open )?possession", r"\bhostile\b", r"twelve years|12 years",
-             r"time[- ]barred"),
-            "adverse possession limitation twelve years possession open hostile continuous dispossession",
-            claimant_wants="contra", defence=True,
-        ),
-        Doctrine(
-            "injunction_relief", "Injunctions", "property",
-            "Is {claimant} entitled to an injunction restraining {defendant}, or requiring removal of what was built?",
-            (r"\binjunction\b", r"\brestrain\w*\b", r"remove (the )?(wall|shed|structure)", r"stop (him|her|them) from"),
-            "perpetual injunction mandatory injunction restrain interference removal of construction",
-        ),
-        # ------------------------------------------------- employment
-        Doctrine(
-            "unfair_dismissal", "Unfair dismissal", "employment",
-            "Was {claimant} unfairly dismissed: was there a potentially fair reason and a fair procedure?",
-            (r"dismiss\w*", r"sacked|fired", r"disciplinary", r"gross misconduct", r"constructive", r"employment tribunal"),
-            "unfair dismissal potentially fair reason conduct capability band of reasonable responses procedure qualifying period",
-        ),
-        Doctrine(
-            "redundancy", "Redundancy", "employment",
-            "Was {claimant}'s dismissal genuinely by reason of redundancy, with fair selection and consultation?",
-            (r"redundan\w*", r"selection (criteria|pool)", r"restructur\w*", r"role (was )?(removed|deleted)"),
-            "redundancy requirements for employees to carry out work of a particular kind ceased or diminished selection consultation redundancy payment",
-        ),
-        Doctrine(
-            "wages_deductions", "Unlawful deductions and minimum wage", "employment",
-            "Did {defendant} make an unauthorised deduction from {claimant}'s wages or pay below the minimum wage?",
-            (r"deduct\w*", r"unpaid wages", r"minimum wage", r"holiday pay", r"payslip\w*"),
-            "unauthorised deduction from wages written consent national minimum wage arrears",
-        ),
-        Doctrine(
-            "discrimination", "Discrimination and harassment at work", "employment",
-            "Did {defendant} discriminate against or harass {claimant} because of a protected characteristic?",
-            (r"discriminat\w*", r"pregnan\w*", r"disabilit\w*|disabled", r"\brace\b|racial", r"\bsex\b|gender", r"religio\w*", r"harass\w*", r"reasonable adjustments?"),
-            "direct discrimination indirect discrimination protected characteristic less favourable treatment harassment reasonable adjustments burden of proof",
-        ),
-        Doctrine(
-            "whistleblowing", "Whistleblowing (protected disclosures)", "employment",
-            "Did {claimant} make a protected disclosure, and was the detriment or dismissal because of it?",
-            (r"whistleblow\w*", r"protected disclosure", r"reported .{0,40}(safety|fraud|breach)", r"raised concerns"),
-            "protected disclosure qualifying disclosure public interest detriment automatically unfair dismissal",
-        ),
-        Doctrine(
-            "working_time", "Working time and holidays", "employment",
-            "Did {defendant} breach {claimant}'s rights to rest breaks, maximum hours or paid annual leave?",
-            (r"working time", r"48[- ]hour", r"rest break\w*", r"annual leave", r"night work\w*"),
-            "working time maximum weekly working time rest breaks annual leave holiday pay",
-        ),
-        Doctrine(
-            "employment_status", "Employment status", "employment",
-            "Was {claimant} an employee or worker rather than self-employed?",
-            (r"self[- ]employed", r"\bgig\b", r"zero[- ]hours?", r"contractor", r"worker status"),
-            "employee worker contract of service personal performance mutuality of obligation control",
-        ),
-        Doctrine(
-            "collective_consultation", "Collective redundancy consultation", "employment",
-            "Did {defendant} fail to consult collectively about proposed redundancies, entitling the employees to a protective award?",
-            (r"20 or more", r"collective consultation", r"protective award", r"mass redundanc\w*"),
-            "collective redundancy consultation 20 or more employees appropriate representatives protective award",
         ),
     ]
 }

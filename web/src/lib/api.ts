@@ -70,7 +70,7 @@ export type Meta = {
   runs_per_day: number;
   practice_areas: { key: string; label: string }[];
   jurisdictions: string[];
-  library: { statutes: number; statute_passages: number; summaries: number; legislation_imported?: string };
+  library: { statutes: number; judgments: number; passages: number; loading: boolean; source: string; built: string };
 };
 
 export type Deadline = { date: string; text: string; support: Support };
@@ -249,10 +249,7 @@ export type SearchHit = {
 };
 
 export const AREA_LABEL: Record<string, string> = {
-  contract: "Contract & consumer",
-  tort: "Tort & personal injury",
-  property: "Landlord & tenant",
-  employment: "Employment",
+  property: "Property & land",
 };
 
 export const KIND_LABEL: Record<string, string> = {

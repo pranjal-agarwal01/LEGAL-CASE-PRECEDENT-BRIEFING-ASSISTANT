@@ -1,37 +1,47 @@
-"""The web API end to end, offline (no model), on a temporary SQLite database."""
+"""The web API end to end, offline (no model), on a temporary SQLite database.
+
+The shared library is loaded from the committed sample library file, the same way the deployed app loads
+the full Indian library into a new database (LIBRARY_SEED_URL)."""
 
 import os
 import time
 
 import pytest
 
-FACTS = """1. On 2 March 2025 Priya Shah rented a flat from Mr Doyle on an assured shorthold tenancy for 12 months.
-2. In April 2025 the bathroom ceiling began to leak. She told Mr Doyle in writing on 3 April, 20 April and 9 May.
-3. Mr Doyle did not repair the leak. On 14 August 2025 part of the ceiling fell, damaging her laptop.
-4. She stayed in a hotel for two weeks while the ceiling was made safe.
-5. The tenancy agreement says the landlord is not responsible for any damage to tenant belongings."""
+from legal_brief.config import PROJECT_ROOT
+
+FACTS = """1. Meena Sharma owns a shop on the ground floor of her building in Lajpat Nagar, New Delhi. Bansal Traders has been her tenant since 1996 at a rent of Rs 3,500 a month.
+2. Her son completed a pharmacy degree in 2023 and needs the shop to start a chemist's business. The family owns no other commercial premises in Delhi.
+3. In 2024 she filed an eviction petition before the Rent Controller under section 14(1)(e) of the Delhi Rent Control Act, 1958, on the ground of bona fide requirement.
+4. The tenant says the requirement is a pretext to raise the rent and has applied for leave to defend."""
 
 JUDGMENT = "\n".join(
-    ["Neutral Citation Number: [2024] EWCA Civ 999", "Case No: CA-2024-000123",
-     "IN THE COURT OF APPEAL (CIVIL DIVISION)", "Date: 12 March 2024", "",
-     "Hartley v Brookfield Lettings Ltd", ""]
-    + [f"{n}. The landlord's covenant to repair the structure and exterior of the dwelling under section 11 of the "
-       f"Landlord and Tenant Act 1985 arises only once the landlord has notice of the disrepair. Point {n} of the "
-       f"reasoning considers notice, the tenant's complaints and the reasonable time for repair." for n in range(1, 13)]
+    ["IN THE HIGH COURT OF DELHI AT NEW DELHI", "RC.REV. 123/2024", "Date of decision: 12 March 2024", "",
+     "Anil Kapoor v Sunil Mehta", ""]
+    + [f"{n}. Under section 14(1)(e) of the Delhi Rent Control Act, 1958 the landlord's bona fide requirement of the "
+       f"premises for a member of the family dependent on him is presumed unless the tenant raises a triable issue "
+       f"in the application for leave to defend. Point {n} considers the requirement and alternative accommodation."
+       for n in range(1, 13)]
 )
+
+SAMPLE = PROJECT_ROOT / "data" / "library" / "india-sample.jsonl.gz"
 
 
 @pytest.fixture(scope="module")
 def client(tmp_path_factory):
     d = tmp_path_factory.mktemp("web")
     os.environ.update({"DATABASE_URL": f"sqlite:///{(d / 'test.db').as_posix()}", "LLM_PROVIDER": "offline",
-                       "EMBEDDING_MODEL": "", "SECRET_KEY": "test-secret", "WEB_DIST": str(d / "nodist")})
+                       "EMBEDDING_MODEL": "", "SECRET_KEY": "test-secret", "WEB_DIST": str(d / "nodist"),
+                       "LIBRARY_SEED_URL": str(SAMPLE)})
     from fastapi.testclient import TestClient
 
     import legal_brief.web.app as webapp
 
     with TestClient(webapp.app) as c:
         c.headers.update({"X-Requested-With": "precedent"})
+        deadline = time.time() + 60  # the library loads into the new database in the background
+        while time.time() < deadline and c.get("/api/meta").json()["library"]["judgments"] < 12:
+            time.sleep(0.2)
         yield c
 
 
@@ -42,10 +52,26 @@ def _signup(c, firm, email):
     return r.json()
 
 
+def _wait(client, run_id, timeout=60):
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        r = client.get(f"/api/runs/{run_id}").json()
+        if r["status"] not in ("queued", "running"):
+            return r
+        time.sleep(0.3)
+    raise AssertionError("run did not finish")
+
+
+def test_library_loads_from_the_library_file(client):
+    meta = client.get("/api/meta").json()
+    assert meta["jurisdictions"] == ["India"]
+    assert meta["library"]["judgments"] == 12 and meta["library"]["passages"] > 300 and not meta["library"]["loading"]
+
+
 def test_auth_and_csrf(client):
-    me = _signup(client, "Shah & Co", "ada@shah-law.example.com")
-    assert me["role"] == "admin" and me["firm"] == "Shah & Co"
-    assert client.get("/api/auth/me").json()["email"] == "ada@shah-law.example.com"
+    me = _signup(client, "Sharma & Associates", "ada@sharma-law.example.com")
+    assert me["role"] == "admin" and me["firm"] == "Sharma & Associates"
+    assert client.get("/api/auth/me").json()["email"] == "ada@sharma-law.example.com"
     # mutating calls without the UI header are refused
     r = client.post("/api/matters", json={"title": "x"}, headers={"X-Requested-With": ""})
     assert r.status_code == 403
@@ -55,32 +81,28 @@ def test_auth_and_csrf(client):
 
 def test_matter_run_export(client):
     m = client.post("/api/matters", json={
-        "title": "Shah v Doyle", "client_name": "Priya Shah", "client_role": "claimant", "opponent": "Mr Doyle",
-        "practice_area": "property", "facts": FACTS, "objective": "Recover the laptop, hotel costs and deposit."}).json()
-    run = client.post(f"/api/matters/{m['id']}/runs", json={"rounds": 1}).json()
-    deadline = time.time() + 60
-    while time.time() < deadline:
-        r = client.get(f"/api/runs/{run['id']}").json()
-        if r["status"] in ("done", "failed"):
-            break
-        time.sleep(0.3)
+        "title": "Sharma v Bansal Traders", "client_name": "Meena Sharma", "client_role": "claimant",
+        "opponent": "Bansal Traders", "practice_area": "property", "facts": FACTS,
+        "objective": "An eviction order and refusal of leave to defend."}).json()
+    assert m["jurisdiction"] == "India"
+    r = _wait(client, client.post(f"/api/matters/{m['id']}/runs", json={"rounds": 1}).json()["id"])
     assert r["status"] == "done", r.get("error")
     res = r["result"]
     assert res["brief"]["issues"] and res["final_report"]["existence_rate"] == 1.0
     assert any(e["stage"] == "research" for e in r["events"])
-    # the shared library now includes legislation: the landlord's repairing covenant is found
+    # the Supreme Court's bona fide requirement judgments are found in the database library
     cited = set(res["authorities"])
-    assert "L21" in cited, cited
-    docx = client.get(f"/api/runs/{run['id']}/export.docx")
+    assert cited & {"J230429", "J190159"}, cited
+    docx = client.get(f"/api/runs/{r['id']}/export.docx")
     assert docx.status_code == 200 and docx.content[:2] == b"PK"
-    md = client.get(f"/api/runs/{run['id']}/export.md")
-    assert "Shah v Doyle" in md.text and "not legal advice" in md.text
+    md = client.get(f"/api/runs/{r['id']}/export.md")
+    assert "Sharma v Bansal Traders" in md.text and "India law" in md.text and "not legal advice" in md.text
     listing = client.get("/api/matters").json()
     assert listing[0]["last_run"]["status"] == "done"
 
 
-def test_library_upload_and_search(client):
-    files = {"file": ("hartley.txt", JUDGMENT.encode(), "text/plain")}
+def test_library_upload_search_and_delete(client):
+    files = {"file": ("kapoor.txt", JUDGMENT.encode(), "text/plain")}
     up = client.post("/api/library/upload", files=files).json()
     deadline = time.time() + 30
     while time.time() < deadline:
@@ -89,13 +111,20 @@ def test_library_upload_and_search(client):
             break
         time.sleep(0.2)
     assert item["status"] == "ready", item
-    assert item["citation"] == "[2024] EWCA Civ 999" and item["name"] == "Hartley v Brookfield Lettings Ltd"
+    assert item["name"] == "Anil Kapoor v Sunil Mehta" and item["jurisdiction"] == "India"
+    assert item["court"].startswith("High Court of Delhi")
     assert item["passages"][1]["pid"] == "p1" and item["passages"][1]["label"] == "¶1"
-    hits = client.get("/api/library/search", params={"q": "landlord repair notice of disrepair"}).json()
+    hits = client.get("/api/library/search", params={"q": "bona fide requirement of the landlord, leave to defend"}).json()
     ids = [h["id"] for h in hits]
-    assert up["id"] in ids and "L21" in ids
+    assert up["id"] in ids and ({"J230429", "J190159"} & set(ids)), ids
     lib = client.get("/api/library").json()
-    assert any(i["id"] == "L01" and i["kind"] == "legislation" for i in lib["items"])
+    assert any(i["id"] == "J200487" and i["court"] == "Supreme Court of India" for i in lib["items"])
+    detail = client.get("/api/library/J200487").json()
+    assert detail["passages"] and detail["passages"][0]["label"].startswith("Headnote")
+    # removing an upload removes it from search
+    assert client.delete(f"/api/library/{up['id']}").json()["ok"]
+    ids = [h["id"] for h in client.get("/api/library/search", params={"q": "bona fide requirement leave to defend"}).json()]
+    assert up["id"] not in ids
 
 
 def test_firms_are_isolated(client):
@@ -109,6 +138,20 @@ def test_firms_are_isolated(client):
     assert uploads == []
 
 
+def test_uploads_are_private_to_their_firm(client):
+    files = {"file": ("kapoor.txt", JUDGMENT.encode(), "text/plain")}
+    up = client.post("/api/library/upload", files=files).json()
+    deadline = time.time() + 30
+    while time.time() < deadline and client.get(f"/api/library/{up['id']}").json()["status"] == "processing":
+        time.sleep(0.2)
+    client.post("/api/auth/logout")
+    client.post("/api/auth/login", json={"email": "ada@sharma-law.example.com", "password": "Correct-horse-9"})
+    ids = [h["id"] for h in client.get("/api/library/search", params={"q": "bona fide requirement leave to defend"}).json()]
+    assert up["id"] not in ids  # another firm's upload never appears in this firm's research
+    client.post("/api/auth/logout")
+    client.post("/api/auth/login", json={"email": "bob@other-llp.example.com", "password": "Correct-horse-9"})
+
+
 def test_team_member_temp_password(client):
     r = client.post("/api/team", json={"name": "Cara Associate", "email": "cara@other-llp.example.com", "role": "member"})
     assert r.status_code == 200
@@ -119,52 +162,16 @@ def test_team_member_temp_password(client):
     assert client.post("/api/team", json={"name": "X", "email": "x@other-llp.example.com"}).status_code == 403
 
 
-INDIA_FACTS = """1. In 2018 Hardeep Singh bought 2 kanals of agricultural land at Village Baddowal, Ludhiana, Punjab under a registered sale deed, and mutation was sanctioned in his name.
-2. Gurpreet Singh owns the adjoining 1 kanal, bought in 2016 from the same vendor.
-3. In April 2025 Gurpreet Singh built a wall and a shed on a 5 marla strip. The tehsildar's demarcation report of August 2025 shows encroachment by him."""
-
-SRA = "THE SPECIFIC RELIEF ACT, 1963\n\n" + "\n".join(
-    f"{n}. Section {n} of the Act. A person entitled to the possession of specific immovable property may recover "
-    f"it in the manner provided by the Code of Civil Procedure, and the court may grant a perpetual injunction to "
-    f"prevent the breach of an obligation; provision {n} concerns possession, declaration and injunctions."
-    for n in range(1, 12))
-
-
-def _wait(client, run_id, timeout=60):
-    deadline = time.time() + timeout
-    while time.time() < deadline:
-        r = client.get(f"/api/runs/{run_id}").json()
-        if r["status"] not in ("queued", "running"):
-            return r
-        time.sleep(0.3)
-    raise AssertionError("run did not finish")
-
-
-def test_foreign_matter_is_blocked_then_researched_with_its_own_law(client):
-    m = client.post("/api/matters", json={"title": "Hardeep Singh v Gurpreet Singh", "client_name": "Hardeep Singh",
+def test_matter_under_another_countrys_law_is_blocked(client):
+    client.post("/api/auth/logout")
+    client.post("/api/auth/login", json={"email": "ada@sharma-law.example.com", "password": "Correct-horse-9"})
+    m = client.post("/api/matters", json={"title": "Singh v Singh", "client_name": "Hardeep Singh",
                                           "opponent": "Gurpreet Singh", "practice_area": "property",
-                                          "facts": INDIA_FACTS, "objective": "Recover the 5 marlas."}).json()
-    assert m["jurisdiction"] == "England and Wales"
-    r = _wait(client, client.post(f"/api/matters/{m['id']}/runs", json={"rounds": 1}).json()["id"])
-    assert r["status"] == "blocked" and r["result"]["blocked"]["detected"] == "India"
-
-    # set the matter to India: still blocked until the firm has Indian authorities
-    client.patch(f"/api/matters/{m['id']}", json={"jurisdiction": "india"})
+                                          "jurisdiction": "England and Wales",
+                                          "facts": "1. Hardeep Singh owns a house on Cranbrook Avenue, Leeds, "
+                                                   "registered at HM Land Registry. 2. In March 2025 his neighbour "
+                                                   "built a garden wall 40 centimetres over the boundary shown on "
+                                                   "the title plan and refuses to move it.",
+                                          "objective": "Remove the wall."}).json()
     r = _wait(client, client.post(f"/api/matters/{m['id']}/runs", json={"rounds": 1}).json()["id"])
     assert r["status"] == "blocked" and r["result"]["blocked"]["kind"] == "no_library"
-
-    up = client.post("/api/library/upload", files={"file": ("sra.txt", SRA.encode(), "text/plain")},
-                     data={"jurisdiction": "India", "kind": "legislation"}).json()
-    deadline = time.time() + 30
-    while time.time() < deadline:
-        item = client.get(f"/api/library/{up['id']}").json()
-        if item["status"] != "processing":
-            break
-        time.sleep(0.2)
-    assert item["kind"] == "legislation" and item["jurisdiction"] == "India"
-    assert item["passages"][1]["pid"] == "s1" and item["passages"][1]["label"] == "s 1"
-
-    r = _wait(client, client.post(f"/api/matters/{m['id']}/runs", json={"rounds": 1}).json()["id"])
-    assert r["status"] == "done", r.get("error")
-    cited = set(r["result"]["authorities"])
-    assert cited and cited <= {up["id"]}, cited  # only the Indian Act; no English statute or case summary

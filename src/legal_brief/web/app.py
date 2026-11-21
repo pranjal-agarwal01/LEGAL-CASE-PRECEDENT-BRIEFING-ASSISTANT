@@ -27,7 +27,8 @@ from legal_brief.doctrines import AREA_LABELS, DOCTRINES
 from legal_brief.ingest import UnsupportedFile, extract_text
 from legal_brief.jurisdiction import normalise as normalise_jurisdiction
 from legal_brief.web import export
-from legal_brief.web.db import (AuditEvent, Authority, Firm, Matter, Run, User, audit, get_session, init_db)
+from legal_brief.web.db import (AuditEvent, Authority, Firm, LibAuthority, LibPassage, Matter, Run, User, audit,
+                                get_session, init_db)
 from legal_brief.web.jobs import JobManager, runs_today
 from legal_brief.web.library import LibraryManager, upload_id
 from legal_brief.web.security import (SESSION_COOKIE, SESSION_DAYS, hash_password, login_limiter, make_token,
@@ -154,20 +155,21 @@ def health():
 @app.get("/api/meta")
 def meta(request: Request):
     s: Settings = request.app.state.settings
-    lib = request.app.state.library
-    base = lib.base(True)
-    acts = [j for j in base.judgments if j.is_legislation]
+    lib: LibraryManager = request.app.state.library
+    with get_session() as db:
+        counts = dict(db.execute(select(LibAuthority.kind, func.count(LibAuthority.id))
+                                 .where(LibAuthority.firm_id.is_(None)).group_by(LibAuthority.kind)).all())
+        passages = db.execute(select(func.count(LibPassage.id)).where(LibPassage.firm_id.is_(None))).scalar_one()
+    seed = lib.seed_status()
     return {
         "signup": ALLOW_SIGNUP, "model": s.model if s.uses_llm else None, "provider": s.provider,
         "llm_ready": s.uses_llm, "search_mode": lib.search_mode, "runs_per_day": RUNS_PER_DAY,
         "practice_areas": [{"key": k, "label": v} for k, v in AREA_LABELS.items()],
-        "jurisdictions": ["England and Wales", "Scotland", "Northern Ireland", "Ireland", "India", "Pakistan",
-                          "Singapore", "Hong Kong", "Australia", "Canada", "United States", "UAE", "Nigeria",
-                          "Kenya", "South Africa"],
+        "jurisdictions": ["India"],
         "doctrines": [{"key": d.key, "label": d.label, "area": d.area} for d in DOCTRINES.values()],
-        "library": {"statutes": len(acts), "statute_passages": sum(len(a.passages) for a in acts),
-                    "summaries": len([j for j in base.judgments if j.kind == "summary"]),
-                    "legislation_imported": base.meta.get("imported")},
+        "library": {"statutes": counts.get("legislation", 0), "judgments": counts.get("judgment", 0),
+                    "passages": passages, "loading": lib.loading, "source": seed.get("source", ""),
+                    "built": seed.get("built", "")},
     }
 
 
@@ -321,7 +323,7 @@ class MatterIn(BaseModel):
     client_role: str = "claimant"
     opponent: str = Field(default="", max_length=300)
     practice_area: str = Field(default="", max_length=40)
-    jurisdiction: str = Field(default="England and Wales", max_length=80)
+    jurisdiction: str = Field(default="India", max_length=80)
     facts: str = Field(default="", max_length=60000)
     objective: str = Field(default="", max_length=6000)
 
@@ -529,10 +531,11 @@ def export_md(run_id: int, user: User = Depends(current_user), db: Session = Dep
 @app.get("/api/library")
 def library(request: Request, user: User = Depends(current_user), db: Session = Depends(db_session)):
     lib: LibraryManager = request.app.state.library
-    base = lib.base(True)
+    shared = db.execute(select(LibAuthority).where(LibAuthority.firm_id.is_(None))
+                        .order_by(LibAuthority.kind.desc(), LibAuthority.date.desc(), LibAuthority.id)).scalars().all()
     items = [{"id": j.id, "kind": j.kind, "name": j.name, "citation": j.citation, "court": j.court,
-              "year": j.year, "areas": j.area.split(","), "passages": len(j.passages), "url": j.url,
-              "date": j.date, "doctrines": list(j.doctrines), "jurisdiction": j.jurisdiction} for j in base.judgments]
+              "year": j.year, "areas": j.area.split(","), "passages": j.n_passages, "url": j.url,
+              "date": j.date, "doctrines": list(j.doctrines or {}), "jurisdiction": j.jurisdiction} for j in shared]
     uploads = db.execute(select(Authority, User.name).outerjoin(User, User.id == Authority.uploaded_by)
                          .where(Authority.firm_id == user.firm_id).order_by(Authority.id.desc())).all()
     items = [{"id": upload_id(a.id), "kind": a.kind, "jurisdiction": a.jurisdiction, "name": a.name or a.filename,
@@ -541,11 +544,11 @@ def library(request: Request, user: User = Depends(current_user), db: Session = 
               "passages": a.n_passages, "status": a.status, "error": a.error, "date": a.date,
               "doctrines": list(a.doctrines or {}), "uploaded_by": name, "filename": a.filename,
               "created_at": iso(a.created_at)} for a, name in uploads] + items
-    return {"items": items, "meta": base.meta, "kinds": KIND_LABELS}
+    return {"items": items, "meta": lib.seed_status(), "kinds": KIND_LABELS}
 
 
 @app.get("/api/library/search")
-def library_search(q: str, request: Request, kind: str = "", jurisdiction: str = "England and Wales",
+def library_search(q: str, request: Request, kind: str = "", jurisdiction: str = "India",
                    user: User = Depends(current_user), db: Session = Depends(db_session)):
     if len(q.strip()) < 3:
         return []
@@ -572,7 +575,7 @@ def library_item(authority_id: str, request: Request, user: User = Depends(curre
                 "date": a.date, "summary": a.summary, "doctrines": a.doctrines, "status": a.status,
                 "note": "Uploaded by your firm.", "url": a.url,
                 "passages": [{"pid": p.pid, "label": p.label, "text": p.text} for p in a.passages]}
-    j = lib.base(True).get(authority_id)
+    j = lib.corpus(user.firm_id, None).get(authority_id)
     if not j:
         raise HTTPException(404, "Not found.")
     return {"id": j.id, "kind": j.kind, "jurisdiction": j.jurisdiction, "name": j.name, "citation": j.citation,
@@ -595,7 +598,7 @@ async def upload_judgment(request: Request, file: UploadFile = File(...), jurisd
     kind = kind if kind in ("judgment", "legislation") else ""
     with get_session() as db:
         a = Authority(firm_id=user.firm_id, uploaded_by=user.id, filename=(file.filename or "upload")[:300],
-                      status="processing", jurisdiction=jurisdiction or "England and Wales", kind=kind or "judgment")
+                      status="processing", jurisdiction=jurisdiction or "India", kind=kind or "judgment")
         db.add(a)
         db.flush()
         audit(db, user.firm_id, user.id, "library.uploaded", f"{a.id} {a.filename}")
@@ -612,7 +615,7 @@ class AuthorityPatch(BaseModel):
 
 
 @app.patch("/api/library/{authority_id}")
-def update_upload(authority_id: str, body: AuthorityPatch, user: User = Depends(current_user),
+def update_upload(authority_id: str, body: AuthorityPatch, request: Request, user: User = Depends(current_user),
                   db: Session = Depends(db_session)):
     """Correct an upload's jurisdiction, type or title (detection is a suggestion; the firm decides)."""
     if not authority_id.startswith("U") or not authority_id[1:].isdigit():
@@ -632,17 +635,20 @@ def update_upload(authority_id: str, body: AuthorityPatch, user: User = Depends(
         a.name = body.name.strip()
     audit(db, user.firm_id, user.id, "library.updated", f"{authority_id} {body.model_dump_json(exclude_none=True)}")
     db.commit()
+    request.app.state.library.index_upload(a.id)  # re-index under the corrected type, title and jurisdiction
     return {"ok": True}
 
 
 @app.delete("/api/library/{authority_id}")
-def delete_upload(authority_id: str, user: User = Depends(current_user), db: Session = Depends(db_session)):
+def delete_upload(authority_id: str, request: Request, user: User = Depends(current_user),
+                  db: Session = Depends(db_session)):
     if not authority_id.startswith("U") or not authority_id[1:].isdigit():
         raise HTTPException(400, "Only judgments your firm uploaded can be removed.")
     a = _owned(db, Authority, int(authority_id[1:]), user)
     db.delete(a)
     audit(db, user.firm_id, user.id, "library.deleted", f"{authority_id} {a.name}")
     db.commit()
+    request.app.state.library.remove_upload(int(authority_id[1:]))
     return {"ok": True}
 
 

@@ -4,17 +4,17 @@ import asyncio
 
 import pytest
 
-from legal_brief.corpus import Corpus, Judgment, Passage
+from legal_brief.corpus import Corpus
 from legal_brief.factsheet import parse_fact_sheet
 from legal_brief.jurisdiction import JurisdictionBlocked, detect_offline, normalise
 from legal_brief.orchestration import run_case
 
 INDIA = """# Fact Sheet FS30: Hardeep Singh v Gurpreet Singh
-Acting for: Claimant
+Acting for: Plaintiff
 {juris}
 
 ## Parties
-- Claimant: Hardeep Singh
+- Plaintiff: Hardeep Singh
 - Defendant: Gurpreet Singh
 
 ## Facts
@@ -26,49 +26,59 @@ Acting for: Claimant
 Recover possession of the 5 marlas and remove the wall.
 """
 
+LEEDS = """# Fact Sheet FS31: Singh v Singh
+Acting for: Claimant
+{juris}
+
+## Parties
+- Claimant: Hardeep Singh
+- Defendant: Gurpreet Singh
+
+## Facts
+1. Hardeep Singh owns a house on Cranbrook Avenue, Leeds, registered at HM Land Registry, and pays council tax to Leeds City Council.
+2. In March 2025 his neighbour built a garden wall 40 centimetres over the boundary shown on the title plan, and the county court has listed the claim.
+3. The neighbour refuses to move it. The surveyor's fee was £1,200.
+
+## Client's objective
+Have the wall removed.
+"""
+
 
 def test_normalise_and_offline_cues():
     assert normalise("Indian law (Punjab)") == "India" and normalise("england") == "England and Wales"
+    assert normalise("") == "India"  # Precedent researches Indian law by default
     j, cues = detect_offline(INDIA)
     assert j == "India" and len(cues) >= 3
 
 
-def test_indian_facts_are_blocked_under_english_law(settings):
-    fs = parse_fact_sheet(INDIA.format(juris=""))
-    assert fs.jurisdiction == "England and Wales"
-    with pytest.raises(JurisdictionBlocked) as e:
-        asyncio.run(run_case(fs, settings))
-    assert e.value.kind == "mismatch" and e.value.as_dict()["detected"] == "India"
+def test_matters_default_to_indian_law():
+    assert parse_fact_sheet(INDIA.format(juris="")).jurisdiction == "India"
 
 
-def test_indian_matter_needs_indian_authorities(settings):
-    fs = parse_fact_sheet(INDIA.format(juris="Jurisdiction: India"))
-    with pytest.raises(JurisdictionBlocked) as e:  # the default library holds only England and Wales law
+def test_names_never_decide_the_jurisdiction():
+    # the same parties in a Leeds boundary dispute: no Indian cues, whatever the parties' names
+    leeds = ("Hardeep Singh owns a house on Cranbrook Avenue, Leeds, registered at HM Land Registry. His neighbour "
+             "Gurpreet Singh built a garden wall 40 centimetres over the boundary on the title plan.")
+    assert detect_offline(leeds)[0] != "India"
+
+
+def test_matter_set_to_another_country_has_no_library(settings):
+    fs = parse_fact_sheet(LEEDS.format(juris="Jurisdiction: England and Wales"))
+    with pytest.raises(JurisdictionBlocked) as e:  # the library holds only Indian law
         asyncio.run(run_case(fs, settings))
     assert e.value.kind == "no_library"
 
 
 def test_indian_matter_researches_only_indian_authorities(settings):
-    sra = Judgment("U1", "Specific Relief Act, 1963", "", "Parliament of India", 1963, "property", {}, (
-        Passage("U1", "s5", "provision", "5. Recovery of specific immovable property. A person entitled to the "
-                "possession of specific immovable property may recover it in the manner provided by the Code of "
-                "Civil Procedure, 1908.", label="s 5"),
-        Passage("U1", "s38", "provision", "38. Perpetual injunction when granted. A perpetual injunction may be "
-                "granted to the plaintiff to prevent the breach of an obligation existing in his favour.",
-                label="s 38")), kind="legislation", jurisdiction="India")
-    from legal_brief.config import Settings
-    from legal_brief.corpus import load_library
+    from legal_brief.corpus import Judgment, Passage, load_library
     from legal_brief.retrieval import HybridRetriever
 
-    lib = Corpus.merge(load_library(Settings().with_overrides(include_legislation=True)), Corpus([sra]))
+    english = Judgment("U9", "Land Registration Act 2002", "", "Parliament", 2002, "property", {}, (
+        Passage("U9", "s58", "provision", "58. Conclusiveness. If a person is entered in the register as the "
+                "proprietor of a legal estate, the legal estate shall be deemed to be vested in him.", label="s 58"),),
+        kind="legislation", jurisdiction="England and Wales")
+    lib = Corpus.merge(load_library(settings), Corpus([english]))
     fs = parse_fact_sheet(INDIA.format(juris="Jurisdiction: India"))
     result = asyncio.run(run_case(fs, settings, retriever=HybridRetriever(lib.for_jurisdiction("India"))))
     cited = {c.split(":")[0] for st in result.brief.statements() for c in st.citations if not c.startswith("F")}
-    assert cited <= {"U1"}, cited  # no English statute or case summary leaks into an Indian brief
-
-
-def test_names_never_decide_the_jurisdiction():
-    # the same parties in a Leeds boundary dispute: no foreign cues, so English law applies
-    leeds = ("Hardeep Singh owns a house on Cranbrook Avenue, Leeds, registered at HM Land Registry. His neighbour "
-             "Gurpreet Singh built a garden wall 40 centimetres over the boundary on the title plan.")
-    assert detect_offline(leeds)[0] is None
+    assert cited and "U9" not in cited  # no English statute leaks into an Indian brief

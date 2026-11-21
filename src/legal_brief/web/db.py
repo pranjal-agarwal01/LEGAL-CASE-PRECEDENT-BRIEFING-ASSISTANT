@@ -58,7 +58,7 @@ class Matter(Base):
     client_role: Mapped[str] = mapped_column(String(20), default="claimant")  # claimant | defendant
     opponent: Mapped[str] = mapped_column(String(300), default="")
     practice_area: Mapped[str] = mapped_column(String(40), default="")
-    jurisdiction: Mapped[str] = mapped_column(String(80), default="England and Wales")
+    jurisdiction: Mapped[str] = mapped_column(String(80), default="India")
     facts: Mapped[str] = mapped_column(Text, default="")
     objective: Mapped[str] = mapped_column(Text, default="")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
@@ -96,7 +96,7 @@ class Authority(Base):
     court: Mapped[str] = mapped_column(String(120), default="")
     date: Mapped[str] = mapped_column(String(20), default="")
     area: Mapped[str] = mapped_column(String(40), default="other")
-    jurisdiction: Mapped[str] = mapped_column(String(80), default="England and Wales")
+    jurisdiction: Mapped[str] = mapped_column(String(80), default="India")
     url: Mapped[str] = mapped_column(String(500), default="")
     summary: Mapped[str] = mapped_column(Text, default="")
     doctrines: Mapped[dict] = mapped_column(JSON, default=dict)
@@ -118,6 +118,53 @@ class AuthorityPassage(Base):
     label: Mapped[str] = mapped_column(String(40))
     text: Mapped[str] = mapped_column(Text)
     authority: Mapped[Authority] = relationship(back_populates="passages")
+
+
+class LibAuthority(Base):
+    """An authority in the searchable library: shared (firm_id NULL) or a firm's own upload (id U<n>)."""
+
+    __tablename__ = "lib_authorities"
+    id: Mapped[str] = mapped_column(String(40), primary_key=True)  # SC1234, A03, U12
+    firm_id: Mapped[int | None] = mapped_column(Integer, index=True, nullable=True)
+    kind: Mapped[str] = mapped_column(String(20), default="judgment")  # judgment | legislation | summary
+    name: Mapped[str] = mapped_column(String(400), default="")
+    name_key: Mapped[str] = mapped_column(String(400), default="", index=True)  # lower-case words, for name search
+    citation: Mapped[str] = mapped_column(String(200), default="")
+    court: Mapped[str] = mapped_column(String(120), default="")
+    year: Mapped[int] = mapped_column(Integer, default=0)
+    date: Mapped[str] = mapped_column(String(20), default="")
+    area: Mapped[str] = mapped_column(String(80), default="")
+    jurisdiction: Mapped[str] = mapped_column(String(80), default="India")
+    doctrines: Mapped[dict] = mapped_column(JSON, default=dict)
+    url: Mapped[str] = mapped_column(String(500), default="")
+    summary: Mapped[str] = mapped_column(Text, default="")
+    source_note: Mapped[str] = mapped_column(Text, default="")
+    n_passages: Mapped[int] = mapped_column(Integer, default=0)
+
+
+class LibPassage(Base):
+    """A citable passage. On Postgres the table also has `tsv` (full-text) and `vec` (pgvector) columns,
+    added by legal_brief.web.store; on SQLite the vector is kept in `embedding` and text in an FTS5 table."""
+
+    __tablename__ = "lib_passages"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    authority_id: Mapped[str] = mapped_column(ForeignKey("lib_authorities.id", ondelete="CASCADE"), index=True)
+    firm_id: Mapped[int | None] = mapped_column(Integer, index=True, nullable=True)
+    seq: Mapped[int] = mapped_column(Integer)
+    pid: Mapped[str] = mapped_column(String(40))
+    section: Mapped[str] = mapped_column(String(40), default="paragraph")
+    label: Mapped[str] = mapped_column(String(80), default="")
+    title: Mapped[str] = mapped_column(String(400), default="")
+    text: Mapped[str] = mapped_column(Text)
+    embedding: Mapped[bytes | None] = mapped_column(LargeBinary, nullable=True)  # float16, SQLite only
+
+
+class LibMeta(Base):
+    """Small key/value facts about the library, e.g. which library file was fully loaded."""
+
+    __tablename__ = "lib_meta"
+    key: Mapped[str] = mapped_column(String(80), primary_key=True)
+    value: Mapped[dict] = mapped_column(JSON, default=dict)
 
 
 class EmbeddingRow(Base):
@@ -171,8 +218,8 @@ def init_db(url: str | None = None):
 
 
 _NEW_COLUMNS = {  # columns added after the first release: (table, column, SQL type and default)
-    ("matters", "jurisdiction", "VARCHAR(80) NOT NULL DEFAULT 'England and Wales'"),
-    ("authorities", "jurisdiction", "VARCHAR(80) NOT NULL DEFAULT 'England and Wales'"),
+    ("matters", "jurisdiction", "VARCHAR(80) NOT NULL DEFAULT 'India'"),
+    ("authorities", "jurisdiction", "VARCHAR(80) NOT NULL DEFAULT 'India'"),
 }
 
 
@@ -185,6 +232,11 @@ def _add_missing_columns(engine) -> None:
         for table, column, ddl in _NEW_COLUMNS:
             if table in insp.get_table_names() and column not in {c["name"] for c in insp.get_columns(table)}:
                 conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {column} {ddl}"))
+
+
+def get_engine():
+    assert _engine is not None, "init_db() first"
+    return _engine
 
 
 def get_session() -> Session:

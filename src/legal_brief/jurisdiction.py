@@ -16,7 +16,7 @@ from pydantic import BaseModel
 
 log = logging.getLogger(__name__)
 
-DEFAULT = "England and Wales"
+DEFAULT = "India"
 
 # Canonical names, and the words people use for them.
 _ALIASES: dict[str, tuple[str, ...]] = {

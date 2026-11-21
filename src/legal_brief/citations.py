@@ -67,7 +67,7 @@ CASE_NAME_RE = re.compile(rf"\b({_CAP}(?:\s+{_LINK}){{0,7}}?)\s+v\.?\s+({_CAP}(?
 _LEADING = {"Under", "Section", "By", "In", "The", "See", "Per", "Applying", "As", "Following", "Unlike", "Also",
             "Both", "Neither", "Schedule", "Part"}
 _WORD = r"(?:[A-Z][\w'’]*|\([A-Z][\w'’ ,]*\)|of|and|the|for)"
-ACT_NAME_RE = re.compile(rf"\b({_WORD}(?:\s+{_WORD}){{0,9}}\s+(?:Act|Regulations)\s+(?:19|20)\d\d)\b")
+ACT_NAME_RE = re.compile(rf"\b({_WORD}(?:\s+{_WORD}){{0,9}}\s+(?:Act|Regulations|Rules|Code|Ordinance),?\s+(?:18|19|20)\d\d)\b")
 
 
 def normalise(cite: str) -> str:
