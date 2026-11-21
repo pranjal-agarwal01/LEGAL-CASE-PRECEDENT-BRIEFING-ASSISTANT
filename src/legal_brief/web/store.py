@@ -190,7 +190,9 @@ class LibraryStore:
 
         `source` is a path or URL, or several separated by spaces or commas: the parts of one file split
         into pieces (`split -b`), read back in order as one stream."""
-        parts = [s for s in re.split(r"[\s,]+", str(source)) if s]
+        src = str(source).strip()
+        # A path that exists is one file (paths may contain spaces); otherwise split a list of parts.
+        parts = [src] if Path(src).exists() else [s for s in re.split(r"[\s,]+", src) if s]
         log.info("loading library from %s", parts[0] + (f" (+{len(parts) - 1} parts)" if len(parts) > 1 else ""))
         raw = _ChainedReader(parts)
         n, pending = 0, []
