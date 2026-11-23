@@ -61,9 +61,19 @@ def db_name() -> str:
     return os.environ.get("RENDER_DB_NAME", "precedent-india-db")
 
 
+def owner_id() -> str:
+    """The workspace that owns the web service: the database lives there too, even if the API key reaches others."""
+    service = os.environ.get("RENDER_SERVICE_ID", "")
+    if not service:
+        raise SystemExit("RENDER_SERVICE_ID is not set.")
+    return _api("GET", f"/services/{service}")["ownerId"]
+
+
 def find_db() -> dict | None:
-    rows = _api("GET", f"/postgres?name={db_name()}&limit=20") or []
-    dbs = [r["postgres"] for r in rows if r.get("postgres", {}).get("name") == db_name()]
+    owner = owner_id()
+    rows = _api("GET", f"/postgres?name={db_name()}&ownerId={owner}&limit=20") or []
+    dbs = [r["postgres"] for r in rows if r.get("postgres", {}).get("name") == db_name()
+           and r["postgres"].get("owner", {}).get("id", owner) == owner]
     dbs.sort(key=lambda d: d["createdAt"], reverse=True)
     return dbs[0] if dbs else None
 
@@ -206,9 +216,8 @@ def rotate(backup_path: str | None, force: bool = False) -> None:
         print(f"deleting {old['name']} ({old['id']})")
         _api("DELETE", f"/postgres/{old['id']}")
         time.sleep(20)
-    owner = _api("GET", "/owners?limit=1")[0]["owner"]["id"]
     new = _api("POST", "/postgres", {
-        "name": db_name(), "ownerId": owner, "plan": "free", "version": "16",
+        "name": db_name(), "ownerId": owner_id(), "plan": "free", "version": "16",
         "region": os.environ.get("RENDER_REGION", "frankfurt"), "databaseName": "precedent", "databaseUser": "precedent",
         # The restore runs from GitHub's servers, so the database must accept outside connections (TLS + password).
         "ipAllowList": [{"cidrBlock": "0.0.0.0/0", "description": "restore from GitHub Actions"}],
